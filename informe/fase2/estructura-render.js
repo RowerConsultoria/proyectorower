@@ -16,12 +16,13 @@
 //
 // Gerencias país y coordinaciones país: plegadas son una caja que resume los países
 // (dibujada como una pila, una hoja por país); con «Por país» se abren en una caja por
-// país, con su ocupante y debajo su equipo; donde no hay equipo, una línea que baja sin caja
-// («equipo por desarrollar»). Las abiertas se recuerdan en rower.fase2.estructura (expandidas).
+// país, con su ocupante, sus coordinaciones país si las tiene y una línea que baja sin caja:
+// el equipo del país queda por desarrollar. Las abiertas se recuerdan en rower.fase2.estructura
+// (expandidas).
 //
-// Equipos (09-nov-2026): unidades nivel 'coord' con puesto:'coord|sup|ana|aux|ope': el cargo de
-// hoy y cuántas personas lo ocupan. Cuelgan en árbol de su jefe (arbolDe) y heredan sus
-// decisiones (listaDec).
+// Equipos (10-nov-2026): no se dibujan. Se arman por dirección o coordinación país cuando estén
+// validadas la estructura patrón de cargos y la reclasificación; antes no (se retiró el
+// despliegue por cargo del 09-nov).
 // La rueda del mouse acerca y aleja; para moverse se arrastra.
 //
 // Consejos y comités: no se dibujan en el lienzo (al pie se perdían de vista). Van en
@@ -164,7 +165,7 @@
             '<div class="eo-rcab' + (lateral(cab).length ? ' eo-rcab-lat' : '') + '">' + caja(cab, "eo-c-n2 eo-c-jefe", tagNivel(cab)) + enLineaDir(cab) + '</div>';
     for(var i = 0; i < n; i++){
       var g = sc[k + i].rama;
-      h += '<div class="eo-rama" style="grid-column:' + (i + 1) + '">' + caja(g, "eo-c-n2", tagNivel(g)) + arbolDe(g) + '</div>';
+      h += '<div class="eo-rama" style="grid-column:' + (i + 1) + '">' + caja(g, "eo-c-n2", tagNivel(g)) + '</div>';
     }
     return h + '</div>';
   }
@@ -174,7 +175,7 @@
   function lateral(dr){ return (dr.hijos || []).filter(function(h){ return h.enLinea; }); }
   function enLineaDir(dr){
     var hs = lateral(dr);
-    return hs.length ? '<div class="eo-dirlinea">' + hs.map(function(h){ return '<div class="eo-dlcol">' + caja(h, "eo-c-n2", tagNivel(h)) + arbolDe(h) + '</div>'; }).join("") + '</div>' : '';
+    return hs.length ? '<div class="eo-dirlinea">' + hs.map(function(h){ return caja(h, "eo-c-n2", tagNivel(h)); }).join("") + '</div>' : '';
   }
 
   // ------------------------------------------------------------------ cajas
@@ -198,15 +199,7 @@
     return "";
   }
   // decisiones por tomar (06-nov-2026): la caja lleva un distintivo rojo
-  // Una caja de equipo (puesto) no lleva decisiones propias salvo que las tenga: hereda las de
-  // la unidad de la que cuelga, que es quien decide cómo se arma ese equipo.
-  function listaDec(d){
-    if(!d) return [];
-    if(d.decisiones && d.decisiones.length) return d.decisiones;
-    var n = NODOS[d.id];
-    if(n && n.d.puesto){ var p = NODOS[n.padre]; while(p){ if(p.d.decisiones && p.d.decisiones.length) return p.d.decisiones; p = NODOS[p.padre]; } }
-    return [];
-  }
+  function listaDec(d){ return (d && d.decisiones) || []; }
   function decide(d){ return listaDec(d).length > 0; }
   // Aprobación (09-nov-2026): la aureola de la caja dice si esa parte de la estructura ya se
   // aprobó. Va por capa: las direcciones y las gerencias corporativas sí; lo que está debajo,
@@ -284,29 +277,17 @@
                       '<i aria-hidden="true">⊞</i>Por país</button>' : '') + '</div>';
     // Dos o más coordinaciones país (06-nov-2026, Mercadeo país): van en fila debajo de
     // la gerencia país, cada una con su línea desde ella, y no apiladas con sangría.
-    // Debajo de cada una, su equipo en árbol (arbolDe).
     var fila = coords.length > 1;
     if(fila) h += '<div class="eo-pcoords">';
     coords.forEach(function(x){
-      var px = paisesDe(x), item;
-      if(x.puesto) item = caja(x, "eo-c-puesto", x.etiqueta || "") + arbolDe(x);
-      else if(EXP[x.id] && px.length) item = cajaPaisAbierta(x, px, true);
-      else item = '<div class="eo-pwrap eo-pwrap-coord">' + caja(x, "eo-c-n3 eo-c-coord eo-pila-" + Math.min(px.length, 4), x.etiqueta || "Coordinación país") +
+      var px = paisesDe(x);
+      if(EXP[x.id] && px.length){ h += cajaPaisAbierta(x, px, true); return; }
+      h += '<div class="eo-pwrap eo-pwrap-coord">' + caja(x, "eo-c-n3 eo-c-coord eo-pila-" + Math.min(px.length, 4), x.etiqueta || "Coordinación país") +
            (px.length > 1 ? '<button type="button" class="eo-pexp" data-exp="' + esc(x.id) + '" aria-expanded="false" title="Ver una caja por país">' +
-                            '<i aria-hidden="true">⊞</i>Por país</button>' : '') + '</div>' + arbolDe(x);
-      h += fila ? '<div class="eo-eqcol">' + item + '</div>' : item;
+                            '<i aria-hidden="true">⊞</i>Por país</button>' : '') + '</div>';
     });
     if(fila) h += '</div>';
     return h;
-  }
-  // El equipo de una unidad (09-nov-2026): los cargos de hoy, cada uno con su caja, colgando de
-  // quien corresponde. En el dato son unidades con puesto:'sup|ana|aux|ope|coord'.
-  function arbolDe(n){
-    var hs = (n.hijos || []).filter(function(x){ return x.puesto; });
-    if(!hs.length) return "";
-    return '<div class="eo-arbol">' + hs.map(function(x){
-      return '<div class="eo-arbol-n">' + caja(x, "eo-c-puesto", x.etiqueta || "") + arbolDe(x) + '</div>';
-    }).join("") + '</div>';
   }
   // Ancho que pide la fila de coordinaciones de una gerencia país plegada
   var ANCHO_COORD = 196, HUECO_COORD = 14;
@@ -316,11 +297,11 @@
     return cs.reduce(function(w, x){ return w + (EXP[x.id] && paisesDe(x).length ? anchoAbierta(x) : ANCHO_COORD); }, 0) + (cs.length - 1) * HUECO_COORD;
   }
   function cargoPais(o){ return o.cargo && o.cargo !== "Gerencia" ? o.cargo + " país" : "Gerencia país"; }
-  // Una caja por país: la unidad y, debajo, su equipo en ese país, con más sangría a cada nivel.
+  // Una caja por país: la coordinación en ese país, con sangría bajo su gerencia país.
   function cajaEnPais(x, pais, prof){
     var c = x.paises && x.paises[pais]; if(!c) return "";
     var mg = 26 + (prof - 1) * 14;
-    var h = '<button type="button" class="eo-card eo-c-n3 eo-c-pp ' + (x.puesto ? 'eo-c-puesto' : 'eo-c-coord') + (decide(x) ? ' eo-decide' : '') + claseAprob(x) +
+    var h = '<button type="button" class="eo-card eo-c-n3 eo-c-pp eo-c-coord' + (decide(x) ? ' eo-decide' : '') + claseAprob(x) +
             '" style="margin-left:' + mg + 'px;width:calc(100% - ' + mg + 'px)" data-id="' + esc(x.id) + '" data-pais="' + esc(pais) + '" aria-haspopup="dialog">' +
             marcaDecide(x) + '<span class="eo-tag">' + esc(x.etiqueta || "Coordinación país") + '</span><span class="eo-ttl">' + esc(x.n) + '</span>' + lineaOcupante(c) + '</button>';
     (x.hijos || []).forEach(function(k){ if(k.nivel === "coord") h += cajaEnPais(k, pais, prof + 1); });
@@ -341,10 +322,8 @@
                '<span class="eo-ppais"><b class="eo-pcod">' + esc(p.id) + '</b>' + esc(p.n) + '</span>' +
                lineaOcupante(o) +
              '</button>';
-      var dentro = "";
-      (k.hijos || []).forEach(function(x){ if(x.nivel === "coord") dentro += cajaEnPais(x, p.id, 1); });
-      h += dentro || '<span class="eo-pstub" aria-hidden="true"></span><span class="eo-pstubtxt">equipo por desarrollar</span>';
-      h += '</div>';
+      (k.hijos || []).forEach(function(x){ if(x.nivel === "coord") h += cajaEnPais(x, p.id, 1); });
+      h += '<span class="eo-pstub" aria-hidden="true"></span><span class="eo-pstubtxt">equipo por desarrollar</span></div>';
     });
     return h + '</div></div>';
   }
@@ -365,7 +344,7 @@
     maquetar(); trazar();
     if(!panel.hidden && actual) marcar(actual);
   }
-  function unidadesPais(){ return Object.keys(NODOS).filter(function(id){ var d = NODOS[id].d; return (d.nivel === "n3" || d.nivel === "coord") && !d.puesto && paisesDe(d).length > 1; }); }
+  function unidadesPais(){ return Object.keys(NODOS).filter(function(id){ var d = NODOS[id].d; return (d.nivel === "n3" || d.nivel === "coord") && paisesDe(d).length > 1; }); }
   function actualizarTodas(){
     var b = host.querySelector("#eoExpTodas"); if(!b) return;
     var todas = unidadesPais(), abiertas = todas.filter(function(id){ return EXP[id]; }).length;
@@ -581,19 +560,15 @@
     {capas:["gobierno", "presidencia"]},
     {t:"Capa corporativa", capas:["n1", "n2", "gun", "ccorp"]},
     {t:"Capa país", capas:["n3", "coord"]},
-    {t:"Equipos", capas:["sup", "ana", "aux", "ope", "equipos"]}
+    {t:"Equipos", capas:["equipos"]}
   ];
   var CN_PROPIAS = {
     ccorp:{n:"Coordinaciones corporativas", verbo:"Llevan una especialidad dentro de su gerencia"},
-    coord:{n:"Coordinaciones y jefaturas", verbo:"Conducen cada función"},
-    sup:{n:"Supervisores y especialistas", verbo:"Lideran un turno o una especialidad"},
-    ana:{n:"Analistas", verbo:"Hacen el trabajo técnico y profesional"},
-    aux:{n:"Auxiliares", verbo:"Apoyan y atienden: asesores, cajeros, asistentes"},
-    ope:{n:"Operarios", verbo:"Hacen el trabajo físico"},
-    equipos:{n:"Equipos por desarrollar", verbo:"Aún sin dibujar"}
+    coord:{n:"Coordinaciones país", verbo:"Conducen cada función en el país"},
+    equipos:{n:"Equipos por desarrollar", verbo:"Se arman con la estructura patrón de cargos y la reclasificación"}
   };
   var CN_SIN = "Aún no se ve en el mapa: despliégala con el botón + de las cajas.";
-  var CN_SIN_EQUIPOS = "Se ve al abrir una unidad «Por país» donde ese país aún no tiene equipo dibujado.";
+  var CN_SIN_EQUIPOS = "Se ve al abrir una unidad «Por país»: la línea sin caja que baja de cada país.";
   var cnCajas = [], cnClave = null, cnPend = false;
 
   function capaInfo(id){
@@ -608,7 +583,6 @@
   // donde está dibujada, y así el panel nunca salta hacia atrás al ir bajando.
   function capaDe(id){
     var n = NODOS[id]; if(!n || n.comite || n.consejo) return null;
-    if(n.d.puesto) return n.d.puesto;
     if(n.gob) return "gobierno";
     if(id === E.CEO.id || !n.dir) return "presidencia";
     if(n.d.enLinea) return capaDe(n.padre);
@@ -787,7 +761,7 @@
   function podar(F){
     var c = {}; for(var k in F) c[k] = F[k];
     var abre = !!DESP[F.CEO.id];
-    // abrir una unidad por país muestra su equipo completo en cada país
+    // abrir una unidad por país muestra sus coordinaciones en cada país sin desplegarlas a mano
     function u(x, abierta){
       var y = {}; for(var k in x) y[k] = x[k];
       abierta = abierta || !!EXP[x.id];
@@ -828,7 +802,7 @@
     NEG.forEach(function(dr){ var sc = subcolumnas(dr); cols.push(sc); total += sc.length; });
     // staff: una columna por dirección, en el orden del dato salvo la de más
     // dependencias, que va al final, junto a la línea de la Presidencia
-    var cuantas = function(d){ var n = 0, f = NODOS[d.id] ? NODOS[d.id].d : d; (function k(hs){ (hs || []).forEach(function(x){ if(x.puesto) return; n++; k(x.hijos); }); })(f.hijos); return n; };
+    var cuantas = function(d){ var n = 0, f = NODOS[d.id] ? NODOS[d.id].d : d; (function k(hs){ (hs || []).forEach(function(x){ n++; k(x.hijos); }); })(f.hijos); return n; };
     var mayor = STF.slice().sort(function(a, b){ return cuantas(b) - cuantas(a); })[0];
     STF = STF.filter(function(d){ return d !== mayor; }).concat(mayor ? [mayor] : []);
     var colsS = STF.map(subcolumnas), nS = 0;
@@ -906,7 +880,7 @@
         h += '<div class="eo-celda eo-c2" style="grid-row:' + R.n2 + ';grid-column:' + (c + k) + '">' +
                s.n2.map(function(n, j){
                  if(n === dr) return caja(n, "eo-c-n2 eo-c-gstaff" + (n.hijos && n.hijos.length ? " eo-c-jefe" : ""), "Staff · Gerencia corporativa");
-                 return caja(n, "eo-c-n2" + (n.nivel === "ccorp" ? " eo-c-ccorp" : "") + (j === 0 && n.hijos && n.hijos.length ? " eo-c-jefe" : ""), tagNivel(n)) + arbolDe(n);
+                 return caja(n, "eo-c-n2" + (n.nivel === "ccorp" ? " eo-c-ccorp" : "") + (j === 0 && n.hijos && n.hijos.length ? " eo-c-jefe" : ""), tagNivel(n));
                }).join("") + '</div>';
         pide(s.n3, c + k, 1);
         h += '<div class="eo-celda eo-c3" style="grid-row:' + R.n3 + ';grid-column:' + (c + k) + '">' +
@@ -929,7 +903,7 @@
           h += '<div class="eo-celda eo-c2" style="grid-row:' + R.n2 + ';grid-column:' + (c + k) + '">';
           s.n2.forEach(function(n, j){
             var jefe = (j === 0 && n.hijos && n.hijos.length);
-            h += caja(n, "eo-c-n2" + (n.nivel === "ccorp" ? " eo-c-ccorp" : "") + (jefe ? " eo-c-jefe" : ""), tagNivel(n)) + arbolDe(n);
+            h += caja(n, "eo-c-n2" + (n.nivel === "ccorp" ? " eo-c-ccorp" : "") + (jefe ? " eo-c-jefe" : ""), tagNivel(n));
           });
           h += '</div>';
         }
@@ -1132,12 +1106,6 @@
         // coordinaciones en fila: peine desde el centro de la gerencia país
         var qx = pa.x + pa.w / 2, qy = pb.y - 13, ux = pb.x + pb.w / 2;
         ruta("M" + qx + "," + (pa.y + pa.h) + " V" + qy + " H" + ux + " V" + pb.y, "eo-h-linea");
-        return;
-      }
-      if(NODOS[a.a].d.puesto){
-        // equipo en árbol: un riel por el margen izquierdo del jefe, que entra por el costado
-        var rx = pa.x + 9, my = pb.y + pb.h / 2;
-        ruta("M" + rx + "," + (pa.y + pa.h) + " V" + my + " H" + pb.x, "eo-h-linea");
         return;
       }
       if(NODOS[a.a].d.nivel === "coord" && !B.hasAttribute("data-ancla")){
@@ -1414,7 +1382,6 @@
       });
       h += '</tbody></table></div>';
     }
-    if(d.puesto) h += '<div class="eo-bloque"><p class="eo-tenue">Cargo de hoy y cuántas personas lo ocupan, según el censo y las fichas de personal. No es una plantilla aprobada.</p></div>';
     if(d.funciones && d.funciones.length) h += '<div class="eo-bloque"><h4>Qué hace</h4>' + lista(d.funciones) + '</div>';
     if(d.interna && d.interna.length) h += '<div class="eo-bloque"><h4>Dentro de la unidad</h4>' + lista(d.interna) + '</div>';
     // modelo: enlace a la página que explica cómo funciona la unidad; solo un .html de
