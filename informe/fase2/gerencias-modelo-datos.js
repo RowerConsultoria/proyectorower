@@ -24,12 +24,16 @@
    gerencia corporativa, pero es la pieza nueva de la red de marca); Mercadeo se rehace
    sobre su estructura nueva, y los demás se ajustan a Ventas al Mayor regional, E-commerce
    y Growth, Planificación, Despacho e Inventarios y Compras Internas por país.
+   Revisión del 11-nov-2026: Diseño y Marca se queda con Marca y Creatividad y sus dos
+   coordinaciones (Creatividad y Dirección de Arte); el diseño de producto pasa a Desarrollo
+   y Calidad de Productos, la producción y los espacios a Visual Merchandising, y la
+   coordinación de Inventario y Precios a Planificación, Despacho e Inventarios.
 
    ⚠ Si cambian las unidades en estructura-tobe-datos.js, revisar aquí: no lo
    lee. Sin nombres de ocupantes, a propósito.
    ============================================================================ */
 window.MODELOS_GERENCIAS = {
-  corte: '06-nov-2026',
+  corte: '11-nov-2026',
   ROT: {mando:'Mando', norma:'Norma', servicio:'Servicio', mision:'Misión', decide:'Decide'},
   gerencias: [
 {id:'ventas', unidad:'ventas', n:'Ventas', dir:'Comercial', red:'Red por canal', capa:'Sí, por canal: Mayor, Retail, E-commerce y Postventa en cada país',
@@ -48,7 +52,7 @@ window.MODELOS_GERENCIAS = {
   {t:'servicio',con:'Mercadeo',dir:'recibe',que:'La demanda: campañas, trade con los mayoristas y la pauta de marca. Mercadeo recomienda el precio con data del consumidor; Ventas lo fija.'},
   {t:'servicio',con:'Planificación, Despacho e Inventarios',dir:'recibe',que:'El sugerido de pedido de cada tienda y país, según su venta y su inventario, que cada canal revisa y ajusta.'},
   {t:'servicio',con:'Operaciones y Logística país',dir:'recibe',que:'El despacho a tiendas, a mayoristas y de los pedidos web, con plazos acordados.'},
-  {t:'norma',con:'Diseño y Marca',dir:'recibe',que:'Los estándares visuales de tienda y de exhibición.'},
+  {t:'norma',con:'Visual Merchandising · Mercadeo',dir:'recibe',que:'Los estándares visuales de tienda y de exhibición.'},
   {t:'servicio',con:'Visual Merchandising · Mercadeo',dir:'recibe',que:'El montaje de la exhibición en las tiendas de Retail y en los clientes de Ventas al Mayor, con plazos por canal.'},
   {t:'servicio',con:'Desarrollo y Calidad de Productos',dir:'da',que:'Postventa le entrega los casos de falla por lote, consolidados.'},
   {t:'mision',con:'PMO',dir:'mutuo',que:'Cada apertura de tienda: Comercial decide abrir y la PMO la gestiona.'},
@@ -72,24 +76,24 @@ window.MODELOS_GERENCIAS = {
    ['Prioridad entre canales dentro del plan','D','C','S','C'],
    ['Estructura y personal del equipo país','','N','','D'],
    ['Garantías y devoluciones dentro de la política','','N','','D · E'],
-   ['Montaje del visual en tienda (lo hace Mercadeo, con el estándar de Diseño y Marca)','','C','','C']]},
+   ['Montaje del visual en tienda (lo hace Mercadeo, con el estándar de Visual Merchandising)','','C','','C']]},
  decidir:['Si cada país tiene una cabeza país o una dirección general, y qué papel tiene en la mesa del país. Está en las decisiones pendientes de la estructura (1.2).','Si Planificación de la Demanda y Nuevos Mercados queda en una sola unidad o en dos, y su nivel.','Con qué frecuencia se reúne la mesa del país y quién la convoca mientras no haya cabeza país.','El gerente regional de Ventas al Mayor: dejar la posición en espera, buscarlo o cubrirla con alguien del grupo. Está en las decisiones pendientes de la estructura (1.2).','Dónde queda el visual merchandising: se dibuja en Mercadeo, como servicio a Retail y a Ventas al Mayor, pero podría ir en Retail. Está en las decisiones pendientes de la estructura (1.2).']},
 
-{id:'operaciones', unidad:'oplcorp', n:'Operaciones y Logística', dir:'Compras y Cadena de Suministro', red:'Centro y bodegas país', capa:'Sí: Operaciones y Logística en PA · VE · CO · US, con Servicios Generales dentro. Arriba, dos coordinaciones corporativas: Despacho e Inventario y Precios',
+{id:'operaciones', unidad:'oplcorp', n:'Operaciones y Logística', dir:'Compras y Cadena de Suministro', red:'Centro y bodegas país', capa:'Sí: Operaciones y Logística en PA · VE · CO · US, con Servicios Generales dentro. Arriba, una coordinación corporativa: Despacho',
  riesgo:'Todos le piden a la bodega del país todos los días: los cuatro canales, Finanzas, Compras Internas y la PMO.',
  premisa:'La gerencia país de Operaciones y Logística tiene una sola línea, la corporativa. Los canales del país son sus clientes: le piden por servicio y no le dan órdenes.',
  dilema:'La bodega del país despacha a tiendas, a mayoristas y a la web, y su coordinación de Servicios Generales mantiene sedes y tiendas con contratistas que compra Compras Internas y paga Finanzas. Cada uno le pide algo, y sin regla cada uno actúa como su jefe.',
  resuelve:'Una línea, de la gerencia país a la corporativa, y de Servicios Generales a la gerencia país. Los pedidos llegan como servicio con plazo, y la prioridad comercial entre canales la decide Ventas, no la bodega.',
  mando:{hub:'Gerencia corporativa de Operaciones y Logística',
    nodosEti:'Coordinación corporativa',
-   nodos:[{t:'Despacho',s:'del almacén principal a países y tiendas'},{t:'Inventario y Precios',s:'conteo, cuadre y precios en el sistema'}],
+   nodos:[{t:'Despacho',s:'del almacén principal a países y tiendas'}],
    pais:{t:'Operaciones y Logística',p:'PA · VE · CO · US',sub:{t:'Servicios Generales',p:'PA · VE · CO'}}},
  conex:[
   {t:'norma',con:'Dirección de Compras y Cadena de Suministro',dir:'recibe',que:'Cómo debe funcionar una bodega: las prácticas probadas en Colón, replicadas en las demás.'},
   {t:'servicio',con:'Canales de Ventas del país',dir:'da',que:'El despacho a tiendas, mayoristas y pedidos web, con plazos por canal.'},
   {t:'servicio',con:'Compras',dir:'recibe',que:'Cada orden a fábrica, hasta el embarque. Desde el embarque la orden es de Operaciones y Logística.'},
   {t:'servicio',con:'Planificación, Despacho e Inventarios',dir:'recibe',que:'El reparto a países y tiendas y los traslados entre tiendas: Compras decide qué va a dónde y la coordinación de Despacho lo mueve.'},
-  {t:'servicio',con:'Planificación, Despacho e Inventarios',dir:'da',que:'El inventario cuadrado de cada bodega, que da la coordinación de Inventario y Precios, para planificar la compra de cada país.'},
+  {t:'servicio',con:'Planificación, Despacho e Inventarios',dir:'da',que:'Los conteos de cada bodega, con los que esa coordinación cuadra el stock con el sistema y planifica la compra de cada país.'},
   {t:'servicio',con:'Compras Internas del país',dir:'recibe',que:'Los servicios y contratistas que Servicios Generales coordina y verifica.'},
   {t:'servicio',con:'Administración y Finanzas país',dir:'recibe',que:'El pago de lo que se compra y se contrata.'},
   {t:'mision',con:'PMO',dir:'mutuo',que:'En cada apertura, Servicios Generales lleva la obra y la bodega la mercancía inicial.'}],
@@ -97,7 +101,7 @@ window.MODELOS_GERENCIAS = {
   ['mando','Una línea por caja','La gerencia país reporta a la gerencia corporativa, y Servicios Generales a la gerencia país. Ningún canal, ni Finanzas, ni Compras le asigna trabajo directo al equipo de bodega.'],
   ['servicio','Los canales piden con plazo','Cada canal tiene un plazo de despacho acordado. El orden lo pone el plan, no quien llama primero.'],
   ['norma','Una sola norma de bodega','La publica la gerencia corporativa a partir de Colón. El país la adapta a su aduana, sus permisos y su bodega, y no la cambia.'],
-  ['norma','Un solo inventario cuadrado','Inventario y Precios cuadra el stock de cada bodega con el sistema y carga los precios. Planificación, Despacho e Inventarios, en Compras, planifica sobre ese inventario y no lleva uno paralelo.'],
+  ['norma','Un solo inventario cuadrado','Planificación, Despacho e Inventarios, en Compras, cuadra el stock de cada bodega con el sistema, carga los precios y planifica sobre ese inventario. La bodega cuenta y mueve; no lleva un inventario paralelo.'],
   ['decide','La bodega no elige entre canales','Si dos canales piden lo mismo para el mismo día y no alcanza, la bodega aplica la prioridad del plan. Si no basta, decide la gerencia corporativa de Ventas.']],
  caso:{t:'Llega a Colón un contenedor con mercancía para tres países',pasos:[
   ['mando','La gerencia corporativa recibe, liquida la importación y almacena en el almacén principal.'],
@@ -113,7 +117,7 @@ window.MODELOS_GERENCIAS = {
    ['Contratistas de mantenimiento: verificar el trabajo','','N','D · E',''],
    ['Personal y turnos de la bodega','N','D','',''],
    ['Reparto a países y tiendas (lo planifica Compras)','E','E','','C']]},
- decidir:['Fernando Alvarado envió un modelo de funcionamiento de la gerencia: revisarlo contra este, en especial las coordinaciones de Despacho e Inventario y Precios y su frontera con Planificación, Despacho e Inventarios. Está en las decisiones pendientes de la estructura (1.2).','Los plazos de despacho por canal y por país.','Si Estados Unidos necesita su propia coordinación de Servicios Generales.','Confirmar la gerencia país de Estados Unidos, que hoy se propone junto con la de E-commerce. Está en las decisiones pendientes de la estructura (1.2).']},
+ decidir:['Fernando Alvarado envió un modelo de funcionamiento de la gerencia: revisarlo contra este, en especial la coordinación de Despacho y su frontera con Planificación, Despacho e Inventarios, que desde el 11-nov lleva también el inventario y los precios. Está en las decisiones pendientes de la estructura (1.2).','Los plazos de despacho por canal y por país.','Si Estados Unidos necesita su propia coordinación de Servicios Generales.','Confirmar la gerencia país de Estados Unidos, que hoy se propone junto con la de E-commerce. Está en las decisiones pendientes de la estructura (1.2).']},
 
 {id:'compras', unidad:'compras', n:'Compras', dir:'Compras y Cadena de Suministro', red:'Compra única por marca', capa:'Sí: Compras Internas en PA · VE · CO. Arriba, tres coordinaciones corporativas: Casio, Cubitt y Planificación, Despacho e Inventarios',
  riesgo:'Un comprador corporativo que recibe órdenes de cada área y de cada país.',
@@ -130,7 +134,7 @@ window.MODELOS_GERENCIAS = {
   {t:'norma',con:'Desarrollo y Calidad de Productos',dir:'recibe',que:'Las muestras y especificaciones aprobadas con las que Compras Cubitt ordena a fábrica.'},
   {t:'servicio',con:'Todas las áreas y países',dir:'da',que:'La compra interna por una sola vía en cada país: insumos, material POP, mobiliario, equipos y servicios.'},
   {t:'servicio',con:'Canales de Ventas de cada país',dir:'da',que:'El sugerido de pedido de cada tienda y país, según su venta y su inventario.'},
-  {t:'servicio',con:'Operaciones y Logística',dir:'da',que:'El reparto a países y tiendas y los traslados entre tiendas, que ejecuta su coordinación de Despacho. Recibe a cambio el inventario cuadrado de Inventario y Precios.'},
+  {t:'servicio',con:'Operaciones y Logística',dir:'da',que:'El reparto a países y tiendas y los traslados entre tiendas, que ejecuta su coordinación de Despacho. Cuadra además el inventario de cada bodega con el sistema y carga los precios.'},
   {t:'servicio',con:'Visual Merchandising · Mercadeo',dir:'da',que:'La compra del mobiliario y del material POP que Visual Merchandising monta, por Compras Internas de cada país y con la política de compra.'},
   {t:'servicio',con:'Finanzas',dir:'recibe',que:'Paga lo que se compra. Los compromisos grandes llevan el visto bueno del Comité de Finanzas y Riesgos.'},
   {t:'decide',con:'Comité Comercial',dir:'recibe',que:'Aprueba la compra a fábrica que compone Compras.'}],
@@ -153,24 +157,24 @@ window.MODELOS_GERENCIAS = {
    ['Compra a fábrica','E','S','','','C (comités)'],
    ['Reparto a países y tiendas','C','D','','C',''],
    ['Pago','','','','','D · E']]},
- decidir:['Los umbrales de aprobación y los plazos de la política de compra.','Quién ocupa la gerencia corporativa y quién coordina las Compras Internas de cada país. Está en las decisiones pendientes de la estructura (1.2).','Cuándo se cubren las dos posiciones que faltan en Planificación, Despacho e Inventarios —un analista de inventario y una coordinación de despacho y compras—, y cómo se deslindan de las coordinaciones de Despacho e Inventario y Precios de Operaciones y Logística. Está en las decisiones pendientes de la estructura (1.2).','Quién pide las cotizaciones del mobiliario y del material POP: hoy las pide Visual Merchandising, y en la estructura To-Be esa compra es de Compras Internas.']},
+ decidir:['Los umbrales de aprobación y los plazos de la política de compra.','Quién ocupa la gerencia corporativa y quién coordina las Compras Internas de cada país. Está en las decisiones pendientes de la estructura (1.2).','Cuándo se cubren las dos posiciones que faltan en Planificación, Despacho e Inventarios —un analista de inventario y una coordinación de despacho y compras—, y cómo se deslindan de la coordinación de Despacho de Operaciones y Logística. Está en las decisiones pendientes de la estructura (1.2).','Quién pide las cotizaciones del mobiliario y del material POP: hoy las pide Visual Merchandising, y en la estructura To-Be esa compra es de Compras Internas.']},
 
 {id:'producto', unidad:'producto', n:'Desarrollo y Calidad de Productos', dir:'Innovación y Desarrollo de Productos', red:'Dueño del producto', capa:'No',
  riesgo:'Mercadeo, Diseño y Marca, Compras, Postventa y Comercial dándole instrucciones sobre el mismo producto.',
- premisa:'El producto tiene un solo dueño técnico, desde la especificación hasta su calidad en el mercado. Cómo se ve lo decide Diseño y Marca; los demás le entregan datos y le piden por servicio, y nadie más cambia una especificación.',
+ premisa:'El producto tiene un solo dueño técnico, desde la especificación hasta su calidad en el mercado. También lo diseña, con el sistema de marca de Diseño y Marca; los demás le entregan datos y le piden por servicio, y nadie más cambia una especificación.',
  dilema:'El desarrollo de producto estuvo bajo Mercadeo y la inteligencia de mercado se compartía hasta el 13-oct. Hoy esta gerencia trabaja con Mercadeo, Compras Cubitt, la Postventa de cada país y Comercial, y cada uno tiene algo que decir del producto.',
- resuelve:'Una sola dueña de la especificación. Mercadeo le da el brief de consumidor, Diseño y Marca el diseño industrial y el empaque desde la ideación, Postventa los datos de falla y Comercial decide la colección en el comité. El lanzamiento tiene un relevo explícito con Mercadeo.',
+ resuelve:'Una sola dueña de la especificación. Mercadeo le da el brief de consumidor, Diseño y Marca el sistema de marca al que se ajustan la forma y el empaque, Postventa los datos de falla y Comercial decide la colección en el comité. El lanzamiento tiene un relevo explícito con Mercadeo.',
  mando:{hub:'Gerencia corporativa de Desarrollo y Calidad de Productos'},
  conex:[
   {t:'servicio',con:'Mercadeo',dir:'recibe',que:'El brief de consumidor de cada producto nuevo: para quién es, qué necesita y a qué precio. Firman juntos el sí o el no, con Comercial y Finanzas.'},
-  {t:'norma',con:'Diseño y Marca',dir:'recibe',que:'La forma, los colores, los materiales, los accesorios y el empaque, que diseña desde la ideación.'},
+  {t:'norma',con:'Diseño y Marca',dir:'recibe',que:'El sistema de marca al que se ajustan la forma, los colores, los materiales, los accesorios, el empaque y la experiencia digital, que diseña esta gerencia.'},
   {t:'norma',con:'Innovación y Tecnología de Productos',dir:'recibe',que:'Las especificaciones técnicas de cada desarrollo.'},
   {t:'norma',con:'Compras Cubitt',dir:'da',que:'Las muestras y especificaciones aprobadas con las que se ordena a fábrica.'},
   {t:'servicio',con:'Postventa',dir:'recibe',que:'Los casos de falla por lote, consolidados por la gerencia de Postventa.'},
   {t:'mision',con:'Mercadeo y Comercial',dir:'mutuo',que:'Cada lanzamiento: hasta la llegada lo conduce esta gerencia; desde la preventa, Mercadeo y Ventas.'},
   {t:'decide',con:'Comité Comercial',dir:'recibe',que:'Decide la colección y los colores de temporada.'}],
  reglas:[
-  ['norma','Una sola dueña de la especificación','Especificaciones, variantes, códigos y calidad los firma esta gerencia; la forma, los colores, los materiales y el empaque, Diseño y Marca. Compras, Mercadeo o Ventas pueden pedir un cambio, no hacerlo.'],
+  ['norma','Una sola dueña de la especificación','Especificaciones, variantes, códigos, calidad, forma, colores, materiales y empaque los firma esta gerencia; Diseño y Marca verifica que apliquen el sistema de marca. Compras, Mercadeo o Ventas pueden pedir un cambio, no hacerlo.'],
   ['servicio','La falla llega por una sola vía','La Postventa de cada país registra los casos, la gerencia de Postventa los consolida y esta gerencia decide qué se lleva a la fábrica.'],
   ['mision','El lanzamiento tiene un relevo','Hasta la llegada del producto, la misión la dirige Desarrollo y Calidad. Con el aviso para abrir la preventa, pasa a Mercadeo y a Ventas. La retrospectiva de costo contra venta la cierran juntos.'],
   ['decide','La colección se decide en comité','La gerencia propone el plan anual de productos; el Comité Comercial decide la colección.']],
@@ -183,12 +187,12 @@ window.MODELOS_GERENCIAS = {
   m:'El dato de la falla viaja hacia quien puede corregirla, por una sola vía.'},
  matriz:{cols:['Desarrollo y Calidad','Diseño y Marca','Mercadeo','Compras Cubitt','Postventa'],
   filas:[['Especificación y muestras','D','C','C','C',''],
-   ['Forma, colores, materiales y empaque','C','D · E','C','',''],
+   ['Forma, colores, materiales y empaque','D · E','N','C','',''],
    ['Brief de consumidor: qué pide el mercado','C','','D','',''],
    ['Falla por lote: llevarla a la fábrica','D','','','C','S'],
    ['Orden a fábrica con la especificación','N','','','D · E',''],
    ['Lanzamiento desde la preventa','C','C','D','','']]},
- decidir:['Cuando entre una marca o un producto nuevo, si se abre una gerencia por marca o por país. Está en las decisiones pendientes de la estructura (1.2).','En qué fase de cada producto entra Diseño y Marca y quién firma qué entre las dos.']},
+ decidir:['Cuando entre una marca o un producto nuevo, si se abre una gerencia por marca o por país. Está en las decisiones pendientes de la estructura (1.2).','En qué fase de cada producto revisa Diseño y Marca que el diseño aplique el sistema de marca.']},
 
 {id:'innovacion', unidad:'innotec', n:'Innovación y Tecnología de Productos', dir:'Innovación y Desarrollo de Productos', red:'Autoridad técnica', capa:'No',
  riesgo:'Un proyecto de innovación con dos jefes: el que lo patrocina y el gerente de proyecto de la PMO.',
@@ -200,7 +204,7 @@ window.MODELOS_GERENCIAS = {
   {t:'norma',con:'Desarrollo y Calidad de Productos',dir:'da',que:'Las especificaciones técnicas de cada desarrollo.'},
   {t:'mision',con:'PMO',dir:'mutuo',que:'Los proyectos de innovación, de la idea al piloto: esta gerencia patrocina y la PMO gestiona.'},
   {t:'servicio',con:'Mercadeo',dir:'recibe',que:'Las tendencias de consumo y la investigación de Insights y ROI.'},
-  {t:'servicio',con:'Diseño y Marca',dir:'recibe',que:'El diseño de la app y del reloj (experiencia e interfaz). El desarrollo de la app es de esta gerencia.'},
+  {t:'servicio',con:'Desarrollo y Calidad de Productos',dir:'recibe',que:'El diseño de la app y del reloj (experiencia e interfaz). El desarrollo de la app es de esta gerencia.'},
   {t:'servicio',con:'Tecnología, Gobernanza del Dato y Cumplimiento',dir:'recibe',que:'Revisa los controles cuando un producto se conecta con sistemas o datos del grupo.'},
   {t:'decide',con:'Comité Comercial',dir:'recibe',que:'Decide si un piloto entra a la colección.'}],
  reglas:[
@@ -210,7 +214,7 @@ window.MODELOS_GERENCIAS = {
  caso:{t:'Un reloj que se conecta con una aplicación',pasos:[
   ['norma','Innovación y Tecnología evalúa la tecnología y fija la especificación.'],
   ['mision','La PMO abre el proyecto, de la idea al piloto, con un gerente de proyecto.'],
-  ['servicio','Diseño y Marca diseña la interfaz de la aplicación y del reloj; esta gerencia la desarrolla.'],
+  ['servicio','Desarrollo y Calidad de Productos diseña la interfaz de la aplicación y del reloj; esta gerencia la desarrolla.'],
   ['servicio','Si la aplicación toca datos de clientes o sistemas del grupo, Tecnología revisa los controles; si usa IA, pasa por Gobierno de IA.'],
   ['decide','Con el piloto aprobado, Desarrollo y Calidad lo lleva a la colección que decide el Comité Comercial.']],
   m:'Cada pregunta del proyecto tiene una sola gerencia que la contesta.'},
@@ -235,7 +239,7 @@ window.MODELOS_GERENCIAS = {
   {t:'norma',con:'Gobierno de IA',dir:'recibe',que:'Los usos de IA aprobados y su nivel de autonomía, que esta gerencia implanta y opera.'},
   {t:'servicio',con:'Gobierno de IA',dir:'da',que:'El dato controlado, seguro y fluido para la inteligencia de negocio.'},
   {t:'mision',con:'PMO',dir:'mutuo',que:'Los sistemas de cada apertura.'},
-  {t:'servicio',con:'E-commerce y Growth · Diseño y Marca',dir:'da',que:'Implanta las webs que E-commerce y Growth prioriza y opera y Diseño y Marca diseña.'}],
+  {t:'servicio',con:'E-commerce y Growth · Desarrollo y Calidad de Productos',dir:'da',que:'Implanta las webs que E-commerce y Growth prioriza y opera y Desarrollo y Calidad de Productos diseña.'}],
  reglas:[
   ['mando','Una línea, del país a la corporativa','El gerente país de un área no dirige a TI del país. Lo urgente de un país sube por la línea de TI, no por cercanía.'],
   ['servicio','Todo pedido entra por la mesa de ayuda','Con prioridades publicadas y plazos por tipo de pedido. Un pedido de tablero o de información va a Gobierno de IA.'],
@@ -290,14 +294,14 @@ window.MODELOS_GERENCIAS = {
 {id:'pmo', unidad:'pmo', n:'PMO', dir:'Presidencia (staff)', red:'Método y misiones', capa:'Sí, solo Venezuela',
  riesgo:'Cada proyecto reúne gente de varias áreas, y el gerente de proyecto parece un segundo jefe.',
  premisa:'La PMO es dueña del método y de la cartera. Un proyecto es una misión: el gerente de proyecto dirige el trabajo y la gente sigue con su jefe.',
- dilema:'Una apertura de tienda reúne a Servicios Generales, Compras, Diseño y Marca, Retail, TI y Recursos Humanos. Si el gerente de proyecto se dibuja como jefe, cada uno de ellos tiene dos.',
+ dilema:'Una apertura de tienda reúne a Servicios Generales, Compras, Visual Merchandising, Retail, TI y Recursos Humanos. Si el gerente de proyecto se dibuja como jefe, cada uno de ellos tiene dos.',
  resuelve:'El patrocinador decide el qué, el gerente de proyecto el cómo y el cuándo, y el jefe del área el quién y cuánto tiempo. La cartera la prioriza el Comité Directivo.',
  mando:{hub:'Gerencia corporativa de la PMO',
    nodos:[{t:'Gerentes de proyecto',s:'equipo propio de la gerencia'}],
    pais:{t:'PMO',p:'VE'}},
  conex:[
   {t:'norma',con:'Toda la organización',dir:'da',que:'El método: cómo se gestiona un proyecto.'},
-  {t:'mision',con:'Áreas que aportan gente',dir:'mutuo',que:'Servicios Generales, Compras, Diseño y Marca, Retail, TI y Recursos Humanos en cada apertura.'},
+  {t:'mision',con:'Áreas que aportan gente',dir:'mutuo',que:'Servicios Generales, Compras, Visual Merchandising, Retail, TI y Recursos Humanos en cada apertura.'},
   {t:'servicio',con:'Comercial',dir:'da',que:'Comercial decide qué tiendas se abren y la PMO gestiona cada apertura.'},
   {t:'servicio',con:'Innovación y Tecnología de Productos',dir:'da',que:'Gestiona los proyectos de innovación que esa gerencia patrocina.'},
   {t:'decide',con:'Comité Directivo',dir:'recibe',que:'Prioriza la cartera de proyectos que le presenta la PMO.'}],
@@ -309,7 +313,7 @@ window.MODELOS_GERENCIAS = {
  caso:{t:'La apertura de una tienda en Colombia',pasos:[
   ['decide','Comercial decide abrir la tienda.'],
   ['mision','La PMO abre la misión y asigna un gerente de proyecto.'],
-  ['mision','Servicios Generales lleva la obra, Compras la mercancía inicial y el mobiliario, Diseño y Marca el concepto del espacio, Visual Merchandising el montaje de la exhibición, Retail el equipo de tienda, TI los sistemas y Recursos Humanos el personal. Cada uno con su jefe.'],
+  ['mision','Servicios Generales lleva la obra, Compras la mercancía inicial y el mobiliario, Visual Merchandising el concepto del espacio y el montaje de la exhibición, Retail el equipo de tienda, TI los sistemas y Recursos Humanos el personal. Cada uno con su jefe.'],
   ['decide','Si la apertura choca con el trabajo diario de un área, lo resuelven el patrocinador y el jefe del área. Si no, el Comité Directivo.'],
   ['mision','Al cerrar, la retrospectiva. El gerente de proyecto opina por escrito en la evaluación de cada participante.']],
   m:'Seis áreas trabajan juntas durante semanas y nadie cambia de jefe.'},
@@ -331,8 +335,8 @@ window.MODELOS_GERENCIAS = {
    nodos:[{t:'Insights y ROI',s:'investigación y medición'},{t:'Social y Contenido',s:'redes, creadores y PR'},{t:'Cuentas Clave y Trade',s:'planes con los mayoristas'},{t:'Visual Merchandising',s:'servicio a todos los canales'}],
    pais:{t:'Mercadeo',p:'PA · VE · CO · Costa Rica',subs:[{t:'Marca Cubitt',p:'PA · VE · CO'},{t:'Marca Casio',p:'PA · VE · CO'},{t:'Social y Contenido',p:'PA · VE · CO'},{t:'Trade y Activaciones',p:'PA · VE · CO'},{t:'Visual Merchandising',p:'PA · VE · CO'}]}},
  conex:[
-  {t:'servicio',con:'Diseño y Marca',dir:'recibe',que:'El concepto, el copy, el key visual y las piezas de cada campaña, a partir de su brief; la producción central de foto, video y 3D.'},
-  {t:'norma',con:'Diseño y Marca',dir:'recibe',que:'El manual de marca y los estándares visuales, que el país adapta a sus formatos y no cambia.'},
+  {t:'servicio',con:'Diseño y Marca',dir:'recibe',que:'El concepto, el copy, el key visual y las piezas de cada campaña, a partir de su brief.'},
+  {t:'norma',con:'Diseño y Marca',dir:'recibe',que:'El manual de marca y el sistema de diseño, que el país adapta a sus formatos y no cambia.'},
   {t:'servicio',con:'Comercial',dir:'da',que:'La demanda: tráfico, sell-out y campañas. Recomienda el precio con data del consumidor; Comercial lo fija.'},
   {t:'mision',con:'E-commerce y Growth',dir:'mutuo',que:'Cada campaña: la pauta de marca la planifica Mercadeo y la de performance E-commerce y Growth. Finanzas consolida las dos para no contar doble.'},
   {t:'servicio',con:'Desarrollo y Calidad de Productos',dir:'da',que:'El brief de consumidor de cada producto nuevo y la firma del sí o el no.'},
@@ -363,40 +367,39 @@ window.MODELOS_GERENCIAS = {
    ['Montaje del visual en tiendas y mayoristas','N','N','C','E']]},
  decidir:['El titular de la gerencia, que la propuesta de la Dirección Comercial plantea como Director(a) de Marketing. Está en las decisiones pendientes de la estructura (1.2).','Dónde queda el visual merchandising: se dibuja en Mercadeo porque también lo usa Ventas al Mayor, pero podría ir en Retail. Está en las decisiones pendientes de la estructura (1.2).','Si las activaciones y los eventos tienen un proceso propio: hoy solo aparecen dentro del plan anual (16.1), del reporte (16.8) y del 8.13, de Ventas al Mayor.','Quién lleva la comunicación interna, que el macroproceso 16 nombra y ninguna unidad tiene: Social y Contenido o Recursos Humanos.','Confirmar los ocupantes de las coordinaciones de Mercadeo país, que salen del censo. Está en las decisiones pendientes de la estructura (1.2).','Quién lidera Social y Contenido.','Cómo adapta cada país las piezas que recibe de Diseño y Marca: qué edita y quién lo aprueba.']},
 
-{id:'marca', unidad:'marca', n:'Diseño y Marca', dir:'Presidencia', red:'Dueño de cómo se ve', capa:'No: cada país adapta en su Mercadeo, y Visual Merchandising, en Mercadeo, ejecuta en el punto de venta', aplicado:true,
- riesgo:'Todas las áreas le piden piezas y diseño a la vez: Mercadeo, E-commerce y Growth, Producto, Retail y los países.',
- premisa:'Diseño y Marca decide cómo se ve, cómo se siente y cómo se usa la marca. Los demás le piden por brief y por una sola vía; nadie cambia una pieza ni un estándar por su cuenta.',
- dilema:'Al reunir todo lo creativo y el diseño en una dirección, la misma área atiende a Mercadeo, a Producto, a E-commerce y Growth y a las tiendas. Sin regla, cada uno pide por su cuenta, las urgencias desplazan lo planificado y una pieza termina con varios aprobadores.',
- resuelve:'Una sola vía de pedido, por brief, con un calendario común y una revisión mensual de capacidad. Un solo aprobador de negocio por proyecto, definido en el brief, y Diseño y Marca aprueba la calidad.',
- mando:{hub:'Dirección de Diseño y Marca',
-   nodosEti:'Gerencia corporativa',
-   nodos:[{t:'Marca y Creatividad',s:'sistema, concepto, arte, campañas'},{t:'Diseño de Producto',s:'físico y digital, empaque'},{t:'Producción y Espacios',s:'foto, video, 3D, POP, interiores'}]},
+{id:'marca', unidad:'marca', n:'Diseño y Marca', dir:'Presidencia', red:'Dueño de cómo se ve', capa:'No: cada país adapta las piezas en su Mercadeo, y Visual Merchandising, en Mercadeo, las lleva al punto de venta', aplicado:true,
+ riesgo:'Todas las áreas le piden piezas a la vez: Mercadeo, Brand Management, E-commerce y Growth y los países.',
+ premisa:'Diseño y Marca decide cómo se ve, cómo se siente y cómo se usa la marca. Los demás le piden por brief y por una sola vía; nadie cambia una pieza ni el sistema de marca por su cuenta.',
+ dilema:'Desde el 11-nov-2026 la dirección se concentra en la marca y la creatividad: el diseño de producto quedó en Desarrollo y Calidad de Productos y la producción y los espacios en Visual Merchandising. La marca sigue siendo de todos: si cada uno de ellos interpreta el sistema de marca a su manera, el grupo vuelve a verse distinto en cada producto, tienda y campaña.',
+ resuelve:'Una sola vía de pedido, por brief, con un calendario común y una revisión mensual de capacidad. Un solo aprobador de negocio por proyecto, definido en el brief, y Diseño y Marca aprueba la calidad. El sistema de marca es la norma a la que se ajustan el diseño de producto y lo que se monta en el punto de venta.',
+ mando:{hub:'Dirección de Diseño y Marca · Marca y Creatividad',
+   nodosEti:'Coordinación corporativa',
+   nodos:[{t:'Creatividad',s:'concepto, copy, key visual y piezas'},{t:'Dirección de Arte',s:'expresión visual de cada concepto'}]},
  conex:[
   {t:'servicio',con:'Mercadeo',dir:'da',que:'El concepto, el copy, el key visual y las piezas de cada campaña, a partir de su brief.'},
   {t:'norma',con:'Todo el grupo',dir:'da',que:'El manual de marca y el sistema de diseño, fuente única para equipos y proveedores.'},
-  {t:'norma',con:'Desarrollo y Calidad de Productos',dir:'da',que:'El diseño industrial, los accesorios y el empaque, desde la ideación de cada producto.'},
-  {t:'servicio',con:'E-commerce y Growth',dir:'da',que:'El diseño de las webs y los correos; Tecnología las implementa.'},
-  {t:'norma',con:'Visual Merchandising · Mercadeo',dir:'da',que:'Los estándares visuales de tienda y de exhibición, el POP y los interiores, que monta en tiendas propias y clientes mayoristas.'},
-  {t:'mision',con:'PMO',dir:'mutuo',que:'En cada apertura o remodelación, el concepto del espacio con la agencia de interiores.'}],
+  {t:'norma',con:'Desarrollo y Calidad de Productos',dir:'da',que:'El sistema de marca al que se ajustan el diseño del producto, el empaque y la experiencia digital.'},
+  {t:'norma',con:'Visual Merchandising · Mercadeo',dir:'da',que:'El sistema de marca al que se ajustan los estándares de exhibición, el POP, los interiores y la producción de foto, video y 3D.'},
+  {t:'servicio',con:'E-commerce y Growth',dir:'da',que:'Las piezas de marca para las webs, los correos y las campañas digitales.'}],
  reglas:[
   ['servicio','Se pide por brief y por una sola vía','Ningún pedido llega por chat ni por cercanía. El brief dice quién aprueba por el negocio.'],
   ['norma','Un solo aprobador de negocio','Quien firmó el brief aprueba que la pieza lo cumpla; Diseño y Marca aprueba su calidad. No hay doble aprobación por pieza.'],
-  ['norma','El estándar no se cambia en el país','El país adapta las piezas a sus formatos y produce contenido rápido; no cambia el estándar.'],
+  ['mando','Creatividad y Dirección de Arte en dupla','Las dos coordinaciones presentan juntas cada propuesta; ninguna entrega un concepto sin su expresión visual.'],
+  ['norma','El sistema de marca no se cambia fuera de aquí','El país adapta las piezas a sus formatos; Producto y Visual Merchandising diseñan y producen con el sistema de marca, y no lo cambian.'],
   ['decide','La capacidad se revisa cada mes','Toda urgencia muestra qué compromiso desplaza. Si dos áreas no se ponen de acuerdo en una prioridad, decide la Dirección.']],
- caso:{t:'La renovación de una tienda en Venezuela',pasos:[
-  ['decide','Comercial decide renovar la tienda y la PMO abre la misión.'],
-  ['servicio','Diseño y Marca define el concepto del espacio con la agencia de interiores, y los estándares de exhibición.'],
-  ['mision','La PMO coordina la obra con Servicios Generales y la compra del mobiliario con Compras Internas del país.'],
-  ['servicio','Visual Merchandising de Mercadeo Venezuela monta la exhibición con los estándares, en el plazo acordado con Retail.'],
-  ['norma','Diseño y Marca verifica que el resultado cumpla el estándar antes de la inauguración.']],
-  m:'Uno decide cómo debe verse, otros lo construyen y lo montan, y nadie cambia el estándar en el camino.'},
- matriz:{cols:['Diseño y Marca','Mercadeo','Desarrollo y Calidad','Retail'],
-  filas:[['Manual de marca y sistema de diseño','D · E','C','',''],
+ caso:{t:'La campaña de lanzamiento de un reloj Cubitt',pasos:[
+  ['servicio','Mercadeo entrega el brief, con su aprobador de negocio.'],
+  ['mando','Creatividad y Dirección de Arte presentan en dupla el concepto, el copy y el key visual.'],
+  ['norma','Mercadeo aprueba que cumpla el brief y Diseño y Marca, la calidad.'],
+  ['servicio','Creatividad deriva las piezas; Visual Merchandising produce la foto y el video y lo lleva a las tiendas con el sistema de marca.'],
+  ['norma','Cada país adapta las piezas a sus formatos sin cambiar el sistema de marca.']],
+  m:'Uno pide, otro crea, y nadie cambia la marca en el camino.'},
+ matriz:{cols:['Diseño y Marca','Mercadeo','Desarrollo y Calidad','Visual Merchandising'],
+  filas:[['Manual de marca y sistema de diseño','D · E','C','C','C'],
    ['Concepto y piezas de campaña','D · E','C','',''],
-   ['Diseño industrial y empaque','D · E','C','C',''],
-   ['Especificación técnica y fábrica','C','','D',''],
-   ['Exhibición en tienda (la monta Visual Merchandising, en Mercadeo)','N','E','','C'],
+   ['Diseño de producto y empaque','N','C','D · E',''],
+   ['Estándares de exhibición, POP y producción','N','C','','D · E'],
    ['Prioridad cuando no alcanza la capacidad (decide la Dirección)','C','C','','']]},
- decidir:['Qué parte del equipo creativo actual pasa a la dirección; el visual merchandising se dibuja en Mercadeo. Está en las decisiones pendientes de la estructura (1.2).','Si la dirección de arte queda dentro de Marca y Creatividad, en dupla con el director creativo, o sigue directo a la dirección. Está en las decisiones pendientes de la estructura (1.2).','Si se adopta un escenario de transición de corto plazo: la dirección solo con Marca y Creatividad, Diseño de Producto en Innovación y Desarrollo de Productos y Producción y Espacios en Mercadeo. Está en las decisiones pendientes de la estructura (1.2).','Quién lleva la cola de pedidos creativos (proceso 16.3), que hoy ordena el coordinador de marca de cada país y en el To-Be es de esta dirección.','Qué disciplinas se cubren con personal interno y cuáles con freelancers o agencias.','Dónde queda el visual merchandising: se dibuja en Mercadeo, como servicio a todos los canales, pero podría ir en Retail. Está en las decisiones pendientes de la estructura (1.2).']}
+ decidir:['Qué parte del equipo creativo actual pasa a la dirección. Está en las decisiones pendientes de la estructura (1.2).','Quién lleva la gerencia de Marca y Creatividad, por encima de sus dos coordinaciones. Está en las decisiones pendientes de la estructura (1.2).','Quién lleva la cola de pedidos creativos (proceso 16.3), que hoy ordena el coordinador de marca de cada país y en el To-Be es de esta dirección.','Qué disciplinas se cubren con personal interno y cuáles con freelancers o agencias.']}
 ]
 };
