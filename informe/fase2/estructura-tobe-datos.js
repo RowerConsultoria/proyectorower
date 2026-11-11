@@ -340,7 +340,7 @@ window.ESTRUCTURA_TOBE = {
             ocupante:{nombre:'Jimena Sánchez', estado:'actual', nota:'Hoy es coordinadora de planificación de compras en Venezuela y atiende también a Panamá.'},
             funciones:[
               'Una vez que la mercancía llega de fábrica, planifica lo que cada país le compra a Kenex Panamá: cuánto de cada modelo y color necesita cada uno.',
-              'Reparte a los países y a las tiendas, y ordena los movimientos de mercancía entre tiendas.',
+              'Planifica el despacho: decide qué sale, a dónde y cuándo, y lo entrega como orden de reparto a países, tiendas y clientes, con los traslados entre tiendas. No mueve la mercancía: la orden la ejecuta la coordinación de Despacho de Operaciones y Logística, que le devuelve la confirmación de cada entrega.',
               'Vigila el inventario de cada país contra su venta, para comprar a tiempo y no sobrestockear.',
               'El control del inventario físico: conteos, ajustes y cuadre del stock con el sistema en el almacén principal y en las bodegas país.',
               'La carga y el mantenimiento de los precios en el sistema.',
@@ -349,8 +349,8 @@ window.ESTRUCTURA_TOBE = {
             decisiones:[
               'Si el precio queda en esta coordinación o pasa a Comercial.'
             ],
-            interna:['Analista de inventario: por cubrir.', 'Coordinación de despacho y compras: por cubrir.'],
-            nota:'Acordada en la reunión del 04-nov-2026. Es corporativa porque ya atiende a más de un país y crece con cada país que se sume. Decide qué va a dónde; el movimiento físico lo hace Operaciones y Logística. Desde el 11-nov-2026 suma el control del inventario y los precios, que estaban en la coordinación de Inventario y Precios de Operaciones y Logística: quien planifica sobre el inventario es quien lo cuadra, y no hay un inventario paralelo.'},
+            interna:['Analista de inventario: por cubrir.', 'Coordinación de despacho y compras: por cubrir. Planifica el despacho; no lo ejecuta.'],
+            nota:'Acordada en la reunión del 04-nov-2026. Es corporativa porque ya atiende a más de un país y crece con cada país que se sume. Su despacho es el plan, no el movimiento: decide qué va a dónde, en qué cantidad y cuándo, con la venta y el inventario de cada país a la vista. El movimiento físico —preparar, cargar, transportar y entregar— lo hace la coordinación de Despacho de Operaciones y Logística (Edgar Claros). Entre las dos viaja una sola orden de reparto: esta la emite y aquella la cumple. Desde el 11-nov-2026 suma el control del inventario y los precios, que estaban en la coordinación de Inventario y Precios de Operaciones y Logística: quien planifica sobre el inventario es quien lo cuadra, y no hay un inventario paralelo.'},
            {id:'compinternas', n:'Compras Internas · Procura', nivel:'n3',
             paises:{
               PA:{nombre:'Por definir', estado:'pordefinir', cargo:'Coordinación', nota:'Hoy la compra interna de Panamá la centraliza Recursos Humanos.'},
@@ -380,10 +380,12 @@ window.ESTRUCTURA_TOBE = {
             ],
             ocupante:{nombre:'Edgar Claros', estado:'actual', nota:'Hoy es coordinador de despacho en la Bodega Obarrio, en Panamá.'},
             funciones:[
-              'Programa y ejecuta los despachos desde el almacén principal a los países, las tiendas y los clientes, según el reparto que planifica Compras.',
-              'Coordina el transporte y confirma cada entrega.',
+              'Ejecuta el despacho físico desde el almacén principal a los países, las tiendas y los clientes: recibe la orden de reparto de Planificación, Despacho e Inventarios, prepara y carga la mercancía y la embarca.',
+              'Programa y coordina el transporte, y confirma cada entrega a esa coordinación.',
+              'No decide qué va a dónde: si la mercancía no alcanza o hay que cambiar el reparto, lo devuelve a Planificación, Despacho e Inventarios.',
               'Fija con las gerencias país la forma común de despachar.'
-            ]},
+            ],
+            nota:'Su despacho es el movimiento, no el plan. Planificación, Despacho e Inventarios (Jimena Sánchez), en Compras, decide qué sale, a dónde y cuándo; esta coordinación lo hace llegar: preparación, carga, transporte y entrega. Entre las dos viaja una sola orden de reparto: aquella la emite y esta la cumple y confirma.'},
            {id:'oplpais', n:'Operaciones y Logística', nivel:'n3',
             decisiones:[
               'Confirmar a Isabella Roizental en la gerencia de Operaciones y Logística de Estados Unidos, que suma a la de E-commerce, y aclarar si en Estados Unidos se vende también Casio.'

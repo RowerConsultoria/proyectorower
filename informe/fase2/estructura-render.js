@@ -1142,6 +1142,14 @@
           return;
         }
       }
+      // Si padre e hijo están alineados a la izquierda y por su borde izquierdo hay paso
+      // libre (la sangría de las coordinaciones corporativas apiladas entre los dos), la
+      // línea baja recta por ahí, sin el rodeo del riel (Operaciones y Logística -> país).
+      var rx = Math.max(pa.x, pb.x) + 10;
+      if(rx < Math.min(pa.x + pa.w, pb.x + pb.w) - 10 && !cruza(rx, y0, rx, pb.y, [A, B])){
+        ruta("M" + rx + "," + y0 + " V" + pb.y, "eo-h-linea");
+        return;
+      }
       // riel al margen izquierdo de la subcolumna del hijo; entra por el hueco de encima
       var cc = caja2(B.parentNode), rail = cc.x + 10, ya = pb.y - 13;
       ruta("M" + px + "," + y0 + " V" + y1 + " H" + rail + " V" + ya + " H" + tx + " V" + pb.y, "eo-h-linea");
