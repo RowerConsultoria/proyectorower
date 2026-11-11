@@ -25,7 +25,7 @@
    sobre su estructura nueva, y los demás se ajustan a Ventas al Mayor regional, E-commerce
    y Growth, Planificación, Despacho e Inventarios y Compras Internas por país.
    Revisión del 11-nov-2026: Diseño y Marca se queda con dos coordinaciones corporativas
-   que le reportan directo (Creatividad y Dirección de Arte); el diseño de producto pasa a Desarrollo
+   de Diseño y Marca que le reportan directo; el diseño de producto pasa a Desarrollo
    y Calidad de Productos, la producción y los espacios a Visual Merchandising, y la
    coordinación de Inventario y Precios a Planificación, Despacho e Inventarios.
 
@@ -374,7 +374,7 @@ window.MODELOS_GERENCIAS = {
  resuelve:'Una sola vía de pedido, por brief, con un calendario común y una revisión mensual de capacidad. Un solo aprobador de negocio por proyecto, definido en el brief, y Diseño y Marca aprueba la calidad. El sistema de marca es la norma a la que se ajustan el diseño de producto y lo que se monta en el punto de venta.',
  mando:{hub:'Dirección de Diseño y Marca',
    nodosEti:'Coordinación corporativa',
-   nodos:[{t:'Creatividad',s:'concepto, copy, key visual y piezas'},{t:'Dirección de Arte',s:'expresión visual de cada concepto'}]},
+   nodos:[{t:'Diseño y Marca',s:'director creativo: concepto, copy, key visual y piezas'},{t:'Diseño y Marca',s:'directora de arte: expresión visual de cada concepto'}]},
  conex:[
   {t:'servicio',con:'Mercadeo',dir:'da',que:'El concepto, el copy, el key visual y las piezas de cada campaña, a partir de su brief.'},
   {t:'norma',con:'Todo el grupo',dir:'da',que:'El manual de marca y el sistema de diseño, fuente única para equipos y proveedores.'},
@@ -384,14 +384,14 @@ window.MODELOS_GERENCIAS = {
  reglas:[
   ['servicio','Se pide por brief y por una sola vía','Ningún pedido llega por chat ni por cercanía. El brief dice quién aprueba por el negocio.'],
   ['norma','Un solo aprobador de negocio','Quien firmó el brief aprueba que la pieza lo cumpla; Diseño y Marca aprueba su calidad. No hay doble aprobación por pieza.'],
-  ['mando','Creatividad y Dirección de Arte en dupla','Las dos coordinaciones presentan juntas cada propuesta; ninguna entrega un concepto sin su expresión visual.'],
+  ['mando','Las dos coordinaciones en dupla','Las dos coordinaciones de Diseño y Marca presentan juntas cada propuesta; ninguna entrega un concepto sin su expresión visual.'],
   ['norma','El sistema de marca no se cambia fuera de aquí','El país adapta las piezas a sus formatos; Producto y Visual Merchandising diseñan y producen con el sistema de marca, y no lo cambian.'],
   ['decide','La capacidad se revisa cada mes','Toda urgencia muestra qué compromiso desplaza. Si dos áreas no se ponen de acuerdo en una prioridad, decide la Dirección.']],
  caso:{t:'La campaña de lanzamiento de un reloj Cubitt',pasos:[
   ['servicio','Mercadeo entrega el brief, con su aprobador de negocio.'],
-  ['mando','Creatividad y Dirección de Arte presentan en dupla el concepto, el copy y el key visual.'],
+  ['mando','Las dos coordinaciones de Diseño y Marca presentan en dupla el concepto, el copy y el key visual.'],
   ['norma','Mercadeo aprueba que cumpla el brief y Diseño y Marca, la calidad.'],
-  ['servicio','Creatividad deriva las piezas; Visual Merchandising produce la foto y el video y lo lleva a las tiendas con el sistema de marca.'],
+  ['servicio','La coordinación del director creativo deriva las piezas; Visual Merchandising produce la foto y el video y lo lleva a las tiendas con el sistema de marca.'],
   ['norma','Cada país adapta las piezas a sus formatos sin cambiar el sistema de marca.']],
   m:'Uno pide, otro crea, y nadie cambia la marca en el camino.'},
  matriz:{cols:['Diseño y Marca','Mercadeo','Desarrollo y Calidad','Visual Merchandising'],

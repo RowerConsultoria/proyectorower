@@ -264,30 +264,30 @@ window.ESTRUCTURA_TOBE = {
         'La máxima responsabilidad sobre la marca del grupo: cómo se ve, cómo se siente y cómo se usa en cada pieza y en cada canal.',
         'Define, crea y custodia la identidad gráfica, el manual de marca y el sistema de diseño, fuente única para todos los equipos y proveedores.',
         'Construye el posicionamiento de cada marca con Mercadeo, para que lo apruebe la Presidencia.',
-        'Recibe el brief de Mercadeo y devuelve, por sus coordinaciones de Creatividad y de Dirección de Arte, el concepto, el copy, el key visual y las piezas; aprueba su calidad. Mercadeo aprueba que cumplan el brief.',
+        'Recibe el brief de Mercadeo y devuelve, por sus dos coordinaciones de Diseño y Marca, el concepto, el copy, el key visual y las piezas; aprueba su calidad. Mercadeo aprueba que cumplan el brief.',
         'Da el sistema de marca al que se ajustan el diseño de producto y el empaque, que hace Desarrollo y Calidad de Productos, y los estándares de exhibición y la producción, que hace Visual Merchandising, en Mercadeo.',
         'Decide qué capacidades creativas se internalizan y cuáles se contratan: el equipo es mixto, con personal interno y freelancers.'
       ],
-      nota:'Acordada en la reunión del 04-nov-2026 y descrita por la Dirección Comercial el 29-oct. Es dirección corporativa y reporta a la Presidencia, al nivel de las demás unidades de negocio: si dependiera de Comercial o de Mercadeo, la marca quedaría supeditada a las campañas de corto plazo. La regla que la separa de Mercadeo: Mercadeo decide qué necesita el consumidor, qué le decimos y dónde invertimos; Diseño y Marca decide cómo se ve. Entre el 10 y el 11-nov-2026 tuvo tres gerencias: Marca y Creatividad, Diseño de Producto y Producción y Espacios. Desde el 11-nov-2026 el diseño de producto (físico, digital y empaque) pasa a Desarrollo y Calidad de Productos, que ya tenía la contraparte y el calendario del desarrollo, y la producción y los espacios (foto, video, 3D, POP, interiores y los proveedores de producción) pasan a Visual Merchandising, en Mercadeo, que los lleva al punto de venta. La dirección se queda con dos coordinaciones corporativas que le reportan directo y trabajan en dupla: Creatividad, con el director creativo, y Dirección de Arte, con la directora de arte. La gerencia de Marca y Creatividad, que las agrupaba, se retiró el mismo día: con dos coordinaciones, una gerencia intermedia solo alargaba la línea. El sistema de marca lo lleva la dirección.',
+      nota:'Acordada en la reunión del 04-nov-2026 y descrita por la Dirección Comercial el 29-oct. Es dirección corporativa y reporta a la Presidencia, al nivel de las demás unidades de negocio: si dependiera de Comercial o de Mercadeo, la marca quedaría supeditada a las campañas de corto plazo. La regla que la separa de Mercadeo: Mercadeo decide qué necesita el consumidor, qué le decimos y dónde invertimos; Diseño y Marca decide cómo se ve. Entre el 10 y el 11-nov-2026 tuvo tres gerencias: Marca y Creatividad, Diseño de Producto y Producción y Espacios. Desde el 11-nov-2026 el diseño de producto (físico, digital y empaque) pasa a Desarrollo y Calidad de Productos, que ya tenía la contraparte y el calendario del desarrollo, y la producción y los espacios (foto, video, 3D, POP, interiores y los proveedores de producción) pasan a Visual Merchandising, en Mercadeo, que los lleva al punto de venta. La dirección se queda con dos coordinaciones corporativas de Diseño y Marca que le reportan directo y trabajan en dupla: una con el director creativo y otra con la directora de arte. La gerencia de Marca y Creatividad, que las agrupaba, se retiró el mismo día: con dos coordinaciones, una gerencia intermedia solo alargaba la línea. El sistema de marca lo lleva la dirección.',
       decisiones:[
         'Confirmar a Jack Roizental en la dirección.',
         'Qué parte del equipo creativo actual pasa a la dirección: el estudio de diseño gráfico de Mercadeo y la dirección de arte. La producción y el visual merchandising quedan en Mercadeo.',
         'Cuáles de sus disciplinas se cubren con personal interno y cuáles con freelancers o agencias.'
       ],
       hijos:[
-        {id:'creatividad', n:'Creatividad', nivel:'ccorp',
+        {id:'creatividad', n:'Diseño y Marca', nivel:'ccorp',
          ocupante:{nombre:'Kevin Sarmiento', estado:'actual', nota:'Hoy es el director creativo, en Mercadeo de Panamá. Es la mano derecha de la dirección.'},
          funciones:[
            'El concepto, el copy y el key visual de cada campaña y lanzamiento, a partir del brief de Mercadeo.',
-           'Presenta cada propuesta en dupla con la Dirección de Arte.',
+           'Presenta cada propuesta en dupla con la otra coordinación de Diseño y Marca, la de la directora de arte.',
            'Las piezas de campaña que se derivan del key visual, con los diseñadores gráficos.'
          ],
          interna:['Director creativo y diseñadores gráficos: personal interno.']},
-        {id:'dirarte', n:'Dirección de Arte', nivel:'ccorp',
+        {id:'dirarte', n:'Diseño y Marca', nivel:'ccorp',
          ocupante:{nombre:'María Romero', estado:'actual', nota:'Hoy es la directora de arte, en Mercadeo de Panamá.'},
          funciones:[
            'La primera expresión visual de cada concepto: el lenguaje gráfico, la composición y la fotografía de referencia.',
-           'Presenta cada propuesta en dupla con Creatividad.',
+           'Presenta cada propuesta en dupla con la otra coordinación de Diseño y Marca, la del director creativo.',
            'Cuida que cada pieza aplique el sistema de marca.'
          ],
          interna:['Directora de arte: personal interno.']}
