@@ -241,7 +241,7 @@ window.ESTRUCTURA_TOBE = {
            'El perfil de CTO de producto, y si se contrata o se forma dentro del grupo.'
          ],
          modelo:{t:'Ver su modelo en Capas y Funcionamiento', d:'Fija la especificación técnica de cada producto y patrocina la innovación. Los proyectos los gestiona la PMO, y la tecnología del grupo es de otra gerencia.', href:'estructura-funcionamiento.html#innovacion'},
-         ocupante:{nombre:'Por definir', estado:'pordefinir', nota:'Equivale a lo que en las corporaciones se denomina CTO (director de tecnología).'},
+         ocupante:{nombre:'Braian Hassan', estado:'propuesto', nota:'Equivale a lo que en las corporaciones se denomina CTO (director de tecnología).'},
          funciones:[
            'Equivale al CTO de las corporaciones: lleva la tecnología de los productos del grupo.',
            'Evalúa tecnologías, componentes y plataformas nuevas, y define las especificaciones técnicas de cada desarrollo.',
@@ -275,7 +275,10 @@ window.ESTRUCTURA_TOBE = {
       hijos:[
         {id:'marcacrea', n:'Marca y Creatividad', nivel:'n2',
          sub:'Sistema de marca, concepto, arte y campañas',
-         ocupante:{nombre:'Kevin Sarmiento', estado:'actual', nota:'Hoy es el director creativo, en Mercadeo de Panamá. Es la mano derecha de la dirección.'},
+         ocupantes:[
+           {nombre:'Kevin Sarmiento', estado:'actual', nota:'Hoy es el director creativo, en Mercadeo de Panamá. Dirige la gerencia en dupla con la directora de arte y es la mano derecha de la dirección.'},
+           {nombre:'María Romero', estado:'actual', nota:'Hoy es la directora de arte, en Mercadeo de Panamá. Dirige la gerencia en dupla con el director creativo.'}
+         ],
          funciones:[
            'Sistema de marca: la identidad, el manual de marca y las guías de uso de todas las marcas y canales, fuente única para equipos y proveedores. El posicionamiento lo construye la dirección con Mercadeo.',
            'Creatividad: el concepto, el copy y el key visual de cada campaña y lanzamiento, a partir del brief de Mercadeo.',
