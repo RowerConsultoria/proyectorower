@@ -5,9 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Talento — Fase 3 | Proyecto Rower</title>
 <!-- Fase 3 · Talento. Índice a la izquierda con dos puntos:
-     1 Estructura patrón de cargos (#/ o #/patron[/<sección>]): HTML en <template id="tplPatron">, con sus estilos
+     1 Guía de lectura del manual (#/ o #/guia[/<sección>]): dato en guia-datos.js (window.GUIA_MANUAL), editable a mano.
+     2 Estructura patrón de cargos (#/patron[/<sección>]): HTML en <template id="tplPatron">, con sus estilos
        bajo .ep. Vino del artefacto «Escalones de la estructura patrón» (10-nov-2026) y se edita a mano aquí.
-     2 Descripciones de cargo (#/descripciones y #/c/<id>). Fuente única: descripciones-datos.js (se edita a mano).
+     3 Descripciones de cargo (#/descripciones y #/c/<id>[/<sección s1…s6>]). Fuente única: descripciones-datos.js (se edita a mano).
        Cada descripción sigue el «Esquema_Descripcion_de_Cargo» v0.2; lo automático (organigrama, cláusula final,
        texto de la Sección V y control del documento) lo pone esta página.
      Los enlaces #<id> dentro de una vista se desplazan sin cambiar la ruta (delegado de clics al final). -->
@@ -161,9 +162,10 @@ h3.m{font-size:.8rem;text-transform:uppercase;letter-spacing:.1em;color:var(--mu
 .chips{display:flex;flex-wrap:wrap;gap:8px}
 .chip{background:var(--chip);color:var(--chipfg);border-radius:999px;padding:6px 13px;font-size:.86rem;font-weight:600}
 .chip.alt{background:transparent;border:1.5px solid var(--blue);color:var(--blue)}
-.nivel{display:inline-flex;gap:4px;margin-left:6px;vertical-align:middle}
-.nivel i{width:18px;height:6px;border-radius:3px;background:var(--line)}
-.nivel i.on{background:var(--blue)}
+.comps{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:10px;margin-top:8px}
+.comps>div{border:1px solid var(--line);border-left:3px solid var(--blue);border-radius:10px;padding:10px 14px;background:var(--surface2)}
+.comps b{display:block;margin-bottom:3px;font-size:.95rem}
+.comps span{font-size:.9rem;color:var(--muted)}
 .perfil{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
 .tarjeta{border:1px solid var(--line);border-radius:14px;padding:14px 16px;background:var(--surface2)}
 .tarjeta small{display:block;font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:4px}
@@ -246,6 +248,40 @@ h3.m{font-size:.8rem;text-transform:uppercase;letter-spacing:.1em;color:var(--mu
   .ix-sub{display:none!important}
 }
 @media print{ .ix{display:none!important} .shell{display:block;padding:0} }
+
+/* Guía de lectura del manual (punto 1) */
+.gu{display:flex;flex-direction:column}
+.gu .bloque p{margin:0 0 10px;max-width:80ch}
+.gu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:10px;margin-top:8px}
+.gu-grid>div{border:1px solid var(--line);border-radius:12px;padding:12px 14px;background:var(--surface2)}
+.gu-grid b{display:block;margin-bottom:4px;font-size:.95rem}
+.gu-grid span{font-size:.92rem}
+.gu-fichas{display:flex;flex-direction:column;gap:12px;margin-top:8px}
+.gu-ficha{display:grid;grid-template-columns:46px minmax(0,1fr);gap:14px;border:1px solid var(--line);border-radius:14px;padding:14px 16px;background:var(--surface2)}
+.gu-ficha>b{display:inline-flex;width:38px;height:38px;border-radius:10px;align-items:center;justify-content:center;background:var(--navy);color:var(--surface);font-size:.86rem}
+.gu-ficha h3{margin:4px 0 10px;font-size:1.02rem}
+.gu-ficha dl{margin:0;display:grid;grid-template-columns:120px minmax(0,1fr);gap:8px 16px}
+.gu-ficha dt{font-size:.72rem;text-transform:uppercase;letter-spacing:.09em;color:var(--muted);padding-top:3px}
+.gu-ficha dd{margin:0;font-size:.93rem}
+.gu-ficha dd a{font-weight:600;text-decoration:none}
+.gu-ficha dd a::after{content:" →"}
+.gu-tabla{overflow-x:auto;border:1px solid var(--line);border-radius:12px;margin-top:8px;background:var(--surface)}
+.gu-tabla table{border-collapse:collapse;width:100%;font-size:.92rem;min-width:560px}
+.gu-tabla th,.gu-tabla td{text-align:left;vertical-align:top;padding:9px 12px;border-bottom:1px solid var(--line)}
+.gu-tabla thead th{font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);background:var(--surface2)}
+.gu-tabla tbody th{font-weight:600}
+.gu-tabla tr:last-child td,.gu-tabla tr:last-child th{border-bottom:0}
+.gu-tabla td.c{text-align:center;font-weight:700}
+.gu-nota{color:var(--muted);font-size:.88rem;margin:12px 0 0}
+.gu-tramo{margin:14px 0 4px}
+.gu-tramo-t{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px;padding:8px 0 2px;border-top:1px solid var(--line)}
+.gu-tramo-t b{font-size:.98rem}
+.gu-tramo-t span{font-size:.84rem;color:var(--muted)}
+.gu-pasos{list-style:none;margin:8px 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;counter-reset:paso}
+.gu-pasos li{counter-increment:paso;border:1px solid var(--line);border-radius:12px;padding:12px 14px 12px 50px;background:var(--surface2);position:relative;font-size:.92rem}
+.gu-pasos li::before{content:counter(paso);position:absolute;left:14px;top:12px;width:26px;height:26px;border-radius:50%;background:var(--chip);color:var(--chipfg);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.8rem}
+.gu-pasos b{display:block;margin-bottom:3px}
+@media (max-width:640px){ .gu-ficha{grid-template-columns:1fr} .gu-ficha dl{grid-template-columns:1fr;gap:2px} .gu-ficha dd{margin-bottom:8px} }
 
 /* 1 · Estructura patrón de cargos (vino del artefacto «Escalones de la estructura patrón»; todo bajo .ep) */
 .ep{--ink:var(--fg);--head:var(--navy);--accent:var(--blue);--accent-soft:var(--soft);
@@ -394,8 +430,192 @@ h3.m{font-size:.8rem;text-transform:uppercase;letter-spacing:.1em;color:var(--mu
 .ep .techo{min-width:900px}
 .ep .pel-blk{font-size:.74rem}
 
+/* ===== Matiz v3 (11-nov-2026): color por sección de la descripción y por unidad en las familias. Solo diseño. ===== */
+:root{--s1:#1F3864;--s2:#2E75B6;--s3:#0F7C80;--s4:#5B4BA8;--s5:#B23A3A;--s6:#B26A00;
+  --f1:#2E75B6;--f2:#0F7C80;--f3:#5B4BA8;--f4:#B23A3A;--f5:#B26A00;--f6:#2E7D32;--f7:#1F3864;--f8:#8A4F9E}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--s1:#9DB9E8;--s2:#6FAAE4;--s3:#4FC1C4;--s4:#A99AF0;--s5:#F08A8A;--s6:#E3A24E;
+  --f1:#6FAAE4;--f2:#4FC1C4;--f3:#A99AF0;--f4:#F08A8A;--f5:#E3A24E;--f6:#71C277;--f7:#9DB9E8;--f8:#D29BE3}}
+:root[data-theme="dark"]{--s1:#9DB9E8;--s2:#6FAAE4;--s3:#4FC1C4;--s4:#A99AF0;--s5:#F08A8A;--s6:#E3A24E;
+  --f1:#6FAAE4;--f2:#4FC1C4;--f3:#A99AF0;--f4:#F08A8A;--f5:#E3A24E;--f6:#71C277;--f7:#9DB9E8;--f8:#D29BE3}
+
+/* familias */
+.fams{gap:16px}
+.famc{position:relative;overflow:hidden;padding:18px 18px 16px 24px;gap:12px;transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease;
+  background:linear-gradient(160deg,color-mix(in srgb,var(--h) 7%,var(--surface)),var(--surface) 55%)}
+.famc::before{content:"";position:absolute;left:0;top:0;bottom:0;width:5px;background:linear-gradient(180deg,var(--h),color-mix(in srgb,var(--h) 35%,transparent))}
+.famc:hover{transform:translateY(-3px);border-color:color-mix(in srgb,var(--h) 45%,var(--line));box-shadow:0 2px 4px rgba(20,33,58,.06),0 18px 36px -12px color-mix(in srgb,var(--h) 45%,transparent)}
+.famc .fc-h{display:flex;gap:14px;align-items:flex-start}
+.famc .fc-n{flex:none;width:52px;height:52px;border-radius:14px;display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1;
+  background:color-mix(in srgb,var(--h) 13%,var(--surface));color:var(--h);border:1px solid color-mix(in srgb,var(--h) 25%,transparent)}
+.famc .fc-n b{font-size:1.35rem;letter-spacing:-.02em}
+.famc .fc-n small{font-size:.6rem;text-transform:uppercase;letter-spacing:.1em;margin-top:3px;font-weight:700}
+.famc .fc-t{flex:1;min-width:0}
+.famc h3{font-size:1.02rem;letter-spacing:-.01em}
+.famc .u{display:inline-block;margin-top:5px;font-size:.74rem;font-weight:600;color:var(--h);text-transform:uppercase;letter-spacing:.06em}
+.famc .pie{gap:12px;padding-top:10px;border-top:1px dashed color-mix(in srgb,var(--h) 25%,var(--line))}
+.famc .mini{flex:1;height:6px;border-radius:99px;background:color-mix(in srgb,var(--h) 12%,var(--line));overflow:hidden}
+.famc .mini i{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,var(--h),color-mix(in srgb,var(--h) 55%,#fff))}
+.famc.piloto{--h:var(--warn);border-color:color-mix(in srgb,var(--warn) 50%,var(--line));
+  background:radial-gradient(600px 220px at 100% 0,color-mix(in srgb,var(--warn) 14%,transparent),transparent 70%),var(--surface)}
+.famc.piloto .cargos{counter-reset:fc;gap:8px}
+.famc.piloto .cargos a{counter-increment:fc;justify-content:flex-start;padding:10px 12px;background:var(--surface);border:1px solid var(--line);box-shadow:0 1px 2px rgba(20,33,58,.05)}
+.famc.piloto .cargos a::before{content:counter(fc);flex:none;width:24px;height:24px;border-radius:8px;display:inline-flex;align-items:center;justify-content:center;
+  background:color-mix(in srgb,var(--warn) 16%,transparent);color:var(--warn);font-weight:700;font-size:.76rem}
+.famc.piloto .cargos a::after{margin-left:auto;color:var(--warn)}
+.famc.piloto .cargos a:hover{border-color:var(--warn);background:color-mix(in srgb,var(--warn) 6%,var(--surface));transform:translateX(3px)}
+.famc.piloto .cargos a{transition:transform .15s ease,border-color .15s ease}
+@media (min-width:700px){ .famc.piloto{grid-column:span 2} .famc.piloto .cargos{display:grid;grid-template-columns:1fr 1fr} }
+
+/* selector tarjetas · lista */
+.tit2{flex-wrap:wrap}
+.tit2-der{display:flex;gap:10px;align-items:center;flex-wrap:wrap;flex:1;justify-content:flex-end;max-width:560px}
+.tit2-der .buscar{flex:1;min-width:200px}
+.vistas{display:inline-flex;padding:3px;border:1px solid var(--line);border-radius:999px;background:var(--surface)}
+.vistas button{border:0;background:transparent;color:var(--muted);font-weight:600;font-size:.84rem;padding:6px 14px;border-radius:999px;cursor:pointer;white-space:nowrap}
+.vistas button[aria-pressed="true"]{background:var(--navy);color:var(--surface)}
+.vistas button:not([aria-pressed="true"]):hover{color:var(--fg)}
+/* vista de lista */
+.fams.lista{display:flex;flex-direction:column;align-items:stretch;gap:8px}
+.fams.lista .famc{display:grid;grid-template-columns:minmax(0,1fr) minmax(220px,300px);align-items:center;gap:8px 24px;padding:12px 18px 12px 22px;
+  background:linear-gradient(90deg,color-mix(in srgb,var(--h) 6%,var(--surface)),var(--surface) 40%)}
+.fams.lista .famc:hover{transform:translateX(3px)}
+.fams.lista .fc-h{align-items:center;gap:14px}
+.fams.lista .fc-n{width:42px;height:42px;border-radius:12px}
+.fams.lista .fc-n b{font-size:1.1rem}
+.fams.lista .fc-n small{font-size:.54rem}
+.fams.lista .fc-t{display:flex;align-items:baseline;gap:4px 14px;flex-wrap:wrap}
+.fams.lista .u{margin-top:0}
+.fams.lista .pie{border-top:0;padding-top:0;margin:0}
+.fams.lista .famc.piloto{grid-column:auto;background:linear-gradient(90deg,color-mix(in srgb,var(--warn) 10%,var(--surface)),var(--surface) 50%)}
+.fams:not(.lista) .famc:not(.piloto) .cargos,.fams:not(.lista) .fc-tog{display:none}
+.fams.lista .famc .cargos{grid-column:1/-1;grid-row:2;display:none;flex-direction:row;flex-wrap:wrap;gap:8px;margin:4px 0 4px 92px}
+.fams.lista .famc.abierta .cargos,.fams.lista.busca .famc .cargos{display:flex}
+.fams.lista .famc .cargos a,.fams.lista .famc .cargos span{padding:7px 12px}
+.fams.lista .famc .cargos span{background:color-mix(in srgb,var(--h) 6%,var(--surface));border:1px dashed color-mix(in srgb,var(--h) 30%,var(--line))}
+.fams.lista .fc-h{cursor:pointer}
+.fc-tog{flex:none;width:28px;height:28px;border-radius:8px;border:1px solid var(--line);background:var(--surface);cursor:pointer;display:inline-flex;align-items:center;justify-content:center;padding:0}
+.fc-tog::before{content:"";width:7px;height:7px;border-right:2px solid var(--h);border-bottom:2px solid var(--h);transform:rotate(-45deg);transition:transform .18s ease;margin-left:-2px}
+.famc.abierta .fc-tog::before,.fams.busca .fc-tog::before{transform:rotate(45deg);margin:-3px 0 0}
+.famc.abierta .fc-tog{background:color-mix(in srgb,var(--h) 12%,var(--surface));border-color:color-mix(in srgb,var(--h) 35%,var(--line))}
+@media (max-width:760px){
+  .fams.lista .famc{grid-template-columns:1fr}
+  .fams.lista .famc .cargos{grid-row:auto;margin-left:0}
+  .tit2-der{max-width:none;justify-content:flex-start}
+}
+
+/* cabecera de la descripción */
+.cab{position:relative;overflow:hidden}
+.cab::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.5;
+  background-image:radial-gradient(rgba(255,255,255,.14) 1px,transparent 1.4px);background-size:18px 18px;
+  -webkit-mask-image:linear-gradient(120deg,transparent 35%,#000);mask-image:linear-gradient(120deg,transparent 35%,#000)}
+.cab::after{content:"";position:absolute;right:-90px;top:-90px;width:300px;height:300px;border-radius:50%;border:46px solid rgba(255,255,255,.06);pointer-events:none}
+.cab>*{position:relative;z-index:1}
+.cab .dato{backdrop-filter:blur(4px);transition:background .15s ease}
+.cab .dato:hover{background:rgba(255,255,255,.16)}
+
+/* secciones con color propio */
+.bloque{--acc:var(--s2)}
+#s1{--acc:var(--s1)} #s2{--acc:var(--s2)} #s3{--acc:var(--s3)} #s4{--acc:var(--s4)} #s5{--acc:var(--s5)} #s6{--acc:var(--s6)}
+.bloque[data-n]{position:relative;overflow:hidden;padding-top:clamp(22px,3vw,32px);margin-top:22px;
+  background:linear-gradient(180deg,color-mix(in srgb,var(--acc) 5%,var(--surface)),var(--surface) 140px)}
+.bloque[data-n]::before{content:"";position:absolute;left:0;right:0;top:0;height:4px;background:linear-gradient(90deg,var(--acc),color-mix(in srgb,var(--acc) 20%,transparent) 80%)}
+.bloque[data-n]::after{content:attr(data-n);position:absolute;right:20px;top:-14px;font-size:7rem;font-weight:700;line-height:1;letter-spacing:-.05em;
+  color:var(--acc);opacity:.07;pointer-events:none;font-family:Georgia,"Times New Roman",serif}
+.bloque>h2{font-size:1.28rem}
+.bloque>h2 b{min-width:40px;height:40px;border-radius:12px;color:var(--surface);
+  background:linear-gradient(135deg,var(--acc),color-mix(in srgb,var(--acc) 75%,var(--surface)));box-shadow:0 8px 16px -8px var(--acc)}
+.bloque>.sub{margin-left:52px}
+.bloque[data-n] h3.m{display:flex;align-items:center;gap:10px;color:var(--acc);font-weight:700}
+.bloque[data-n] h3.m::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,color-mix(in srgb,var(--acc) 35%,var(--line)),transparent)}
+
+/* tarjetas internas teñidas con el color de la sección */
+.bloque[data-n] .proc,.bloque[data-n] .comps>div,.bloque[data-n] .factor,.bloque[data-n] .tarjeta,.bloque[data-n] .nodo:not(.yo){
+  background:color-mix(in srgb,var(--acc) 4%,var(--surface));border-color:color-mix(in srgb,var(--acc) 16%,var(--line))}
+.bloque[data-n] .proc,.bloque[data-n] .comps>div,.bloque[data-n] .factor{transition:transform .15s ease,box-shadow .15s ease}
+.bloque[data-n] .proc:hover,.bloque[data-n] .comps>div:hover,.bloque[data-n] .factor:hover{transform:translateY(-2px);box-shadow:0 12px 24px -14px color-mix(in srgb,var(--acc) 60%,transparent)}
+.nodo.yo{background:linear-gradient(135deg,var(--s1),var(--s2));box-shadow:0 10px 22px -10px var(--s2)}
+.proc{border-top:3px solid var(--acc)}
+.proc.otras{border-top-style:dashed}
+.proc header em{background:var(--acc);color:#fff}
+.proc ul{counter-reset:r}
+.proc li{counter-increment:r;padding-left:32px}
+.proc li::before{content:counter(r);left:0;top:8px;width:21px;height:21px;border-radius:7px;display:flex;align-items:center;justify-content:center;
+  background:color-mix(in srgb,var(--acc) 14%,transparent);color:var(--acc);font-size:.7rem;font-weight:700}
+.matiz{background:color-mix(in srgb,var(--acc) 6%,var(--surface));border-color:color-mix(in srgb,var(--acc) 30%,var(--line))}
+.comps>div{border-left:4px solid var(--acc)}
+.comps b{color:var(--fg)}
+.tarjeta small{color:var(--acc);font-weight:700}
+.lista2 li::before{color:var(--acc)}
+.factor b{color:var(--fg)}
+.escala{gap:5px}
+.escala i{height:9px;border-radius:3px}
+.escala i.on{background:linear-gradient(90deg,var(--acc),color-mix(in srgb,var(--acc) 55%,#fff))}
+.factor b.sino{display:inline-flex;margin-top:6px}
+.sino i{flex:none}
+.sino.si i{background:var(--acc);box-shadow:0 0 0 3px color-mix(in srgb,var(--acc) 20%,transparent)}
+.rg{transition:transform .15s ease}
+.rg.on{box-shadow:0 10px 22px -14px var(--acc);transform:translateY(-2px)}
+.rg.on .ic{filter:drop-shadow(0 3px 6px color-mix(in srgb,var(--acc) 40%,transparent))}
+.rg.on span{color:var(--acc);font-weight:700}
+.rgdet div{border-left-color:var(--acc);background:color-mix(in srgb,var(--acc) 5%,var(--surface))}
+.control div{border-color:color-mix(in srgb,var(--acc) 35%,var(--line));background:color-mix(in srgb,var(--acc) 3%,var(--surface))}
+.control small{color:var(--acc);font-weight:700}
+.notas{position:relative;border-radius:4px 16px 16px 16px;box-shadow:0 10px 22px -16px var(--warn)}
+
+/* II · reparto por proceso, verbo inicial y tono por proceso */
+.rep{margin:4px 0 18px;padding:14px 16px;border-radius:14px;background:color-mix(in srgb,var(--acc) 5%,var(--surface));border:1px solid color-mix(in srgb,var(--acc) 16%,var(--line))}
+.rep-bar{display:flex;gap:3px;height:16px;border-radius:99px;overflow:hidden}
+.rep-bar a{display:block;min-width:8px;transition:filter .15s ease}
+.rep-bar a:hover{filter:brightness(1.12)}
+.rep-ley{list-style:none;margin:12px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:6px 16px}
+.rep-ley a{display:inline-flex;align-items:center;gap:7px;text-decoration:none;color:var(--fg);font-size:.84rem}
+.rep-ley a:hover{color:var(--acc)}
+.rep-ley i{width:11px;height:11px;border-radius:3px;flex:none}
+.rep-ley b{color:var(--muted);font-weight:600;font-size:.78rem}
+.bloque[data-n] .proc{border-top:4px solid var(--sh,var(--acc));scroll-margin-top:90px}
+.proc header em{background:var(--sh,var(--acc));min-width:28px;height:28px;display:inline-flex;align-items:center;justify-content:center;font-size:.82rem;
+  color:var(--shf,var(--surface))}
+.proc li .vb{font-weight:700;color:var(--acc)}
+/* III · escalera de niveles de cargo */
+.nvl{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;align-items:end;margin:6px 0 4px;padding:14px 14px 0;border-radius:14px;
+  background:linear-gradient(180deg,transparent,color-mix(in srgb,var(--acc) 6%,var(--surface)));border-bottom:2px solid color-mix(in srgb,var(--acc) 30%,var(--line))}
+.nvl-p{position:relative;height:calc(46px + var(--k) * 26px);border-radius:12px 12px 0 0;padding:10px 12px;display:flex;flex-direction:column;justify-content:flex-end;
+  background:color-mix(in srgb,var(--acc) 9%,var(--surface));border:1px solid color-mix(in srgb,var(--acc) 18%,var(--line));border-bottom:0;color:var(--muted)}
+.nvl-p b{font-size:.84rem;line-height:1.2;color:var(--fg);opacity:.75}
+.nvl-p small{font-size:.72rem;line-height:1.3;margin-top:3px}
+.nvl-p.yo{background:linear-gradient(160deg,var(--acc),color-mix(in srgb,var(--acc) 72%,var(--surface)));border-color:transparent;color:var(--surface);box-shadow:0 -10px 24px -14px var(--acc)}
+.nvl-p.yo b{color:var(--surface);opacity:1}
+.nvl-p.yo em{position:absolute;top:-13px;left:12px;font-style:normal;font-size:.72rem;font-weight:700;padding:3px 10px;border-radius:99px;background:var(--surface);color:var(--acc);
+  border:1px solid color-mix(in srgb,var(--acc) 40%,var(--line));box-shadow:var(--shadow);white-space:nowrap}
+/* III · competencias con icono, específicas sólidas, técnicas y habilidades */
+.comps>div{display:flex;gap:12px;align-items:flex-start}
+.comps .cic{flex:none;width:38px;height:38px;border-radius:11px;display:inline-flex;align-items:center;justify-content:center;font-style:normal;font-size:1.15rem;
+  background:color-mix(in srgb,var(--acc) 12%,var(--surface));border:1px solid color-mix(in srgb,var(--acc) 22%,transparent)}
+.bloque[data-n] .comps.esp>div{background:linear-gradient(135deg,color-mix(in srgb,var(--acc) 14%,var(--surface)),color-mix(in srgb,var(--acc) 4%,var(--surface)));border-left-width:4px}
+.comps.esp b{color:var(--acc)}
+.tarjeta.tec{display:flex;gap:14px;align-items:flex-start}
+.tarjeta.tec>i{flex:none;width:44px;height:44px;border-radius:12px;display:inline-flex;align-items:center;justify-content:center;font-style:normal;font-size:1.35rem;
+  background:linear-gradient(135deg,var(--acc),color-mix(in srgb,var(--acc) 60%,#fff));box-shadow:0 8px 16px -10px var(--acc)}
+.lista2.habs{display:flex;flex-wrap:wrap;gap:8px}
+.lista2.habs li{padding:6px 12px 6px 28px;border-radius:99px;background:color-mix(in srgb,var(--acc) 7%,var(--surface));border:1px solid color-mix(in srgb,var(--acc) 20%,var(--line));font-size:.86rem}
+.lista2.habs li::before{left:11px;top:6px}
+@media (max-width:640px){
+  .nvl{display:flex;flex-direction:column-reverse;align-items:stretch;padding:10px;border-bottom:0}
+  .nvl-p{height:auto;border-radius:10px;border-bottom:1px solid color-mix(in srgb,var(--acc) 18%,var(--line))}
+  .nvl-p.yo em{position:static;align-self:flex-start;margin-bottom:6px}
+}
+
+/* riel de secciones como recorrido */
+.riel a.s{position:relative}
+.riel a.s[data-s="s1"]{--acc:var(--s1)} .riel a.s[data-s="s2"]{--acc:var(--s2)} .riel a.s[data-s="s3"]{--acc:var(--s3)}
+.riel a.s[data-s="s4"]{--acc:var(--s4)} .riel a.s[data-s="s5"]{--acc:var(--s5)} .riel a.s[data-s="s6"]{--acc:var(--s6)}
+.riel a.s b{background:color-mix(in srgb,var(--acc) 14%,transparent);color:var(--acc);transition:transform .15s ease}
+.riel a.s.on b,.riel a.s:hover b{background:var(--acc);color:#fff;transform:scale(1.08)}
+.riel a.s.on{box-shadow:inset 3px 0 0 var(--acc),var(--shadow)}
+@media (min-width:961px){ .riel a.s:not(:last-of-type)::after{content:"";position:absolute;left:21px;top:33px;width:2px;height:15px;background:color-mix(in srgb,var(--acc) 30%,var(--line))} }
+
 @media print{
-  .top,.riel,.notas,.buscar{display:none!important}
+  .top,.riel,.notas,.buscar,.vistas{display:none!important}
   body{background:#fff} .wrap{padding:0;max-width:none} .ficha{display:block}
   .bloque,.cab,.nodo,.proc,.factor,.rg{box-shadow:none;break-inside:avoid}
   .cab,.nodo.yo,.bloque>h2 b,.escala i.on{-webkit-print-color-adjust:exact;print-color-adjust:exact}
@@ -416,15 +636,17 @@ h3.m{font-size:.8rem;text-transform:uppercase;letter-spacing:.1em;color:var(--mu
 <div class="shell">
 <aside class="ix" id="ix" aria-label="Índice de la Fase 3">
   <div class="ix-fase">Fase 3 · Talento</div>
-  <a class="ix-p" data-v="patron" href="#/patron"><b>1</b>Estructura patrón de cargos</a>
+  <a class="ix-p" data-v="guia" href="#/guia"><b>1</b>Guía de lectura del manual</a>
+  <div class="ix-sub" id="ixGuia"></div>
+  <a class="ix-p" data-v="patron" href="#/patron"><b>2</b>Estructura patrón de cargos</a>
   <div class="ix-sub" id="ixPatron"></div>
-  <a class="ix-p" data-v="desc" href="#/descripciones"><b>2</b>Descripciones de cargo</a>
+  <a class="ix-p" data-v="desc" href="#/descripciones"><b>3</b>Descripciones de cargo</a>
   <div class="ix-sub" id="ixDesc"></div>
 </aside>
 <main class="wrap" id="vista"></main>
 </div>
 <template id="tplPatron">
-<section class="hero"><div class="k">Fase 3 · Talento · Grupo Kenex</div><h1>Estructura patrón de cargos</h1><p>Los niveles de cargo de la organización, del operario al director, iguales para todas las áreas. Son atemporales y flexibles: piezas de trabajo con las que se arman las áreas, que no cambian cuando cambia la estructura. Para cada escalón: qué hace, qué tiene que saber, qué resuelve, de qué responde, cuánta experiencia se estima y en qué se distingue del vecino. Es la base de la reclasificación y de las descripciones de cargo (punto 2).</p></section>
+<section class="hero"><div class="k">Fase 3 · Talento · Grupo Kenex</div><h1>Estructura patrón de cargos</h1><p>Los niveles de cargo de la organización, del operario al director, iguales para todas las áreas. Son atemporales y flexibles: piezas de trabajo con las que se arman las áreas, que no cambian cuando cambia la estructura. Para cada escalón: qué hace, qué tiene que saber, qué resuelve, de qué responde, cuánta experiencia se estima y en qué se distingue del vecino. Es la base de la reclasificación y de las descripciones de cargo (punto 3).</p></section>
 <div class="ep">
 <p class="aviso"><span><b>Borrador del equipo consultor</b> para revisar con Desarrollo Corporativo. Las denominaciones de los escalones siguen abiertas en las decisiones pendientes de la estructura To-Be, y los ejemplos de Kenex son orientativos: dónde queda cada cargo lo dice la reclasificación, no esta página.</span></p>
 <section class="blk" id="escalera">
@@ -863,7 +1085,8 @@ h3.m{font-size:.8rem;text-transform:uppercase;letter-spacing:.1em;color:var(--mu
 </div>
 </template>
 
-<script src="descripciones-datos.js"></script>
+<script src="descripciones-datos.js?v=2026-11-11h"></script>
+<script src="guia-datos.js?v=2026-11-11h"></script>
 <script>
 (function(){
   var D = window.DESCRIPCIONES_CARGO, M = D.meta;
@@ -882,6 +1105,8 @@ h3.m{font-size:.8rem;text-transform:uppercase;letter-spacing:.1em;color:var(--mu
   };
   var ICONO = { 'Biológicos': '🦠', 'Físicos': '💡', 'Químicos': '🧪', 'Mecánicos': '⚙️', 'Psicosociales': '🧠', 'Disergonómicos': '🪑' };
 
+  // Tarjetas o lista en la portada de familias: preferencia de quien mira, en este navegador
+  function vistaFamilias(){ try { return localStorage.getItem('rower.fase3.familias.vista') === 'tarjetas' ? 'tarjetas' : 'lista'; } catch (e) { return 'lista'; } }
   function inicio(){
     var hechas = Object.keys(D.descripciones).length, pct = Math.round(hechas / TOTAL.size * 100);
     var h = '<section class="hero"><div class="k">Fase 3 · Talento · Grupo Kenex</div><h1>Descripciones de cargo</h1>' +
@@ -890,18 +1115,65 @@ h3.m{font-size:.8rem;text-transform:uppercase;letter-spacing:.1em;color:var(--mu
       '<div class="stats"><div class="stat"><b>' + TOTAL.size + '</b><span>descripciones previstas</span></div><div class="stat"><b>' + D.familias.length + '</b><span>familias de cargos</span></div>' +
       '<div class="stat"><b>' + hechas + '</b><span>en borrador</span></div><div class="stat"><b>0</b><span>validadas</span></div></div>' +
       '<div class="progreso"><div class="bar"><i style="width:' + Math.max(pct, 2) + '%"></i></div><small>' + pct + ' % redactado · piloto en curso: Servicios Generales</small></div></section>';
-    h += '<div class="tit2"><h2>Familias de cargos</h2><input class="buscar" id="buscar" type="search" placeholder="Buscar familia o cargo…" aria-label="Buscar familia o cargo"></div><div class="fams" id="fams">';
+    var vf = vistaFamilias();
+    h += '<div class="tit2"><h2>Familias de cargos</h2><div class="tit2-der"><div class="vistas" role="group" aria-label="Organizar las familias">' +
+      '<button type="button" data-vista="tarjetas" aria-pressed="' + (vf === 'tarjetas') + '">▦ Tarjetas</button><button type="button" data-vista="lista" aria-pressed="' + (vf === 'lista') + '">☰ Lista</button></div>' +
+      '<input class="buscar" id="buscar" type="search" placeholder="Buscar familia o cargo…" aria-label="Buscar familia o cargo"></div></div>' +
+      '<p style="color:var(--muted);font-size:.88rem;margin:-4px 0 14px">Los nombres de cargo de las familias pendientes vienen de la lista de cargos V5 y se ajustan a los escalones de la estructura patrón al redactar cada familia.</p><div class="fams' + (vf === 'lista' ? ' lista' : '') + '" id="fams">';
     var orden = D.familias.slice().sort(function(a, b){ return (b.piloto ? 1 : 0) - (a.piloto ? 1 : 0); });
+    var TONO = {}; D.familias.forEach(function(f){ if (!(f.unidad in TONO)) TONO[f.unidad] = 'var(--f' + (Object.keys(TONO).length % 8 + 1) + ')'; });
     orden.forEach(function(f){
       // una descripción compartida solo cuenta en la familia cuyos matices ya están redactados
       var listos = f.cargos.filter(function(c){ var d = D.descripciones[POR_NOMBRE[c]];
         return d && (!d.matices || d.matices.some(function(m){ return m.codigos_v5.some(function(x){ return x.indexOf(f.id + '-') === 0; }); })); }).length;
-      h += '<article class="famc' + (f.piloto ? ' piloto' : '') + '" data-q="' + esc((f.nombre + ' ' + f.unidad + ' ' + f.cargos.join(' ')).toLowerCase()) + '">' +
-        '<div style="display:flex;justify-content:space-between;gap:10px;align-items:flex-start"><div><h3>' + esc(f.nombre) + '</h3><div class="u">' + esc(f.unidad) + '</div></div>' +
+      h += '<article class="famc' + (f.piloto ? ' piloto' : '') + '"' + (f.piloto ? '' : ' style="--h:' + TONO[f.unidad] + '"') + ' data-q="' + esc((f.nombre + ' ' + f.unidad + ' ' + f.cargos.join(' ')).toLowerCase()) + '">' +
+        '<div class="fc-h"><button type="button" class="fc-tog" aria-expanded="false" aria-label="Ver los cargos de ' + esc(f.nombre) + '"></button><div class="fc-n" aria-hidden="true"><b>' + f.cargos.length + '</b><small>' + (f.cargos.length === 1 ? 'cargo' : 'cargos') + '</small></div>' +
+        '<div class="fc-t"><h3>' + esc(f.nombre) + '</h3><div class="u">' + esc(f.unidad) + '</div></div>' +
         (f.piloto ? '<span class="badge piloto">● Piloto</span>' : '<span class="badge pend">Pendiente</span>') + '</div>';
-      if (f.piloto) h += '<div class="cargos">' + f.cargos.map(function(c){ var id = POR_NOMBRE[c];
+      h += '<div class="cargos">' + f.cargos.map(function(c){ var id = POR_NOMBRE[c];
         return id ? '<a href="#/c/' + id + '">' + esc(c) + '</a>' : '<span>' + esc(c) + '</span>'; }).join('') + '</div>';
-      h += '<div class="pie"><span>' + f.cargos.length + (f.cargos.length === 1 ? ' cargo' : ' cargos') + '</span><span>' + listos + ' en borrador</span></div></article>';
+      h += '<div class="pie"><span>' + f.cargos.length + (f.cargos.length === 1 ? ' cargo' : ' cargos') + '</span><div class="mini" aria-hidden="true"><i style="width:' + Math.round(listos / f.cargos.length * 100) + '%"></i></div><span>' + listos + ' en borrador</span></div></article>';
+    });
+    return h + '</div>';
+  }
+
+  // ---------- 1 · Guía de lectura del manual (guia-datos.js)
+  var G = window.GUIA_MANUAL;
+  function md(t){ return esc(t).replace(/\*\*(.+?)\*\*/g, '<b>$1</b>'); }
+  function tabla(cols, filas, centrar){
+    return '<div class="gu-tabla"><table><thead><tr>' + cols.map(function(c){ return '<th scope="col">' + esc(c) + '</th>'; }).join('') + '</tr></thead><tbody>' +
+      filas.map(function(f){ return '<tr>' + f.map(function(x, i){ return i === 0 ? '<th scope="row">' + md(x) + '</th>' : '<td' + (centrar && centrar.indexOf(i) >= 0 ? ' class="c"' : '') + '>' + md(x) + '</td>'; }).join('') + '</tr>'; }).join('') +
+      '</tbody></table></div>';
+  }
+  function grid(pares){ return '<div class="gu-grid">' + pares.map(function(p){ return '<div><b>' + md(p[0]) + '</b><span>' + md(p[1]) + '</span></div>'; }).join('') + '</div>'; }
+  function guia(){
+    var h = '<section class="hero"><div class="k">Fase 3 · Talento · Grupo Kenex</div><h1>' + esc(G.titulo) + '</h1><p>' + md(G.lead) + '</p></section><div class="gu">';
+    G.secciones.forEach(function(sec, i){
+      h += '<section class="bloque" id="g-' + sec.id + '"><h2><b>' + (i + 1) + '</b>' + esc(sec.titulo) + '</h2>';
+      (sec.parrafos || []).forEach(function(p){ h += '<p>' + md(p) + '</p>'; });
+      if (sec.usos) h += '<h3 class="m">Para qué se usa</h3>' + grid(sec.usos);
+      if (sec.fases) h += '<div class="gu-grid">' + sec.fases.map(function(x){ return '<div><b>' + esc(x.t) + '</b><span>' + md(x.d) + '</span></div>'; }).join('') + '</div>';
+      if (sec.items) h += grid(sec.items);
+      if (sec.fichas) h += '<div class="gu-fichas">' + sec.fichas.map(function(x){
+        var ej = x.ej ? '<dt>Ejemplo</dt><dd><a href="#/c/' + x.ej[1] + (x.ej[2] ? '/' + x.ej[2] : '') + '">' + esc(x.ej[0]) + '</a></dd>' : '';
+        return '<article class="gu-ficha"><b>' + esc(x.n) + '</b><div><h3>' + esc(x.t) + '</h3><dl><dt>Qué contiene</dt><dd>' + md(x.que) + '</dd><dt>Cómo se lee</dt><dd>' + md(x.como) + '</dd>' + ej + '</dl></div></article>';
+      }).join('') + '</div>';
+      if (sec.modelo){ // el modelo de competencias vive en descripciones-datos.js (meta), no se copia en la guía
+        var NV = M.niveles_cargo;
+        h += '<h3 class="m">Niveles de cargo</h3><p>' + md(sec.modelo.niveles) + '</p>' + tabla(['Nivel de cargo', 'Escalones', 'Competencias específicas'],
+          NV.map(function(n){ return [n.nombre, n.escalones.join(' · '), M.especificas[n.nombre].map(function(e){ return e.nombre; }).join(' · ')]; }));
+        h += '<h3 class="m">Competencias genéricas · para todos los cargos</h3><p>' + md(sec.modelo.genericas) + '</p>' + grid(M.genericas.map(function(g){ return [g.nombre, g.definicion]; })) +
+          '<h3 class="m">Lo que exige cada genérica según el nivel de cargo</h3>' + tabla(['Competencia'].concat(NV.map(function(n){ return n.nombre; })),
+          M.genericas.map(function(g){ return [g.nombre].concat(NV.map(function(n){ return g.por_nivel[n.nombre]; })); }));
+        h += '<h3 class="m">Competencias específicas · por nivel de cargo</h3><p>' + md(sec.modelo.especificas) + '</p>' +
+          NV.map(function(n){ return '<div class="gu-tramo"><div class="gu-tramo-t"><b>' + esc(n.nombre) + '</b><span>' + esc(n.escalones.join(' · ')) + '</span></div>' +
+            grid(M.especificas[n.nombre].map(function(e){ return [e.nombre, e.definicion + ' **Lo que se espera:** ' + e.espera]; })) + '</div>'; }).join('');
+        h += '<h3 class="m">Escala para evaluar a una persona</h3><p>' + md(sec.modelo.escala) + '</p>' + tabla(['Grado', 'Qué significa'], M.escala_evaluacion);
+      }
+      if (sec.tabla) h += tabla(sec.tabla.cols, sec.tabla.filas);
+      if (sec.pasos) h += '<ol class="gu-pasos">' + sec.pasos.map(function(p){ return '<li><b>' + esc(p[0]) + '</b>' + md(p[1]) + '</li>'; }).join('') + '</ol>';
+      if (sec.nota) h += '<p class="gu-nota">' + md(sec.nota) + '</p>';
+      h += '</section>';
     });
     return h + '</div>';
   }
@@ -915,13 +1187,34 @@ h3.m{font-size:.8rem;text-transform:uppercase;letter-spacing:.1em;color:var(--mu
     }
     return h + '</div>';
   }
-  function procs(rs){
-    return '<div class="procs">' + rs.map(function(g){
-      return '<section class="proc' + (g.proceso ? '' : ' otras') + '"><header><div><span>' + (g.proceso ? 'Asociadas al proceso de' : 'Responsabilidades') + '</span><h4>' + esc(g.proceso || g.titulo) + '</h4></div><em>' + g.items.length + '</em></header><ul>' +
-        g.items.map(function(i){ return '<li>' + esc(i) + '</li>'; }).join('') + '</ul></section>';
+  function procs(rs, pre){
+    return '<div class="procs">' + rs.map(function(g, k){
+      return '<section class="proc' + (g.proceso ? '' : ' otras') + '"' + (pre ? ' id="' + pre + k + '"' : '') + ' style="--sh:' + tono(k) + ';--shf:' + (k < 2 ? 'var(--surface)' : 'var(--acc)') + '"><header><div><span>' + (g.proceso ? 'Asociadas al proceso de' : 'Responsabilidades') + '</span><h4>' + esc(g.proceso || g.titulo) + '</h4></div><em>' + g.items.length + '</em></header><ul>' +
+        g.items.map(function(i){ return '<li>' + esc(i).replace(/^(\S+)/, '<b class="vb">$1</b>') + '</li>'; }).join('') + '</ul></section>';
     }).join('') + '</div>';
   }
-  function nivel(n){ var h = '<span class="nivel" title="Nivel exigido: ' + n + ' de 4">'; for (var i = 1; i <= 4; i++) h += '<i class="' + (i <= n ? 'on' : '') + '"></i>'; return h + '</span>'; }
+  // Tono de cada proceso: el color de la sección, cada vez más claro
+  function tono(k){ return 'color-mix(in srgb,var(--acc) ' + [100, 78, 60, 46, 34, 24, 16][k % 7] + '%,var(--surface))'; }
+  // Reparto de las responsabilidades por proceso: barra apilada con su leyenda (cada tramo enlaza a su proceso)
+  function reparto(rs, pre){
+    var tot = rs.reduce(function(a, g){ return a + g.items.length; }, 0);
+    return '<div class="rep"><div class="rep-bar" role="img" aria-label="Reparto de las responsabilidades por proceso">' + rs.map(function(g, k){
+      return '<a href="#' + pre + k + '" style="flex:' + g.items.length + ';background:' + tono(k) + '" title="' + esc((g.proceso || g.titulo) + ': ' + g.items.length) + '"></a>'; }).join('') + '</div>' +
+      '<ul class="rep-ley">' + rs.map(function(g, k){ return '<li><a href="#' + pre + k + '"><i style="background:' + tono(k) + '"></i>' + esc(g.proceso || g.titulo) +
+        '<b>' + Math.round(g.items.length / tot * 100) + ' %</b></a></li>'; }).join('') + '</ul></div>';
+  }
+  // Competencias de la Sección III: nombre y lo que exige el nivel de cargo; la definición va en el title
+  function comps(l, cls){ return '<div class="comps' + (cls ? ' ' + cls : '') + '">' + l.map(function(x){ var ic = ICOMP[x[0]];
+    return '<div title="' + esc(x[2]) + '">' + (ic ? '<i class="cic" aria-hidden="true">' + ic + '</i>' : '') + '<div><b>' + esc(x[0]) + '</b><span>' + esc(x[1]) + '</span></div></div>'; }).join('') + '</div>'; }
+  var ICOMP = { 'Orientación al Cliente y al Servicio': '🤝', 'Orientación a Resultados y Calidad': '🎯', 'Alfabetización y Adopción de Inteligencia Artificial': '✨',
+    'Colaboración y Trabajo en Equipo Multipaís': '🌎', 'Compromiso Organizacional': '🛡️', 'Adaptabilidad y Aprendizaje Continuo': '🔄' };
+  // Los cuatro niveles de cargo de abajo arriba, con el del cargo resaltado
+  function escaleraNiveles(nv, escalon){
+    return '<div class="nvl" role="img" aria-label="Nivel de cargo: ' + esc(nv) + '">' + M.niveles_cargo.slice().reverse().map(function(n, k){
+      var yo = n.nombre === nv;
+      return '<div class="nvl-p' + (yo ? ' yo' : '') + '" style="--k:' + (k + 1) + '">' + (yo ? '<em>' + esc(escalon) + '</em>' : '') +
+        '<b>' + esc(n.nombre) + '</b><small>' + esc(n.escalones.join(' · ')) + '</small></div>'; }).join('') + '</div>';
+  }
   function factor(nombre, valor){
     var g = GRADOS[nombre];
     if (!g) return '<div class="factor"><small>' + esc(nombre) + '</small><b class="sino' + (valor === 'Sí' ? ' si' : '') + '"><i></i>' + esc(valor) + '</b></div>';
@@ -933,7 +1226,7 @@ h3.m{font-size:.8rem;text-transform:uppercase;letter-spacing:.1em;color:var(--mu
   function cargo(id){
     var c = D.descripciones[id]; if (!c) return '<p>No existe esa descripción.</p>';
     var hermanos = D.familias.filter(function(f){ return f.piloto; })[0];
-    var compartida = c.matices && c.matices.length, co = c.competencias, t = c.tecnicas;
+    var compartida = c.matices && c.matices.length, nv = M.escalones[c.escalon], t = c.tecnicas;
     var SECS = [['s1', 'I', 'Información del cargo'], ['s2', 'II', 'Responsabilidades'], ['s3', 'III', 'Competencias y perfil'], ['s4', 'IV', 'Información importante'], ['s5', 'V', 'Riesgos laborales'], ['s6', '✎', 'Control y notas']];
     var h = '<div class="ficha"><nav class="riel" id="riel"><a class="volver" href="#/descripciones">← Todas las familias</a>' +
       SECS.map(function(s){ return '<a class="s" href="#' + s[0] + '" data-s="' + s[0] + '"><b>' + s[1] + '</b>' + s[2] + '</a>'; }).join('') +
@@ -942,37 +1235,38 @@ h3.m{font-size:.8rem;text-transform:uppercase;letter-spacing:.1em;color:var(--mu
 
     h += '<header class="cab"><div class="k">Descripción de Cargo/Rol <span class="badge">' + esc(M.estado) + '</span></div><h1>' + esc(c.denominacion) + '</h1><div class="datos">' +
       '<div class="dato"><small>Unidad</small><b>' + esc(c.unidad) + '</b></div><div class="dato"><small>Reporta a</small><b>' + esc(c.reporta_a) + '</b></div>' +
-      '<div class="dato"><small>Código</small><b>' + esc(c.codigo || 'Por definir') + ' · V5 ' + esc(c.codigos_v5.length > 3 ? c.codigos_v5.length + ' códigos' : c.codigos_v5.join(' · ')) + '</b></div>' +
+      '<div class="dato"><small>Escalón</small><b>' + esc((c.escalon || '—') + (c.apellido ? ' · apellido ' + c.apellido.toLowerCase() : '')) + '</b></div>' +
+      '<div class="dato"><small>Código</small><b>' + esc(c.codigo || 'Por definir') + '</b></div>' +
       '<div class="dato"><small>Situación</small><b>' + esc(c.situacion) + '</b></div></div><p class="objetivo">' + esc(c.objetivo) + '</p></header>';
 
-    h += '<section class="bloque" id="s1"><h2><b>I</b>Información del cargo/rol</h2><p class="sub">Posición en la organización y líneas de reporte.</p>';
+    h += '<section class="bloque" id="s1" data-n="I"><h2><b>I</b>Información del cargo/rol</h2><p class="sub">Posición en la organización y líneas de reporte.</p>';
     if (compartida) c.matices.forEach(function(m){ h += org(m.reporta_a, c.denominacion, c.supervisa_a, m.unidad); });
     else h += org(c.reporta_a, c.denominacion, c.supervisa_a);
     h += '<p style="text-align:center;color:var(--muted);font-size:.9rem;margin:10px 0 0">Supervisa a: ' + (c.supervisa_a.length ? esc(c.supervisa_a.join(' · ')) : 'no aplica') + '</p></section>';
 
     var nItems = c.responsabilidades.reduce(function(a, g){ return a + g.items.length; }, 0);
-    h += '<section class="bloque" id="s2"><h2><b>II</b>Responsabilidad por procesos</h2><p class="sub">' + nItems + ' responsabilidades' + (compartida ? ' comunes' : '') + ', agrupadas por el proceso del manual To-Be al que pertenecen.</p>' + procs(c.responsabilidades);
+    h += '<section class="bloque" id="s2" data-n="II"><h2><b>II</b>Responsabilidad por procesos</h2><p class="sub">' + nItems + ' responsabilidades' + (compartida ? ' comunes' : '') + ', agrupadas por el proceso del manual To-Be al que pertenecen.</p>' + reparto(c.responsabilidades, 'pr-') + procs(c.responsabilidades, 'pr-');
     if (compartida) c.matices.forEach(function(m){ h += '<div class="matiz"><h3>Matices de ' + esc(m.unidad) + ' <span class="badge pend">' + esc(m.codigos_v5.join(' · ')) + '</span></h3>' + procs(m.responsabilidades) + '</div>'; });
     h += '<p class="clausula">' + esc(M.clausula) + '</p></section>';
 
-    h += '<section class="bloque" id="s3"><h2><b>III</b>Perfil de competencias exigidas</h2><p class="sub">Propuesta de diccionario de la Fase 3 · tramo ' + esc(co.tramo) + '.</p>' +
-      '<h3 class="m">Competencias genéricas · nivel exigido ' + nivel(co.nivel.genericas) + '</h3><div class="chips">' + M.genericas.map(function(g){ return '<span class="chip">' + esc(g) + '</span>'; }).join('') + '</div>' +
-      '<h3 class="m">Competencias del cargo/rol · nivel exigido ' + nivel(co.nivel.del_cargo) + '</h3><div class="chips">' + co.del_cargo.map(function(g){ return '<span class="chip alt">' + esc(g) + '</span>'; }).join('') + '</div>' +
-      '<h3 class="m">Competencias técnicas</h3><div class="perfil"><div class="tarjeta"><small>🎓 Formación</small><p>' + esc(t.formacion) + '</p></div><div class="tarjeta"><small>⏱ Experiencia</small><p>' + esc(t.experiencia) + '</p></div></div>' +
-      '<h3 class="m">Habilidades y destrezas</h3><ul class="lista2">' + t.habilidades.map(function(x){ return '<li>' + esc(x) + '</li>'; }).join('') + '</ul></section>';
+    h += '<section class="bloque" id="s3" data-n="III"><h2><b>III</b>Perfil de competencias exigidas</h2><p class="sub">Escalón ' + esc(c.escalon || '—') + ' · nivel de cargo «' + esc(nv) + '» · diccionario de competencias de la Fase 3.</p>' + escaleraNiveles(nv, c.escalon) +
+      '<h3 class="m">Competencias genéricas · lo que exige su nivel de cargo</h3>' + comps(M.genericas.map(function(g){ return [g.nombre, g.por_nivel[nv], g.definicion]; }), 'gen') +
+      '<h3 class="m">Competencias específicas del nivel de cargo</h3>' + comps(M.especificas[nv].map(function(g){ return [g.nombre, g.espera, g.definicion]; }), 'esp') +
+      '<h3 class="m">Competencias técnicas</h3><div class="perfil"><div class="tarjeta tec"><i aria-hidden="true">🎓</i><div><small>Formación</small><p>' + esc(t.formacion) + '</p></div></div><div class="tarjeta tec"><i aria-hidden="true">⏱</i><div><small>Experiencia</small><p>' + esc(t.experiencia) + '</p></div></div></div>' +
+      '<h3 class="m">Habilidades y destrezas</h3><ul class="lista2 habs">' + t.habilidades.map(function(x){ return '<li>' + esc(x) + '</li>'; }).join('') + '</ul></section>';
 
-    h += '<section class="bloque" id="s4"><h2><b>IV</b>Información importante a considerar</h2><p class="sub">Responsabilidades específicas: dónde cae el cargo en cada factor.</p><div class="factores">' +
+    h += '<section class="bloque" id="s4" data-n="IV"><h2><b>IV</b>Información importante a considerar</h2><p class="sub">Responsabilidades específicas: dónde cae el cargo en cada factor.</p><div class="factores">' +
       M.factores.map(function(f){ return factor(f, c.especificas[f]); }).join('') + '</div>' +
       '<div class="rel" style="margin-top:6px"><div><h3 class="m">Relaciones internas</h3><ul class="lista2" style="grid-template-columns:1fr">' + c.relaciones.internas.map(function(x){ return '<li>' + esc(x) + '</li>'; }).join('') + '</ul></div>' +
       '<div><h3 class="m">Relaciones externas</h3><ul class="lista2" style="grid-template-columns:1fr">' + c.relaciones.externas.map(function(x){ return '<li>' + esc(x) + '</li>'; }).join('') + '</ul></div>' +
       '<div><h3 class="m">Marco normativo</h3><ul class="lista2" style="grid-template-columns:1fr">' + c.marco_normativo.map(function(x){ return '<li>' + esc(x) + '</li>'; }).join('') + '</ul></div></div></section>';
 
-    h += '<section class="bloque" id="s5"><h2><b>V</b>Riesgos laborales asociados</h2><p class="sub">' + esc(M.intro_riesgos) + '</p><div class="riesgos">' +
+    h += '<section class="bloque" id="s5" data-n="V"><h2><b>V</b>Riesgos laborales asociados</h2><p class="sub">' + esc(M.intro_riesgos) + '</p><div class="riesgos">' +
       M.riesgos.map(function(r){ var on = !!c.riesgos_laborales[r]; return '<div class="rg' + (on ? ' on' : '') + '"><div class="ic" aria-hidden="true">' + ICONO[r] + '</div><b>' + esc(r) + '</b><span>' + (on ? 'Aplica' : 'No aplica') + '</span></div>'; }).join('') + '</div><div class="rgdet">' +
       M.riesgos.filter(function(r){ return c.riesgos_laborales[r]; }).map(function(r){ return '<div><b>' + esc(r) + ':</b> ' + esc(c.riesgos_laborales[r]) + '</div>'; }).join('') + '</div>' +
       (c.riesgos_nota ? '<p style="color:var(--muted);font-size:.86rem;margin:10px 0 0">' + esc(c.riesgos_nota) + '</p>' : '') + '</section>';
 
-    h += '<section class="bloque" id="s6"><h2><b>✎</b>Control del documento</h2><p class="sub">Se completa en la validación.</p><div class="control">' +
+    h += '<section class="bloque" id="s6" data-n="✎"><h2><b>✎</b>Control del documento</h2><p class="sub">Se completa en la validación.</p><div class="control">' +
       ['Elaborado por', 'Revisado por', 'Aprobado por'].map(function(x){ return '<div><small>' + x + '</small><span>Pendiente de validación</span></div>'; }).join('') + '</div>' +
       (c.notas && c.notas.length ? '<div class="notas"><h3>Notas para la validación del equipo</h3><ul>' + c.notas.map(function(n){ return '<li>' + esc(n) + '</li>'; }).join('') + '</ul></div>' : '') + '</section>';
     return h + '</div></div>';
@@ -983,14 +1277,17 @@ h3.m{font-size:.8rem;text-transform:uppercase;letter-spacing:.1em;color:var(--mu
     ['equivalencias', 'Equivalencias con los marcos'], ['reglas', 'Reglas de diseño'], ['decisiones', 'Decisiones abiertas'], ['referencias', 'Referencias']];
   function armarIndice(){
     var piloto = D.familias.filter(function(f){ return f.piloto; })[0];
+    $('#ixGuia').innerHTML = G.secciones.map(function(s){ return '<a href="#/guia/' + s.id + '" data-a="g-' + s.id + '">' + esc(s.titulo) + '</a>'; }).join('');
     $('#ixPatron').innerHTML = PATRON_SECS.map(function(s){ return '<a href="#/patron/' + s[0] + '" data-a="' + s[0] + '">' + s[1] + '</a>'; }).join('');
     $('#ixDesc').innerHTML = '<a href="#/descripciones" data-a="familias">Familias de cargos</a>' + (piloto ? piloto.cargos.map(function(n){ var i = POR_NOMBRE[n];
       return i ? '<a href="#/c/' + i + '" data-c="' + i + '">' + esc(n) + '</a>' : ''; }).join('') : '');
   }
   function marcarIndice(vista, id){
-    document.querySelectorAll('.ix-p').forEach(function(a){ a.classList.toggle('on', a.dataset.v === (vista === 'patron' ? 'patron' : 'desc')); });
-    $('#ixPatron').classList.toggle('abierto', vista === 'patron');
-    $('#ixDesc').classList.toggle('abierto', vista !== 'patron');
+    var grupo = vista === 'cargo' ? 'desc' : vista;
+    document.querySelectorAll('.ix-p').forEach(function(a){ a.classList.toggle('on', a.dataset.v === grupo); });
+    $('#ixGuia').classList.toggle('abierto', grupo === 'guia');
+    $('#ixPatron').classList.toggle('abierto', grupo === 'patron');
+    $('#ixDesc').classList.toggle('abierto', grupo === 'desc');
     document.querySelectorAll('#ixDesc a').forEach(function(a){ a.classList.toggle('on', vista === 'cargo' ? a.dataset.c === id : a.dataset.a === 'familias'); });
   }
   function irA(id){
@@ -1005,38 +1302,56 @@ h3.m{font-size:.8rem;text-transform:uppercase;letter-spacing:.1em;color:var(--mu
     if (vista === 'cargo'){
       espia = new IntersectionObserver(function(es){ es.forEach(function(e){ if (e.isIntersecting) document.querySelectorAll('#riel a.s').forEach(function(a){ a.classList.toggle('on', a.dataset.s === e.target.id); }); }); }, { rootMargin: '-30% 0px -60% 0px' });
       document.querySelectorAll('.bloque').forEach(function(b){ espia.observe(b); });
+    } else if (vista === 'guia'){
+      espia = new IntersectionObserver(function(es){ es.forEach(function(e){ if (e.isIntersecting) document.querySelectorAll('#ixGuia a').forEach(function(a){ a.classList.toggle('on', a.dataset.a === e.target.id); }); }); }, { rootMargin: '-20% 0px -70% 0px' });
+      document.querySelectorAll('.gu section.bloque[id]').forEach(function(b){ espia.observe(b); });
     } else if (vista === 'patron'){
       espia = new IntersectionObserver(function(es){ es.forEach(function(e){ if (e.isIntersecting) document.querySelectorAll('#ixPatron a').forEach(function(a){ a.classList.toggle('on', a.dataset.a === e.target.id); }); }); }, { rootMargin: '-20% 0px -70% 0px' });
       document.querySelectorAll('.ep section.blk[id]').forEach(function(b){ espia.observe(b); });
     } else {
       var q = $('#buscar');
+      document.querySelectorAll('.vistas button').forEach(function(b){ b.addEventListener('click', function(){
+        var v = b.dataset.vista; try { localStorage.setItem('rower.fase3.familias.vista', v); } catch (e) {}
+        $('#fams').classList.toggle('lista', v === 'lista');
+        document.querySelectorAll('.vistas button').forEach(function(x){ x.setAttribute('aria-pressed', String(x === b)); });
+      }); });
+      // en la lista, cada familia se pliega y se despliega al tocar su fila; abiertas solo en esta visita
+      document.querySelectorAll('.famc .fc-h').forEach(function(hd){ hd.addEventListener('click', function(ev){
+        if (!$('#fams').classList.contains('lista') || ev.target.closest('a')) return;
+        var art = hd.parentNode, ab = !art.classList.contains('abierta');
+        art.classList.toggle('abierta', ab); hd.querySelector('.fc-tog').setAttribute('aria-expanded', String(ab));
+      }); });
+      // al buscar, la lista muestra los cargos de las familias que coinciden
       if (q) q.addEventListener('input', function(){ var v = q.value.trim().toLowerCase();
+        $('#fams').classList.toggle('busca', !!v);
         document.querySelectorAll('.famc').forEach(function(f){ f.style.display = !v || f.dataset.q.indexOf(v) >= 0 ? '' : 'none'; }); });
     }
   }
   function router(){
     var r = (location.hash || '#/').replace(/^#/, '');
     if (r.charAt(0) !== '/') return;   // anclas sueltas: no rehacer la vista
-    var m = r.match(/^\/c\/([\w-]+)/), pa = r.match(/^\/patron\/([\w-]+)/);
-    var vista = m ? 'cargo' : /^\/descripciones/.test(r) ? 'desc' : 'patron';
+    var m = r.match(/^\/c\/([\w-]+)(?:\/(s\d))?/), pa = r.match(/^\/patron\/([\w-]+)/), gu = r.match(/^\/guia\/([\w-]+)/);
+    var vista = m ? 'cargo' : /^\/descripciones/.test(r) ? 'desc' : /^\/patron/.test(r) ? 'patron' : 'guia';
     var clave = vista + (m ? ':' + m[1] : '');
     if (clave !== VISTA){
-      $('#vista').innerHTML = vista === 'cargo' ? cargo(m[1]) : vista === 'desc' ? inicio() : $('#tplPatron').innerHTML;
+      $('#vista').innerHTML = vista === 'cargo' ? cargo(m[1]) : vista === 'desc' ? inicio() : vista === 'patron' ? $('#tplPatron').innerHTML : guia();
       VISTA = clave;
-      if (!pa) window.scrollTo(0, 0);
+      if (!pa && !gu && !(m && m[2])) window.scrollTo(0, 0);
       montar(vista);
     }
     marcarIndice(vista, m && m[1]);
     $('#btnImprimir').hidden = vista !== 'cargo';
-    document.title = (vista === 'cargo' && D.descripciones[m[1]] ? D.descripciones[m[1]].denominacion + ' — Descripciones de cargo' : vista === 'desc' ? 'Descripciones de cargo' : 'Estructura patrón de cargos') + ' — Fase 3 | Proyecto Rower';
+    document.title = (vista === 'cargo' && D.descripciones[m[1]] ? D.descripciones[m[1]].denominacion + ' — Descripciones de cargo' : vista === 'desc' ? 'Descripciones de cargo' : vista === 'patron' ? 'Estructura patrón de cargos' : G.titulo) + ' — Fase 3 | Proyecto Rower';
     if (pa) setTimeout(function(){ irA(pa[1]); }, 40);
+    if (gu) setTimeout(function(){ irA('g-' + gu[1]); }, 40);
+    if (m && m[2]) setTimeout(function(){ irA(m[2]); }, 40);
   }
   // Enlaces a #<id> dentro de la vista: se desplazan sin tocar la ruta del hash.
   // Un enlace del índice a la sección en la que ya se está tampoco cambia el hash: se desplaza.
   document.addEventListener('click', function(e){
     var a = e.target.closest ? e.target.closest('a[href^="#"]') : null; if (!a) return;
-    var h = a.getAttribute('href'), pa = h.match(/^#\/patron\/([\w-]+)$/);
-    if (pa && h === location.hash){ e.preventDefault(); irA(pa[1]); return; }
+    var h = a.getAttribute('href'), pa = h.match(/^#\/(patron|guia)\/([\w-]+)$/);
+    if (pa && h === location.hash){ e.preventDefault(); irA((pa[1] === 'guia' ? 'g-' : '') + pa[2]); return; }
     if (h.charAt(1) === '/' || !document.getElementById(h.slice(1))) return;
     e.preventDefault(); irA(h.slice(1));
   });
