@@ -446,7 +446,7 @@ window.ESTRUCTURA_TOBE = {
          ],
          hijos:[
            // sobre la línea que baja de Ventas a sus canales: puede apoyar a cualquiera de los cuatro
-           {id:'plandemanda', n:'Planificación de la Demanda y Nuevos Mercados', nivel:'ccorp', etiqueta:'Apoyo a Ventas', enLinea:true,
+           {id:'plandemanda', n:'Planificación de la Demanda y Nuevos Mercados', nivel:'ccorp', enLinea:true,
             sub:'Cubitt; la demanda de Casio la planifica Brand Management',
             ocupante:{nombre:'Ricardo Baltodano', estado:'propuesto', nota:'Hoy es el gerente regional de Cubitt en Panamá, dentro del equipo de Ventas al Mayor: lleva los datos comerciales de la marca y planifica la venta al mayor. En la reunión con la Presidencia del 16-oct-2026 se planteó que esta es la posición que le corresponde.'},
             funciones:[
@@ -457,9 +457,9 @@ window.ESTRUCTURA_TOBE = {
               'Apoya a cualquiera de los cuatro canales de Ventas sin dirigir a ninguno.'
             ],
             decisiones:[
-              'Si la planificación de la demanda y los mercados nuevos van en una sola unidad o en dos, y el nivel del cargo, que se fija en la descripción de cargos.'
+              'Si la planificación de la demanda y los mercados nuevos van en una sola unidad o en dos.'
             ],
-            nota:'Acordada en la reunión con la Presidencia del 16-oct-2026, con nombre provisional. En la reunión del 04-nov-2026 se confirmó una por marca: Ricardo Baltodano para Cubitt y Félix Almendral para Casio. Desde el 10-nov-2026 la demanda de Casio la planifica Félix Almendral desde Brand Management, gerencia corporativa de Comercial, y esta unidad queda con Cubitt, los mercados nuevos y el plan consolidado. Va sobre la línea que baja de la gerencia corporativa de Ventas a sus canales, como la Consultoría Jurídica sobre la de la Presidencia: le reporta directo y puede apoyar a los cuatro. Falta decidir si la planificación de la demanda y los mercados nuevos quedan en una sola unidad o en dos, y el nivel del cargo, que se fija en la descripción de cargos.'},
+            nota:'Acordada en la reunión con la Presidencia del 16-oct-2026, con nombre provisional. En la reunión del 04-nov-2026 se confirmó una por marca: Ricardo Baltodano para Cubitt y Félix Almendral para Casio. Desde el 10-nov-2026 la demanda de Casio la planifica Félix Almendral desde Brand Management, gerencia corporativa de Comercial, y esta unidad queda con Cubitt, los mercados nuevos y el plan consolidado. Va sobre la línea que baja de la gerencia corporativa de Ventas a sus canales, como la Consultoría Jurídica sobre la de la Presidencia: le reporta directo y puede apoyar a los cuatro. Desde el 11-nov-2026 es una coordinación corporativa: hasta entonces se dibujaba como «Apoyo a Ventas», con el nivel del cargo por fijar. Falta decidir si la planificación de la demanda y los mercados nuevos quedan en una sola unidad o en dos.'},
            {id:'mayorcorp', n:'Ventas al Mayor', nivel:'gun',
             ocupante:{nombre:'Por definir', estado:'pordefinir', nota:'Gerente regional de ventas al mayor de todos los países: hoy la posición no existe.'},
             funciones:[

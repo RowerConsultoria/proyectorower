@@ -171,11 +171,12 @@
   }
 
   // Unidades que cuelgan de la línea que baja de una dirección o de una gerencia
-  // corporativa abierta en ramas (enLinea), a un costado
+  // corporativa abierta en ramas (enLinea), a un costado. Una coordinación corporativa en línea
+  // (Planificación de la Demanda, sobre la línea de Ventas) lleva el borde de su nivel.
   function lateral(dr){ return (dr.hijos || []).filter(function(h){ return h.enLinea; }); }
   function enLineaDir(dr){
     var hs = lateral(dr);
-    return hs.length ? '<div class="eo-dirlinea">' + hs.map(function(h){ return caja(h, "eo-c-n2", tagNivel(h)); }).join("") + '</div>' : '';
+    return hs.length ? '<div class="eo-dirlinea">' + hs.map(function(h){ return caja(h, "eo-c-n2" + (h.nivel === "ccorp" ? " eo-c-ccorpl" : ""), tagNivel(h)); }).join("") + '</div>' : '';
   }
 
   // ------------------------------------------------------------------ cajas

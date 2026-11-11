@@ -41,7 +41,7 @@ window.MODELOS_GERENCIAS = {
  premisa:'Cada gerencia país de Ventas tiene una sola línea: la de la gerencia de su canal. El país se coordina en una mesa, no con una segunda línea.',
  dilema:'Una gerencia país de Retail, de E-commerce o de Postventa responde a su canal, pero comparte país, bodega y clientes con los otros tres canales. Si además se define una cabeza país, cada gerente país tendría dos jefes: el del canal y el del país.',
  resuelve:'El canal manda y el país se coordina. La gerencia corporativa de Ventas arbitra entre canales; la cabeza país, si se define, preside la mesa del país y no dirige la venta.',
- mando:{hub:'Gerencia corporativa de Ventas', lado:'Planificación de la Demanda y Nuevos Mercados', ladoEti:'Sobre la línea · una por marca · apoya a los cuatro',
+ mando:{hub:'Gerencia corporativa de Ventas', lado:'Planificación de la Demanda y Nuevos Mercados', ladoEti:'Coordinación corporativa sobre la línea · apoya a los cuatro',
    nodosEti:'Gerencia de unidad de negocio',
    nodos:[{t:'Ventas al Mayor',s:'un gerente regional para las dos marcas',pais:{t:'Ventas al Mayor',p:'PA · VE · CO'}},
           {t:'Retail',s:'línea de las tiendas',pais:{t:'Retail · tiendas',p:'PA · VE · CO · OT'}},
@@ -77,7 +77,7 @@ window.MODELOS_GERENCIAS = {
    ['Estructura y personal del equipo país','','N','','D'],
    ['Garantías y devoluciones dentro de la política','','N','','D · E'],
    ['Montaje del visual en tienda (lo hace Mercadeo, con el estándar de Visual Merchandising)','','C','','C']]},
- decidir:['Si cada país tiene una cabeza país o una dirección general, y qué papel tiene en la mesa del país. Está en las decisiones pendientes de la estructura (1.2).','Si Planificación de la Demanda y Nuevos Mercados queda en una sola unidad o en dos, y su nivel.','Con qué frecuencia se reúne la mesa del país y quién la convoca mientras no haya cabeza país.','El gerente regional de Ventas al Mayor: dejar la posición en espera, buscarlo o cubrirla con alguien del grupo. Está en las decisiones pendientes de la estructura (1.2).','Dónde queda el visual merchandising: se dibuja en Mercadeo, como servicio a Retail y a Ventas al Mayor, pero podría ir en Retail. Está en las decisiones pendientes de la estructura (1.2).']},
+ decidir:['Si cada país tiene una cabeza país o una dirección general, y qué papel tiene en la mesa del país. Está en las decisiones pendientes de la estructura (1.2).','Si Planificación de la Demanda y Nuevos Mercados queda en una sola unidad o en dos.','Con qué frecuencia se reúne la mesa del país y quién la convoca mientras no haya cabeza país.','El gerente regional de Ventas al Mayor: dejar la posición en espera, buscarlo o cubrirla con alguien del grupo. Está en las decisiones pendientes de la estructura (1.2).','Dónde queda el visual merchandising: se dibuja en Mercadeo, como servicio a Retail y a Ventas al Mayor, pero podría ir en Retail. Está en las decisiones pendientes de la estructura (1.2).']},
 
 {id:'operaciones', unidad:'oplcorp', n:'Operaciones y Logística', dir:'Compras y Cadena de Suministro', red:'Centro y bodegas país', capa:'Sí: Operaciones y Logística en PA · VE · CO · US, con Servicios Generales dentro. Arriba, una coordinación corporativa: Despacho',
  riesgo:'Todos le piden a la bodega del país todos los días: los cuatro canales, Finanzas, Compras Internas y la PMO.',
