@@ -24,8 +24,8 @@
    gerencia corporativa, pero es la pieza nueva de la red de marca); Mercadeo se rehace
    sobre su estructura nueva, y los demás se ajustan a Ventas al Mayor regional, E-commerce
    y Growth, Planificación, Despacho e Inventarios y Compras Internas por país.
-   Revisión del 11-nov-2026: Diseño y Marca se queda con Marca y Creatividad y sus dos
-   coordinaciones (Creatividad y Dirección de Arte); el diseño de producto pasa a Desarrollo
+   Revisión del 11-nov-2026: Diseño y Marca se queda con dos coordinaciones corporativas
+   que le reportan directo (Creatividad y Dirección de Arte); el diseño de producto pasa a Desarrollo
    y Calidad de Productos, la producción y los espacios a Visual Merchandising, y la
    coordinación de Inventario y Precios a Planificación, Despacho e Inventarios.
 
@@ -372,7 +372,7 @@ window.MODELOS_GERENCIAS = {
  premisa:'Diseño y Marca decide cómo se ve, cómo se siente y cómo se usa la marca. Los demás le piden por brief y por una sola vía; nadie cambia una pieza ni el sistema de marca por su cuenta.',
  dilema:'Desde el 11-nov-2026 la dirección se concentra en la marca y la creatividad: el diseño de producto quedó en Desarrollo y Calidad de Productos y la producción y los espacios en Visual Merchandising. La marca sigue siendo de todos: si cada uno de ellos interpreta el sistema de marca a su manera, el grupo vuelve a verse distinto en cada producto, tienda y campaña.',
  resuelve:'Una sola vía de pedido, por brief, con un calendario común y una revisión mensual de capacidad. Un solo aprobador de negocio por proyecto, definido en el brief, y Diseño y Marca aprueba la calidad. El sistema de marca es la norma a la que se ajustan el diseño de producto y lo que se monta en el punto de venta.',
- mando:{hub:'Dirección de Diseño y Marca · Marca y Creatividad',
+ mando:{hub:'Dirección de Diseño y Marca',
    nodosEti:'Coordinación corporativa',
    nodos:[{t:'Creatividad',s:'concepto, copy, key visual y piezas'},{t:'Dirección de Arte',s:'expresión visual de cada concepto'}]},
  conex:[
@@ -400,6 +400,6 @@ window.MODELOS_GERENCIAS = {
    ['Diseño de producto y empaque','N','C','D · E',''],
    ['Estándares de exhibición, POP y producción','N','C','','D · E'],
    ['Prioridad cuando no alcanza la capacidad (decide la Dirección)','C','C','','']]},
- decidir:['Qué parte del equipo creativo actual pasa a la dirección. Está en las decisiones pendientes de la estructura (1.2).','Quién lleva la gerencia de Marca y Creatividad, por encima de sus dos coordinaciones. Está en las decisiones pendientes de la estructura (1.2).','Quién lleva la cola de pedidos creativos (proceso 16.3), que hoy ordena el coordinador de marca de cada país y en el To-Be es de esta dirección.','Qué disciplinas se cubren con personal interno y cuáles con freelancers o agencias.']}
+ decidir:['Qué parte del equipo creativo actual pasa a la dirección. Está en las decisiones pendientes de la estructura (1.2).','Quién lleva la cola de pedidos creativos (proceso 16.3), que hoy ordena el coordinador de marca de cada país y en el To-Be es de esta dirección.','Qué disciplinas se cubren con personal interno y cuáles con freelancers o agencias.']}
 ]
 };
