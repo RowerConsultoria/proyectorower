@@ -238,6 +238,8 @@ h3.m{font-size:.8rem;text-transform:uppercase;letter-spacing:.1em;color:var(--mu
 .ix-p:hover{background:var(--surface)}
 .ix-p.on{background:var(--surface);box-shadow:var(--shadow)}
 .ix-p.on b{background:var(--navy);color:var(--surface)}
+.ix-p::after{content:"";flex:none;width:7px;height:7px;margin:7px 4px 0 auto;border:solid var(--muted);border-width:0 2px 2px 0;transform:rotate(-45deg);transition:transform .15s}
+.ix-p.abierto::after{transform:rotate(45deg);margin-top:5px}
 .ix-sub{display:none;flex-direction:column;margin:4px 0 10px 22px;border-left:1px solid var(--line)}
 .ix-sub.abierto{display:flex}
 .ix-sub a{padding:5px 12px;font-size:.84rem;color:var(--muted);text-decoration:none;margin-left:-1px;border-left:2px solid transparent;line-height:1.35}
@@ -282,6 +284,92 @@ h3.m{font-size:.8rem;text-transform:uppercase;letter-spacing:.1em;color:var(--mu
 .gu-pasos li{counter-increment:paso;border:1px solid var(--line);border-radius:12px;padding:12px 14px 12px 50px;background:var(--surface2);position:relative;font-size:.92rem}
 .gu-pasos li::before{content:counter(paso);position:absolute;left:14px;top:12px;width:26px;height:26px;border-radius:50%;background:var(--chip);color:var(--chipfg);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.8rem}
 .gu-pasos b{display:block;margin-bottom:3px}
+/* guía interactiva: mapa, secciones plegables, partes del formato, niveles, factores y riesgos */
+.gu-mapa{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(200px,100%),1fr));gap:10px;margin:-8px 0 4px}
+.gu-mapa a{display:flex;gap:12px;align-items:center;padding:12px 14px;border-radius:14px;text-decoration:none;color:var(--fg);font-weight:600;font-size:.88rem;line-height:1.3;
+  border:1px solid color-mix(in srgb,var(--acc) 26%,var(--line));background:linear-gradient(135deg,color-mix(in srgb,var(--acc) 11%,var(--surface)),var(--surface));transition:transform .15s ease,box-shadow .15s ease}
+.gu-mapa a:hover{transform:translateY(-2px);box-shadow:0 12px 22px -14px var(--acc)}
+.gu-mapa a b{flex:none;font-family:Georgia,"Times New Roman",serif;font-size:1.6rem;line-height:1;color:var(--acc)}
+.gu-barra{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin:14px 0 -4px;font-size:.86rem;color:var(--muted)}
+.gu-barra button,.gu-det-nav button{font:inherit;font-size:.84rem;font-weight:600;padding:7px 14px;border-radius:99px;border:1px solid var(--line);background:var(--surface);color:var(--fg);cursor:pointer}
+.gu-barra button:hover,.gu-det-nav button:hover:not(:disabled){border-color:var(--blue);color:var(--blue)}
+.gu-det-nav button:disabled{opacity:.4;cursor:default}
+.gu-sec>h2{margin:0}
+.gu-tog{all:unset;box-sizing:border-box;display:flex;align-items:center;gap:12px;width:100%;cursor:pointer;border-radius:10px}
+.gu-tog:focus-visible{outline:2px solid var(--blue);outline-offset:4px}
+.gu-tog>i{flex:none;margin-left:auto;width:9px;height:9px;border:solid var(--acc);border-width:0 2px 2px 0;transform:rotate(45deg);transition:transform .15s;margin-right:6px}
+.gu-sec.abierta .gu-tog>i{transform:rotate(-135deg)}
+.gu-sec:not(.abierta){padding-bottom:clamp(16px,2vw,22px)}
+.gu-cuerpo{margin-top:14px}
+.gu-pista{font-size:.84rem;color:var(--muted);margin:2px 0 4px!important}
+.gu-fases{list-style:none;margin:10px 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr));gap:14px;counter-reset:fase}
+.gu-fases li{counter-increment:fase;position:relative;border:1px solid color-mix(in srgb,var(--acc) 22%,var(--line));border-top:4px solid var(--acc);border-radius:8px 8px 14px 14px;padding:14px 16px;background:var(--surface2);font-size:.92rem}
+.gu-fases li b{display:block;margin-bottom:4px;color:var(--acc)}
+.gu-anat{display:grid;grid-template-columns:minmax(220px,270px) minmax(0,1fr);gap:16px;margin-top:12px;align-items:start}
+.gu-pag{display:flex;flex-direction:column;gap:6px;padding:16px 14px;border:1px solid var(--line);border-radius:4px 22px 14px 14px;background:var(--surface);box-shadow:var(--shadow);position:sticky;top:76px}
+.gu-pag::before{content:"Descripción de cargo";font-size:.68rem;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);margin:0 0 4px 4px}
+.gu-pag button{all:unset;box-sizing:border-box;display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:9px;border:1px dashed var(--line);font-size:.86rem;cursor:pointer;line-height:1.25}
+.gu-pag button b{flex:none;display:inline-flex;width:26px;height:26px;border-radius:7px;align-items:center;justify-content:center;background:var(--chip);color:var(--chipfg);font-size:.74rem}
+.gu-pag button:hover{border-color:color-mix(in srgb,var(--acc) 50%,var(--line))}
+.gu-pag button:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+.gu-pag button[aria-selected="true"]{border-style:solid;border-color:var(--acc);background:color-mix(in srgb,var(--acc) 10%,var(--surface));font-weight:600}
+.gu-pag button[aria-selected="true"] b{background:var(--acc);color:var(--surface)}
+.gu-det article{border:1px solid color-mix(in srgb,var(--acc) 24%,var(--line));border-radius:16px;padding:18px 20px;background:linear-gradient(180deg,color-mix(in srgb,var(--acc) 6%,var(--surface)),var(--surface) 120px)}
+.gu-det-t{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.gu-det-t b{flex:none;display:inline-flex;min-width:40px;height:40px;padding:0 8px;border-radius:12px;align-items:center;justify-content:center;background:var(--acc);color:var(--surface)}
+.gu-det-t h3{margin:0;font-size:1.08rem}
+.gu-det dl{margin:0;display:grid;grid-template-columns:130px minmax(0,1fr);gap:10px 16px}
+.gu-det dt{font-size:.72rem;text-transform:uppercase;letter-spacing:.09em;color:var(--muted);padding-top:3px}
+.gu-det dd{margin:0;font-size:.93rem}
+.gu-det dd a{display:inline-block;font-weight:600;text-decoration:none;padding:5px 12px;border-radius:99px;background:color-mix(in srgb,var(--acc) 12%,var(--surface));color:var(--acc)}
+.gu-det dd a::after{content:" →"}
+.gu-det-nav{display:flex;justify-content:space-between;gap:10px;margin-top:12px}
+.gu-nvl .nvl-p{font:inherit;text-align:left;cursor:pointer;transition:transform .15s ease}
+.gu-nvl .nvl-p:hover:not(.yo){transform:translateY(-3px)}
+.gu-nvl .nvl-p:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+.gu-nvp{margin-top:8px}
+.gu-nvp .comps span.esp-e{display:block;margin-top:6px;color:var(--fg)}
+.gu-mas{margin-top:14px;border:1px solid var(--line);border-radius:12px;background:var(--surface2)}
+.gu-mas>summary{cursor:pointer;padding:11px 14px;font-weight:600;font-size:.9rem;color:var(--acc)}
+.gu-mas>.gu-tabla{margin:0 12px 12px}
+.gu-exp{display:flex;flex-direction:column;gap:6px;margin-top:10px}
+.gu-exp>div{display:grid;grid-template-columns:minmax(150px,230px) minmax(0,1fr);gap:12px;align-items:center;font-size:.9rem}
+.gu-exp>div>b{font-weight:600}
+.gu-exp .bar{display:flex;align-items:center;gap:10px}
+.gu-exp .bar i{flex:none;height:22px;width:calc(6% + var(--k) * 5.5%);border-radius:6px;background:linear-gradient(90deg,color-mix(in srgb,var(--acc) 40%,var(--surface)),var(--acc));transition:filter .15s}
+.gu-exp>div:hover .bar i{filter:brightness(1.12)}
+.gu-exp .bar span{color:var(--muted);font-size:.86rem}
+.gu-fac{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:12px;margin-top:10px}
+.gu-fac article{border:1px solid color-mix(in srgb,var(--acc) 20%,var(--line));border-radius:14px;padding:14px 16px;background:var(--surface2)}
+.gu-fac h4{margin:0 0 4px;font-size:.98rem}
+.gu-fac p{font-size:.88rem;color:var(--muted);margin:0 0 10px!important}
+.gu-grados{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:4px}
+.gu-grados li{display:grid;grid-template-columns:64px minmax(0,1fr);gap:10px;align-items:center;font-size:.86rem;padding:3px 6px;border-radius:7px;cursor:default}
+.gu-grados li:hover{background:color-mix(in srgb,var(--acc) 10%,var(--surface))}
+.gu-grados .g{display:flex;gap:3px}
+.gu-grados .g i{flex:1;height:8px;border-radius:3px;background:color-mix(in srgb,var(--acc) 14%,var(--line))}
+.gu-grados .g i.on{background:var(--acc)}
+.gu-ries{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(250px,100%),1fr));gap:10px;margin-top:10px}
+.gu-ries>div{display:flex;gap:12px;align-items:flex-start;border:1px solid color-mix(in srgb,var(--acc) 20%,var(--line));border-radius:14px;padding:12px 14px;background:var(--surface2);transition:transform .15s ease}
+.gu-ries>div:hover{transform:translateY(-2px)}
+.gu-ries i{flex:none;width:40px;height:40px;border-radius:12px;display:inline-flex;align-items:center;justify-content:center;font-style:normal;font-size:1.2rem;background:color-mix(in srgb,var(--acc) 12%,var(--surface))}
+.gu-ries b{display:block;margin-bottom:2px}
+.gu-ries span{font-size:.88rem;color:var(--muted)}
+.gu-pasos li:not(:last-child)::after{content:"→";position:absolute;right:-9px;top:50%;transform:translateY(-50%);width:18px;height:18px;border-radius:50%;background:var(--surface);border:1px solid var(--line);
+  display:flex;align-items:center;justify-content:center;font-size:.7rem;color:var(--muted);z-index:1}
+.gu-buscar{width:100%;max-width:360px;font:inherit;font-size:.9rem;padding:8px 12px;border-radius:10px;border:1px solid var(--line);background:var(--surface);color:var(--fg);margin:2px 0 4px}
+.gu-vacio{color:var(--muted);font-size:.88rem}
+@media (max-width:760px){
+  .gu-anat{grid-template-columns:1fr}
+  .gu-pag{position:static;flex-direction:row;overflow-x:auto;padding:10px}
+  .gu-pag::before{display:none}
+  .gu-pag button{flex:none}
+  .gu-det dl{grid-template-columns:1fr;gap:2px}
+  .gu-det dd{margin-bottom:8px}
+  .gu-exp>div{grid-template-columns:1fr;gap:4px}
+  .gu-pasos li::after{display:none}
+}
+@media print{ .gu-cuerpo[hidden],.gu-det article[hidden],.gu-nvp[hidden]{display:block!important} .gu-mapa,.gu-barra,.gu-det-nav,.gu-pag,.gu-buscar{display:none!important} .gu-anat{display:block} }
 @media (max-width:640px){ .gu-ficha{grid-template-columns:1fr} .gu-ficha dl{grid-template-columns:1fr;gap:2px} .gu-ficha dd{margin-bottom:8px} }
 
 /* 1 · Estructura patrón de cargos (vino del artefacto «Escalones de la estructura patrón»; todo bajo .ep) */
@@ -1157,36 +1245,104 @@ h3.m{font-size:.8rem;text-transform:uppercase;letter-spacing:.1em;color:var(--mu
       '</tbody></table></div>';
   }
   function grid(pares){ return '<div class="gu-grid">' + pares.map(function(p){ return '<div><b>' + md(p[0]) + '</b><span>' + md(p[1]) + '</span></div>'; }).join('') + '</div>'; }
+  // Guía de lectura: secciones plegables (cerradas al entrar), mapa clicable y partes navegables
+  var GU_TONOS = ['--s1', '--s2', '--s3', '--s4', '--s5', '--s6'];
+  var IRIESGO = { 'Biológicos': '🦠', 'Físicos': '🔊', 'Químicos': '⚗️', 'Mecánicos': '⚙️', 'Psicosociales': '🧠', 'Disergonómicos': '🪑' };
+  function dos(n){ return (n < 10 ? '0' : '') + n; }
+  function guiaNivel(n){ // competencias de un nivel de cargo: descriptor de cada genérica y las específicas con lo que se espera
+    var ic = function(x){ return ICOMP[x] ? '<i class="cic" aria-hidden="true">' + ICOMP[x] + '</i>' : ''; };
+    return '<h3 class="m">Genéricas · lo que exige «' + esc(n.nombre) + '»</h3><div class="comps">' + M.genericas.map(function(g){
+        return '<div title="' + esc(g.definicion) + '">' + ic(g.nombre) + '<div><b>' + esc(g.nombre) + '</b><span>' + esc(g.por_nivel[n.nombre]) + '</span></div></div>'; }).join('') + '</div>' +
+      '<h3 class="m">Específicas del nivel</h3><div class="comps esp">' + M.especificas[n.nombre].map(function(e){
+        return '<div>' + ic(e.nombre) + '<div><b>' + esc(e.nombre) + '</b><span>' + esc(e.definicion) + '</span><span class="esp-e"><b style="display:inline;color:inherit">Lo que se espera:</b> ' + esc(e.espera) + '</span></div></div>'; }).join('') + '</div>';
+  }
   function guia(){
-    var h = '<section class="hero"><div class="k">Fase 3 · Talento · Grupo Kenex</div><h1>' + esc(G.titulo) + '</h1><p>' + md(G.lead) + '</p></section><div class="gu">';
+    var tonoDe = function(i){ return 'var(' + GU_TONOS[i % GU_TONOS.length] + ')'; };
+    var h = '<section class="hero"><div class="k">Fase 3 · Talento · Grupo Kenex</div><h1>' + esc(G.titulo) + '</h1><p>' + md(G.lead) + '</p></section>' +
+      '<nav class="gu-mapa" aria-label="Contenido de la guía">' + G.secciones.map(function(sec, i){
+        return '<a href="#/guia/' + sec.id + '" style="--acc:' + tonoDe(i) + '"><b>' + dos(i + 1) + '</b><span>' + esc(sec.titulo) + '</span></a>'; }).join('') + '</nav>' +
+      '<div class="gu-barra"><span>Toca una sección para abrirla.</span><button type="button" id="guTodo">Abrir todas</button></div><div class="gu">';
     G.secciones.forEach(function(sec, i){
-      h += '<section class="bloque" id="g-' + sec.id + '"><h2><b>' + (i + 1) + '</b>' + esc(sec.titulo) + '</h2>';
+      h += '<section class="bloque gu-sec" data-n="' + dos(i + 1) + '" id="g-' + sec.id + '" style="--acc:' + tonoDe(i) + '"><h2><button type="button" class="gu-tog" aria-expanded="false" aria-controls="gc-' + sec.id + '"><b>' + (i + 1) + '</b><span>' + esc(sec.titulo) + '</span><i aria-hidden="true"></i></button></h2>' +
+        '<div class="gu-cuerpo" id="gc-' + sec.id + '" hidden>';
       (sec.parrafos || []).forEach(function(p){ h += '<p>' + md(p) + '</p>'; });
       if (sec.usos) h += '<h3 class="m">Para qué se usa</h3>' + grid(sec.usos);
-      if (sec.fases) h += '<div class="gu-grid">' + sec.fases.map(function(x){ return '<div><b>' + esc(x.t) + '</b><span>' + md(x.d) + '</span></div>'; }).join('') + '</div>';
-      if (sec.items) h += grid(sec.items);
-      if (sec.fichas) h += '<div class="gu-fichas">' + sec.fichas.map(function(x){
-        var ej = x.ej ? '<dt>Ejemplo</dt><dd><a href="#/c/' + x.ej[1] + (x.ej[2] ? '/' + x.ej[2] : '') + '">' + esc(x.ej[0]) + '</a></dd>' : '';
-        return '<article class="gu-ficha"><b>' + esc(x.n) + '</b><div><h3>' + esc(x.t) + '</h3><dl><dt>Qué contiene</dt><dd>' + md(x.que) + '</dd><dt>Cómo se lee</dt><dd>' + md(x.como) + '</dd>' + ej + '</dl></div></article>';
-      }).join('') + '</div>';
+      if (sec.fases) h += '<ol class="gu-fases">' + sec.fases.map(function(x){ return '<li><b>' + esc(x.t) + '</b>' + md(x.d) + '</li>'; }).join('') + '</ol>';
+      if (sec.items && sec.id === 'glosario') h += '<input type="search" class="gu-buscar" id="guGlosa" placeholder="Buscar un término…" aria-label="Buscar en el glosario">' +
+        '<div class="gu-grid" id="guGlosaL">' + sec.items.map(function(p){ return '<div data-q="' + esc((p[0] + ' ' + p[1]).toLowerCase()) + '"><b>' + md(p[0]) + '</b><span>' + md(p[1]) + '</span></div>'; }).join('') + '</div><p class="gu-vacio" id="guGlosaV" hidden>Ningún término coincide.</p>';
+      else if (sec.items) h += grid(sec.items);
+      if (sec.fichas) h += '<p class="gu-pista">Toca una parte de la descripción para ver qué contiene y cómo se lee.</p><div class="gu-anat"><div class="gu-pag" role="tablist" aria-label="Partes de la descripción">' +
+        sec.fichas.map(function(x, k){ return '<button type="button" role="tab" data-k="' + k + '" aria-selected="' + (k === 0) + '"><b>' + esc(x.n) + '</b>' + esc(x.t) + '</button>'; }).join('') + '</div><div class="gu-det">' +
+        sec.fichas.map(function(x, k){
+          var ej = x.ej ? '<dt>Ejemplo</dt><dd><a href="#/c/' + x.ej[1] + (x.ej[2] ? '/' + x.ej[2] : '') + '">' + esc(x.ej[0]) + '</a></dd>' : '';
+          return '<article role="tabpanel" data-k="' + k + '"' + (k ? ' hidden' : '') + '><div class="gu-det-t"><b>' + esc(x.n) + '</b><h3>' + esc(x.t) + '</h3></div><dl><dt>Qué contiene</dt><dd>' + md(x.que) + '</dd><dt>Cómo se lee</dt><dd>' + md(x.como) + '</dd>' + ej + '</dl></article>';
+        }).join('') + '<div class="gu-det-nav"><button type="button" data-paso="-1">← Anterior</button><button type="button" data-paso="1">Siguiente →</button></div></div></div>';
       if (sec.modelo){ // el modelo de competencias vive en descripciones-datos.js (meta), no se copia en la guía
-        var NV = M.niveles_cargo;
-        h += '<h3 class="m">Niveles de cargo</h3><p>' + md(sec.modelo.niveles) + '</p>' + tabla(['Nivel de cargo', 'Escalones', 'Competencias específicas'],
-          NV.map(function(n){ return [n.nombre, n.escalones.join(' · '), M.especificas[n.nombre].map(function(e){ return e.nombre; }).join(' · ')]; }));
-        h += '<h3 class="m">Competencias genéricas · para todos los cargos</h3><p>' + md(sec.modelo.genericas) + '</p>' + grid(M.genericas.map(function(g){ return [g.nombre, g.definicion]; })) +
-          '<h3 class="m">Lo que exige cada genérica según el nivel de cargo</h3>' + tabla(['Competencia'].concat(NV.map(function(n){ return n.nombre; })),
-          M.genericas.map(function(g){ return [g.nombre].concat(NV.map(function(n){ return g.por_nivel[n.nombre]; })); }));
-        h += '<h3 class="m">Competencias específicas · por nivel de cargo</h3><p>' + md(sec.modelo.especificas) + '</p>' +
-          NV.map(function(n){ return '<div class="gu-tramo"><div class="gu-tramo-t"><b>' + esc(n.nombre) + '</b><span>' + esc(n.escalones.join(' · ')) + '</span></div>' +
-            grid(M.especificas[n.nombre].map(function(e){ return [e.nombre, e.definicion + ' **Lo que se espera:** ' + e.espera]; })) + '</div>'; }).join('');
+        var NV = M.niveles_cargo, sube = NV.slice().reverse();
+        h += '<h3 class="m">Niveles de cargo</h3><p>' + md(sec.modelo.niveles) + '</p>' +
+          '<h3 class="m">Competencias genéricas · para todos los cargos</h3><p>' + md(sec.modelo.genericas) + '</p>' + grid(M.genericas.map(function(g){ return [g.nombre, g.definicion]; })) +
+          '<h3 class="m">Competencias específicas · por nivel de cargo</h3><p>' + md(sec.modelo.especificas) + '</p>' +
+          '<h3 class="m">Explora un nivel de cargo</h3><p class="gu-pista">Toca un nivel para ver lo que exige cada genérica y sus específicas.</p>' +
+          '<div class="nvl gu-nvl" role="tablist" aria-label="Niveles de cargo">' + sube.map(function(n, k){
+            return '<button type="button" role="tab" class="nvl-p' + (k ? '' : ' yo') + '" data-k="' + k + '" aria-selected="' + !k + '" style="--k:' + (k + 1) + '"><b>' + esc(n.nombre) + '</b><small>' + esc(n.escalones.join(' · ')) + '</small></button>'; }).join('') + '</div>' +
+          sube.map(function(n, k){ return '<div class="gu-nvp" role="tabpanel" data-k="' + k + '"' + (k ? ' hidden' : '') + '>' + guiaNivel(n) + '</div>'; }).join('') +
+          '<details class="gu-mas"><summary>Ver la matriz completa: las seis genéricas en los cuatro niveles</summary>' + tabla(['Competencia'].concat(NV.map(function(n){ return n.nombre; })),
+          M.genericas.map(function(g){ return [g.nombre].concat(NV.map(function(n){ return g.por_nivel[n.nombre]; })); })) + '</details>';
         h += '<h3 class="m">Escala para evaluar a una persona</h3><p>' + md(sec.modelo.escala) + '</p>' + tabla(['Grado', 'Qué significa'], M.escala_evaluacion);
       }
-      if (sec.tabla) h += tabla(sec.tabla.cols, sec.tabla.filas);
+      if (sec.tabla && sec.id === 'tecnicas') h += '<h3 class="m">' + esc(sec.tabla.cols[1]) + ' por ' + esc(sec.tabla.cols[0].toLowerCase()) + '</h3><div class="gu-exp">' + sec.tabla.filas.map(function(f, k){
+          return '<div style="--k:' + (k + 1) + '"><b>' + md(f[0]) + '</b><div class="bar"><i></i><span>' + md(f[1]) + '</span></div></div>'; }).join('') + '</div>';
+      else if (sec.tabla && sec.id === 'factores') h += '<div class="gu-fac">' + sec.tabla.filas.map(function(f){ var g = f[2].split(' · ');
+          return '<article><h4>' + md(f[0]) + '</h4><p>' + md(f[1]) + '</p><ol class="gu-grados">' + g.map(function(x, k){
+            return '<li><span class="g" aria-hidden="true">' + g.map(function(_, j){ return '<i' + (j <= k ? ' class="on"' : '') + '></i>'; }).join('') + '</span><span>' + md(x) + '</span></li>'; }).join('') + '</ol></article>'; }).join('') + '</div>';
+      else if (sec.tabla && sec.id === 'riesgos') h += '<div class="gu-ries">' + sec.tabla.filas.map(function(f){
+          return '<div><i aria-hidden="true">' + (IRIESGO[f[0]] || '⚠️') + '</i><div><b>' + md(f[0]) + '</b><span>' + md(f[1]) + '</span></div></div>'; }).join('') + '</div>';
+      else if (sec.tabla) h += tabla(sec.tabla.cols, sec.tabla.filas);
       if (sec.pasos) h += '<ol class="gu-pasos">' + sec.pasos.map(function(p){ return '<li><b>' + esc(p[0]) + '</b>' + md(p[1]) + '</li>'; }).join('') + '</ol>';
       if (sec.nota) h += '<p class="gu-nota">' + md(sec.nota) + '</p>';
-      h += '</section>';
+      h += '</div></section>';
     });
     return h + '</div>';
+  }
+  function abrirGuia(sec, ab){
+    sec.classList.toggle('abierta', ab);
+    sec.querySelector('.gu-cuerpo').hidden = !ab;
+    sec.querySelector('.gu-tog').setAttribute('aria-expanded', String(ab));
+    var todas = [].every.call(document.querySelectorAll('.gu-sec'), function(x){ return x.classList.contains('abierta'); }), b = $('#guTodo');
+    if (b) b.textContent = todas ? 'Cerrar todas' : 'Abrir todas';
+  }
+  // Pestañas genéricas: botones [data-k] dentro de una lista y paneles [data-k] hermanos
+  function pestanas(lista, paneles, clase){
+    var bs = lista.querySelectorAll('[data-k]');
+    function elegir(k){
+      bs.forEach(function(b){ var on = +b.dataset.k === k; b.setAttribute('aria-selected', String(on)); if (clase) b.classList.toggle(clase, on); });
+      paneles.forEach(function(p){ p.hidden = +p.dataset.k !== k; });
+      return k;
+    }
+    bs.forEach(function(b){ b.addEventListener('click', function(){ elegir(+b.dataset.k); }); });
+    return elegir;
+  }
+  function montarGuia(){
+    document.querySelectorAll('.gu-tog').forEach(function(b){ b.addEventListener('click', function(){ var sec = b.closest('.gu-sec'); abrirGuia(sec, !sec.classList.contains('abierta')); }); });
+    var bt = $('#guTodo');
+    if (bt) bt.addEventListener('click', function(){ var ab = bt.textContent === 'Abrir todas'; document.querySelectorAll('.gu-sec').forEach(function(x){ abrirGuia(x, ab); }); });
+    var anat = document.querySelector('.gu-anat');
+    if (anat){
+      var arts = [].slice.call(anat.querySelectorAll('.gu-det article')), nav = anat.querySelectorAll('.gu-det-nav button'), act = 0;
+      var elegir = pestanas(anat.querySelector('.gu-pag'), arts);
+      var pinta = function(k){ act = elegir(k); nav[0].disabled = act === 0; nav[1].disabled = act === arts.length - 1; };
+      anat.querySelectorAll('.gu-pag button').forEach(function(b){ b.addEventListener('click', function(){ pinta(+b.dataset.k); }); });
+      nav.forEach(function(b){ b.addEventListener('click', function(){ pinta(Math.max(0, Math.min(arts.length - 1, act + +b.dataset.paso)));
+        var pag = anat.querySelector('.gu-pag'), sel = pag.querySelector('[aria-selected="true"]');   // en móvil la tira es horizontal: que la parte elegida quede a la vista
+        if (pag.scrollWidth > pag.clientWidth) pag.scrollLeft = sel.offsetLeft - (pag.clientWidth - sel.offsetWidth) / 2; }); });
+      pinta(0);
+    }
+    var nvl = document.querySelector('.gu-nvl');
+    if (nvl) pestanas(nvl, [].slice.call(document.querySelectorAll('.gu-nvp')), 'yo');
+    var q = $('#guGlosa');
+    if (q) q.addEventListener('input', function(){ var v = q.value.trim().toLowerCase(), n = 0;
+      document.querySelectorAll('#guGlosaL>div').forEach(function(d){ var ok = !v || d.dataset.q.indexOf(v) >= 0; d.hidden = !ok; if (ok) n++; });
+      $('#guGlosaV').hidden = n > 0; });
   }
 
   function org(sup, yo, subs, unidad){
@@ -1299,13 +1455,11 @@ h3.m{font-size:.8rem;text-transform:uppercase;letter-spacing:.1em;color:var(--mu
   function marcarIndice(vista, id){
     var grupo = vista === 'cargo' ? 'desc' : vista;
     document.querySelectorAll('.ix-p').forEach(function(a){ a.classList.toggle('on', a.dataset.v === grupo); });
-    $('#ixGuia').classList.toggle('abierto', grupo === 'guia');
-    $('#ixPatron').classList.toggle('abierto', grupo === 'patron');
-    $('#ixDesc').classList.toggle('abierto', grupo === 'desc');
     document.querySelectorAll('#ixDesc a').forEach(function(a){ a.classList.toggle('on', vista === 'cargo' ? a.dataset.c === id : a.dataset.a === 'familias'); });
   }
   function irA(id){
     var el = document.getElementById(id); if (!el) return;
+    var gs = el.closest('.gu-sec'); if (gs && !gs.classList.contains('abierta')) abrirGuia(gs, true);
     el.scrollIntoView({ behavior: 'smooth', block: 'start' });
     document.querySelectorAll('.resalta').forEach(function(x){ x.classList.remove('resalta'); });
     if (el.matches('section.blk, .bloque')) return;   // una sección entera no se resalta: solo fichas y referencias
@@ -1319,6 +1473,7 @@ h3.m{font-size:.8rem;text-transform:uppercase;letter-spacing:.1em;color:var(--mu
     } else if (vista === 'guia'){
       espia = new IntersectionObserver(function(es){ es.forEach(function(e){ if (e.isIntersecting) document.querySelectorAll('#ixGuia a').forEach(function(a){ a.classList.toggle('on', a.dataset.a === e.target.id); }); }); }, { rootMargin: '-20% 0px -70% 0px' });
       document.querySelectorAll('.gu section.bloque[id]').forEach(function(b){ espia.observe(b); });
+      montarGuia();
     } else if (vista === 'patron'){
       espia = new IntersectionObserver(function(es){ es.forEach(function(e){ if (e.isIntersecting) document.querySelectorAll('#ixPatron a').forEach(function(a){ a.classList.toggle('on', a.dataset.a === e.target.id); }); }); }, { rootMargin: '-20% 0px -70% 0px' });
       document.querySelectorAll('.ep section.blk[id]').forEach(function(b){ espia.observe(b); });
@@ -1370,6 +1525,15 @@ h3.m{font-size:.8rem;text-transform:uppercase;letter-spacing:.1em;color:var(--mu
     e.preventDefault(); irA(h.slice(1));
   });
   armarIndice();
+  // Los puntos del índice arrancan plegados y solo se despliegan al tocarlos; tocar el punto en curso lo pliega o despliega sin recargar
+  document.querySelectorAll('.ix-p').forEach(function(a){
+    a.setAttribute('aria-expanded', 'false');
+    a.addEventListener('click', function(e){
+      var sub = a.nextElementSibling, ab = !a.classList.contains('abierto');
+      if (a.classList.contains('on')) e.preventDefault(); else ab = true;
+      a.classList.toggle('abierto', ab); sub.classList.toggle('abierto', ab); a.setAttribute('aria-expanded', String(ab));
+    });
+  });
   var fs = $('#faseSel'), fb = $('#faseBtn');
   fb.addEventListener('click', function(e){ e.stopPropagation(); fs.classList.toggle('open'); fb.setAttribute('aria-expanded', fs.classList.contains('open')); });
   document.addEventListener('click', function(){ fs.classList.remove('open'); fb.setAttribute('aria-expanded', 'false'); });
