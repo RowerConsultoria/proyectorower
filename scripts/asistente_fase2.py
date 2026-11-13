@@ -451,6 +451,13 @@ def generar():
             L.append(sangria + '    por marca: ' + ' · '.join('%s %s' % (m['marca'], ocup(m)) for m in u['marcas']))
         for f in u.get('funciones') or []:
             L.append(sangria + '    - ' + t(f))
+        for c in u.get('cargos') or []:
+            L.append(sangria + '    cargo de la unidad (sin caja propia): ' + t(c['n']) +
+                     ((' — ' + ocup(c.get('ocupante'))) if c.get('ocupante') else ''))
+            for f in c.get('funciones') or []:
+                L.append(sangria + '      - ' + t(f))
+            if c.get('nota'):
+                L.append(sangria + '      nota: ' + t(c['nota']))
         if u.get('nota'):
             L.append(sangria + '    nota: ' + t(u['nota']))
         for x in u.get('decisiones') or []:

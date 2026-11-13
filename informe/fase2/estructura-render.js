@@ -172,7 +172,8 @@
 
   // Unidades que cuelgan de la línea que baja de una dirección o de una gerencia
   // corporativa abierta en ramas (enLinea), a un costado. Una coordinación corporativa en línea
-  // (Planificación de la Demanda, sobre la línea de Ventas) lleva el borde de su nivel.
+  // lleva el borde de su nivel (Planificación de la Demanda lo usó hasta el 13-nov-2026,
+  // cuando pasó a cargo de la ficha de Ventas).
   function lateral(dr){ return (dr.hijos || []).filter(function(h){ return h.enLinea; }); }
   function enLineaDir(dr){
     var hs = lateral(dr);
@@ -1397,6 +1398,18 @@
     }
     if(d.funciones && d.funciones.length) h += '<div class="eo-bloque"><h4>Qué hace</h4>' + lista(d.funciones) + '</div>';
     if(d.interna && d.interna.length) h += '<div class="eo-bloque"><h4>Dentro de la unidad</h4>' + lista(d.interna) + '</div>';
+    // cargos (13-nov-2026): cargos de la unidad que no son unidad, sin caja en el organigrama
+    if(d.cargos && d.cargos.length){
+      h += '<div class="eo-bloque eo-cargos"><h4>Cargos de la unidad · sin caja propia</h4>' + d.cargos.map(function(c){
+        var o = c.ocupante;
+        return '<div class="eo-cargo"><p class="eo-cargo-n"><b>' + esc(c.n) + '</b></p>' +
+               (c.sub ? '<p class="eo-sub">' + esc(c.sub) + '</p>' : '') +
+               (o ? '<div class="eo-ofila"><span class="eo-onomg">' + esc(o.nombre) + '</span>' + pill(o.estado) + '</div>' +
+                    (o.nota ? '<p class="eo-tenue">' + esc(o.nota) + '</p>' : '') : '') +
+               (c.funciones && c.funciones.length ? lista(c.funciones) : '') +
+               (c.nota ? '<p class="eo-tenue"><b>Por qué así:</b> ' + esc(c.nota) + '</p>' : '') + '</div>';
+      }).join("") + '</div>';
+    }
     // modelo: enlace a la página que explica cómo funciona la unidad; solo un .html de
     // esta carpeta, porque el dato también lo puede proponer el agente
     if(d.modelo && /^[a-z0-9-]+\.html(#[a-z0-9-]*)?$/i.test(d.modelo.href || ''))

@@ -916,6 +916,10 @@
     background:var(--panel-alto);border:1px solid var(--borde);border-radius:var(--r-pildora);padding:2px 9px 2px 7px}
   .eo-tenue{color:var(--tinta-media);font-size:12.5px}
   .eo-bloque .eo-tenue{margin-top:5px}
+  .eo-cargo{border-left:3px solid var(--borde);padding:2px 0 2px 10px;margin:8px 0 12px}
+  .eo-cargo .eo-lista{margin-top:6px}
+  p.eo-cargo-n{margin:0 0 2px}
+  .eo-cargo p.eo-sub{margin:0 0 6px;font-size:12px}
   .eo-tpais{width:100%;border-collapse:collapse}
   .eo-tpais th,.eo-tpais td{text-align:left;vertical-align:top;padding:8px 0;border-top:1px solid var(--borde-tenue)}
   .eo-tpais th{width:34%;font-size:12px;font-weight:600;color:var(--tinta-media);padding-right:10px}
@@ -1889,6 +1893,7 @@
       pd(u.ocupante, '');
       (u.ocupantes || []).forEach(function(o){ pd(o, ''); });
       (u.marcas || []).forEach(function(o){ pd(o, o.marca); });
+      (u.cargos || []).forEach(function(c){ pd(c.ocupante, c.n); });
       if(u.paises) Object.keys(u.paises).forEach(function(p){ pd(u.paises[p], paisN[p] || p); });
       if(u.decisiones && u.decisiones.length) g.items.push({u:u, padre:padre, esDir:esDir});
     };

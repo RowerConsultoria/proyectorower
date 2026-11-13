@@ -124,6 +124,11 @@
      nota: texto de diseño · hijos: [...] (solo gerencias corporativas)
      decisiones: [...] — decisiones por tomar sobre la unidad (06-nov-2026): la caja se
        marca en rojo, la ficha las lista arriba y Premisas las reúne en su pestaña
+     cargos: [{n, sub?, ocupante, funciones, nota}] — cargos de la unidad que no son
+       unidad (13-nov-2026): no tienen caja en el organigrama; la ficha de la unidad
+       los lista en «Cargos de la unidad». Hoy, en la gerencia corporativa de Ventas
+       (Planificación de la Demanda y Nuevos Mercados). Sus decisiones van en las de
+       la unidad.
    En DIRECCIONES, un nodo con nivel:'n2' es una gerencia corporativa que
    reporta directo a la Presidencia (hoy, la PMO y Tecnología, Gobernanza y
    Cumplimiento).
@@ -264,33 +269,38 @@ window.ESTRUCTURA_TOBE = {
         'La máxima responsabilidad sobre la marca del grupo: cómo se ve, cómo se siente y cómo se usa en cada pieza y en cada canal.',
         'Define, crea y custodia la identidad gráfica, el manual de marca y el sistema de diseño, fuente única para todos los equipos y proveedores.',
         'Construye el posicionamiento de cada marca con Mercadeo, para que lo apruebe la Presidencia.',
-        'Recibe el brief de Mercadeo y devuelve, por sus dos coordinaciones de Diseño y Marca, el concepto, el copy, el key visual y las piezas; aprueba su calidad. Mercadeo aprueba que cumplan el brief.',
+        'Recibe el brief de Mercadeo y devuelve, por sus dos coordinaciones, el concepto, el video y las piezas de campaña y de redes; aprueba su calidad. Mercadeo aprueba que cumplan el brief.',
         'Da el sistema de marca al que se ajustan el diseño de producto y el empaque, que hace Desarrollo y Calidad de Productos, y los estándares de exhibición y la producción, que hace Visual Merchandising, en Mercadeo.',
         'Decide qué capacidades creativas se internalizan y cuáles se contratan: el equipo es mixto, con personal interno y freelancers.'
       ],
-      nota:'Acordada en la reunión del 04-nov-2026 y descrita por la Dirección Comercial el 29-oct. Es dirección corporativa y reporta a la Presidencia, al nivel de las demás unidades de negocio: si dependiera de Comercial o de Mercadeo, la marca quedaría supeditada a las campañas de corto plazo. La regla que la separa de Mercadeo: Mercadeo decide qué necesita el consumidor, qué le decimos y dónde invertimos; Diseño y Marca decide cómo se ve. Entre el 10 y el 11-nov-2026 tuvo tres gerencias: Marca y Creatividad, Diseño de Producto y Producción y Espacios. Desde el 11-nov-2026 el diseño de producto (físico, digital y empaque) pasa a Desarrollo y Calidad de Productos, que ya tenía la contraparte y el calendario del desarrollo, y la producción y los espacios (foto, video, 3D, POP, interiores y los proveedores de producción) pasan a Visual Merchandising, en Mercadeo, que los lleva al punto de venta. La dirección se queda con dos coordinaciones corporativas de Diseño y Marca que le reportan directo y trabajan en dupla: una con el director creativo y otra con la directora de arte. La gerencia de Marca y Creatividad, que las agrupaba, se retiró el mismo día: con dos coordinaciones, una gerencia intermedia solo alargaba la línea. El sistema de marca lo lleva la dirección.',
+      nota:'Acordada en la reunión del 04-nov-2026 y descrita por la Dirección Comercial el 29-oct. Es dirección corporativa y reporta a la Presidencia, al nivel de las demás unidades de negocio: si dependiera de Comercial o de Mercadeo, la marca quedaría supeditada a las campañas de corto plazo. La regla que la separa de Mercadeo: Mercadeo decide qué necesita el consumidor, qué le decimos y dónde invertimos; Diseño y Marca decide cómo se ve. Entre el 10 y el 11-nov-2026 tuvo tres gerencias: Marca y Creatividad, Diseño de Producto y Producción y Espacios. Desde el 11-nov-2026 el diseño de producto (físico, digital y empaque) pasa a Desarrollo y Calidad de Productos, que ya tenía la contraparte y el calendario del desarrollo, y la producción y los espacios (foto, video, 3D, POP, interiores y los proveedores de producción) pasan a Visual Merchandising, en Mercadeo, que los lleva al punto de venta. La dirección se queda con dos coordinaciones corporativas de Diseño y Marca que le reportan directo y trabajan en dupla: una con el director creativo y otra con la directora de arte. La gerencia de Marca y Creatividad, que las agrupaba, se retiró el mismo día: con dos coordinaciones, una gerencia intermedia solo alargaba la línea. Entre el 12 y el 13-nov-2026 fueron una sola coordinación de Diseño y Marca, en dupla. Desde el 13-nov-2026 vuelven a ser dos, y por área, no por ocupante: Creatividad y Contenido Audiovisual (Kevin Sarmiento), con el concepto y el video, y Diseño Gráfico de Campañas y Redes (María Romero), con las piezas de campaña y las publicaciones en redes. Son perfiles, experiencias y responsabilidades distintas. El video, que desde el 11-nov estaba en Visual Merchandising, pasa aquí. El sistema de marca lo lleva la dirección.',
       decisiones:[
         'Confirmar a Jack Roizental en la dirección.',
-        'Qué parte del equipo creativo actual pasa a la dirección: el estudio de diseño gráfico de Mercadeo y la dirección de arte. La producción y el visual merchandising quedan en Mercadeo.',
+        'Qué parte del equipo creativo actual pasa a la dirección. La propuesta: el director creativo con el estudio de video y la directora de arte con su equipo de diseño gráfico, hoy en Mercadeo de Panamá. El visual merchandising, la foto de producto y el 3D quedan en Mercadeo.',
         'Cuáles de sus disciplinas se cubren con personal interno y cuáles con freelancers o agencias.'
       ],
       hijos:[
-        {id:'creatividad', n:'Diseño y Marca', nivel:'ccorp',
-         ocupante:{nombre:'Kevin Sarmiento', estado:'actual', nota:'Hoy es el director creativo, en Mercadeo de Panamá. Es la mano derecha de la dirección.'},
+        {id:'creatividad', n:'Creatividad y Contenido Audiovisual', nivel:'ccorp',
+         ocupante:{nombre:'Kevin Sarmiento', estado:'actual', nota:'Hoy es el director creativo, en Mercadeo de Panamá, con el videógrafo y el estudio a su cargo. Es la mano derecha de la dirección.'},
          funciones:[
-           'El concepto, el copy y el key visual de cada campaña y lanzamiento, a partir del brief de Mercadeo.',
-           'Presenta cada propuesta en dupla con la otra coordinación de Diseño y Marca, la de la directora de arte.',
-           'Las piezas de campaña que se derivan del key visual, con los diseñadores gráficos.'
+           'El concepto creativo de cada campaña y lanzamiento, a partir del brief de Mercadeo.',
+           'El contenido en video: los videos para redes y los de las campañas publicitarias, del guion al rodaje y la edición.',
+           'El estudio de video: el videógrafo, los equipos y el set. Hoy funciona en Panamá, y Venezuela está replicando esa estructura.'
          ],
-         interna:['Director creativo y diseñadores gráficos: personal interno.']},
-        {id:'dirarte', n:'Diseño y Marca', nivel:'ccorp',
-         ocupante:{nombre:'María Romero', estado:'actual', nota:'Hoy es la directora de arte, en Mercadeo de Panamá.'},
+         decisiones:[
+           'Si los equipos de video de cada país quedan en Mercadeo país o pasan a esta coordinación. En Venezuela son tres o cuatro personas que hacen los videos para redes y para las campañas publicitarias; la recomendación es traerlos aquí.'
+         ],
+         interna:['Director creativo, videógrafo y estudio de video: personal interno.'],
+         nota:'Desde el 13-nov-2026 la dirección tiene dos coordinaciones distintas, porque son dos perfiles distintos: el video exige una experiencia y una técnica —videógrafo, estudio, equipos— que no tiene el diseño de piezas de campaña. Esta lleva lo creativo y lo audiovisual. Entre el 12 y el 13-nov-2026 fue una sola coordinación de Diseño y Marca con la directora de arte.'},
+        {id:'dirarte', n:'Diseño Gráfico de Campañas y Redes', nivel:'ccorp',
+         ocupante:{nombre:'María Romero', estado:'actual', nota:'Hoy es la directora de arte, en Mercadeo de Panamá, con un equipo de diseñadores gráficos que le reporta.'},
          funciones:[
-           'La primera expresión visual de cada concepto: el lenguaje gráfico, la composición y la fotografía de referencia.',
-           'Presenta cada propuesta en dupla con la otra coordinación de Diseño y Marca, la del director creativo.',
-           'Cuida que cada pieza aplique el sistema de marca.'
+           'El diseño de las piezas de campaña a partir del concepto: vallas, impresos y piezas digitales.',
+           'El diseño de las publicaciones en redes.',
+           'El lenguaje gráfico y la composición de cada pieza, y que todas apliquen el sistema de marca.'
          ],
-         interna:['Directora de arte: personal interno.']}
+         interna:['Directora de arte y el equipo de diseñadores gráficos que hoy le reporta en Mercadeo: personal interno.'],
+         nota:'Desde el 13-nov-2026 es una coordinación aparte de la de Creatividad y Contenido Audiovisual: el diseñador de piezas de campaña tiene otro perfil, otra experiencia y otras responsabilidades que el equipo de video. Pasa a la dirección con todo su equipo.'}
       ]
     },
     {
@@ -446,9 +456,12 @@ window.ESTRUCTURA_TOBE = {
            'Línea rectora de todos los canales de venta y de la postventa.',
            'Su operatividad debe ser baja: hoy está absorbido por tareas de tienda —como formar a los encargados— que corresponden a las gerencias país.'
          ],
-         hijos:[
-           // sobre la línea que baja de Ventas a sus canales: puede apoyar a cualquiera de los cuatro
-           {id:'plandemanda', n:'Planificación de la Demanda y Nuevos Mercados', nivel:'ccorp', enLinea:true,
+         decisiones:[
+           'Si la planificación de la demanda y los mercados nuevos los lleva un solo cargo o dos.'
+         ],
+         // cargos de la gerencia que no son unidad: van en su ficha, no como caja (13-nov-2026)
+         cargos:[
+           {n:'Coordinación corporativa de Planificación de la Demanda y Nuevos Mercados',
             sub:'Cubitt; la demanda de Casio la planifica Brand Management',
             ocupante:{nombre:'Ricardo Baltodano', estado:'propuesto', nota:'Hoy es el gerente regional de Cubitt en Panamá, dentro del equipo de Ventas al Mayor: lleva los datos comerciales de la marca y planifica la venta al mayor. En la reunión con la Presidencia del 16-oct-2026 se planteó que esta es la posición que le corresponde.'},
             funciones:[
@@ -458,10 +471,9 @@ window.ESTRUCTURA_TOBE = {
               'Contrata y lee las fuentes externas de inteligencia de mercado que la venta necesita, con Mercadeo.',
               'Apoya a cualquiera de los cuatro canales de Ventas sin dirigir a ninguno.'
             ],
-            decisiones:[
-              'Si la planificación de la demanda y los mercados nuevos van en una sola unidad o en dos.'
-            ],
-            nota:'Acordada en la reunión con la Presidencia del 16-oct-2026, con nombre provisional. En la reunión del 04-nov-2026 se confirmó una por marca: Ricardo Baltodano para Cubitt y Félix Almendral para Casio. Desde el 10-nov-2026 la demanda de Casio la planifica Félix Almendral desde Brand Management, gerencia corporativa de Comercial, y esta unidad queda con Cubitt, los mercados nuevos y el plan consolidado. Va sobre la línea que baja de la gerencia corporativa de Ventas a sus canales, como la Consultoría Jurídica sobre la de la Presidencia: le reporta directo y puede apoyar a los cuatro. Desde el 11-nov-2026 es una coordinación corporativa: hasta entonces se dibujaba como «Apoyo a Ventas», con el nivel del cargo por fijar. Falta decidir si la planificación de la demanda y los mercados nuevos quedan en una sola unidad o en dos.'},
+            nota:'Acordada en la reunión con la Presidencia del 16-oct-2026, con nombre provisional. En la reunión del 04-nov-2026 se confirmó una por marca: Ricardo Baltodano para Cubitt y Félix Almendral para Casio. Desde el 10-nov-2026 la demanda de Casio la planifica Félix Almendral desde Brand Management, gerencia corporativa de Comercial, y este cargo queda con Cubitt, los mercados nuevos y el plan consolidado. Reporta directo a la gerencia corporativa de Ventas y puede apoyar a los cuatro canales. Desde el 13-nov-2026 no es una unidad sino un cargo de la gerencia corporativa de Ventas, con nivel de coordinación corporativa: se retiró su caja del organigrama. Falta decidir si la planificación de la demanda y los mercados nuevos los lleva un solo cargo o dos.'}
+         ],
+         hijos:[
            {id:'mayorcorp', n:'Ventas al Mayor', nivel:'gun',
             ocupante:{nombre:'Por definir', estado:'pordefinir', nota:'Gerente regional de ventas al mayor de todos los países: hoy la posición no existe.'},
             funciones:[
@@ -565,7 +577,7 @@ window.ESTRUCTURA_TOBE = {
            'Mide la salud de la marca más allá de la venta —awareness, consideración y recompra— y reporta cada mes un tablero de marca e inversión.',
            'Genera todo el mercadeo de Cubitt con sus unidades: el plan de marca, el portafolio y los lanzamientos. El de Casio lo estructura Brand Management, gerencia corporativa de Comercial, porque la mayor parte lo define la casa matriz; Mercadeo lo ejecuta en los países con sus coordinaciones de Marca Casio.'
          ],
-         nota:'Desde el 06-nov-2026 Mercadeo deja de crear para planificar, invertir y medir: todo lo creativo y de diseño pasa a la Dirección de Diseño y Marca, y la pauta de performance a E-commerce y Growth. Es la propuesta de la Dirección Comercial del 29-oct, que incorpora la contrapropuesta de la gerencia de mercadeo saliente. La regla: Mercadeo decide qué necesita el consumidor, qué le decimos y dónde invertimos; Diseño y Marca decide cómo se ve. No maneja vendedores ni fija precios ni márgenes, que son de Comercial: genera la demanda que Comercial convierte en venta. Sigue dentro de Comercial, como gerencia corporativa. La propuesta del 29-oct la plantea como dirección con un cargo nuevo, Director(a) de Marketing; su nivel y su denominación se fijan en la descripción de cargos. Se retiran Experiencia del Cliente · Visual, Experiencia Digital y Creativa y Diseño, y el modelo de red del 29-oct. Desde el 11-nov-2026 la producción de foto, video y 3D, los estándares visuales, el POP y los interiores vuelven a Mercadeo, en Visual Merchandising: Diseño y Marca se queda con la marca y la creatividad.',
+         nota:'Desde el 06-nov-2026 Mercadeo deja de crear para planificar, invertir y medir: todo lo creativo y de diseño pasa a la Dirección de Diseño y Marca, y la pauta de performance a E-commerce y Growth. Es la propuesta de la Dirección Comercial del 29-oct, que incorpora la contrapropuesta de la gerencia de mercadeo saliente. La regla: Mercadeo decide qué necesita el consumidor, qué le decimos y dónde invertimos; Diseño y Marca decide cómo se ve. No maneja vendedores ni fija precios ni márgenes, que son de Comercial: genera la demanda que Comercial convierte en venta. Sigue dentro de Comercial, como gerencia corporativa. La propuesta del 29-oct la plantea como dirección con un cargo nuevo, Director(a) de Marketing; su nivel y su denominación se fijan en la descripción de cargos. Se retiran Experiencia del Cliente · Visual, Experiencia Digital y Creativa y Diseño, y el modelo de red del 29-oct. Desde el 11-nov-2026 la producción de foto, video y 3D, los estándares visuales, el POP y los interiores vuelven a Mercadeo, en Visual Merchandising: Diseño y Marca se queda con la marca y la creatividad. Desde el 13-nov-2026 el video vuelve a Diseño y Marca, con su estudio.',
          modelo:{t:'Ver su modelo en Capas y Funcionamiento', d:'Mercadeo decide qué necesita el consumidor, qué le decimos y dónde invertimos; Diseño y Marca decide cómo se ve, y Comercial es dueño de la venta y del margen.', href:'estructura-funcionamiento.html#mercadeo'},
          decisiones:[
            'El titular de la gerencia: perfil y si se sale a buscarlo.'
@@ -583,7 +595,7 @@ window.ESTRUCTURA_TOBE = {
             funciones:[
               'La estrategia de redes, el calendario editorial y la comunidad.',
               'Los creadores de contenido, los influencers y las relaciones públicas.',
-              'El contenido ágil para redes y creadores; las producciones grandes de foto, video y 3D son de Visual Merchandising.'
+              'El contenido ágil para redes y creadores; el video lo produce Diseño y Marca, y las producciones grandes de foto y 3D son de Visual Merchandising.'
             ],
             decisiones:[
               'Quién lidera Social y Contenido: la Dirección Comercial propone a Macarena Bachor; en la propuesta anterior las redes iban en Experiencia Digital, con Anabel Roizental.',
@@ -607,12 +619,12 @@ window.ESTRUCTURA_TOBE = {
               'El visual merchandising de todos los puntos de venta, como servicio a los canales: tiendas propias de Retail, clientes mayoristas de Ventas al Mayor, eventos y pop-ups.',
               'Fija los estándares visuales de tienda y de exhibición, el material POP, los eventos y las activaciones, con el sistema de marca de Diseño y Marca; los adapta a las medidas reales de cada local y programa los montajes con el calendario de campañas.',
               'Espacios: el concepto de tiendas e interiores con una agencia externa, por brief y aprobación.',
-              'Foto y video: la producción central de campaña y de producto, y el video principal; motion y 3D: animaciones y renders de producto.',
+              'Foto: la producción central de campaña y de producto; motion y 3D: animaciones y renders de producto. El video lo produce Diseño y Marca, en Creatividad y Contenido Audiovisual.',
               'El estudio de producción: contrata y programa a los freelancers y las agencias de producción, ejecuta el presupuesto de producción y lleva la biblioteca única de piezas y fotos aprobadas.',
               'Fija la forma común de montar y verificar, que ejecutan las coordinaciones de Visual Merchandising de cada país, en Mercadeo país.'
             ],
             interna:['Motion y 3D: freelance.', 'Espacios: diseñador gráfico interno y agencia externa de interiores.'],
-            nota:'Gerencia de unidad de negocio de Mercadeo, aparte de Cuentas Clave y Trade y al mismo nivel (06-nov-2026). Desde el 11-nov-2026 suma lo que fue la gerencia de Producción y Espacios de Diseño y Marca: los estándares visuales, el POP, los interiores y la producción de foto, video y 3D con sus proveedores. Así una sola unidad decide, produce y monta lo que se ve en el punto de venta, y una sola contrata, programa y paga a freelancers y agencias de producción y guarda lo producido; el contenido ágil para redes y creadores sigue en Social y Contenido. Atiende a Retail y a Ventas al Mayor por servicio, con plazos acordados: no manda sobre el personal de tienda.'},
+            nota:'Gerencia de unidad de negocio de Mercadeo, aparte de Cuentas Clave y Trade y al mismo nivel (06-nov-2026). Desde el 11-nov-2026 suma lo que fue la gerencia de Producción y Espacios de Diseño y Marca: los estándares visuales, el POP, los interiores y la producción de foto, video y 3D con sus proveedores. Así una sola unidad decide, produce y monta lo que se ve en el punto de venta, y una sola contrata, programa y paga a freelancers y agencias de producción y guarda lo producido; el contenido ágil para redes y creadores sigue en Social y Contenido. Desde el 13-nov-2026 el video sale de aquí hacia Diseño y Marca, con su estudio. Atiende a Retail y a Ventas al Mayor por servicio, con plazos acordados: no manda sobre el personal de tienda.'},
            {id:'mercadeopais', n:'Mercadeo', nivel:'n3',
             paises:{
               PA:{nombre:'Sofiana Tovar', estado:'actual', nota:'Hoy es gerente de mercadeo de Cubitt en Panamá.'},
@@ -1019,7 +1031,7 @@ window.ESTRUCTURA_TOBE = {
        ahora:'Una gerencia corporativa de PMO con un equipo de gerentes de proyecto asignado por demanda, y una gerencia país donde la cartera lo pide (hoy Venezuela).',
        porque:'El mismo perfil atiende todas las clases de proyecto, y así no quedan capacidades ociosas en un ala mientras la otra se satura.'},
       {antes:'Sin estas piezas.',
-       ahora:'La Dirección de Finanzas con su coordinación de Planificación y Control Financiero y sus gerencias de Administración y Finanzas por país, Planificación de la Demanda y Nuevos Mercados en Ventas, Consultoría Jurídica, Gobierno de IA, Formación y la Asistencia Ejecutiva a la Presidencia y el Consejo de Familia entre las instancias de cogobierno.',
+       ahora:'La Dirección de Finanzas con su coordinación de Planificación y Control Financiero y sus gerencias de Administración y Finanzas por país, la coordinación corporativa de Planificación de la Demanda y Nuevos Mercados en Ventas, Consultoría Jurídica, Gobierno de IA, Formación y la Asistencia Ejecutiva a la Presidencia y el Consejo de Familia entre las instancias de cogobierno.',
        porque:'Funciones que hoy se reparten entre personas sin cargo, asesores externos o nadie, e instancias de la familia que existen pero no figuraban en la estructura.'}
     ]
   },
