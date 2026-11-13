@@ -5,7 +5,7 @@
 window.MANUAL_FASE2 = {
  "meta": {
   "version": "v18",
-  "generado": "2026-11-10",
+  "generado": "2026-11-13",
   "fuenteMapa": "Mapa de Procesos Actualizado v18 — validado por el equipo consultor",
   "niveles": "N0 (macroprocesos) y N1 (procesos). Sin N2: los procedimientos quedaron fuera del alcance de la Fase 2.",
   "totales": {
@@ -987,13 +987,12 @@ window.MANUAL_FASE2 = {
      "madurez": "híbrido",
      "mapa": {
       "alcance": "Traducción del brief en un producto especificado: diseño industrial propio o adaptación de la propuesta de la fábrica, definición de las especificaciones técnicas y de materiales, selección de colores y variantes con criterio de tendencia de temporada, y cierre del paquete de diseño que se envía a fábrica para muestra.",
-      "dueno": "Gerente de Diseño de Producto (Diseño y Marca)",
+      "dueno": "Gerente Corporativo(a) de Desarrollo y Calidad de Productos",
       "participantes": [
-       "Gerente de Diseño de Producto (Diseño y Marca)",
        "Especialista de Producto / Proyecto",
        "Especialista de Producto / Proyecto",
        "Gerente de Operaciones y Logística y Logística",
-       "Director(a) Creativo(a) · Gerencia de Marca y Creatividad (identidad de marca)",
+       "Director(a) Creativo(a) · Creatividad y Contenido Audiovisual (identidad de marca)",
        "fábrica (actor externo)"
       ],
       "cadencia": "Por producto; ciclo de tres meses o más entre el diseño cerrado y la salida al mercado",
@@ -2785,7 +2784,7 @@ window.MANUAL_FASE2 = {
      "madurez": "as-is",
      "mapa": {
       "alcance": "Cliente (Reebok, La Baza, Drija) solicita fabricación de audífono, headphone, termo o bocina con su propia marca; se le diseña y muestra el producto, se aprueba la muestra, firma proforma, se produce, se le vende y despacha. Flujo completo desde brief comercial hasta entrega, con involucramiento intensivo del área de desarrollo de producto por el lado de sourcing. Facturación año pasado aproximadamente 2M USD (siete cifras). Es un negocio de costado que se trae al portafolio.",
-      "dueno": "Gerente Regional Comercial / Retail como generador y cerrador; Gerente de Diseño de Producto (Diseño y Marca) como responsable del componente de desarrollo de producto y sourcing en China",
+      "dueno": "Gerente Regional Comercial / Retail como generador y cerrador; Gerente Corporativo(a) de Desarrollo y Calidad de Productos como responsable del componente de desarrollo de producto y sourcing en China",
       "participantes": [
        "Cliente marca-blanca",
        "Desarrollo de producto (diseño, muestra)",
@@ -3415,7 +3414,7 @@ window.MANUAL_FASE2 = {
       "alcance": "Adecuación planificada de puntos de venta existentes: cambio de iluminación blanca/azul a cálida, cambio de paneles, incorporación de mobiliario boutique Casio, intervención de piso o vitrinas dañadas, alineación con nuevo estándar visual regional. Se agrupan intervenciones múltiples para no intervenir dos veces la misma sala. Proveedor de aperturas suele ejecutar remodelaciones.",
       "dueno": "Gerente Regional Comercial / Retail (define estándar y prioriza cola)",
       "participantes": [
-       "Gerente de Producción y Espacios (Diseño y Marca)",
+       "Gerente de Visual Merchandising",
        "Gerente Comercial (País / Canal) al Detal (País) (País) (País) (por país)",
        "Supervisor de Ventas",
        "Arquitecto/Proveedor de Remodelación",
@@ -6473,7 +6472,7 @@ window.MANUAL_FASE2 = {
       "dueno": "Gerente Corporativo(a) de Mercadeo",
       "participantes": [
        "Gerente Corporativo(a) de Mercadeo (en Casio, Brand Manager de Casio)",
-       "Director(a) Creativo(a) · Gerencia de Marca y Creatividad",
+       "Director(a) Creativo(a) · Creatividad y Contenido Audiovisual",
        "Diseñador(a) (Diseño y Marca)",
        "Director(a) de Diseño y Marca",
        "Junta Directiva (lanzamientos y alto alcance de Cubitt)",
@@ -6515,7 +6514,7 @@ window.MANUAL_FASE2 = {
      "madurez": "as-is",
      "mapa": {
       "alcance": "Canalización de toda solicitud de diseño a la Dirección de Diseño y Marca por el formulario único, clasificación y priorización contra el calendario común y la capacidad del mes, asignación al diseñador interno o freelance, seguimiento del avance y entrega al solicitante, con trazabilidad del tráfico y de los tiempos de respuesta.",
-      "dueno": "Director(a) de Arte · Marca y Creatividad",
+      "dueno": "Director(a) de Arte · Diseño Gráfico de Campañas y Redes",
       "participantes": [
        "Director(a) de Diseño y Marca (revisión mensual de capacidad)",
        "Diseñador(a) (Diseño y Marca) y freelancers",
@@ -6682,7 +6681,6 @@ window.MANUAL_FASE2 = {
       "participantes": [
        "Coordinador(a) de Visual Merchandising (país)",
        "Ejecutivo(a) de Visual Merchandising",
-       "Gerente de Producción y Espacios (Diseño y Marca)",
        "Diseñador(a) (Diseño y Marca)",
        "Gerente Regional Comercial / Retail",
        "Analista/Ejecutivo(a) Comercial",
@@ -6768,9 +6766,9 @@ window.MANUAL_FASE2 = {
       "participantes": [
        "Gerente Corporativo(a) de Mercadeo",
        "Presidencia",
-       "Director(a) Creativo(a) · Gerencia de Marca y Creatividad",
-       "Director(a) de Arte · Marca y Creatividad",
-       "Gerente de Diseño de Producto (Diseño y Marca)",
+       "Director(a) Creativo(a) · Creatividad y Contenido Audiovisual",
+       "Director(a) de Arte · Diseño Gráfico de Campañas y Redes",
+       "Gerente Corporativo(a) de Desarrollo y Calidad de Productos",
        "Gerente de Visual Merchandising",
        "equipos, proveedores, franquiciados y socios que producen piezas"
       ],
@@ -6806,11 +6804,11 @@ window.MANUAL_FASE2 = {
      "madurez": "to-be",
      "mapa": {
       "alcance": "Foto de producto y de campaña, video principal, renders 3D y animación de las campañas y lanzamientos aprobados: brief de producción, decisión entre equipo propio y freelance, sesiones con dirección de arte, revisión contra la ficha técnica, aprobación de calidad y archivo con derechos en la biblioteca de activos.",
-      "dueno": "Gerente de Producción y Espacios (Diseño y Marca)",
+      "dueno": "Gerente de Visual Merchandising",
       "participantes": [
-       "Director(a) Creativo(a) · Gerencia de Marca y Creatividad",
+       "Director(a) Creativo(a) · Creatividad y Contenido Audiovisual",
        "Director(a) de Diseño y Marca",
-       "Director(a) de Arte · Marca y Creatividad",
+       "Director(a) de Arte · Diseño Gráfico de Campañas y Redes",
        "fotógrafos, productoras y freelancers de 3D y motion",
        "Logística (reserva del producto)"
       ],
@@ -6846,13 +6844,12 @@ window.MANUAL_FASE2 = {
      "madurez": "to-be",
      "mapa": {
       "alcance": "Concepto de tienda y de shop-in-shop, layout, mobiliario tipo e interiores con agencia externa, material POP, señalética y guía de exhibición por canal y por campaña; piloto de los conceptos nuevos, publicación del estándar y su actualización con las auditorías de punto de venta.",
-      "dueno": "Gerente de Producción y Espacios (Diseño y Marca)",
+      "dueno": "Gerente de Visual Merchandising",
       "participantes": [
        "Retail, Ventas al Mayor, PMO y Mercadeo (solicitantes)",
        "agencia de interiores",
        "Director(a) de Diseño y Marca",
-       "Junta Directiva (GO de nuevos espacios)",
-       "Gerente de Visual Merchandising"
+       "Junta Directiva (GO de nuevos espacios)"
       ],
       "cadencia": "Por proyecto y por campaña; revisión del estándar con las auditorías semestrales",
       "disparador": "Concepto nuevo, apertura o remodelación, campaña que necesita guía de exhibición o hallazgo de auditoría",
@@ -6886,7 +6883,7 @@ window.MANUAL_FASE2 = {
      "madurez": "to-be",
      "mapa": {
       "alcance": "Experiencia e interfaz de las webs y tiendas en línea, los correos y la app: requisitos a partir del contexto de uso, prototipo, prueba con usuarios, aprobación de calidad y de negocio, entrega a Tecnología o a Innovación y Desarrollo de Productos, verificación de la implementación y mantenimiento del sistema de diseño digital.",
-      "dueno": "Gerente de Diseño de Producto (Diseño y Marca)",
+      "dueno": "Gerente Corporativo(a) de Desarrollo y Calidad de Productos",
       "participantes": [
        "Gerente de E-commerce y Growth (webs)",
        "Innovación y Desarrollo de Productos (app)",
@@ -7507,9 +7504,8 @@ window.MANUAL_FASE2 = {
       "alcance": "Registro y mantenimiento de las marcas propias en los mercados donde el grupo opera o proyecta operar, control del uso correcto de la marca por parte de franquiciados, socios y distribuidores, administración de las licencias de propiedad intelectual de terceros y de sus condiciones de uso, y atención de los casos de uso indebido o de producto no autorizado en circulación.",
       "dueno": "Asesor(a) Jurídico(a) Externo(a) del Grupo (General Counsel)",
       "participantes": [
-       "Gerente de Marca (Diseño y Marca)",
+       "Director(a) Creativo(a) · Creatividad y Contenido Audiovisual",
        "Especialista de Producto / Proyecto",
-       "Gerente de Marca (Diseño y Marca)",
        "Gerente Regional Comercial / Retail (franquiciados y distribuidores)",
        "licenciantes y agentes de propiedad industrial (actores externos)"
       ],

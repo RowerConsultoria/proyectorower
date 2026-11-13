@@ -1029,7 +1029,7 @@ window.MANUAL_CONTENIDO = {
      "actividades": [
       {"id": "a1", "rol": "Gerente Regional de Retail", "texto": "Registra la necesidad de renovación —imagen envejecida, mobiliario dañado o un estándar de marca nuevo— en el plan de renovaciones del año y la prioriza frente a las demás pendientes, agrupando en una sola intervención lo que haya que hacer en el mismo punto para no cerrarlo dos veces."},
       {"id": "a1b", "rol": "Comité Comercial", "texto": "Revisa la cola de renovaciones del ciclo y valida su prioridad contra el plan comercial de la región: qué puntos entran, en qué orden y cuáles esperan. Es la instancia que evita que la renovación se decida punto por punto y fuera de cualquier plan."},
-      {"id": "a2", "rol": "Gerente de Producción y Espacios (Diseño y Marca)", "texto": "Fija el estándar al que tiene que llegar el punto según el concepto de tienda vigente (proceso 16.11): qué versión de la imagen de marca aplica, qué mobiliario y qué señalética corresponden, y qué se conserva de lo que ya hay."},
+      {"id": "a2", "rol": "Gerente de Visual Merchandising", "texto": "Fija el estándar al que tiene que llegar el punto según el concepto de tienda vigente (proceso 16.11): qué versión de la imagen de marca aplica, qué mobiliario y qué señalética corresponden, y qué se conserva de lo que ya hay."},
       {"id": "a3", "rol": "Coordinador(a) de Visual Merchandising (país)", "texto": "Prepara la propuesta y el render de la intervención con el proveedor que ejecuta las aperturas, y la costea."},
       {"id": "a4", "rol": "Gerente de Ventas al Detal (País)", "texto": "Valida el impacto en la operación del punto: en qué ventana se puede intervenir, cuántos días queda cerrado o a media capacidad, y qué venta se deja de hacer. Una renovación mal calendarizada cuesta más en venta perdida que en obra."},
       {"id": "a5", "rol": "Gerente Regional de Retail", "texto": "Aprueba el presupuesto y la ventana de ejecución antes de que el proveedor arranque el trabajo físico."},
@@ -1042,7 +1042,7 @@ window.MANUAL_CONTENIDO = {
       "carriles": [
        "Gerente Regional de Retail",
        "Comité Comercial",
-       "Gerente de Producción y Espacios (Diseño y Marca)",
+       "Gerente de Visual Merchandising",
        "Coordinador(a) de Visual Merchandising (país)",
        "Gerente de Ventas al Detal (País)",
        "Gerente de Proyectos (PMO)",
@@ -1052,7 +1052,7 @@ window.MANUAL_CONTENIDO = {
        {"id": "n0", "carril": "Gerente Regional de Retail", "tipo": "inicio", "n": "Necesidad de renovación"},
        {"id": "n1", "carril": "Gerente Regional de Retail", "tipo": "tarea", "n": "Registrar y priorizar en el plan de renovaciones"},
        {"id": "n1b", "carril": "Comité Comercial", "tipo": "tarea", "n": "Validar la prioridad de la cola del ciclo"},
-       {"id": "n2", "carril": "Gerente de Producción y Espacios (Diseño y Marca)", "tipo": "tarea", "n": "Fijar el estándar al que debe llegar el punto"},
+       {"id": "n2", "carril": "Gerente de Visual Merchandising", "tipo": "tarea", "n": "Fijar el estándar al que debe llegar el punto"},
        {"id": "n3", "carril": "Coordinador(a) de Visual Merchandising (país)", "tipo": "tarea", "n": "Preparar propuesta, render y costeo"},
        {"id": "n4", "carril": "Gerente de Ventas al Detal (País)", "tipo": "tarea", "n": "Validar la ventana y el impacto en la venta"},
        {"id": "n5", "carril": "Gerente Regional de Retail", "tipo": "decision", "n": "¿Aprueba presupuesto y ventana?"},
@@ -3954,7 +3954,7 @@ window.MANUAL_CONTENIDO = {
       {"id": "a1", "rol": "Analista/Ejecutivo(a) Comercial", "texto": "Recibe el contacto del cliente corporativo, por primer contacto o por cuenta recurrente."},
       {"id": "a2", "rol": "Analista/Ejecutivo(a) Comercial", "texto": "Elabora la cotización fuera de las listas corrientes: la venta corporativa se cotiza sobre el precio de referencia al público con el descuento que se negocie, porque el comprador no revende sino que consume o regala el producto."},
       {"id": "a3", "rol": "Gerente Comercial (País / Canal)", "texto": "Aprueba la cotización antes de que salga al cliente. Un precio fuera de lista es una excepción a la política comercial y compromete margen: pasa por la misma autoridad que aprueba cualquier otra excepción, y escala a la gerencia regional cuando supera el umbral del país."},
-      {"id": "a4", "rol": "Director(a) Creativo(a) · Gerencia de Marca y Creatividad", "texto": "Prepara el arte del producto personalizado con el manual de marca y lo lleva a aprobación de cada marca patrocinante. ⚠️ Aquí no aprobamos nosotros: cuando el pedido lleva varias marcas invitadas, cada una aprueba su color, su forma y su aplicación por separado. Es lo que alarga y complica esta venta, y es la parte del plazo que no controlamos."},
+      {"id": "a4", "rol": "Director(a) Creativo(a) · Creatividad y Contenido Audiovisual", "texto": "Prepara el arte del producto personalizado con el manual de marca y lo lleva a aprobación de cada marca patrocinante. ⚠️ Aquí no aprobamos nosotros: cuando el pedido lleva varias marcas invitadas, cada una aprueba su color, su forma y su aplicación por separado. Es lo que alarga y complica esta venta, y es la parte del plazo que no controlamos."},
       {"id": "a5", "rol": "Proveedor de personalización", "texto": "Ejecuta el grabado, la personalización o el empaque especial del producto según el arte aprobado."},
       {"id": "a6", "rol": "Gerente de Contabilidad / Administración", "texto": "Factura la venta con las condiciones corporativas acordadas."}
      ],
@@ -3962,7 +3962,7 @@ window.MANUAL_CONTENIDO = {
       "carriles": [
        "Analista/Ejecutivo(a) Comercial",
        "Gerente Comercial (País / Canal)",
-       "Director(a) Creativo(a) · Gerencia de Marca y Creatividad",
+       "Director(a) Creativo(a) · Creatividad y Contenido Audiovisual",
        "Proveedor de personalización",
        "Gerente de Contabilidad / Administración"
       ],
@@ -3971,8 +3971,8 @@ window.MANUAL_CONTENIDO = {
        {"id": "n1", "carril": "Analista/Ejecutivo(a) Comercial", "tipo": "tarea", "n": "Elaborar la cotización"},
        {"id": "n2", "carril": "Gerente Comercial (País / Canal)", "tipo": "decision", "n": "¿Aprueba el precio?"},
        {"id": "n2alt", "carril": "Analista/Ejecutivo(a) Comercial", "tipo": "tarea", "n": "Reajustar la cotización con el cliente"},
-       {"id": "n3", "carril": "Director(a) Creativo(a) · Gerencia de Marca y Creatividad", "tipo": "decision", "n": "¿Lleva marcas invitadas?"},
-       {"id": "n3alt", "carril": "Director(a) Creativo(a) · Gerencia de Marca y Creatividad", "tipo": "tarea", "n": "Llevar el arte a cada marca patrocinante"},
+       {"id": "n3", "carril": "Director(a) Creativo(a) · Creatividad y Contenido Audiovisual", "tipo": "decision", "n": "¿Lleva marcas invitadas?"},
+       {"id": "n3alt", "carril": "Director(a) Creativo(a) · Creatividad y Contenido Audiovisual", "tipo": "tarea", "n": "Llevar el arte a cada marca patrocinante"},
        {"id": "n4", "carril": "Proveedor de personalización", "tipo": "tarea", "n": "Grabar o personalizar el producto"},
        {"id": "n5", "carril": "Gerente de Contabilidad / Administración", "tipo": "tarea", "n": "Facturar con condiciones corporativas"},
        {"id": "n6", "carril": "Gerente de Contabilidad / Administración", "tipo": "fin", "n": "Venta corporativa entregada y facturada"}
@@ -4167,7 +4167,7 @@ window.MANUAL_CONTENIDO = {
      "estado": "borrador",
      "actividades": [
       {"id": "a1", "rol": "Gerente Regional Comercial (Mayoreo)", "texto": "Recibe el interés del cliente en fabricar un producto (audífono, termo, bocina) con su propia marca."},
-      {"id": "a2", "rol": "Gerente de Diseño de Producto (Diseño y Marca)", "texto": "Diseña con desarrollo de producto la línea de marca privada y acompaña la muestra inicial."},
+      {"id": "a2", "rol": "Gerente Corporativo(a) de Desarrollo y Calidad de Productos", "texto": "Diseña con desarrollo de producto la línea de marca privada y acompaña la muestra inicial."},
       {"id": "a3", "rol": "Sourcing en China", "texto": "Gestiona con el proveedor chino la producción de la muestra aprobada."},
       {"id": "a4", "rol": "Gerente Regional Comercial (Mayoreo)", "texto": "Cierra la proforma firmada con el cliente una vez aprobada la muestra."},
       {"id": "a5", "rol": "Sourcing en China", "texto": "Libera la producción del pedido con el proveedor chino."},
@@ -4176,16 +4176,16 @@ window.MANUAL_CONTENIDO = {
      "diagrama": {
       "carriles": [
        "Gerente Regional Comercial (Mayoreo)",
-       "Gerente de Diseño de Producto (Diseño y Marca)",
+       "Gerente Corporativo(a) de Desarrollo y Calidad de Productos",
        "Sourcing en China",
        "Gerente de Contabilidad / Administración"
       ],
       "nodos": [
        {"id": "n0", "carril": "Gerente Regional Comercial (Mayoreo)", "tipo": "inicio", "n": "Cliente interesado en marca privada (handshake o red de contactos)"},
-       {"id": "n1", "carril": "Gerente de Diseño de Producto (Diseño y Marca)", "tipo": "tarea", "n": "Coordinar diseño y muestra con desarrollo de producto"},
+       {"id": "n1", "carril": "Gerente Corporativo(a) de Desarrollo y Calidad de Productos", "tipo": "tarea", "n": "Coordinar diseño y muestra con desarrollo de producto"},
        {"id": "n2", "carril": "Sourcing en China", "tipo": "tarea", "n": "Gestionar producción de la muestra con el proveedor"},
        {"id": "n3", "carril": "Gerente Regional Comercial (Mayoreo)", "tipo": "decision", "n": "¿Cliente aprueba la muestra?"},
-       {"id": "n3alt", "carril": "Gerente de Diseño de Producto (Diseño y Marca)", "tipo": "tarea", "n": "Ajustar diseño y reintentar la muestra"},
+       {"id": "n3alt", "carril": "Gerente Corporativo(a) de Desarrollo y Calidad de Productos", "tipo": "tarea", "n": "Ajustar diseño y reintentar la muestra"},
        {"id": "n4", "carril": "Gerente Regional Comercial (Mayoreo)", "tipo": "tarea", "n": "Cerrar proforma firmada con el cliente"},
        {"id": "n5", "carril": "Sourcing en China", "tipo": "tarea", "n": "Liberar producción del pedido"},
        {"id": "n6", "carril": "Gerente de Contabilidad / Administración", "tipo": "tarea", "n": "Facturar la entrega según proforma"},
@@ -4258,7 +4258,7 @@ window.MANUAL_CONTENIDO = {
        "Proyectos de marca privada con muestra aprobada en el primer intento",
        "Aprobados al primer intento ÷ total de proyectos",
        "Anual",
-       "Gerente de Diseño de Producto (Diseño y Marca)",
+       "Gerente Corporativo(a) de Desarrollo y Calidad de Productos",
        "Referencia de seguimiento"
       ]
      ]
@@ -14477,7 +14477,7 @@ window.MANUAL_CONTENIDO = {
      "Director(a) de Marca Propia (Cubitt)",
      "Especialista de Producto / Proyecto",
      "Encargado(a) de Sourcing (China)",
-     "Gerente de Diseño de Producto (Diseño y Marca)",
+     "Gerente Corporativo(a) de Desarrollo y Calidad de Productos",
      "Gerente Regional Comercial / Retail",
      "Gerente Corporativo(a) de Mercadeo",
      "Gerente de Servicio Técnico"
@@ -14774,7 +14774,7 @@ window.MANUAL_CONTENIDO = {
      ],
      [
       "3.3 Diseño y especificación",
-      "Gerente de Diseño de Producto (Diseño y Marca) · Especialista de Producto / Proyecto",
+      "Gerente Corporativo(a) de Desarrollo y Calidad de Productos · Especialista de Producto / Proyecto",
       "Director(a) de Marca Propia (Cubitt)",
       "Gerente Corporativo(a) de Mercadeo",
       "Compras · PMO"
@@ -14798,7 +14798,7 @@ window.MANUAL_CONTENIDO = {
       "Especialista de Producto / Proyecto",
       "Director(a) de Marca Propia (Cubitt)",
       "Gerente Regional Comercial / Retail · Asesor(a) Jurídico(a) Externo(a) del Grupo",
-      "Gerente de Diseño de Producto (Diseño y Marca)"
+      "Gerente Corporativo(a) de Desarrollo y Calidad de Productos"
      ]
     ],
     "catalogo_sistemas": [
@@ -15291,16 +15291,16 @@ window.MANUAL_CONTENIDO = {
    },
    "3.3": {
     "proposito": {"estado": "borrador", "texto": "Convierte el brief aprobado en un producto especificado: diseño propio o adaptación de la propuesta de la fábrica, especificaciones técnicas y de materiales, colores y variantes con criterio de tendencia, empaque e información de producto, decisión sobre moldes, creación del código del producto y envío del paquete a la fábrica con el calendario de la muestra.", "nota_estado": "Proceso en transición: la marca propia empezó a diseñar con una diseñadora industrial recién incorporada y define materiales y colores con las fábricas; hasta ahora dependía de los diseños de las fábricas. Lo que se incorpora es un paquete de diseño cerrado, una decisión explícita sobre moldes con presupuesto y un calendario de muestra con cuenta regresiva."},
-    "dueno": {"estado": "borrador", "dueno": "Director(a) de Marca Propia (Cubitt)", "participantes": ["Especialista de Producto / Proyecto — define las especificaciones técnicas y funcionales y crea los códigos del producto.", "Gerente de Diseño de Producto (Diseño y Marca) — diseña el producto o adapta la propuesta de la fábrica, con colores, materiales, acabados y variantes, y diseña el empaque y el manual.", "Gerente Corporativo(a) de Mercadeo — define los argumentos de venta y valida el empaque con el brief de consumidor."], "evidencia": ["E-60", "E-06", "E-22", "E-64", "SC-10"], "notas": "La diseñadora industrial figura hoy bajo marketing; la propia dirección de marketing considera que el desarrollo de producto no debería pertenecerle. El manual la ubica en el proceso de marca propia sin decidir su dependencia jerárquica."},
+    "dueno": {"estado": "borrador", "dueno": "Director(a) de Marca Propia (Cubitt)", "participantes": ["Especialista de Producto / Proyecto — define las especificaciones técnicas y funcionales y crea los códigos del producto.", "Gerente Corporativo(a) de Desarrollo y Calidad de Productos — diseña el producto o adapta la propuesta de la fábrica, con colores, materiales, acabados y variantes, y diseña el empaque y el manual.", "Gerente Corporativo(a) de Mercadeo — define los argumentos de venta y valida el empaque con el brief de consumidor."], "evidencia": ["E-60", "E-06", "E-22", "E-64", "SC-10"], "notas": "La diseñadora industrial figura hoy bajo marketing; la propia dirección de marketing considera que el desarrollo de producto no debería pertenecerle. El manual la ubica en el proceso de marca propia sin decidir su dependencia jerárquica."},
     "disparador": {"estado": "borrador"},
     "flujo": {
      "estado": "borrador",
      "evidencia": ["E-06", "E-22", "E-60", "E-64", "SC-10"],
      "actividades": [
       {"id": "a1", "rol": "Director(a) de Marca Propia (Cubitt)", "texto": "Asigna el brief aprobado al equipo de diseño y de producto, con el precio objetivo, la fecha de la grilla de lanzamientos y el presupuesto de muestras y moldes disponible."},
-      {"id": "a2", "rol": "Gerente de Diseño de Producto (Diseño y Marca)", "texto": "Diseña el producto desde cero o adapta la propuesta de la fábrica: forma, ergonomía, colores, materiales y acabados, estampados y variantes, con base en las tendencias de temporada, en lo que ya se vende de la familia y en el manual de marca."},
+      {"id": "a2", "rol": "Gerente Corporativo(a) de Desarrollo y Calidad de Productos", "texto": "Diseña el producto desde cero o adapta la propuesta de la fábrica: forma, ergonomía, colores, materiales y acabados, estampados y variantes, con base en las tendencias de temporada, en lo que ya se vende de la familia y en el manual de marca."},
       {"id": "a3", "rol": "Especialista de Producto / Proyecto", "texto": "Define las especificaciones técnicas y funcionales —materiales, batería, sensores, conectividad y compatibilidad con la aplicación— y las valida con la fábrica que producirá la muestra."},
-      {"id": "a4", "rol": "Gerente de Diseño de Producto (Diseño y Marca)", "texto": "Recibe del equipo de producto la información detallada y diseña el empaque y el manual, con los argumentos de venta que define la gerencia corporativa de Mercadeo y con el plazo que exige la producción del empaque."},
+      {"id": "a4", "rol": "Gerente Corporativo(a) de Desarrollo y Calidad de Productos", "texto": "Recibe del equipo de producto la información detallada y diseña el empaque y el manual, con los argumentos de venta que define la gerencia corporativa de Mercadeo y con el plazo que exige la producción del empaque."},
       {"id": "a5", "rol": "Director(a) de Marca Propia (Cubitt)", "texto": "Decide si el producto requiere molde propio; cuando lo requiere, aprueba la inversión con su presupuesto y la cláusula de propiedad del molde, en lugar de decidirlo sin cuantificar."},
       {"id": "a6", "rol": "Especialista de Producto / Proyecto", "texto": "Crea los códigos del producto y sus variantes —referencia interna y código de barras— y la ficha maestra que usarán compras, logística y los canales."},
       {"id": "a7", "rol": "Director(a) de Marca Propia (Cubitt)", "texto": "Cierra el paquete de diseño y lo envía a la fábrica con el calendario de la muestra en cuenta regresiva, de modo que la orden pueda colocarse al menos tres meses antes del lanzamiento."}
@@ -15308,15 +15308,15 @@ window.MANUAL_CONTENIDO = {
      "diagrama": {
       "carriles": [
        "Director(a) de Marca Propia (Cubitt)",
-       "Gerente de Diseño de Producto (Diseño y Marca)",
+       "Gerente Corporativo(a) de Desarrollo y Calidad de Productos",
        "Especialista de Producto / Proyecto"
       ],
       "nodos": [
        {"id": "i", "carril": "Director(a) de Marca Propia (Cubitt)", "tipo": "inicio", "n": "Oportunidad aprobada con brief"},
        {"id": "t1", "carril": "Director(a) de Marca Propia (Cubitt)", "tipo": "tarea", "n": "Asignar el brief al equipo"},
-       {"id": "t2", "carril": "Gerente de Diseño de Producto (Diseño y Marca)", "tipo": "tarea", "n": "Diseñar o adaptar el producto y sus variantes"},
+       {"id": "t2", "carril": "Gerente Corporativo(a) de Desarrollo y Calidad de Productos", "tipo": "tarea", "n": "Diseñar o adaptar el producto y sus variantes"},
        {"id": "t3", "carril": "Especialista de Producto / Proyecto", "tipo": "tarea", "n": "Definir especificaciones técnicas"},
-       {"id": "t4", "carril": "Gerente de Diseño de Producto (Diseño y Marca)", "tipo": "tarea", "n": "Diseñar empaque y argumentos de venta"},
+       {"id": "t4", "carril": "Gerente Corporativo(a) de Desarrollo y Calidad de Productos", "tipo": "tarea", "n": "Diseñar empaque y argumentos de venta"},
        {"id": "d1", "carril": "Director(a) de Marca Propia (Cubitt)", "tipo": "decision", "n": "¿Requiere molde propio?"},
        {"id": "t5", "carril": "Director(a) de Marca Propia (Cubitt)", "tipo": "tarea", "n": "Aprobar la inversión del molde"},
        {"id": "t6", "carril": "Especialista de Producto / Proyecto", "tipo": "tarea", "n": "Crear códigos y ficha maestra", "sistemas": ["Odoo"]},
@@ -21036,27 +21036,27 @@ window.MANUAL_CONTENIDO = {
     "flujo": {
      "estado": "borrador",
      "actividades": [
-      {"id": "a1", "rol": "Director(a) Creativo(a) · Gerencia de Marca y Creatividad", "texto": "Identifica la necesidad de proteger un activo de propiedad intelectual —la entrada a un mercado nuevo, el desarrollo de una colección bajo licencia de un tercero, o la detección de un uso indebido de la marca o de producto no autorizado en circulación— y lo traslada al asesor jurídico corporativo."},
+      {"id": "a1", "rol": "Director(a) Creativo(a) · Creatividad y Contenido Audiovisual", "texto": "Identifica la necesidad de proteger un activo de propiedad intelectual —la entrada a un mercado nuevo, el desarrollo de una colección bajo licencia de un tercero, o la detección de un uso indebido de la marca o de producto no autorizado en circulación— y lo traslada al asesor jurídico corporativo."},
       {"id": "a2", "rol": "Asesor(a) Jurídico(a) Externo(a) del Grupo (General Counsel)", "texto": "Evalúa si el activo requiere el registro de una marca, la administración de una licencia de un tercero, o la atención de una infracción, y define la vía correspondiente."},
       {"id": "a3", "rol": "Especialista de Producto / Proyecto", "texto": "Aporta el detalle técnico del producto o de la colección bajo licencia —características, mercado de destino y desarrollos de terceros involucrados, como el software asociado al producto— que el registro o la licencia deben cubrir."},
       {"id": "a4", "rol": "Asesor(a) Jurídico(a) Externo(a) del Grupo (General Counsel)", "texto": "Tramita el registro de la marca propia ante la autoridad de propiedad industrial del país, o negocia con el licenciante las condiciones de uso de la licencia de un tercero."},
       {"id": "a5", "rol": "licenciantes y agentes de propiedad industrial (actores externos)", "texto": "Formalizan el registro de la marca o las condiciones de la licencia, incluida la titularidad de los desarrollos derivados —como una aplicación de software vinculada al producto— cuando corresponde."},
       {"id": "a6", "rol": "Gerente Regional Comercial / Retail", "texto": "Comunica a franquiciados y distribuidores las condiciones de uso correcto de la marca y de la licencia vigente."},
-      {"id": "a7", "rol": "Director(a) Creativo(a) · Gerencia de Marca y Creatividad", "texto": "Da seguimiento al uso de la marca por parte de franquiciados, socios y distribuidores, y reporta al asesor jurídico corporativo cualquier caso de uso indebido o de producto no autorizado en circulación."},
+      {"id": "a7", "rol": "Director(a) Creativo(a) · Creatividad y Contenido Audiovisual", "texto": "Da seguimiento al uso de la marca por parte de franquiciados, socios y distribuidores, y reporta al asesor jurídico corporativo cualquier caso de uso indebido o de producto no autorizado en circulación."},
       {"id": "a8", "rol": "Asesor(a) Jurídico(a) Externo(a) del Grupo (General Counsel)", "texto": "Atiende el caso de uso indebido —con el licenciante, el agente de propiedad industrial o el canal legal correspondiente— hasta su cierre."},
       {"id": "a9", "rol": "Asesor(a) Jurídico(a) Externo(a) del Grupo (General Counsel)", "texto": "Revisa anualmente el portafolio de marcas registradas y de licencias vigentes, y actualiza su estado."}
      ],
      "diagrama": {
       "carriles": [
-       "Director(a) Creativo(a) · Gerencia de Marca y Creatividad",
+       "Director(a) Creativo(a) · Creatividad y Contenido Audiovisual",
        "Asesor(a) Jurídico(a) Externo(a) del Grupo (General Counsel)",
        "Especialista de Producto / Proyecto",
        "licenciantes y agentes de propiedad industrial (actores externos)",
        "Gerente Regional Comercial / Retail"
       ],
       "nodos": [
-       {"id": "n0", "carril": "Director(a) Creativo(a) · Gerencia de Marca y Creatividad", "tipo": "inicio", "n": "Mercado nuevo, licencia de un tercero o uso indebido detectado"},
-       {"id": "n1", "carril": "Director(a) Creativo(a) · Gerencia de Marca y Creatividad", "tipo": "tarea", "n": "Trasladar el caso al asesor jurídico corporativo"},
+       {"id": "n0", "carril": "Director(a) Creativo(a) · Creatividad y Contenido Audiovisual", "tipo": "inicio", "n": "Mercado nuevo, licencia de un tercero o uso indebido detectado"},
+       {"id": "n1", "carril": "Director(a) Creativo(a) · Creatividad y Contenido Audiovisual", "tipo": "tarea", "n": "Trasladar el caso al asesor jurídico corporativo"},
        {"id": "n2", "carril": "Asesor(a) Jurídico(a) Externo(a) del Grupo (General Counsel)", "tipo": "tarea", "n": "Evaluar la vía: registro, licencia o infracción"},
        {"id": "n3", "carril": "Especialista de Producto / Proyecto", "tipo": "tarea", "n": "Aportar el detalle técnico del producto o la colección"},
        {"id": "n4", "carril": "Asesor(a) Jurídico(a) Externo(a) del Grupo (General Counsel)", "tipo": "decision", "n": "¿Es un registro de marca propia o una licencia de un tercero?"},
@@ -21064,8 +21064,8 @@ window.MANUAL_CONTENIDO = {
        {"id": "n4b", "carril": "Asesor(a) Jurídico(a) Externo(a) del Grupo (General Counsel)", "tipo": "tarea", "n": "Negociar las condiciones de la licencia con el licenciante"},
        {"id": "n5", "carril": "licenciantes y agentes de propiedad industrial (actores externos)", "tipo": "tarea", "n": "Formalizar el registro o las condiciones de la licencia"},
        {"id": "n6", "carril": "Gerente Regional Comercial / Retail", "tipo": "tarea", "n": "Comunicar las condiciones de uso a franquiciados y distribuidores"},
-       {"id": "n7", "carril": "Director(a) Creativo(a) · Gerencia de Marca y Creatividad", "tipo": "tarea", "n": "Dar seguimiento al uso de la marca"},
-       {"id": "n8", "carril": "Director(a) Creativo(a) · Gerencia de Marca y Creatividad", "tipo": "decision", "n": "¿Se detecta uso indebido o producto no autorizado?"},
+       {"id": "n7", "carril": "Director(a) Creativo(a) · Creatividad y Contenido Audiovisual", "tipo": "tarea", "n": "Dar seguimiento al uso de la marca"},
+       {"id": "n8", "carril": "Director(a) Creativo(a) · Creatividad y Contenido Audiovisual", "tipo": "decision", "n": "¿Se detecta uso indebido o producto no autorizado?"},
        {"id": "n8alt", "carril": "Asesor(a) Jurídico(a) Externo(a) del Grupo (General Counsel)", "tipo": "tarea", "n": "Atender el caso hasta su cierre"},
        {"id": "n9", "carril": "Asesor(a) Jurídico(a) Externo(a) del Grupo (General Counsel)", "tipo": "tarea", "n": "Revisar anualmente el portafolio de marcas y licencias"},
        {"id": "n10", "carril": "Asesor(a) Jurídico(a) Externo(a) del Grupo (General Counsel)", "tipo": "fin", "n": "Marca registrada y vigente, o licencia administrada dentro de las condiciones acordadas"}
@@ -21359,7 +21359,7 @@ window.MANUAL_CONTENIDO = {
 
  "16": {
   "n0": {
-   "introduccion": {"estado": "borrador", "proposito": "Este manual documenta cómo Grupo Kenex planifica, crea, produce, adapta por país y mide la comunicación de sus dos marcas —Cubitt, marca propia, y Casio, marca representada que opera bajo los lineamientos y la aprobación de Casio Brasil—, cómo define y custodia cómo se ven y se sienten esas marcas en cada producto, canal y espacio, y cómo esa comunicación se convierte en imagen de marca en cada punto de venta. Recorre la cadena completa: del plan anual y el presupuesto a las campañas, el tráfico creativo, la adaptación local, las redes sociales, los influencers y las alianzas, el visual merchandising y el reporte de resultados a la dirección; y, desde la revisión de la estructura del 06-nov-2026, los cuatro procesos de la Dirección de Diseño y Marca: la identidad y el sistema de marca, la producción central de contenido visual, el diseño de los espacios comerciales y el diseño de producto digital.", "alcance": "Aplica a la gerencia corporativa de Mercadeo —Insights y ROI, Social y Contenido, Cuentas Clave y Trade y Visual Merchandising— y a la gerencia de Mercadeo de cada país con sus coordinaciones (Panamá, Venezuela, Colombia y Costa Rica); a la gerencia corporativa de Brand Management, de la Dirección Comercial, que lleva Casio; y a la Dirección de Diseño y Marca —con sus gerencias corporativas de Marca y Creatividad, Diseño de Producto, y Producción y Espacios—. Costa Rica participa como socio: su equipo de mercadeo es propio, pero las piezas de Cubitt se aprueban desde lo corporativo. No incluye el desarrollo técnico del producto (macroproceso 3: el diseño industrial y el empaque se hacen allí, en el proceso 3.3, con Diseño y Marca), la operación de las webs y marketplaces, la pauta de performance ni la venta en línea (macroproceso 10, de E-commerce y Growth: su diseño sí está aquí, en 16.12), la definición de promociones, precios y surtido (macroprocesos 2, 8 y 9 —mercadeo las comunica, no las decide—), la compra de mercancía (macroproceso 6), la atención de garantías (macroproceso 11) ni el pago a proveedores (macroproceso 13).", "audiencia": ["Gerente Corporativo(a) de Mercadeo", "Brand Manager de Casio", "Analista de Insights y ROI", "Gerente de Social y Contenido", "Gerente de Cuentas Clave y Trade", "Gerente de Visual Merchandising", "Gerente de Mercadeo (país) y sus coordinaciones (Marca, Social y Contenido, Trade y Activaciones, Visual Merchandising)", "Director(a) de Diseño y Marca", "Director(a) Creativo(a) · Gerencia de Marca y Creatividad", "Director(a) de Arte · Marca y Creatividad", "Gerentes de Diseño de Producto y de Producción y Espacios", "Diseñadores internos y freelance", "Gerente de E-commerce y Growth (pauta de performance y webs)", "Junta Directiva y Presidencia (aprobación del plan, del posicionamiento y reporte mensual)"]},
+   "introduccion": {"estado": "borrador", "proposito": "Este manual documenta cómo Grupo Kenex planifica, crea, produce, adapta por país y mide la comunicación de sus dos marcas —Cubitt, marca propia, y Casio, marca representada que opera bajo los lineamientos y la aprobación de Casio Brasil—, cómo define y custodia cómo se ven y se sienten esas marcas en cada producto, canal y espacio, y cómo esa comunicación se convierte en imagen de marca en cada punto de venta. Recorre la cadena completa: del plan anual y el presupuesto a las campañas, el tráfico creativo, la adaptación local, las redes sociales, los influencers y las alianzas, el visual merchandising y el reporte de resultados a la dirección; y, desde la revisión de la estructura del 06-nov-2026, los cuatro procesos de la Dirección de Diseño y Marca: la identidad y el sistema de marca, la producción central de contenido visual, el diseño de los espacios comerciales y el diseño de producto digital.", "alcance": "Aplica a la gerencia corporativa de Mercadeo —Insights y ROI, Social y Contenido, Cuentas Clave y Trade y Visual Merchandising— y a la gerencia de Mercadeo de cada país con sus coordinaciones (Panamá, Venezuela, Colombia y Costa Rica); a la gerencia corporativa de Brand Management, de la Dirección Comercial, que lleva Casio; y a la Dirección de Diseño y Marca —con sus coordinaciones corporativas de Creatividad y Contenido Audiovisual y de Diseño Gráfico de Campañas y Redes—. Costa Rica participa como socio: su equipo de mercadeo es propio, pero las piezas de Cubitt se aprueban desde lo corporativo. No incluye el desarrollo técnico del producto (macroproceso 3: el diseño industrial y el empaque se hacen allí, en el proceso 3.3, con Diseño y Marca), la operación de las webs y marketplaces, la pauta de performance ni la venta en línea (macroproceso 10, de E-commerce y Growth: su diseño sí está aquí, en 16.12), la definición de promociones, precios y surtido (macroprocesos 2, 8 y 9 —mercadeo las comunica, no las decide—), la compra de mercancía (macroproceso 6), la atención de garantías (macroproceso 11) ni el pago a proveedores (macroproceso 13).", "audiencia": ["Gerente Corporativo(a) de Mercadeo", "Brand Manager de Casio", "Analista de Insights y ROI", "Gerente de Social y Contenido", "Gerente de Cuentas Clave y Trade", "Gerente de Visual Merchandising", "Gerente de Mercadeo (país) y sus coordinaciones (Marca, Social y Contenido, Trade y Activaciones, Visual Merchandising)", "Director(a) de Diseño y Marca", "Director(a) Creativo(a) · Creatividad y Contenido Audiovisual", "Director(a) de Arte · Diseño Gráfico de Campañas y Redes", "Gerente Corporativo(a) de Desarrollo y Calidad de Productos (diseño de producto y digital)", "Diseñadores internos y freelance", "Gerente de E-commerce y Growth (pauta de performance y webs)", "Junta Directiva y Presidencia (aprobación del plan, del posicionamiento y reporte mensual)"]},
    "contexto": {
     "estado": "borrador",
     "ubicacion": "Mercadeo es un macroproceso híbrido entre soporte y negocio: no vende, pero sostiene con campañas, contenido, pauta digital, influencers e imagen en tienda la demanda de los tres canales de venta —tiendas, mayor y web—. Gestiona dos marcas con gobiernos distintos. Casio trabaja sobre un plan semestral, de octubre a marzo y de abril a septiembre, cuyo presupuesto y acciones aprueba Casio Brasil, representante regional de la marca, al que se rinde un reporte mensual y un cierre semestral detallado. Cubitt, la marca propia, se planifica sobre un presupuesto anual asignado por la dirección y un calendario de campañas fijas, lanzamientos y eventos, y sus campañas de mayor alcance las aprueba la Junta Directiva.\n\nLa gerencia regional, con sede en Panamá, coordina un equipo de alrededor de cincuenta personas: los equipos de país de Panamá, Venezuela y Colombia; el equipo regional de Casio; el de cuentas clave, que trabaja el crecimiento de marca y los planes con clientes en siete mercados; la dirección creativa y de arte con su equipo de diseño, fotografía y video, que atiende a toda la región; la gestión regional de redes sociales y de influencers; y el equipo de pauta digital y email marketing, que en septiembre de 2026 pasó a la gerencia de e-commerce regional y sigue operando la pauta de Cubitt y de Casio en coordinación con mercadeo. La empresa decidió producir su comunicación con equipo propio en lugar de agencias de publicidad; Casio recurre a agencia externa para alianzas e influencers en Guatemala y Ecuador.\n\nVisual merchandising nació en 2021 como departamento regional para Cubitt. Organizacionalmente se ubica junto a mercadeo, pero opera como departamento propio con una gerencia regional, coordinadoras regionales, coordinadores y ejecutivos de país, y atiende tanto las tiendas propias como a los clientes del canal mayorista; Casio está formando su propio equipo de visual. Todo el trabajo del macroproceso —solicitudes, tráfico creativo, calendarios, presupuesto, reportes y aprobaciones— se gestiona en Lark, y las piezas finales se almacenan en repositorios compartidos.\n\nEl modelo To-Be (revisión de la estructura del 06-nov-2026) separa tres preguntas que hoy responde una sola área. Mercadeo, gerencia corporativa dentro de la Dirección Comercial, decide qué necesita el consumidor, qué se le dice y dónde se invierte: es dueño del brief, de la inversión y de su retorno, y se organiza en Insights y ROI, Social y Contenido, Cuentas Clave y Trade y Visual Merchandising, más una gerencia de Mercadeo en cada país con sus coordinaciones; el mercadeo de Cubitt lo genera la propia gerencia. El de Casio, cuya mayor parte define la casa matriz, lo estructura Brand Management, gerencia corporativa que reporta directo a la Dirección Comercial y que planifica también la demanda de Casio. La Dirección de Diseño y Marca, que reporta a la Presidencia, decide cómo se ven y se sienten las marcas: identidad, manual de marca y sistema de diseño, concepto y piezas de campaña, producción central de foto, video y 3D, diseño industrial y de empaque, diseño de webs, correos y app, y estándares de espacios y de material POP; trabaja con un equipo mixto de personal interno, freelancers y una agencia de interiores. E-commerce y Growth, dentro de Ventas, es dueño de la venta en línea y de la pauta de performance. La regla común: cada proyecto tiene un solo aprobador de negocio definido en el brief, Diseño y Marca aprueba la calidad y no hay doble aprobación por pieza; los desacuerdos de prioridad suben con impacto y alternativas y los decide la Dirección.",
@@ -21415,9 +21415,9 @@ window.MANUAL_CONTENIDO = {
       "Máximo responsable de la marca y de todo el diseño: identidad, manual y sistema de diseño, aprobación de la calidad de las piezas clave, presupuesto y capacidad del área."
      ],
      [
-      "Diseño y Marca — gerencias",
-      "Director(a) Creativo(a) · Gerencia de Marca y Creatividad · Gerentes de Diseño de Producto y de Producción y Espacios",
-      "Concepto y piezas de campaña, producción central, espacios y POP, producto físico y empaque, y diseño digital, cada uno en su disciplina."
+      "Diseño y Marca — coordinaciones",
+      "Director(a) Creativo(a) · Creatividad y Contenido Audiovisual · Director(a) de Arte · Diseño Gráfico de Campañas y Redes",
+      "El concepto y el video de cada campaña, con su estudio; las piezas de campaña y las publicaciones en redes. La producción de foto y 3D, los espacios y el POP los lleva Visual Merchandising, en Mercadeo, y el diseño de producto (físico, digital y empaque), Desarrollo y Calidad de Productos."
      ]
     ],
     "entidades": [
@@ -21649,7 +21649,7 @@ window.MANUAL_CONTENIDO = {
       "Posicionamiento y desacuerdos de prioridad, a la Presidencia."
      ],
      [
-      "Director(a) Creativo(a) · Gerencia de Marca y Creatividad",
+      "Director(a) Creativo(a) · Creatividad y Contenido Audiovisual",
       "Diseño y Marca — marca",
       "Concepto, territorio visual y copy de las campañas, en dupla con la dirección de arte; manual de marca y auditorías de coherencia.",
       "Criterio creativo y rechazo de briefs incompletos.",
@@ -21698,7 +21698,7 @@ window.MANUAL_CONTENIDO = {
       "Revisión mensual de capacidad de Diseño y Marca",
       "Ajustar la carga del área a lo comprometido",
       "Mensual",
-      "Director(a) de Diseño y Marca · gerencias de Diseño y Marca · Gerente Corporativo(a) de Mercadeo",
+      "Director(a) de Diseño y Marca · coordinaciones de Diseño y Marca · Gerente Corporativo(a) de Mercadeo",
       "Toda urgencia muestra qué compromiso desplaza; qué se contrata con freelancers",
       "Horas comprometidas y disponibles, solicitudes abiertas",
       "Capacidad del mes siguiente aprobada"
@@ -21734,7 +21734,7 @@ window.MANUAL_CONTENIDO = {
       "Estatus y tráfico creativo",
       "Priorizar la cola de Diseño y Marca contra el calendario común",
       "Semanal (lunes)",
-      "Director(a) de Arte · Marca y Creatividad · Director(a) Creativo(a) · Gerencia de Marca y Creatividad · gerencias de Diseño y Marca",
+      "Director(a) de Arte · Diseño Gráfico de Campañas y Redes · Director(a) Creativo(a) · Creatividad y Contenido Audiovisual",
       "Orden de atención del tráfico creativo",
       "Base de tráfico creativo",
       "Prioridades de la semana"
@@ -21779,7 +21779,7 @@ window.MANUAL_CONTENIDO = {
       "Auditoría semestral de marca",
       "Medir la coherencia de la marca en todos los canales",
       "Semestral",
-      "Director(a) de Diseño y Marca · Director(a) Creativo(a) · Gerencia de Marca y Creatividad · Gerente de Visual Merchandising · Gerente Corporativo(a) de Mercadeo",
+      "Director(a) de Diseño y Marca · Director(a) Creativo(a) · Creatividad y Contenido Audiovisual · Gerente de Visual Merchandising · Gerente Corporativo(a) de Mercadeo",
       "Correcciones por área y revisión del manual",
       "Auditoría con puntaje por canal y país",
       "Correcciones con responsable y fecha"
@@ -21984,14 +21984,14 @@ window.MANUAL_CONTENIDO = {
      ],
      [
       "16.2 Desarrollo y ejecución de campañas",
-      "Gerente Corporativo(a) de Mercadeo (Cubitt) · Brand Manager de Casio (Casio) · Director(a) Creativo(a) · Gerencia de Marca y Creatividad · Diseñador(a) (Diseño y Marca)",
+      "Gerente Corporativo(a) de Mercadeo (Cubitt) · Brand Manager de Casio (Casio) · Director(a) Creativo(a) · Creatividad y Contenido Audiovisual · Diseñador(a) (Diseño y Marca)",
       "Gerente Corporativo(a) de Mercadeo (negocio) · Director(a) de Diseño y Marca (calidad) · Junta Directiva (alto alcance) · Casio Brasil (Casio)",
       "Trafficker de campañas (Mercadeo) · Gerente de Visual Merchandising · Gerente de E-commerce y Growth · Gerente de Cuentas Clave y Trade",
       "Gerente Regional Comercial / Retail · gerencias de país"
      ],
      [
       "16.3 Gestión de solicitudes y tráfico creativo",
-      "Director(a) de Arte · Marca y Creatividad · Diseñador(a) (Diseño y Marca)",
+      "Director(a) de Arte · Diseño Gráfico de Campañas y Redes · Diseñador(a) (Diseño y Marca)",
       "Director(a) de Diseño y Marca",
       "Área solicitante",
       "Gerente de Mercadeo (país)"
@@ -22021,7 +22021,7 @@ window.MANUAL_CONTENIDO = {
       "16.7 Visual merchandising y ejecución de la imagen en punto de venta",
       "Coordinador(a) de Visual Merchandising (país) · Ejecutivo(a) de Visual Merchandising",
       "Gerente de Visual Merchandising",
-      "Gerente de Producción y Espacios (Diseño y Marca) · Gerente Regional Comercial / Retail · Analista/Ejecutivo(a) Comercial · Compras Internas · Procura",
+      "Gerente de Visual Merchandising · Gerente Regional Comercial / Retail · Analista/Ejecutivo(a) Comercial · Compras Internas · Procura",
       "Gerente Corporativo(a) de Mercadeo"
      ],
      [
@@ -22033,28 +22033,28 @@ window.MANUAL_CONTENIDO = {
      ],
      [
       "16.9 Gestión de la identidad y del sistema de marca",
-      "Director(a) Creativo(a) · Gerencia de Marca y Creatividad · Director(a) de Arte · Marca y Creatividad",
+      "Director(a) Creativo(a) · Creatividad y Contenido Audiovisual · Director(a) de Arte · Diseño Gráfico de Campañas y Redes",
       "Director(a) de Diseño y Marca · Presidencia (posicionamiento)",
-      "Gerente Corporativo(a) de Mercadeo · Gerente de Diseño de Producto (Diseño y Marca) · Gerente de Visual Merchandising",
+      "Gerente Corporativo(a) de Mercadeo · Gerente Corporativo(a) de Desarrollo y Calidad de Productos · Gerente de Visual Merchandising",
       "Equipos, proveedores, franquiciados y socios"
      ],
      [
       "16.10 Producción central de contenido visual",
-      "Gerente de Producción y Espacios (Diseño y Marca) · Director(a) de Arte · Marca y Creatividad · freelancers",
-      "Director(a) de Diseño y Marca (plan) · Director(a) Creativo(a) · Gerencia de Marca y Creatividad (calidad)",
-      "Director(a) Creativo(a) · Gerencia de Marca y Creatividad · Logística",
+      "Gerente de Visual Merchandising · Director(a) de Arte · Diseño Gráfico de Campañas y Redes · freelancers",
+      "Director(a) de Diseño y Marca (plan) · Director(a) Creativo(a) · Creatividad y Contenido Audiovisual (calidad)",
+      "Director(a) Creativo(a) · Creatividad y Contenido Audiovisual · Logística",
       "Áreas solicitantes"
      ],
      [
       "16.11 Diseño de espacios comerciales y estándares de exhibición",
-      "Gerente de Producción y Espacios (Diseño y Marca) · agencia de interiores",
+      "Gerente de Visual Merchandising · agencia de interiores",
       "Director(a) de Diseño y Marca · Junta Directiva (GO de nuevos espacios)",
       "Gerente de Visual Merchandising · Retail · Cuentas Clave y Trade",
       "PMO"
      ],
      [
       "16.12 Diseño de producto digital",
-      "Gerente de Diseño de Producto (Diseño y Marca) · Diseñador(a) digital (freelance)",
+      "Gerente Corporativo(a) de Desarrollo y Calidad de Productos · Diseñador(a) digital (freelance)",
       "Director(a) de Diseño y Marca (calidad) · área solicitante (negocio)",
       "Especialista de Tecnología (Web/Infraestructura) · Innovación y Desarrollo de Productos",
       "Gerente de E-commerce y Growth"
@@ -22114,19 +22114,19 @@ window.MANUAL_CONTENIDO = {
       "Dropbox · Google Drive",
       "Repositorio de piezas y material de campaña",
       "16.2 · 16.3 · 16.4",
-      "Director(a) de Arte · Marca y Creatividad"
+      "Director(a) de Arte · Diseño Gráfico de Campañas y Redes"
      ],
      [
       "Biblioteca de activos de marca",
       "Versión vigente, derechos y vencimiento de piezas, plantillas y manuales",
       "16.2 · 16.3 · 16.4 · 16.9 · 16.10 · 16.11",
-      "Director(a) de Arte · Marca y Creatividad"
+      "Director(a) de Arte · Diseño Gráfico de Campañas y Redes"
      ],
      [
       "Herramienta de diseño y prototipado",
       "Sistema de diseño digital, prototipos y especificaciones",
       "16.12",
-      "Gerente de Diseño de Producto (Diseño y Marca)"
+      "Gerente Corporativo(a) de Desarrollo y Calidad de Productos"
      ]
     ],
     "interfaces_detalle": [
@@ -22596,14 +22596,14 @@ window.MANUAL_CONTENIDO = {
    },
    "16.2": {
     "proposito": {"estado": "borrador", "texto": "Lleva cada campaña desde el brief hasta su medición: mercadeo define el objetivo, el público y el mensaje; Diseño y Marca convierte el brief en concepto, copy, key visual y piezas para cada canal —redes, web, email, pauta, tiendas, medios exteriores—; se obtiene la única aprobación de negocio que fija el brief, se produce, se despliega entre países y se cierra con el resultado contra el objetivo. Cubre las campañas fijas del calendario, los lanzamientos de producto y las acciones acordadas con clientes clave.", "nota_estado": "La dirección creativa y la pauta digital ya trabajan con procedimientos escritos —brief obligatorio, ocho semanas de anticipación para productos nuevos, aprobación documentada y cuadro de pauta en Lark—, pero muchas campañas siguen llegando con poco tiempo y la aprobación de las de Cubitt recoge opiniones de varias personas sin un aprobador único. Desde la revisión de la estructura del 06-nov-2026 el concepto, el key visual y las piezas son de la Dirección de Diseño y Marca, que aprueba su calidad; mercadeo es dueño del brief y aprueba que el concepto lo cumpla. Cada proyecto tiene un solo aprobador de negocio, definido en el brief, y no hay doble aprobación por pieza."},
-    "dueno": {"estado": "borrador", "dueno": "Gerente Corporativo(a) de Mercadeo", "participantes": ["Brand Manager de Casio — en las campañas de Casio levanta el brief con la línea de la casa matriz y cierra la campaña con su resultado.", "Director(a) Creativo(a) · Gerencia de Marca y Creatividad — concepto, territorio visual y copy, con la dirección de arte.", "Diseñador(a) (Diseño y Marca) — key visual, adaptaciones y piezas; la foto, el video principal y el 3D se encargan por el proceso 16.10.", "Director(a) de Diseño y Marca — aprueba la calidad de las piezas clave antes de su salida.", "Junta Directiva — aprueba los lanzamientos y las campañas de alto alcance de Cubitt.", "Casio Brasil — aprueba las campañas de Casio.", "Trafficker de campañas (Mercadeo) — monta y optimiza la pauta de marca.", "Gerente de Visual Merchandising — lleva la campaña al punto de venta (proceso 16.7).", "Gerente de E-commerce y Growth — su plan digital y la pauta de performance del lanzamiento.", "Director(a) Comercial Mayorista (Cubitt) y Gerente de Cuentas Clave y Trade — participación de clientes clave en los lanzamientos."], "evidencia": ["E-22", "E-49", "E-42", "E-56", "E-63", "Manual de Procesos Creativos (Lark)", "Manual 01 de Paid Media (Lark)", "Nueva estructura: Marketing, Diseño y Marca y E-commerce y Growth (Dirección Comercial, 29-oct-2026)", "Rol y Estructura CDO (propuesta de la Dirección de Diseño y Marca)", "Reunión de estructura del 04-nov-2026"]},
+    "dueno": {"estado": "borrador", "dueno": "Gerente Corporativo(a) de Mercadeo", "participantes": ["Brand Manager de Casio — en las campañas de Casio levanta el brief con la línea de la casa matriz y cierra la campaña con su resultado.", "Director(a) Creativo(a) · Creatividad y Contenido Audiovisual — concepto, territorio visual y copy, con la dirección de arte.", "Diseñador(a) (Diseño y Marca) — key visual, adaptaciones y piezas; la foto, el video principal y el 3D se encargan por el proceso 16.10.", "Director(a) de Diseño y Marca — aprueba la calidad de las piezas clave antes de su salida.", "Junta Directiva — aprueba los lanzamientos y las campañas de alto alcance de Cubitt.", "Casio Brasil — aprueba las campañas de Casio.", "Trafficker de campañas (Mercadeo) — monta y optimiza la pauta de marca.", "Gerente de Visual Merchandising — lleva la campaña al punto de venta (proceso 16.7).", "Gerente de E-commerce y Growth — su plan digital y la pauta de performance del lanzamiento.", "Director(a) Comercial Mayorista (Cubitt) y Gerente de Cuentas Clave y Trade — participación de clientes clave en los lanzamientos."], "evidencia": ["E-22", "E-49", "E-42", "E-56", "E-63", "Manual de Procesos Creativos (Lark)", "Manual 01 de Paid Media (Lark)", "Nueva estructura: Marketing, Diseño y Marca y E-commerce y Growth (Dirección Comercial, 29-oct-2026)", "Rol y Estructura CDO (propuesta de la Dirección de Diseño y Marca)", "Reunión de estructura del 04-nov-2026"]},
     "disparador": {"estado": "borrador"},
     "flujo": {
      "estado": "borrador",
      "actividades": [
       {"id": "a1", "rol": "Gerente Corporativo(a) de Mercadeo", "texto": "Levanta el brief en Lark —un solo objetivo medible y el criterio con que se evaluará, público, insight, mensaje, oferta, mercados, formatos, fecha real de salida, presupuesto y el único aprobador de negocio— desde el calendario anual, un lanzamiento aprobado o una acción con cliente clave. En Casio lo levanta el Brand Manager de Casio, con la línea de la casa matriz."},
-      {"id": "a2", "rol": "Director(a) Creativo(a) · Gerencia de Marca y Creatividad", "texto": "Verifica que el brief esté completo —si falta información no pasa a producción—, investiga la categoría y la competencia y presenta, con la dirección de arte, tres territorios visuales con referencias de color, luz, composición y tono."},
-      {"id": "a3", "rol": "Director(a) Creativo(a) · Gerencia de Marca y Creatividad", "texto": "Define el concepto, el tagline, el copy y la primera expresión visual —el concepto y su arte se presentan juntos— y la bajada por canal: pieza principal, estáticas, reels, video, email, banners y material de punto de venta, en fases de expectativa, lanzamiento y sostenimiento."},
+      {"id": "a2", "rol": "Director(a) Creativo(a) · Creatividad y Contenido Audiovisual", "texto": "Verifica que el brief esté completo —si falta información no pasa a producción—, investiga la categoría y la competencia y presenta, con la dirección de arte, tres territorios visuales con referencias de color, luz, composición y tono."},
+      {"id": "a3", "rol": "Director(a) Creativo(a) · Creatividad y Contenido Audiovisual", "texto": "Define el concepto, el tagline, el copy y la primera expresión visual —el concepto y su arte se presentan juntos— y la bajada por canal: pieza principal, estáticas, reels, video, email, banners y material de punto de venta, en fases de expectativa, lanzamiento y sostenimiento."},
       {"id": "a4", "rol": "Gerente Corporativo(a) de Mercadeo", "texto": "Revisa que el concepto cumpla el brief y el presupuesto —es el aprobador de negocio salvo que el brief nombre otro— y, en los lanzamientos y campañas de alto alcance de Cubitt, lo presenta a la Junta Directiva; las campañas de Casio, a Casio Brasil."},
       {"id": "a5", "rol": "Junta Directiva", "texto": "Aprueba la campaña o la devuelve con observaciones por escrito en el canal oficial; una observación que llega por otra vía se documenta antes de ejecutarse, y un cambio de alcance se trata como una solicitud nueva con nueva fecha."},
       {"id": "a6", "rol": "Diseñador(a) (Diseño y Marca)", "texto": "Produce el key visual, las adaptaciones y las piezas según el manual de marca —la foto, el video principal y el 3D por el proceso 16.10—, controla textos, precios, medidas y logotipo, contrasta cada atributo con la ficha técnica y archiva los finales en la biblioteca de activos."},
@@ -22616,7 +22616,7 @@ window.MANUAL_CONTENIDO = {
      ],
      "diagrama": {
       "carriles": [
-       "Director(a) Creativo(a) · Gerencia de Marca y Creatividad",
+       "Director(a) Creativo(a) · Creatividad y Contenido Audiovisual",
        "Gerente Corporativo(a) de Mercadeo",
        "Junta Directiva",
        "Diseñador(a) (Diseño y Marca)",
@@ -22627,10 +22627,10 @@ window.MANUAL_CONTENIDO = {
       "nodos": [
        {"id": "n0", "carril": "Gerente Corporativo(a) de Mercadeo", "tipo": "inicio", "n": "Campaña del calendario, lanzamiento o acción con cliente"},
        {"id": "n1", "carril": "Gerente Corporativo(a) de Mercadeo", "tipo": "tarea", "n": "Levantar el brief de la campaña", "sistemas": ["Lark"]},
-       {"id": "n2", "carril": "Director(a) Creativo(a) · Gerencia de Marca y Creatividad", "tipo": "decision", "n": "¿Brief completo?"},
-       {"id": "n2b", "carril": "Director(a) Creativo(a) · Gerencia de Marca y Creatividad", "tipo": "fin", "n": "Brief devuelto para completarse"},
-       {"id": "n3", "carril": "Director(a) Creativo(a) · Gerencia de Marca y Creatividad", "tipo": "tarea", "n": "Investigar y presentar tres territorios visuales"},
-       {"id": "n4", "carril": "Director(a) Creativo(a) · Gerencia de Marca y Creatividad", "tipo": "tarea", "n": "Definir concepto, copy y piezas por canal"},
+       {"id": "n2", "carril": "Director(a) Creativo(a) · Creatividad y Contenido Audiovisual", "tipo": "decision", "n": "¿Brief completo?"},
+       {"id": "n2b", "carril": "Director(a) Creativo(a) · Creatividad y Contenido Audiovisual", "tipo": "fin", "n": "Brief devuelto para completarse"},
+       {"id": "n3", "carril": "Director(a) Creativo(a) · Creatividad y Contenido Audiovisual", "tipo": "tarea", "n": "Investigar y presentar tres territorios visuales"},
+       {"id": "n4", "carril": "Director(a) Creativo(a) · Creatividad y Contenido Audiovisual", "tipo": "tarea", "n": "Definir concepto, copy y piezas por canal"},
        {"id": "n5", "carril": "Gerente Corporativo(a) de Mercadeo", "tipo": "tarea", "n": "Aprobar que el concepto cumpla el brief"},
        {"id": "n6", "carril": "Junta Directiva", "tipo": "decision", "n": "¿Campaña aprobada?"},
        {"id": "n6b", "carril": "Junta Directiva", "tipo": "fin", "n": "Campaña devuelta con observaciones"},
@@ -22725,7 +22725,7 @@ window.MANUAL_CONTENIDO = {
        "Tasa de retrabajo creativo",
        "Piezas con más de una ronda de cambios ÷ piezas entregadas",
        "Mensual",
-       "Director(a) Creativo(a) · Gerencia de Marca y Creatividad",
+       "Director(a) Creativo(a) · Creatividad y Contenido Audiovisual",
        "Tendencia a la baja"
       ],
       [
@@ -22753,27 +22753,27 @@ window.MANUAL_CONTENIDO = {
      "estado": "borrador",
      "actividades": [
       {"id": "a1", "rol": "Área solicitante", "texto": "Registra el pedido en el formulario único de Diseño y Marca en Lark —piezas para campañas, artes para visual, web o redes— con objetivo, piezas, medidas, textos, llamado a la acción, fecha requerida, prioridad y quién lo aprueba por el negocio."},
-      {"id": "a2", "rol": "Director(a) de Arte · Marca y Creatividad", "texto": "Revisa que la solicitud traiga la información completa y la prioriza contra el calendario común y la capacidad del mes; si falta información, la aclara en el mismo hilo de Lark antes de pasarla a diseño. Una urgencia se acepta mostrando qué compromiso desplaza."},
-      {"id": "a3", "rol": "Director(a) de Arte · Marca y Creatividad", "texto": "Asigna la solicitud en la base de tráfico creativo al diseñador interno o freelance que corresponde, según su carga y la disciplina, y fija la fecha de entrega: de tres a cinco días hábiles en las piezas para visual merchandising."},
+      {"id": "a2", "rol": "Director(a) de Arte · Diseño Gráfico de Campañas y Redes", "texto": "Revisa que la solicitud traiga la información completa y la prioriza contra el calendario común y la capacidad del mes; si falta información, la aclara en el mismo hilo de Lark antes de pasarla a diseño. Una urgencia se acepta mostrando qué compromiso desplaza."},
+      {"id": "a3", "rol": "Director(a) de Arte · Diseño Gráfico de Campañas y Redes", "texto": "Asigna la solicitud en la base de tráfico creativo al diseñador interno o freelance que corresponde, según su carga y la disciplina, y fija la fecha de entrega: de tres a cinco días hábiles en las piezas para visual merchandising."},
       {"id": "a4", "rol": "Diseñador(a) (Diseño y Marca)", "texto": "Desarrolla la pieza según el manual de marca —Cubitt o los lineamientos de Casio—, reutiliza cuando aplica piezas de la biblioteca de activos y la presenta para revisión en el hilo de la solicitud."},
-      {"id": "a5", "rol": "Director(a) de Arte · Marca y Creatividad", "texto": "Revisa la coherencia visual y la calidad contra el manual y pide al solicitante que confirme por escrito en la solicitud precios, condiciones, vigencia o unidades ofertadas de cada promoción; todo cambio se pide por escrito."},
+      {"id": "a5", "rol": "Director(a) de Arte · Diseño Gráfico de Campañas y Redes", "texto": "Revisa la coherencia visual y la calidad contra el manual y pide al solicitante que confirme por escrito en la solicitud precios, condiciones, vigencia o unidades ofertadas de cada promoción; todo cambio se pide por escrito."},
       {"id": "a6", "rol": "Diseñador(a) (Diseño y Marca)", "texto": "Aplica los ajustes pedidos y entrega la versión final con nombre, formato, peso y medidas correctos, archivada en la biblioteca de activos con su campaña, mercado y vigencia para su reutilización."},
-      {"id": "a7", "rol": "Director(a) de Arte · Marca y Creatividad", "texto": "Cierra la solicitud en Lark, con lo que quedan registrados el tiempo de atención y el volumen atendido, y entrega al solicitante el enlace de la versión final. Con ese registro se hace la revisión mensual de capacidad de la dirección."},
+      {"id": "a7", "rol": "Director(a) de Arte · Diseño Gráfico de Campañas y Redes", "texto": "Cierra la solicitud en Lark, con lo que quedan registrados el tiempo de atención y el volumen atendido, y entrega al solicitante el enlace de la versión final. Con ese registro se hace la revisión mensual de capacidad de la dirección."},
       {"id": "a8", "rol": "Área solicitante", "texto": "Produce o publica la pieza con el enlace final y, cuando se trata de material de punto de venta, comparte en la solicitud la fotografía de la instalación como evidencia."}
      ],
      "diagrama": {
-      "carriles": ["Área solicitante", "Director(a) de Arte · Marca y Creatividad", "Diseñador(a) (Diseño y Marca)"],
+      "carriles": ["Área solicitante", "Director(a) de Arte · Diseño Gráfico de Campañas y Redes", "Diseñador(a) (Diseño y Marca)"],
       "nodos": [
        {"id": "n0", "carril": "Área solicitante", "tipo": "inicio", "n": "Necesidad de una pieza de diseño"},
        {"id": "n1", "carril": "Área solicitante", "tipo": "tarea", "n": "Registrar la solicitud en el formulario único", "sistemas": ["Lark"]},
-       {"id": "n2", "carril": "Director(a) de Arte · Marca y Creatividad", "tipo": "decision", "n": "¿Solicitud completa?"},
-       {"id": "n2b", "carril": "Director(a) de Arte · Marca y Creatividad", "tipo": "tarea", "n": "Aclarar la información faltante", "sistemas": ["Lark"]},
-       {"id": "n3", "carril": "Director(a) de Arte · Marca y Creatividad", "tipo": "tarea", "n": "Priorizar, asignar y fijar la entrega", "sistemas": ["Lark"]},
+       {"id": "n2", "carril": "Director(a) de Arte · Diseño Gráfico de Campañas y Redes", "tipo": "decision", "n": "¿Solicitud completa?"},
+       {"id": "n2b", "carril": "Director(a) de Arte · Diseño Gráfico de Campañas y Redes", "tipo": "tarea", "n": "Aclarar la información faltante", "sistemas": ["Lark"]},
+       {"id": "n3", "carril": "Director(a) de Arte · Diseño Gráfico de Campañas y Redes", "tipo": "tarea", "n": "Priorizar, asignar y fijar la entrega", "sistemas": ["Lark"]},
        {"id": "n4", "carril": "Diseñador(a) (Diseño y Marca)", "tipo": "tarea", "n": "Desarrollar la pieza"},
-       {"id": "n5", "carril": "Director(a) de Arte · Marca y Creatividad", "tipo": "tarea", "n": "Revisar calidad y confirmar textos y precios"},
-       {"id": "n6", "carril": "Director(a) de Arte · Marca y Creatividad", "tipo": "decision", "n": "¿Requiere ajustes?"},
+       {"id": "n5", "carril": "Director(a) de Arte · Diseño Gráfico de Campañas y Redes", "tipo": "tarea", "n": "Revisar calidad y confirmar textos y precios"},
+       {"id": "n6", "carril": "Director(a) de Arte · Diseño Gráfico de Campañas y Redes", "tipo": "decision", "n": "¿Requiere ajustes?"},
        {"id": "n7", "carril": "Diseñador(a) (Diseño y Marca)", "tipo": "tarea", "n": "Ajustar y entregar la versión final", "sistemas": ["Biblioteca de activos"]},
-       {"id": "n8", "carril": "Director(a) de Arte · Marca y Creatividad", "tipo": "tarea", "n": "Cerrar la solicitud y entregar el enlace", "sistemas": ["Lark"]},
+       {"id": "n8", "carril": "Director(a) de Arte · Diseño Gráfico de Campañas y Redes", "tipo": "tarea", "n": "Cerrar la solicitud y entregar el enlace", "sistemas": ["Lark"]},
        {"id": "n9", "carril": "Área solicitante", "tipo": "tarea", "n": "Producir o publicar y compartir evidencia"},
        {"id": "n10", "carril": "Área solicitante", "tipo": "fin", "n": "Pieza entregada y solicitud cerrada"}
       ],
@@ -22841,21 +22841,21 @@ window.MANUAL_CONTENIDO = {
        "Tiempo promedio de entrega de piezas",
        "Fecha de entrega − fecha de solicitud, en días hábiles",
        "Mensual",
-       "Director(a) de Arte · Marca y Creatividad",
+       "Director(a) de Arte · Diseño Gráfico de Campañas y Redes",
        "≤ 5 días hábiles en piezas estándar"
       ],
       [
        "Solicitudes entregadas en plazo",
        "Solicitudes entregadas en la fecha fijada ÷ solicitudes cerradas",
        "Mensual",
-       "Director(a) de Arte · Marca y Creatividad",
+       "Director(a) de Arte · Diseño Gráfico de Campañas y Redes",
        "≥ 90 %"
       ],
       [
        "Solicitudes que requirieron aclaración",
        "Solicitudes devueltas por información incompleta ÷ solicitudes recibidas",
        "Mensual",
-       "Director(a) de Arte · Marca y Creatividad",
+       "Director(a) de Arte · Diseño Gráfico de Campañas y Redes",
        "Tendencia a la baja"
       ],
       [
@@ -23291,7 +23291,7 @@ window.MANUAL_CONTENIDO = {
    },
    "16.7": {
     "proposito": {"estado": "borrador", "texto": "Lleva la imagen de cada marca al punto de venta conforme a los estándares visuales, el material POP y la guía de exhibición que fija Diseño y Marca: implementa el material de campañas y promociones, atiende las necesidades de exhibición y mobiliario de los clientes del canal mayorista, monta las aperturas y remodelaciones de tiendas propias con el concepto aprobado, y controla la producción, el presupuesto y la evidencia de cada intervención. Es un servicio a los canales —Retail y Ventas al Mayor— con plazos acordados por canal.", "nota_estado": "Visual merchandising de Cubitt ya opera con manuales escritos de operación, producción, inducción y aprobación de presupuesto, y registra su trabajo en Lark; su brecha es de capacidad y de límites con otras áreas. Desde la revisión de la estructura del 06-nov-2026 es una gerencia de unidad de negocio de Mercadeo con una coordinación en cada Mercadeo país: los estándares y el concepto de los espacios son de Diseño y Marca (16.11) y el montaje es de visual merchandising, que no manda sobre el personal de tienda. Que quede en Mercadeo o en Retail, y quién cotiza y compra el mobiliario y el material POP, siguen en revisión."},
-    "dueno": {"estado": "borrador", "dueno": "Gerente de Visual Merchandising", "participantes": ["Coordinador(a) de Visual Merchandising (país) — recibe las necesidades, cotiza, sigue la producción y reporta el país.", "Ejecutivo(a) de Visual Merchandising — instala y audita cada visita.", "Gerente de Producción y Espacios (Diseño y Marca) — fija los estándares visuales, el POP, el concepto de los espacios y la guía de exhibición (16.11).", "Diseñador(a) (Diseño y Marca) — artes para visual, por el formulario único (16.3).", "Gerente Regional Comercial / Retail — prioridades de exhibición de las tiendas propias.", "Analista/Ejecutivo(a) Comercial — solicitudes de clientes del mayor.", "Gerente de Cuentas Clave y Trade — plan de exhibición con cada cuenta clave.", "Compras Internas · Procura del país — compra del mobiliario y del material POP según la política de compra.", "Proveedores de mobiliario y producción gráfica (actores externos)."], "evidencia": ["E-50", "E-31", "E-39", "E-56", "E-11", "Manual de Operación Regional de VM (Lark)", "Proceso de aprobación de presupuesto de VM (Lark)", "Nueva estructura: Marketing, Diseño y Marca y E-commerce y Growth (Dirección Comercial, 29-oct-2026)", "Rol y Estructura CDO (propuesta de la Dirección de Diseño y Marca)", "Reunión de estructura del 04-nov-2026"]},
+    "dueno": {"estado": "borrador", "dueno": "Gerente de Visual Merchandising", "participantes": ["Coordinador(a) de Visual Merchandising (país) — recibe las necesidades, cotiza, sigue la producción y reporta el país.", "Ejecutivo(a) de Visual Merchandising — instala y audita cada visita.", "Diseñador(a) (Diseño y Marca) — artes para visual, por el formulario único (16.3).", "Gerente Regional Comercial / Retail — prioridades de exhibición de las tiendas propias.", "Analista/Ejecutivo(a) Comercial — solicitudes de clientes del mayor.", "Gerente de Cuentas Clave y Trade — plan de exhibición con cada cuenta clave.", "Compras Internas · Procura del país — compra del mobiliario y del material POP según la política de compra.", "Proveedores de mobiliario y producción gráfica (actores externos)."], "evidencia": ["E-50", "E-31", "E-39", "E-56", "E-11", "Manual de Operación Regional de VM (Lark)", "Proceso de aprobación de presupuesto de VM (Lark)", "Nueva estructura: Marketing, Diseño y Marca y E-commerce y Growth (Dirección Comercial, 29-oct-2026)", "Rol y Estructura CDO (propuesta de la Dirección de Diseño y Marca)", "Reunión de estructura del 04-nov-2026"]},
     "disparador": {"estado": "borrador"},
     "flujo": {
      "estado": "borrador",
@@ -23583,11 +23583,11 @@ window.MANUAL_CONTENIDO = {
       {"id": "a1", "rol": "Gerente Corporativo(a) de Mercadeo", "texto": "Entrega la lectura del consumidor y del mercado —investigación, encuestas y la data de la app y de ventas, de Insights y ROI— y propone a quién le habla cada marca y qué promete."},
       {"id": "a2", "rol": "Director(a) de Diseño y Marca", "texto": "Construye con Mercadeo el posicionamiento de cada marca y lo traduce en identidad: personalidad, tono, territorio visual y principios de diseño que deben verse en lo físico, lo digital y lo presencial."},
       {"id": "a3", "rol": "Presidencia", "texto": "Aprueba el posicionamiento o lo devuelve con observaciones por escrito; los desacuerdos entre Mercadeo y Diseño y Marca llegan con impacto y alternativas."},
-      {"id": "a4", "rol": "Director(a) Creativo(a) · Gerencia de Marca y Creatividad", "texto": "Desarrolla el manual de marca —logotipo, color, tipografía, fotografía, tono, usos correctos e incorrectos con ejemplos— y, con Diseño de Producto, el sistema de diseño digital; lo prueba en piezas reales de cada canal antes de cerrarlo."},
+      {"id": "a4", "rol": "Director(a) Creativo(a) · Creatividad y Contenido Audiovisual", "texto": "Desarrolla el manual de marca —logotipo, color, tipografía, fotografía, tono, usos correctos e incorrectos con ejemplos— y, con Desarrollo y Calidad de Productos, el sistema de diseño digital; lo prueba en piezas reales de cada canal antes de cerrarlo."},
       {"id": "a5", "rol": "Director(a) de Diseño y Marca", "texto": "Aprueba el manual y el sistema de diseño, y cada revisión posterior, y registra la versión y su fecha; una versión no aprobada no se distribuye."},
-      {"id": "a6", "rol": "Director(a) Creativo(a) · Gerencia de Marca y Creatividad", "texto": "Publica el manual en la biblioteca única de activos con plantillas listas para usar, lo da a conocer a los equipos, proveedores, franquiciados y socios, e induce a quienes producen piezas, dentro y fuera del grupo."},
-      {"id": "a7", "rol": "Director(a) de Arte · Marca y Creatividad", "texto": "Mantiene la biblioteca de activos: cada pieza con su campaña, mercado, versión, derechos de uso y fecha de vencimiento; avisa antes de que un derecho venza y retira las versiones y piezas vencidas."},
-      {"id": "a8", "rol": "Director(a) Creativo(a) · Gerencia de Marca y Creatividad", "texto": "Audita cada semestre la coherencia de la marca en una muestra de piezas, webs, redes, empaques, tiendas, clientes del mayor y franquicias, con fotografía fechada y puntaje contra el manual; Visual Merchandising aporta las auditorías de punto de venta (16.7)."},
+      {"id": "a6", "rol": "Director(a) Creativo(a) · Creatividad y Contenido Audiovisual", "texto": "Publica el manual en la biblioteca única de activos con plantillas listas para usar, lo da a conocer a los equipos, proveedores, franquiciados y socios, e induce a quienes producen piezas, dentro y fuera del grupo."},
+      {"id": "a7", "rol": "Director(a) de Arte · Diseño Gráfico de Campañas y Redes", "texto": "Mantiene la biblioteca de activos: cada pieza con su campaña, mercado, versión, derechos de uso y fecha de vencimiento; avisa antes de que un derecho venza y retira las versiones y piezas vencidas."},
+      {"id": "a8", "rol": "Director(a) Creativo(a) · Creatividad y Contenido Audiovisual", "texto": "Audita cada semestre la coherencia de la marca en una muestra de piezas, webs, redes, empaques, tiendas, clientes del mayor y franquicias, con fotografía fechada y puntaje contra el manual; Visual Merchandising aporta las auditorías de punto de venta (16.7)."},
       {"id": "a9", "rol": "Director(a) de Diseño y Marca", "texto": "Presenta a la dirección el resultado de la auditoría con las correcciones por área y decide si el manual necesita una revisión, que entra al ciclo siguiente."}
      ],
      "diagrama": {
@@ -23595,8 +23595,8 @@ window.MANUAL_CONTENIDO = {
        "Gerente Corporativo(a) de Mercadeo",
        "Director(a) de Diseño y Marca",
        "Presidencia",
-       "Director(a) Creativo(a) · Gerencia de Marca y Creatividad",
-       "Director(a) de Arte · Marca y Creatividad"
+       "Director(a) Creativo(a) · Creatividad y Contenido Audiovisual",
+       "Director(a) de Arte · Diseño Gráfico de Campañas y Redes"
       ],
       "nodos": [
        {"id": "n0", "carril": "Gerente Corporativo(a) de Mercadeo", "tipo": "inicio", "n": "Renovación de la marca o revisión anual"},
@@ -23604,11 +23604,11 @@ window.MANUAL_CONTENIDO = {
        {"id": "n2", "carril": "Director(a) de Diseño y Marca", "tipo": "tarea", "n": "Construir el posicionamiento y la identidad"},
        {"id": "n3", "carril": "Presidencia", "tipo": "decision", "n": "¿Posicionamiento aprobado?"},
        {"id": "n3b", "carril": "Presidencia", "tipo": "fin", "n": "Posicionamiento devuelto con observaciones"},
-       {"id": "n4", "carril": "Director(a) Creativo(a) · Gerencia de Marca y Creatividad", "tipo": "tarea", "n": "Desarrollar el manual y el sistema de diseño"},
+       {"id": "n4", "carril": "Director(a) Creativo(a) · Creatividad y Contenido Audiovisual", "tipo": "tarea", "n": "Desarrollar el manual y el sistema de diseño"},
        {"id": "n5", "carril": "Director(a) de Diseño y Marca", "tipo": "tarea", "n": "Aprobar y registrar la versión"},
-       {"id": "n6", "carril": "Director(a) Creativo(a) · Gerencia de Marca y Creatividad", "tipo": "tarea", "n": "Publicar el manual e inducir a los equipos", "sistemas": ["Biblioteca de activos"]},
-       {"id": "n7", "carril": "Director(a) de Arte · Marca y Creatividad", "tipo": "tarea", "n": "Mantener la biblioteca y retirar lo vencido", "sistemas": ["Biblioteca de activos"]},
-       {"id": "n8", "carril": "Director(a) Creativo(a) · Gerencia de Marca y Creatividad", "tipo": "tarea", "n": "Auditar la coherencia en todos los canales"},
+       {"id": "n6", "carril": "Director(a) Creativo(a) · Creatividad y Contenido Audiovisual", "tipo": "tarea", "n": "Publicar el manual e inducir a los equipos", "sistemas": ["Biblioteca de activos"]},
+       {"id": "n7", "carril": "Director(a) de Arte · Diseño Gráfico de Campañas y Redes", "tipo": "tarea", "n": "Mantener la biblioteca y retirar lo vencido", "sistemas": ["Biblioteca de activos"]},
+       {"id": "n8", "carril": "Director(a) Creativo(a) · Creatividad y Contenido Audiovisual", "tipo": "tarea", "n": "Auditar la coherencia en todos los canales"},
        {"id": "n9", "carril": "Director(a) de Diseño y Marca", "tipo": "decision", "n": "¿Hace falta revisar el manual?"},
        {"id": "n10", "carril": "Director(a) de Diseño y Marca", "tipo": "tarea", "n": "Programar la revisión del manual"},
        {"id": "n11", "carril": "Director(a) de Diseño y Marca", "tipo": "fin", "n": "Marca publicada, custodiada y auditada"}
@@ -23677,7 +23677,7 @@ window.MANUAL_CONTENIDO = {
        "Coherencia de marca en auditoría",
        "Piezas y puntos auditados que cumplen el manual ÷ piezas y puntos auditados, por canal y país",
        "Semestral",
-       "Director(a) Creativo(a) · Gerencia de Marca y Creatividad",
+       "Director(a) Creativo(a) · Creatividad y Contenido Audiovisual",
        "≥ 90 %"
       ],
       [
@@ -23691,7 +23691,7 @@ window.MANUAL_CONTENIDO = {
        "Activos con derechos y vencimiento registrados",
        "Activos de la biblioteca con derechos y fecha de vencimiento ÷ activos de la biblioteca",
        "Trimestral",
-       "Director(a) de Arte · Marca y Creatividad",
+       "Director(a) de Arte · Diseño Gráfico de Campañas y Redes",
        "100 %"
       ],
       [
@@ -23705,42 +23705,42 @@ window.MANUAL_CONTENIDO = {
     }
    },
    "16.10": {
-    "proposito": {"estado": "borrador", "texto": "Produce el contenido visual central de las marcas —la foto de producto y de campaña, el video principal, los renders 3D y la animación— a partir de las campañas y los lanzamientos aprobados, con dirección de arte, control de calidad y fidelidad al producto real, y lo entrega a la biblioteca de activos con sus derechos registrados para que lo usen todos los canales y países. El contenido ágil para redes y creadores no entra aquí: lo produce Social y Contenido (16.5).", "nota_estado": "Proceso nuevo, de la Dirección de Diseño y Marca creada en la revisión de la estructura del 06-nov-2026. Hoy la producción de foto y video vive en el equipo creativo de mercadeo y se decide campaña por campaña. Desde el 06-nov la producción central queda en Diseño y Marca, que decide qué se hace en casa y qué con freelancers o productoras —motion y 3D se cubren con freelancers— según volumen y costo."},
+    "proposito": {"estado": "borrador", "texto": "Produce el contenido visual central de las marcas —la foto de producto y de campaña, el video principal, los renders 3D y la animación— a partir de las campañas y los lanzamientos aprobados, con dirección de arte, control de calidad y fidelidad al producto real, y lo entrega a la biblioteca de activos con sus derechos registrados para que lo usen todos los canales y países. El contenido ágil para redes y creadores no entra aquí: lo produce Social y Contenido (16.5).", "nota_estado": "Proceso nuevo, de la Dirección de Diseño y Marca creada en la revisión de la estructura del 06-nov-2026. Hoy la producción de foto y video vive en el equipo creativo de mercadeo y se decide campaña por campaña. Desde el 06-nov la producción central queda en Diseño y Marca, que decide qué se hace en casa y qué con freelancers o productoras —motion y 3D se cubren con freelancers— según volumen y costo. Desde el 11-nov-2026 la planificación de la producción de foto y 3D pasa a Visual Merchandising, en Mercadeo, y desde el 13-nov-2026 el video lo produce la coordinación de Creatividad y Contenido Audiovisual de Diseño y Marca, con su videógrafo y su estudio."},
     "dueno": {"estado": "borrador"},
     "disparador": {"estado": "borrador"},
     "flujo": {
      "estado": "borrador",
      "actividades": [
-      {"id": "a1", "rol": "Director(a) Creativo(a) · Gerencia de Marca y Creatividad", "texto": "Consolida las necesidades de producción de las campañas y lanzamientos aprobados —fotos de producto, video principal, renders 3D y motion— en un brief de producción con usos, canales, formatos, fechas y presupuesto."},
-      {"id": "a2", "rol": "Gerente de Producción y Espacios (Diseño y Marca)", "texto": "Planifica la producción: decide qué se hace en casa y qué con freelancers o productora, cotiza, arma el calendario de sesiones y reserva con logística el producto que se va a fotografiar o filmar, como traslado documentado."},
+      {"id": "a1", "rol": "Director(a) Creativo(a) · Creatividad y Contenido Audiovisual", "texto": "Consolida las necesidades de producción de las campañas y lanzamientos aprobados —fotos de producto, video principal, renders 3D y motion— en un brief de producción con usos, canales, formatos, fechas y presupuesto. El video lo produce su propia coordinación, con el videógrafo y el estudio."},
+      {"id": "a2", "rol": "Gerente de Visual Merchandising", "texto": "Planifica la producción de foto, 3D y motion: decide qué se hace en casa y qué con freelancers o productora, cotiza, arma el calendario de sesiones y reserva con logística el producto que se va a fotografiar o filmar, como traslado documentado."},
       {"id": "a3", "rol": "Director(a) de Diseño y Marca", "texto": "Aprueba el plan y el presupuesto de producción; lo que excede el presupuesto aprobado en el plan anual se ajusta en alcance antes de contratar."},
-      {"id": "a4", "rol": "Gerente de Producción y Espacios (Diseño y Marca)", "texto": "Ajusta el alcance —menos piezas, reutilización de activos de la biblioteca o cambio de formato— hasta que el plan cabe en el presupuesto."},
-      {"id": "a5", "rol": "Director(a) de Arte · Marca y Creatividad", "texto": "Dirige cada sesión con la lista de tomas, la dirección de arte y el estilo del manual de marca, y cuida que color, materiales y funciones del producto se vean como son."},
+      {"id": "a4", "rol": "Gerente de Visual Merchandising", "texto": "Ajusta el alcance —menos piezas, reutilización de activos de la biblioteca o cambio de formato— hasta que el plan cabe en el presupuesto."},
+      {"id": "a5", "rol": "Director(a) de Arte · Diseño Gráfico de Campañas y Redes", "texto": "Dirige cada sesión con la lista de tomas, la dirección de arte y el estilo del manual de marca, y cuida que color, materiales y funciones del producto se vean como son."},
       {"id": "a6", "rol": "Fotógrafo(a), productor(a) o freelance de 3D y motion (actor externo)", "texto": "Ejecuta la sesión, los renders o la animación según la dirección de arte y entrega los archivos con la cesión de derechos acordada."},
-      {"id": "a7", "rol": "Gerente de Producción y Espacios (Diseño y Marca)", "texto": "Revisa los entregables contra el brief y la ficha técnica —fidelidad del color, de las funciones y de lo que se afirma del producto— y pide los ajustes."},
-      {"id": "a8", "rol": "Director(a) Creativo(a) · Gerencia de Marca y Creatividad", "texto": "Aprueba la calidad final de las piezas principales; Mercadeo ya aprobó el concepto en la campaña y no se reabre."},
-      {"id": "a9", "rol": "Gerente de Producción y Espacios (Diseño y Marca)", "texto": "Archiva los finales en la biblioteca de activos con producto, campaña, usos, derechos de imagen y vencimiento, los entrega a los solicitantes y cierra con el costo real contra el presupuesto."}
+      {"id": "a7", "rol": "Gerente de Visual Merchandising", "texto": "Revisa los entregables contra el brief y la ficha técnica —fidelidad del color, de las funciones y de lo que se afirma del producto— y pide los ajustes."},
+      {"id": "a8", "rol": "Director(a) Creativo(a) · Creatividad y Contenido Audiovisual", "texto": "Aprueba la calidad final de las piezas principales; Mercadeo ya aprobó el concepto en la campaña y no se reabre."},
+      {"id": "a9", "rol": "Gerente de Visual Merchandising", "texto": "Archiva los finales en la biblioteca de activos con producto, campaña, usos, derechos de imagen y vencimiento, los entrega a los solicitantes y cierra con el costo real contra el presupuesto."}
      ],
      "diagrama": {
       "carriles": [
-       "Director(a) Creativo(a) · Gerencia de Marca y Creatividad",
-       "Gerente de Producción y Espacios (Diseño y Marca)",
+       "Director(a) Creativo(a) · Creatividad y Contenido Audiovisual",
+       "Gerente de Visual Merchandising",
        "Director(a) de Diseño y Marca",
-       "Director(a) de Arte · Marca y Creatividad",
+       "Director(a) de Arte · Diseño Gráfico de Campañas y Redes",
        "Fotógrafo(a), productor(a) o freelance de 3D y motion (actor externo)"
       ],
       "nodos": [
-       {"id": "n0", "carril": "Director(a) Creativo(a) · Gerencia de Marca y Creatividad", "tipo": "inicio", "n": "Campaña o lanzamiento aprobado"},
-       {"id": "n1", "carril": "Director(a) Creativo(a) · Gerencia de Marca y Creatividad", "tipo": "tarea", "n": "Consolidar el brief de producción", "sistemas": ["Lark"]},
-       {"id": "n2", "carril": "Gerente de Producción y Espacios (Diseño y Marca)", "tipo": "tarea", "n": "Planificar, cotizar y reservar producto", "sistemas": ["Lark", "Odoo"]},
+       {"id": "n0", "carril": "Director(a) Creativo(a) · Creatividad y Contenido Audiovisual", "tipo": "inicio", "n": "Campaña o lanzamiento aprobado"},
+       {"id": "n1", "carril": "Director(a) Creativo(a) · Creatividad y Contenido Audiovisual", "tipo": "tarea", "n": "Consolidar el brief de producción", "sistemas": ["Lark"]},
+       {"id": "n2", "carril": "Gerente de Visual Merchandising", "tipo": "tarea", "n": "Planificar, cotizar y reservar producto", "sistemas": ["Lark", "Odoo"]},
        {"id": "n3", "carril": "Director(a) de Diseño y Marca", "tipo": "decision", "n": "¿Plan dentro del presupuesto?"},
-       {"id": "n3b", "carril": "Gerente de Producción y Espacios (Diseño y Marca)", "tipo": "tarea", "n": "Ajustar el alcance de la producción"},
-       {"id": "n4", "carril": "Director(a) de Arte · Marca y Creatividad", "tipo": "tarea", "n": "Dirigir la sesión con el manual de marca"},
+       {"id": "n3b", "carril": "Gerente de Visual Merchandising", "tipo": "tarea", "n": "Ajustar el alcance de la producción"},
+       {"id": "n4", "carril": "Director(a) de Arte · Diseño Gráfico de Campañas y Redes", "tipo": "tarea", "n": "Dirigir la sesión con el manual de marca"},
        {"id": "n5", "carril": "Fotógrafo(a), productor(a) o freelance de 3D y motion (actor externo)", "tipo": "tarea", "n": "Ejecutar sesión, renders o animación"},
-       {"id": "n6", "carril": "Gerente de Producción y Espacios (Diseño y Marca)", "tipo": "tarea", "n": "Revisar contra el brief y la ficha técnica"},
-       {"id": "n7", "carril": "Director(a) Creativo(a) · Gerencia de Marca y Creatividad", "tipo": "tarea", "n": "Aprobar la calidad final"},
-       {"id": "n8", "carril": "Gerente de Producción y Espacios (Diseño y Marca)", "tipo": "tarea", "n": "Archivar con derechos y cerrar el costo", "sistemas": ["Biblioteca de activos"]},
-       {"id": "n9", "carril": "Gerente de Producción y Espacios (Diseño y Marca)", "tipo": "fin", "n": "Contenido central disponible para todos los canales"}
+       {"id": "n6", "carril": "Gerente de Visual Merchandising", "tipo": "tarea", "n": "Revisar contra el brief y la ficha técnica"},
+       {"id": "n7", "carril": "Director(a) Creativo(a) · Creatividad y Contenido Audiovisual", "tipo": "tarea", "n": "Aprobar la calidad final"},
+       {"id": "n8", "carril": "Gerente de Visual Merchandising", "tipo": "tarea", "n": "Archivar con derechos y cerrar el costo", "sistemas": ["Biblioteca de activos"]},
+       {"id": "n9", "carril": "Gerente de Visual Merchandising", "tipo": "fin", "n": "Contenido central disponible para todos los canales"}
       ],
       "aristas": [
        {"de": "n0", "a": "n1"},
@@ -23804,28 +23804,28 @@ window.MANUAL_CONTENIDO = {
        "Producciones entregadas en fecha",
        "Producciones entregadas en la fecha del brief ÷ producciones planificadas",
        "Mensual",
-       "Gerente de Producción y Espacios (Diseño y Marca)",
+       "Gerente de Visual Merchandising",
        "≥ 90 %"
       ],
       [
        "Costo real contra presupuesto",
        "Costo real de producción ÷ presupuesto aprobado",
        "Trimestral",
-       "Gerente de Producción y Espacios (Diseño y Marca)",
+       "Gerente de Visual Merchandising",
        "≤ 100 %"
       ],
       [
        "Reutilización de activos",
        "Activos centrales usados en dos o más canales o países ÷ activos producidos",
        "Trimestral",
-       "Gerente de Producción y Espacios (Diseño y Marca)",
+       "Gerente de Visual Merchandising",
        "Tendencia al alza"
       ],
       [
        "Activos con derechos registrados",
        "Activos producidos con derechos y vencimiento en la biblioteca ÷ activos producidos",
        "Mensual",
-       "Director(a) de Arte · Marca y Creatividad",
+       "Director(a) de Arte · Diseño Gráfico de Campañas y Redes",
        "100 %"
       ]
      ]
@@ -23839,38 +23839,37 @@ window.MANUAL_CONTENIDO = {
      "estado": "borrador",
      "actividades": [
       {"id": "a1", "rol": "Área solicitante", "texto": "Plantea la necesidad —concepto de tienda nuevo, apertura o remodelación (9.8 y 9.9), guía de exhibición de una campaña (16.2) o hallazgo de una auditoría— con su objetivo comercial, el canal y la fecha. Lo plantean Retail, Ventas al Mayor, la PMO o Mercadeo."},
-      {"id": "a2", "rol": "Gerente de Producción y Espacios (Diseño y Marca)", "texto": "Levanta el brief del espacio con retail y visual merchandising: objetivo comercial, tráfico, surtido por línea, medidas reales, presupuesto, restricciones del local o del cliente y plazos."},
+      {"id": "a2", "rol": "Gerente de Visual Merchandising", "texto": "Levanta el brief del espacio con retail y visual merchandising: objetivo comercial, tráfico, surtido por línea, medidas reales, presupuesto, restricciones del local o del cliente y plazos."},
       {"id": "a3", "rol": "Agencia de interiores (actor externo)", "texto": "Desarrolla el concepto, el layout y los renders de los interiores a partir del brief, y los ajusta en rondas hasta su aprobación."},
-      {"id": "a4", "rol": "Gerente de Producción y Espacios (Diseño y Marca)", "texto": "Define con el diseñador de experiencia el mobiliario tipo, el material POP, la señalética y la guía de exhibición o planograma por canal, y valida con visual merchandising que se pueda montar y mantener al costo previsto."},
+      {"id": "a4", "rol": "Gerente de Visual Merchandising", "texto": "Define con el diseñador de experiencia el mobiliario tipo, el material POP, la señalética y la guía de exhibición o planograma por canal, y valida con visual merchandising que se pueda montar y mantener al costo previsto."},
       {"id": "a5", "rol": "Director(a) de Diseño y Marca", "texto": "Aprueba que el concepto exprese la marca y sea coherente entre lo físico, lo digital y lo presencial."},
       {"id": "a6", "rol": "Junta Directiva", "texto": "Da el GO final a los nuevos espacios y a las remodelaciones; sin ese GO el proyecto no se ejecuta. Las guías de exhibición de campaña no pasan por la Junta."},
-      {"id": "a7", "rol": "Gerente de Producción y Espacios (Diseño y Marca)", "texto": "Cuando el concepto es nuevo, lo prueba en un piloto en un punto de venta, mide con retail cómo responde el cliente y ajusta antes de extenderlo."},
-      {"id": "a8", "rol": "Gerente de Producción y Espacios (Diseño y Marca)", "texto": "Publica el estándar —manual de espacios, mobiliario tipo, POP y guía de exhibición por canal: tienda propia, shop-in-shop y cliente del mayor— en la biblioteca de activos y lo entrega a visual merchandising y a la PMO."},
+      {"id": "a7", "rol": "Gerente de Visual Merchandising", "texto": "Cuando el concepto es nuevo, lo prueba en un piloto en un punto de venta, mide con retail cómo responde el cliente y ajusta antes de extenderlo."},
+      {"id": "a8", "rol": "Gerente de Visual Merchandising", "texto": "Publica el estándar —manual de espacios, mobiliario tipo, POP y guía de exhibición por canal: tienda propia, shop-in-shop y cliente del mayor— en la biblioteca de activos y lo entrega a visual merchandising y a la PMO."},
       {"id": "a9", "rol": "Gerente de Visual Merchandising", "texto": "Verifica el cumplimiento del estándar en cada montaje y en las auditorías de punto de venta, y devuelve a Diseño y Marca lo que no funciona en los locales reales para que el estándar se actualice."}
      ],
      "diagrama": {
       "carriles": [
        "Área solicitante",
-       "Gerente de Producción y Espacios (Diseño y Marca)",
+       "Gerente de Visual Merchandising",
        "Agencia de interiores (actor externo)",
        "Director(a) de Diseño y Marca",
-       "Junta Directiva",
-       "Gerente de Visual Merchandising"
+       "Junta Directiva"
       ],
       "nodos": [
        {"id": "n0", "carril": "Área solicitante", "tipo": "inicio", "n": "Concepto, apertura, campaña o hallazgo"},
        {"id": "n1", "carril": "Área solicitante", "tipo": "tarea", "n": "Plantear la necesidad del espacio", "sistemas": ["Lark"]},
-       {"id": "n2", "carril": "Gerente de Producción y Espacios (Diseño y Marca)", "tipo": "tarea", "n": "Levantar el brief del espacio"},
+       {"id": "n2", "carril": "Gerente de Visual Merchandising", "tipo": "tarea", "n": "Levantar el brief del espacio"},
        {"id": "n3", "carril": "Agencia de interiores (actor externo)", "tipo": "tarea", "n": "Desarrollar concepto, layout y renders"},
-       {"id": "n4", "carril": "Gerente de Producción y Espacios (Diseño y Marca)", "tipo": "tarea", "n": "Definir mobiliario, POP y guía de exhibición"},
+       {"id": "n4", "carril": "Gerente de Visual Merchandising", "tipo": "tarea", "n": "Definir mobiliario, POP y guía de exhibición"},
        {"id": "n5", "carril": "Director(a) de Diseño y Marca", "tipo": "decision", "n": "¿Concepto aprobado?"},
        {"id": "n5b", "carril": "Director(a) de Diseño y Marca", "tipo": "fin", "n": "Concepto devuelto con observaciones"},
-       {"id": "n6", "carril": "Gerente de Producción y Espacios (Diseño y Marca)", "tipo": "decision", "n": "¿Nuevo espacio o remodelación?"},
+       {"id": "n6", "carril": "Gerente de Visual Merchandising", "tipo": "decision", "n": "¿Nuevo espacio o remodelación?"},
        {"id": "n7", "carril": "Junta Directiva", "tipo": "decision", "n": "¿GO final?"},
        {"id": "n7b", "carril": "Junta Directiva", "tipo": "fin", "n": "Proyecto devuelto con ajustes"},
-       {"id": "n8", "carril": "Gerente de Producción y Espacios (Diseño y Marca)", "tipo": "decision", "n": "¿Concepto nuevo?"},
-       {"id": "n9", "carril": "Gerente de Producción y Espacios (Diseño y Marca)", "tipo": "tarea", "n": "Probar el concepto en un piloto"},
-       {"id": "n10", "carril": "Gerente de Producción y Espacios (Diseño y Marca)", "tipo": "tarea", "n": "Publicar el estándar y entregarlo", "sistemas": ["Biblioteca de activos"]},
+       {"id": "n8", "carril": "Gerente de Visual Merchandising", "tipo": "decision", "n": "¿Concepto nuevo?"},
+       {"id": "n9", "carril": "Gerente de Visual Merchandising", "tipo": "tarea", "n": "Probar el concepto en un piloto"},
+       {"id": "n10", "carril": "Gerente de Visual Merchandising", "tipo": "tarea", "n": "Publicar el estándar y entregarlo", "sistemas": ["Biblioteca de activos"]},
        {"id": "n11", "carril": "Gerente de Visual Merchandising", "tipo": "tarea", "n": "Verificar el cumplimiento y devolver hallazgos", "sistemas": ["Lark"]},
        {"id": "n12", "carril": "Gerente de Visual Merchandising", "tipo": "fin", "n": "Estándar del espacio vigente y verificado"}
       ],
@@ -23934,14 +23933,14 @@ window.MANUAL_CONTENIDO = {
        "Aperturas y remodelaciones con estándar verificado",
        "Puntos abiertos o remodelados que cumplen el estándar al inaugurar ÷ puntos abiertos o remodelados",
        "Trimestral",
-       "Gerente de Producción y Espacios (Diseño y Marca)",
+       "Gerente de Visual Merchandising",
        "100 %"
       ],
       [
        "Tiempo de brief a GO",
        "Fecha del GO − fecha del brief, en días hábiles",
        "Por proyecto",
-       "Gerente de Producción y Espacios (Diseño y Marca)",
+       "Gerente de Visual Merchandising",
        "Según el cronograma del proyecto"
       ],
       [
@@ -23955,34 +23954,34 @@ window.MANUAL_CONTENIDO = {
        "Costo real del espacio contra presupuesto",
        "Costo real del proyecto ÷ presupuesto aprobado",
        "Por proyecto",
-       "Gerente de Producción y Espacios (Diseño y Marca)",
+       "Gerente de Visual Merchandising",
        "≤ 100 %"
       ]
      ]
     }
    },
    "16.12": {
-    "proposito": {"estado": "borrador", "texto": "Diseña la experiencia y la interfaz de los productos digitales de las marcas —las webs y tiendas en línea, los correos y la app—: entiende a quién se diseña y para qué, prototipa, prueba con usuarios, aprueba la calidad, entrega a Tecnología para su implementación y verifica que lo publicado sea lo diseñado. Mantiene el sistema de diseño digital. E-commerce y Growth prioriza y opera las webs, Innovación y Desarrollo de Productos desarrolla la app y Tecnología implementa.", "nota_estado": "Proceso nuevo, de la Dirección de Diseño y Marca creada en la revisión de la estructura del 06-nov-2026. Hoy el diseño de las webs y de la app no tiene un dueño definido y los cambios se piden directamente al desarrollador. Desde el 06-nov el diseño de web, correos y app es de la gerencia de Diseño de Producto, que desde el 10-nov reúne el diseño industrial y el digital, con diseñadores digitales freelance."},
+    "proposito": {"estado": "borrador", "texto": "Diseña la experiencia y la interfaz de los productos digitales de las marcas —las webs y tiendas en línea, los correos y la app—: entiende a quién se diseña y para qué, prototipa, prueba con usuarios, aprueba la calidad, entrega a Tecnología para su implementación y verifica que lo publicado sea lo diseñado. Mantiene el sistema de diseño digital. E-commerce y Growth prioriza y opera las webs, Innovación y Desarrollo de Productos desarrolla la app y Tecnología implementa.", "nota_estado": "Proceso nuevo, de la Dirección de Diseño y Marca creada en la revisión de la estructura del 06-nov-2026. Hoy el diseño de las webs y de la app no tiene un dueño definido y los cambios se piden directamente al desarrollador. Desde el 06-nov el diseño de web, correos y app quedó en Diseño y Marca; desde el 11-nov-2026 el diseño de producto —físico, digital y empaque— es de la gerencia corporativa de Desarrollo y Calidad de Productos, con diseñadores digitales freelance."},
     "dueno": {"estado": "borrador"},
     "disparador": {"estado": "borrador"},
     "flujo": {
      "estado": "borrador",
      "actividades": [
       {"id": "a1", "rol": "Área solicitante", "texto": "Plantea la necesidad —una web o un flujo nuevo, una mejora de conversión, una plantilla de correo o una pantalla de la app— con un objetivo medible y su prioridad. La plantean E-commerce y Growth, para las webs, e Innovación y Desarrollo de Productos, para la app."},
-      {"id": "a2", "rol": "Gerente de Diseño de Producto (Diseño y Marca)", "texto": "Entiende el contexto de uso: la analítica y las pruebas de conversión previas, las quejas de clientes y, cuando hace falta, entrevistas o pruebas con usuarios; define los requisitos y los criterios con que se evaluará el diseño."},
+      {"id": "a2", "rol": "Gerente Corporativo(a) de Desarrollo y Calidad de Productos", "texto": "Entiende el contexto de uso: la analítica y las pruebas de conversión previas, las quejas de clientes y, cuando hace falta, entrevistas o pruebas con usuarios; define los requisitos y los criterios con que se evaluará el diseño."},
       {"id": "a3", "rol": "Diseñador(a) digital (freelance)", "texto": "Diseña los flujos y las pantallas sobre el sistema de diseño y arma un prototipo navegable."},
-      {"id": "a4", "rol": "Gerente de Diseño de Producto (Diseño y Marca)", "texto": "Prueba el prototipo con usuarios contra los requisitos —que completen la tarea, en cuánto tiempo y con qué errores—, incluida la accesibilidad."},
+      {"id": "a4", "rol": "Gerente Corporativo(a) de Desarrollo y Calidad de Productos", "texto": "Prueba el prototipo con usuarios contra los requisitos —que completen la tarea, en cuánto tiempo y con qué errores—, incluida la accesibilidad."},
       {"id": "a5", "rol": "Diseñador(a) digital (freelance)", "texto": "Ajusta el diseño con los hallazgos de la prueba."},
       {"id": "a6", "rol": "Director(a) de Diseño y Marca", "texto": "Aprueba la calidad y la coherencia con la marca de las piezas clave: una web, la app o un flujo de compra."},
       {"id": "a7", "rol": "Área solicitante", "texto": "Aprueba el diseño por el negocio —es el único aprobador que fija la solicitud— y lo prioriza en la cola de desarrollo."},
       {"id": "a8", "rol": "Especialista de Tecnología (Web/Infraestructura)", "texto": "Implementa el diseño con las especificaciones entregadas; la app la desarrolla Innovación y Desarrollo de Productos con las mismas especificaciones."},
-      {"id": "a9", "rol": "Gerente de Diseño de Producto (Diseño y Marca)", "texto": "Verifica antes de publicar que lo implementado sea lo diseñado y suma al sistema de diseño los componentes nuevos, con su documentación."},
+      {"id": "a9", "rol": "Gerente Corporativo(a) de Desarrollo y Calidad de Productos", "texto": "Verifica antes de publicar que lo implementado sea lo diseñado y suma al sistema de diseño los componentes nuevos, con su documentación."},
       {"id": "a10", "rol": "Área solicitante", "texto": "Mide después del lanzamiento la conversión o el uso contra el objetivo y devuelve los hallazgos para la siguiente iteración."}
      ],
      "diagrama": {
       "carriles": [
        "Área solicitante",
-       "Gerente de Diseño de Producto (Diseño y Marca)",
+       "Gerente Corporativo(a) de Desarrollo y Calidad de Productos",
        "Diseñador(a) digital (freelance)",
        "Director(a) de Diseño y Marca",
        "Especialista de Tecnología (Web/Infraestructura)"
@@ -23990,15 +23989,15 @@ window.MANUAL_CONTENIDO = {
       "nodos": [
        {"id": "n0", "carril": "Área solicitante", "tipo": "inicio", "n": "Necesidad en web, correo o app"},
        {"id": "n1", "carril": "Área solicitante", "tipo": "tarea", "n": "Plantear la necesidad con objetivo medible", "sistemas": ["Lark"]},
-       {"id": "n2", "carril": "Gerente de Diseño de Producto (Diseño y Marca)", "tipo": "tarea", "n": "Entender el contexto y definir requisitos", "sistemas": ["Analítica web"]},
+       {"id": "n2", "carril": "Gerente Corporativo(a) de Desarrollo y Calidad de Productos", "tipo": "tarea", "n": "Entender el contexto y definir requisitos", "sistemas": ["Analítica web"]},
        {"id": "n3", "carril": "Diseñador(a) digital (freelance)", "tipo": "tarea", "n": "Diseñar flujos y prototipo", "sistemas": ["Herramienta de diseño"]},
-       {"id": "n4", "carril": "Gerente de Diseño de Producto (Diseño y Marca)", "tipo": "tarea", "n": "Probar el prototipo con usuarios"},
-       {"id": "n5", "carril": "Gerente de Diseño de Producto (Diseño y Marca)", "tipo": "decision", "n": "¿Cumple los requisitos?"},
+       {"id": "n4", "carril": "Gerente Corporativo(a) de Desarrollo y Calidad de Productos", "tipo": "tarea", "n": "Probar el prototipo con usuarios"},
+       {"id": "n5", "carril": "Gerente Corporativo(a) de Desarrollo y Calidad de Productos", "tipo": "decision", "n": "¿Cumple los requisitos?"},
        {"id": "n5b", "carril": "Diseñador(a) digital (freelance)", "tipo": "tarea", "n": "Ajustar el diseño con los hallazgos"},
        {"id": "n6", "carril": "Director(a) de Diseño y Marca", "tipo": "tarea", "n": "Aprobar calidad y coherencia de marca"},
        {"id": "n7", "carril": "Área solicitante", "tipo": "tarea", "n": "Aprobar por el negocio y priorizar"},
        {"id": "n8", "carril": "Especialista de Tecnología (Web/Infraestructura)", "tipo": "tarea", "n": "Implementar el diseño", "sistemas": ["Shopify"]},
-       {"id": "n9", "carril": "Gerente de Diseño de Producto (Diseño y Marca)", "tipo": "tarea", "n": "Verificar la implementación y actualizar el sistema"},
+       {"id": "n9", "carril": "Gerente Corporativo(a) de Desarrollo y Calidad de Productos", "tipo": "tarea", "n": "Verificar la implementación y actualizar el sistema"},
        {"id": "n10", "carril": "Área solicitante", "tipo": "tarea", "n": "Medir el resultado tras el lanzamiento", "sistemas": ["Analítica web"]},
        {"id": "n11", "carril": "Área solicitante", "tipo": "fin", "n": "Diseño publicado y medido"}
       ],
@@ -24059,28 +24058,28 @@ window.MANUAL_CONTENIDO = {
        "Éxito de tareas en prueba con usuarios",
        "Tareas completadas sin ayuda ÷ tareas probadas",
        "Por proyecto",
-       "Gerente de Diseño de Producto (Diseño y Marca)",
+       "Gerente Corporativo(a) de Desarrollo y Calidad de Productos",
        "≥ 80 %"
       ],
       [
        "Diseños medidos tras el lanzamiento",
        "Cambios con resultado medido contra su objetivo ÷ cambios publicados",
        "Trimestral",
-       "Gerente de Diseño de Producto (Diseño y Marca)",
+       "Gerente Corporativo(a) de Desarrollo y Calidad de Productos",
        "100 %"
       ],
       [
        "Desvíos de implementación",
        "Desvíos detectados en la verificación de diseño ÷ pantallas verificadas",
        "Por proyecto",
-       "Gerente de Diseño de Producto (Diseño y Marca)",
+       "Gerente Corporativo(a) de Desarrollo y Calidad de Productos",
        "Tendencia a la baja"
       ],
       [
        "Componentes documentados en el sistema de diseño",
        "Componentes en uso documentados ÷ componentes en uso",
        "Trimestral",
-       "Gerente de Diseño de Producto (Diseño y Marca)",
+       "Gerente Corporativo(a) de Desarrollo y Calidad de Productos",
        "100 %"
       ]
      ]
