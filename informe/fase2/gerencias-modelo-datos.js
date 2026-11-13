@@ -28,12 +28,16 @@
    de Diseño y Marca que le reportan directo; el diseño de producto pasa a Desarrollo
    y Calidad de Productos, la producción y los espacios a Visual Merchandising, y la
    coordinación de Inventario y Precios a Planificación, Despacho e Inventarios.
+   Revisión del 13-nov-2026: Planificación de la Demanda y Nuevos Mercados deja de ser
+   unidad sobre la línea de Ventas: es un cargo de la gerencia corporativa (sin caja).
+   Diseño y Marca tiene dos coordinaciones por área —Creatividad y Contenido Audiovisual,
+   y Diseño Gráfico de Campañas y Redes—, y el video sale de Visual Merchandising.
 
    ⚠ Si cambian las unidades en estructura-tobe-datos.js, revisar aquí: no lo
    lee. Sin nombres de ocupantes, a propósito.
    ============================================================================ */
 window.MODELOS_GERENCIAS = {
-  corte: '11-nov-2026',
+  corte: '13-nov-2026',
   ROT: {mando:'Mando', norma:'Norma', servicio:'Servicio', mision:'Misión', decide:'Decide'},
   gerencias: [
 {id:'ventas', unidad:'ventas', n:'Ventas', dir:'Comercial', red:'Red por canal', capa:'Sí, por canal: Mayor, Retail, E-commerce y Postventa en cada país',
@@ -41,14 +45,14 @@ window.MODELOS_GERENCIAS = {
  premisa:'Cada gerencia país de Ventas tiene una sola línea: la de la gerencia de su canal. El país se coordina en una mesa, no con una segunda línea.',
  dilema:'Una gerencia país de Retail, de E-commerce o de Postventa responde a su canal, pero comparte país, bodega y clientes con los otros tres canales. Si además se define una cabeza país, cada gerente país tendría dos jefes: el del canal y el del país.',
  resuelve:'El canal manda y el país se coordina. La gerencia corporativa de Ventas arbitra entre canales; la cabeza país, si se define, preside la mesa del país y no dirige la venta.',
- mando:{hub:'Gerencia corporativa de Ventas', lado:'Planificación de la Demanda y Nuevos Mercados', ladoEti:'Coordinación corporativa sobre la línea · apoya a los cuatro',
+ mando:{hub:'Gerencia corporativa de Ventas',
    nodosEti:'Gerencia de unidad de negocio',
    nodos:[{t:'Ventas al Mayor',s:'un gerente regional para las dos marcas',pais:{t:'Ventas al Mayor',p:'PA · VE · CO'}},
           {t:'Retail',s:'línea de las tiendas',pais:{t:'Retail · tiendas',p:'PA · VE · CO · OT'}},
           {t:'E-commerce y Growth',s:'web, performance y CRM',pais:{t:'E-commerce',p:'PA · VE · CO · US · OT'}},
           {t:'Postventa',s:'garantías y servicio técnico',pais:{t:'Postventa',p:'PA · VE · CO · OT'}}]},
  conex:[
-  {t:'servicio',con:'Planificación de la Demanda',dir:'recibe',que:'El plan de demanda por canal, país y marca, con un planificador por marca, para los cuatro canales. Apoya sin dirigir a ninguno.'},
+  {t:'servicio',con:'Brand Management · Comercial',dir:'recibe',que:'El plan de demanda de Casio, que la gerencia corporativa de Ventas suma al de Cubitt en el plan consolidado del grupo.'},
   {t:'servicio',con:'Mercadeo',dir:'recibe',que:'La demanda: campañas, trade con los mayoristas y la pauta de marca. Mercadeo recomienda el precio con data del consumidor; Ventas lo fija.'},
   {t:'servicio',con:'Planificación, Despacho e Inventarios',dir:'recibe',que:'El sugerido de pedido de cada tienda y país, según su venta y su inventario, que cada canal revisa y ajusta.'},
   {t:'servicio',con:'Operaciones y Logística país',dir:'recibe',que:'El despacho a tiendas, a mayoristas y de los pedidos web, con plazos acordados.'},
@@ -60,24 +64,24 @@ window.MODELOS_GERENCIAS = {
  reglas:[
   ['mando','El canal manda','Cada gerente país de Ventas reporta a la gerencia de su canal. La gerencia corporativa de Ventas no salta al canal para darle órdenes al país.'],
   ['mision','El país se coordina en una mesa','Los gerentes país de los cuatro canales, con Operaciones y Logística y Mercadeo del país, comparten inventario, calendario y prioridades en una reunión fija. La mesa coordina y no crea un jefe. Si se define una cabeza país, preside la mesa y arbitra lo local, como espacios o personal compartido, sin dirigir la venta.'],
-  ['servicio','La demanda se planifica una vez','Planificación de la Demanda arma un solo plan para los cuatro canales. Ningún canal arma su propio pronóstico para pedir mercancía.'],
+  ['servicio','La demanda se planifica una vez','La gerencia corporativa de Ventas arma un solo plan para los cuatro canales: su coordinación de Planificación de la Demanda planifica Cubitt y le suma el plan de Casio, que hace Brand Management. Ningún canal arma su propio pronóstico para pedir mercancía.'],
   ['decide','La frontera del mayor se acuerda arriba','La gerencia regional de Ventas al Mayor atiende los países sin operación propia y conduce a las de cada país, que atienden a sus mayoristas locales. Un cliente en la frontera lo asigna la Dirección Comercial.'],
   ['norma','Comercial es dueño de la venta y del margen','Mercadeo genera la demanda y propone promociones; Ventas las aprueba, las ejecuta y fija precios y márgenes. E-commerce y Growth responde por la venta en línea y su pauta de performance.']],
  caso:{t:'Una tienda de Panamá se queda sin un modelo en temporada alta',pasos:[
   ['mando','Retail · tiendas de Panamá lo detecta y lo plantea a la gerencia de Retail, su canal.'],
-  ['servicio','Planificación de la Demanda revisa la demanda de los cuatro canales y propone de dónde sale la mercancía.'],
+  ['mando','La coordinación de Planificación de la Demanda, cargo de la gerencia corporativa de Ventas, revisa la demanda de los cuatro canales y propone de dónde sale la mercancía.'],
   ['mando','Si hay que quitarle unidades a E-commerce Panamá, no lo negocian los dos gerentes país: lo decide la gerencia corporativa de Ventas, que ve los cuatro canales.'],
   ['servicio','Operaciones y Logística Panamá mueve la mercancía en el plazo acordado.'],
   ['decide','Si el cambio altera el reparto entre países que aprobó el Comité Comercial, sube al comité.']],
   m:'Dos canales que compiten por la misma mercancía tienen un árbitro, y no es ninguno de los dos.'},
- matriz:{cols:['Gerencia corporativa de Ventas','Gerencia del canal','Planificación de la Demanda','Gerencia país del canal'],
+ matriz:{cols:['Gerencia corporativa de Ventas','Gerencia del canal','Planificación de la Demanda (cargo de la gerencia corporativa)','Gerencia país del canal'],
   filas:[['Línea rectora del canal: formato, servicio, criterios','C','D','','E'],
    ['Plan de demanda por canal, país y marca','D','C','S','C'],
    ['Prioridad entre canales dentro del plan','D','C','S','C'],
    ['Estructura y personal del equipo país','','N','','D'],
    ['Garantías y devoluciones dentro de la política','','N','','D · E'],
    ['Montaje del visual en tienda (lo hace Mercadeo, con el estándar de Visual Merchandising)','','C','','C']]},
- decidir:['Si cada país tiene una cabeza país o una dirección general, y qué papel tiene en la mesa del país. Está en las decisiones pendientes de la estructura (1.2).','Si Planificación de la Demanda y Nuevos Mercados queda en una sola unidad o en dos.','Con qué frecuencia se reúne la mesa del país y quién la convoca mientras no haya cabeza país.','El gerente regional de Ventas al Mayor: dejar la posición en espera, buscarlo o cubrirla con alguien del grupo. Está en las decisiones pendientes de la estructura (1.2).','Dónde queda el visual merchandising: se dibuja en Mercadeo, como servicio a Retail y a Ventas al Mayor, pero podría ir en Retail. Está en las decisiones pendientes de la estructura (1.2).']},
+ decidir:['Si cada país tiene una cabeza país o una dirección general, y qué papel tiene en la mesa del país. Está en las decisiones pendientes de la estructura (1.2).','Si la planificación de la demanda y los mercados nuevos los lleva un solo cargo o dos. Está en las decisiones pendientes de la estructura (1.2).','Con qué frecuencia se reúne la mesa del país y quién la convoca mientras no haya cabeza país.','El gerente regional de Ventas al Mayor: dejar la posición en espera, buscarlo o cubrirla con alguien del grupo. Está en las decisiones pendientes de la estructura (1.2).','Dónde queda el visual merchandising: se dibuja en Mercadeo, como servicio a Retail y a Ventas al Mayor, pero podría ir en Retail. Está en las decisiones pendientes de la estructura (1.2).']},
 
 {id:'operaciones', unidad:'oplcorp', n:'Operaciones y Logística', dir:'Compras y Cadena de Suministro', red:'Centro y bodegas país', capa:'Sí: Operaciones y Logística en PA · VE · CO · US, con Servicios Generales dentro. Arriba, una coordinación corporativa: Despacho',
  riesgo:'Todos le piden a la bodega del país todos los días: los cuatro canales, Finanzas, Compras Internas y la PMO.',
@@ -335,7 +339,7 @@ window.MODELOS_GERENCIAS = {
    nodos:[{t:'Insights y ROI',s:'investigación y medición'},{t:'Social y Contenido',s:'redes, creadores y PR'},{t:'Cuentas Clave y Trade',s:'planes con los mayoristas'},{t:'Visual Merchandising',s:'servicio a todos los canales'}],
    pais:{t:'Mercadeo',p:'PA · VE · CO · Costa Rica',subs:[{t:'Marca Cubitt',p:'PA · VE · CO'},{t:'Marca Casio',p:'PA · VE · CO'},{t:'Social y Contenido',p:'PA · VE · CO'},{t:'Trade y Activaciones',p:'PA · VE · CO'},{t:'Visual Merchandising',p:'PA · VE · CO'}]}},
  conex:[
-  {t:'servicio',con:'Diseño y Marca',dir:'recibe',que:'El concepto, el copy, el key visual y las piezas de cada campaña, a partir de su brief.'},
+  {t:'servicio',con:'Diseño y Marca',dir:'recibe',que:'El concepto, el video y las piezas de cada campaña y de las redes, a partir de su brief.'},
   {t:'norma',con:'Diseño y Marca',dir:'recibe',que:'El manual de marca y el sistema de diseño, que el país adapta a sus formatos y no cambia.'},
   {t:'servicio',con:'Comercial',dir:'da',que:'La demanda: tráfico, sell-out y campañas. Recomienda el precio con data del consumidor; Comercial lo fija.'},
   {t:'mision',con:'E-commerce y Growth',dir:'mutuo',que:'Cada campaña: la pauta de marca la planifica Mercadeo y la de performance E-commerce y Growth. Finanzas consolida las dos para no contar doble.'},
@@ -353,7 +357,7 @@ window.MODELOS_GERENCIAS = {
  caso:{t:'El lanzamiento de un reloj Cubitt de running',pasos:[
   ['servicio','Insights y ROI lee la señal en la data de la app y de ventas: el running es el deporte más usado. Es una señal para investigar, no una validación.'],
   ['decide','Mercadeo hace el brief de consumidor; Producto, Comercial y Finanzas ponen especificación, costo, precio y margen. La Dirección o el comité aprueba el sí o el no, con la firma de Mercadeo.'],
-  ['servicio','Diseño y Marca hace el concepto, el key visual y las piezas; Mercadeo aprueba que cumplan el brief.'],
+  ['servicio','Diseño y Marca hace el concepto, el key visual, los videos y las piezas; Mercadeo aprueba que cumplan el brief.'],
   ['mision','En el lanzamiento, Mercadeo coordina: Cuentas Clave y Trade activa a los mayoristas, Visual Merchandising monta la exhibición en tiendas y mayoristas, Retail vende en las tiendas, y E-commerce y Growth lleva la web y la pauta de performance.'],
   ['servicio','Mercadeo mide el retorno y la marca; E-commerce y Growth, la venta en línea; Comercial, la venta y el margen. Lo aprendido vuelve al primer paso.']],
   m:'Cada paso tiene un dueño, y cada aprobación se cierra antes de comprometer la inversión que sigue.'},
@@ -365,41 +369,43 @@ window.MODELOS_GERENCIAS = {
    ['Precio, margen y promociones','C','','D',''],
    ['Campaña y activación local','N','N','','D · E'],
    ['Montaje del visual en tiendas y mayoristas','N','N','C','E']]},
- decidir:['El titular de la gerencia, que la propuesta de la Dirección Comercial plantea como Director(a) de Marketing. Está en las decisiones pendientes de la estructura (1.2).','Dónde queda el visual merchandising: se dibuja en Mercadeo porque también lo usa Ventas al Mayor, pero podría ir en Retail. Está en las decisiones pendientes de la estructura (1.2).','Si las activaciones y los eventos tienen un proceso propio: hoy solo aparecen dentro del plan anual (16.1), del reporte (16.8) y del 8.13, de Ventas al Mayor.','Quién lleva la comunicación interna, que el macroproceso 16 nombra y ninguna unidad tiene: Social y Contenido o Recursos Humanos.','Confirmar los ocupantes de las coordinaciones de Mercadeo país, que salen del censo. Está en las decisiones pendientes de la estructura (1.2).','Quién lidera Social y Contenido.','Cómo adapta cada país las piezas que recibe de Diseño y Marca: qué edita y quién lo aprueba.']},
+ decidir:['El titular de la gerencia, que la propuesta de la Dirección Comercial plantea como Director(a) de Marketing. Está en las decisiones pendientes de la estructura (1.2).','Dónde queda el visual merchandising: se dibuja en Mercadeo porque también lo usa Ventas al Mayor, pero podría ir en Retail. Está en las decisiones pendientes de la estructura (1.2).','Si las activaciones y los eventos tienen un proceso propio: hoy solo aparecen dentro del plan anual (16.1), del reporte (16.8) y del 8.13, de Ventas al Mayor.','Quién lleva la comunicación interna, que el macroproceso 16 nombra y ninguna unidad tiene: Social y Contenido o Recursos Humanos.','Confirmar los ocupantes de las coordinaciones de Mercadeo país, que salen del censo. Está en las decisiones pendientes de la estructura (1.2).','Quién lidera Social y Contenido.','Cómo adapta cada país las piezas que recibe de Diseño y Marca: qué edita y quién lo aprueba.','Si los equipos de video de cada país siguen en Mercadeo país o pasan a Diseño y Marca. Está en las decisiones pendientes de la estructura (1.2).']},
 
 {id:'marca', unidad:'marca', n:'Diseño y Marca', dir:'Presidencia', red:'Dueño de cómo se ve', capa:'No: cada país adapta las piezas en su Mercadeo, y Visual Merchandising, en Mercadeo, las lleva al punto de venta', aplicado:true,
  riesgo:'Todas las áreas le piden piezas a la vez: Mercadeo, Brand Management, E-commerce y Growth y los países.',
  premisa:'Diseño y Marca decide cómo se ve, cómo se siente y cómo se usa la marca. Los demás le piden por brief y por una sola vía; nadie cambia una pieza ni el sistema de marca por su cuenta.',
- dilema:'Desde el 11-nov-2026 la dirección se concentra en la marca y la creatividad: el diseño de producto quedó en Desarrollo y Calidad de Productos y la producción y los espacios en Visual Merchandising. La marca sigue siendo de todos: si cada uno de ellos interpreta el sistema de marca a su manera, el grupo vuelve a verse distinto en cada producto, tienda y campaña.',
+ dilema:'Desde el 11-nov-2026 la dirección se concentra en la marca y la creatividad: el diseño de producto quedó en Desarrollo y Calidad de Productos y la producción de foto y 3D y los espacios en Visual Merchandising. Desde el 13-nov-2026 tiene dos coordinaciones por oficio, porque el video y el diseño de piezas piden perfiles distintos, y el video vuelve aquí. La marca sigue siendo de todos: si cada uno de ellos interpreta el sistema de marca a su manera, el grupo vuelve a verse distinto en cada producto, tienda y campaña.',
  resuelve:'Una sola vía de pedido, por brief, con un calendario común y una revisión mensual de capacidad. Un solo aprobador de negocio por proyecto, definido en el brief, y Diseño y Marca aprueba la calidad. El sistema de marca es la norma a la que se ajustan el diseño de producto y lo que se monta en el punto de venta.',
  mando:{hub:'Dirección de Diseño y Marca',
    nodosEti:'Coordinación corporativa',
-   nodos:[{t:'Diseño y Marca',s:'director creativo: concepto, copy, key visual y piezas'},{t:'Diseño y Marca',s:'directora de arte: expresión visual de cada concepto'}]},
+   nodos:[{t:'Creatividad y Contenido Audiovisual',s:'concepto creativo, video y estudio'},{t:'Diseño Gráfico de Campañas y Redes',s:'piezas de campaña y publicaciones en redes'}]},
  conex:[
-  {t:'servicio',con:'Mercadeo',dir:'da',que:'El concepto, el copy, el key visual y las piezas de cada campaña, a partir de su brief.'},
+  {t:'servicio',con:'Mercadeo',dir:'da',que:'El concepto, el video y las piezas de cada campaña y de las redes, a partir de su brief.'},
+  {t:'servicio',con:'Social y Contenido · Mercadeo',dir:'da',que:'Los videos y el diseño de las publicaciones para redes, según su calendario editorial.'},
   {t:'norma',con:'Todo el grupo',dir:'da',que:'El manual de marca y el sistema de diseño, fuente única para equipos y proveedores.'},
   {t:'norma',con:'Desarrollo y Calidad de Productos',dir:'da',que:'El sistema de marca al que se ajustan el diseño del producto, el empaque y la experiencia digital.'},
-  {t:'norma',con:'Visual Merchandising · Mercadeo',dir:'da',que:'El sistema de marca al que se ajustan los estándares de exhibición, el POP, los interiores y la producción de foto, video y 3D.'},
+  {t:'norma',con:'Visual Merchandising · Mercadeo',dir:'da',que:'El sistema de marca al que se ajustan los estándares de exhibición, el POP, los interiores y la producción de foto y 3D.'},
   {t:'servicio',con:'E-commerce y Growth',dir:'da',que:'Las piezas de marca para las webs, los correos y las campañas digitales.'}],
  reglas:[
   ['servicio','Se pide por brief y por una sola vía','Ningún pedido llega por chat ni por cercanía. El brief dice quién aprueba por el negocio.'],
   ['norma','Un solo aprobador de negocio','Quien firmó el brief aprueba que la pieza lo cumpla; Diseño y Marca aprueba su calidad. No hay doble aprobación por pieza.'],
-  ['mando','Las dos coordinaciones en dupla','Las dos coordinaciones de Diseño y Marca presentan juntas cada propuesta; ninguna entrega un concepto sin su expresión visual.'],
+  ['mando','Dos coordinaciones, dos oficios','Creatividad y Contenido Audiovisual lleva el concepto y el video, con su estudio; Diseño Gráfico de Campañas y Redes, las piezas de campaña y las publicaciones en redes. Son perfiles y experiencias distintas: cada una responde por lo suyo, y las dos trabajan sobre el mismo concepto.'],
   ['norma','El sistema de marca no se cambia fuera de aquí','El país adapta las piezas a sus formatos; Producto y Visual Merchandising diseñan y producen con el sistema de marca, y no lo cambian.'],
   ['decide','La capacidad se revisa cada mes','Toda urgencia muestra qué compromiso desplaza. Si dos áreas no se ponen de acuerdo en una prioridad, decide la Dirección.']],
  caso:{t:'La campaña de lanzamiento de un reloj Cubitt',pasos:[
   ['servicio','Mercadeo entrega el brief, con su aprobador de negocio.'],
-  ['mando','Las dos coordinaciones de Diseño y Marca presentan en dupla el concepto, el copy y el key visual.'],
+  ['mando','Creatividad y Contenido Audiovisual propone el concepto, el copy y el key visual.'],
   ['norma','Mercadeo aprueba que cumpla el brief y Diseño y Marca, la calidad.'],
-  ['servicio','La coordinación del director creativo deriva las piezas; Visual Merchandising produce la foto y el video y lo lleva a las tiendas con el sistema de marca.'],
+  ['servicio','Diseño Gráfico de Campañas y Redes diseña las piezas —vallas, digitales y publicaciones en redes— y Creatividad y Contenido Audiovisual produce los videos de campaña y para redes. Visual Merchandising produce la foto y lo lleva a las tiendas con el sistema de marca.'],
   ['norma','Cada país adapta las piezas a sus formatos sin cambiar el sistema de marca.']],
   m:'Uno pide, otro crea, y nadie cambia la marca en el camino.'},
  matriz:{cols:['Diseño y Marca','Mercadeo','Desarrollo y Calidad','Visual Merchandising'],
   filas:[['Manual de marca y sistema de diseño','D · E','C','C','C'],
    ['Concepto y piezas de campaña','D · E','C','',''],
+   ['Video de campaña y para redes','D · E','C','',''],
    ['Diseño de producto y empaque','N','C','D · E',''],
-   ['Estándares de exhibición, POP y producción','N','C','','D · E'],
+   ['Estándares de exhibición, POP, foto y 3D','N','C','','D · E'],
    ['Prioridad cuando no alcanza la capacidad (decide la Dirección)','C','C','','']]},
- decidir:['Qué parte del equipo creativo actual pasa a la dirección. Está en las decisiones pendientes de la estructura (1.2).','Quién lleva la cola de pedidos creativos (proceso 16.3), que hoy ordena el coordinador de marca de cada país y en el To-Be es de esta dirección.','Qué disciplinas se cubren con personal interno y cuáles con freelancers o agencias.']}
+ decidir:['Qué parte del equipo creativo actual pasa a la dirección. Está en las decisiones pendientes de la estructura (1.2).','Quién lleva la cola de pedidos creativos (proceso 16.3), que hoy ordena el coordinador de marca de cada país y en el To-Be es de esta dirección.','Qué disciplinas se cubren con personal interno y cuáles con freelancers o agencias.','Si los equipos de video de cada país pasan a Creatividad y Contenido Audiovisual o siguen en Mercadeo país. Está en las decisiones pendientes de la estructura (1.2).']}
 ]
 };
