@@ -6068,7 +6068,7 @@ window.MANUAL_CONTENIDO = {
      ["12.8 Cierre contable y emisión de estados financieros", "Coordinador(a) Contable", "Gerente de Contabilidad / Administración", "Analista Contable Senior / Contador(a)", "Planificador Financiero"],
      ["12.9 Reportería contable a la dirección y a terceros", "Analista Contable Senior / Contador(a)", "Planificador Financiero", "Gerente de Contabilidad / Administración", "Junta Directiva"],
      ["12.10 Atención de la auditoría externa y de la revisoría fiscal", "Analista Contable Senior / Contador(a)", "Gerente de Contabilidad / Administración", "Gerente de Tesorería · Gerente de Talento Humano", "Asesor(a) Externo de Finanzas y Auditoría"],
-     ["12.11 Control interno contable y verificación de cumplimiento", "Gerente de Contabilidad / Administración", "Planificador Financiero", "dueños de los procesos auditados", "Asesor(a) Externo de Finanzas y Auditoría"],
+     ["12.11 Control interno contable y verificación de cumplimiento", "Gerente de Contabilidad / Administración", "Coordinador(a) Contable", "dueños de los procesos auditados", "Asesor(a) Externo de Finanzas y Auditoría"],
      ["12.12 Gobierno de la política contable del grupo y documentación de procedimientos", "Planificador Financiero", "Gerente de Contabilidad / Administración (Venezuela, Panamá y Colombia)", "Coordinador(a) de Sistemas · Coordinador(a) Contable", "Asesor(a) Externo de Finanzas y Auditoría"]
     ],
     "catalogo_sistemas": [
@@ -6665,23 +6665,23 @@ window.MANUAL_CONTENIDO = {
      "texto": "Cubre el diseño y la ejecución de las verificaciones de control interno sobre los procesos que alimentan la contabilidad: arqueos y verificaciones sorpresivas de efectivo y de custodia de divisas en sedes, resguardo de la factura original en cartera, toma física de activos fijos, revisión de la segregación de funciones, y emisión de memorandos de hallazgos con plan de acción al dueño del proceso. No incluye la auditoría externa ni la Revisoría Fiscal (proceso 12.10), que son verificaciones de un tercero, no de la propia empresa.",
      "nota_estado": "Este proceso es to-be: no existe hoy una función de auditoría interna en ningún país del grupo. Lo que existe son objetivos declarados por la propia Gerencia de Contabilidad de Venezuela —arqueos sorpresivos, custodia de la factura original, control físico de activos, checklist de línea de crédito a cliente nuevo— sin una función ni un calendario que los ejecute todavía."
     },
-    "dueno": {"estado": "borrador"},
+    "dueno": {"estado": "borrador", "participantes": ["Gerente de Contabilidad / Administración (define el plan, emite el memorando y sigue el plan de acción)", "Coordinador(a) Contable (ejecuta las verificaciones)", "Analista Contable Senior / Contador(a) (verifica la segregación de funciones y documenta los hallazgos)", "Dueños de los procesos auditados (tiendas, tesorería, cartera, almacén)", "Asesor(a) Externo de Finanzas y Auditoría"]},
     "disparador": {"estado": "borrador"},
     "flujo": {
      "estado": "borrador",
      "actividades": [
       {"id": "a1", "rol": "Gerente de Contabilidad / Administración", "texto": "Define el plan de verificaciones del período: qué se revisa, con qué frecuencia y con qué grado de anticipación (programada o sorpresiva)."},
-      {"id": "a2", "rol": "Planificador Financiero", "texto": "Ejecuta o encarga a alguien ajeno al proceso el arqueo sorpresivo de efectivo o la custodia de divisas en una sede."},
+      {"id": "a2", "rol": "Coordinador(a) Contable", "texto": "Ejecuta la verificación —arqueo sorpresivo de efectivo, custodia de divisas en una sede o toma física de activos— o la encarga a alguien ajeno al proceso verificado. No arquea el efectivo que custodia Tesorería con personal de Tesorería."},
       {"id": "a3", "rol": "Analista Contable Senior / Contador(a)", "texto": "Verifica la segregación de funciones en un proceso crítico (ej. que quien cobra no sea quien concilia ni quien registra)."},
       {"id": "a4", "rol": "Analista Contable Senior / Contador(a)", "texto": "Documenta el hallazgo con su causa raíz cuando la verificación detecta una desviación."},
       {"id": "a5", "rol": "Gerente de Contabilidad / Administración", "texto": "Emite el memorando de hallazgos con el plan de acción y lo asigna al dueño del proceso auditado."}
      ],
      "diagrama": {
-      "carriles": ["Gerente de Contabilidad / Administración", "Planificador Financiero", "Analista Contable Senior / Contador(a)"],
+      "carriles": ["Gerente de Contabilidad / Administración", "Coordinador(a) Contable", "Analista Contable Senior / Contador(a)"],
       "nodos": [
        {"id": "n0", "carril": "Gerente de Contabilidad / Administración", "tipo": "inicio", "n": "Hallazgo contable o verificación programada"},
        {"id": "n1", "carril": "Gerente de Contabilidad / Administración", "tipo": "tarea", "n": "Definir el alcance y el tipo de verificación"},
-       {"id": "n2", "carril": "Planificador Financiero", "tipo": "tarea", "n": "Ejecutar la verificación (arqueo, custodia, toma física, funciones)"},
+       {"id": "n2", "carril": "Coordinador(a) Contable", "tipo": "tarea", "n": "Ejecutar la verificación (arqueo, custodia, toma física, funciones)"},
        {"id": "n3", "carril": "Analista Contable Senior / Contador(a)", "tipo": "decision", "n": "¿Se detectó una desviación?"},
        {"id": "n3alt", "carril": "Analista Contable Senior / Contador(a)", "tipo": "tarea", "n": "Documentar el hallazgo con su causa raíz"},
        {"id": "n4", "carril": "Gerente de Contabilidad / Administración", "tipo": "tarea", "n": "Emitir el memorando de hallazgos con plan de acción"},
@@ -6700,14 +6700,14 @@ window.MANUAL_CONTENIDO = {
       ["No existe función de auditoría interna en ningún país", "Los arqueos sorpresivos y la revisión de segregación de funciones son objetivos declarados, no una práctica en curso.", "Alta", "Alto", "Priorizar los arqueos sorpresivos de efectivo y custodia de divisas, el punto de mayor exposición señalado por la propia Gerencia de Contabilidad."],
       ["Segregación de funciones sin verificación sistemática", "El principio ya existe (ej. quien vende no factura ni cobra en la entidad que corrigió su facturación), pero nadie verifica de forma recurrente que se cumpla en el resto de los procesos.", "Media", "Alto", "Incluir la verificación de segregación de funciones como parte fija del plan de verificaciones."],
       ["Sin plazo ni dueño único para cerrar un hallazgo", "Un memorando de hallazgos no tiene hoy un mecanismo de seguimiento que confirme que el dueño del proceso ejecutó el plan de acción.", "Media", "Medio", "Definir un plazo de cierre y un mecanismo de seguimiento para cada memorando de hallazgos."],
-      ["Verificación sin la distancia de un tercero ajeno al proceso", "Un arqueo hecho por alguien del propio equipo pierde parte del efecto disuasivo de un arqueo sorpresivo hecho por alguien ajeno al proceso — la buena práctica de control interno (COSO) recomienda justamente esa distancia.", "Baja", "Medio", "Evaluar que el Asesor(a) Externo de Finanzas y Auditoría o el Planificador Financiero, ajenos al día a día, ejecuten al menos los arqueos sorpresivos."]
+      ["Verificación sin la distancia de un tercero ajeno al proceso", "Un arqueo hecho por alguien del propio equipo pierde parte del efecto disuasivo de un arqueo sorpresivo hecho por alguien ajeno al proceso — la buena práctica de control interno (COSO) recomienda justamente esa distancia.", "Baja", "Medio", "Mientras se cubre la Coordinación corporativa de Planificación y Control Financiero de la estructura To-Be, el Coordinador(a) Contable ejecuta las verificaciones sobre efectivo, divisas y activos, que no maneja Contabilidad; la segregación de funciones dentro de la propia Contabilidad conviene encargarla al Asesor(a) Externo de Finanzas y Auditoría."]
      ]
     },
     "indicadores": {
      "estado": "borrador",
      "filas": [
       ["Verificaciones de control interno ejecutadas según el plan del período", "Verificaciones ejecutadas ÷ verificaciones planificadas", "Trimestral", "Gerente de Contabilidad / Administración", "100% (referencia, sin línea base hoy)"],
-      ["Hallazgos con plan de acción cerrado dentro del plazo", "Hallazgos cerrados a tiempo ÷ total de hallazgos", "Por hallazgo", "Planificador Financiero", "Referencia de seguimiento"],
+      ["Hallazgos con plan de acción cerrado dentro del plazo", "Hallazgos cerrados a tiempo ÷ total de hallazgos", "Por hallazgo", "Gerente de Contabilidad / Administración", "Referencia de seguimiento"],
       ["Procesos críticos con segregación de funciones verificada", "Procesos verificados ÷ total de procesos críticos identificados", "Anual", "Analista Contable Senior / Contador(a)", "Referencia de avance"]
      ]
     }

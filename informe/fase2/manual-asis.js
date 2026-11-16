@@ -3988,7 +3988,7 @@ window.MANUAL_ASIS = {
         "id": "n0",
         "carril": "Gerente de Contabilidad",
         "tipo": "inicio",
-        "n": "Hace falta un criterio contable"
+        "n": "Necesidad de definir un criterio contable"
        },
        {
         "id": "n1",
