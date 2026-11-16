@@ -130,6 +130,24 @@
   button.f2-cat-tit[aria-expanded="true"]{color:var(--tinta-media)}
   button.f2-cat-tit[aria-expanded="true"] svg{transform:rotate(90deg)}
   .f2-cat-n{margin-left:auto;font-variant-numeric:tabular-nums;letter-spacing:0;opacity:.8}
+  /* Cada banda lleva su color de categoría, el mismo del mapa y de los KPI de
+     la portada (--f2-estr/--f2-oper/--f2-sop, AA como texto en los dos temas). */
+  .f2-cat[data-cat="estrategico"]{--banda:var(--f2-estr)}
+  .f2-cat[data-cat="operativo"]{--banda:var(--f2-oper)}
+  .f2-cat[data-cat="soporte"]{--banda:var(--f2-sop)}
+  .f2-cat[data-cat] > button.f2-cat-tit{
+    color:var(--banda);border-radius:0 8px 8px 0;
+    background:color-mix(in srgb,var(--banda) 9%,transparent);
+    box-shadow:inset 3px 0 0 var(--banda);
+  }
+  .f2-cat[data-cat] > button.f2-cat-tit:hover,
+  .f2-cat[data-cat] > button.f2-cat-tit[aria-expanded="true"]{
+    color:var(--banda);background:color-mix(in srgb,var(--banda) 16%,transparent);
+  }
+  .f2-cat[data-cat] .f2-cat-n{
+    opacity:1;padding:1px 7px;border-radius:999px;font-size:10px;
+    background:color-mix(in srgb,var(--banda) 18%,transparent);
+  }
   .f2-catbody{padding-bottom:4px}
   .f2-mrow{display:flex;align-items:stretch;gap:2px;border-radius:9px}
   .f2-mrow.on{background:var(--panel);box-shadow:var(--sombra)}
