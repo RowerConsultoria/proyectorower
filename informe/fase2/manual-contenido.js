@@ -6061,10 +6061,10 @@ window.MANUAL_CONTENIDO = {
      ["12.1 Registro contable de operaciones y control de la imputación", "Analista Contable Senior / Contador(a)", "Gerente de Contabilidad / Administración", "Coordinador(a) de Sistemas · Analista de Cuentas por Cobrar", "—"],
      ["12.2 Validación de ingresos y control del cierre de caja de punto de venta", "Auxiliar Contable", "Coordinador(a) Contable", "Gerente de Tienda / Supervisor de Ventas · Asistente Administrativo(a) / Servicios Generales", "—"],
      ["12.3 Conciliación bancaria y de plataformas de recaudo", "Analista Contable Senior / Contador(a)", "Coordinador(a) Contable", "Gerente de Contabilidad / Administración", "—"],
-     ["12.4 Análisis y depuración de cuentas de balance", "Analista Contable Senior / Contador(a)", "Coordinador(a) Contable", "Analista de Cuentas por Cobrar · responsable del área que originó el registro", "Gerente de Contabilidad / Administración"],
+     ["12.4 Análisis y depuración de cuentas de balance", "Analista Contable Senior / Contador(a)", "Coordinador(a) Contable", "Responsable del área que originó el registro", "Gerente de Contabilidad / Administración"],
      ["12.5 Facturación fiscal y emisión de documentos accesorios", "Analista de Facturación", "Gerente de Contabilidad / Administración", "Gerente de Tesorería · Supervisor(a) de Bodega / Despacho", "—"],
      ["12.6 Gestión tributaria y cumplimiento de obligaciones fiscales", "Analista Contable Senior / Contador(a)", "Gerente de Contabilidad / Administración", "Revisor(a) Fiscal (Colombia) · Gerente de Tesorería", "—"],
-     ["12.7 Gestión de activos fijos y depreciación", "Analista Contable Senior / Contador(a)", "Gerente de Contabilidad / Administración", "Analista de Cuentas por Cobrar · Coordinador(a) de Sistemas", "—"],
+     ["12.7 Gestión de activos fijos y depreciación", "Analista Contable Senior / Contador(a)", "Gerente de Contabilidad / Administración", "Coordinador(a) de Sistemas", "—"],
      ["12.8 Cierre contable y emisión de estados financieros", "Coordinador(a) Contable", "Gerente de Contabilidad / Administración", "Analista Contable Senior / Contador(a)", "Planificador Financiero"],
      ["12.9 Reportería contable a la dirección y a terceros", "Analista Contable Senior / Contador(a)", "Planificador Financiero", "Gerente de Contabilidad / Administración", "Junta Directiva"],
      ["12.10 Atención de la auditoría externa y de la revisoría fiscal", "Analista Contable Senior / Contador(a)", "Gerente de Contabilidad / Administración", "Gerente de Tesorería · Gerente de Talento Humano", "Asesor(a) Externo de Finanzas y Auditoría"],
@@ -6122,20 +6122,20 @@ window.MANUAL_CONTENIDO = {
       {"id": "a2", "rol": "Analista Contable Senior / Contador(a)", "texto": "Registra el asiento de diario cuando la operación nace en Contabilidad, con la nomenclatura estándar que agrupa el lote (ej. un reembolso de caja menuda) para facilitar el pago y el registro masivo."},
       {"id": "a3", "rol": "Coordinador(a) Contable", "texto": "Valida que la imputación de un registro originado en otra área haya afectado la cuenta contable correcta."},
       {"id": "a4", "rol": "Coordinador(a) de Sistemas", "texto": "Levanta un ticket con el partner del ERP cuando la imputación es incorrecta por un error de parametrización."},
-      {"id": "a5", "rol": "Gerente de Contabilidad / Administración", "texto": "Revisa y aprueba los asientos de mayor materialidad antes del cierre del período."}
+      {"id": "a5", "rol": "Gerente de Contabilidad / Administración", "texto": "Revisa y aprueba los asientos de mayor monto o impacto en los estados financieros antes del cierre del período."}
      ],
      "diagrama": {
       "carriles": ["Analista Contable Senior / Contador(a)", "Coordinador(a) Contable", "Coordinador(a) de Sistemas", "Gerente de Contabilidad / Administración"],
       "nodos": [
-       {"id": "n0", "carril": "Analista Contable Senior / Contador(a)", "tipo": "inicio", "n": "Ocurrencia de una operación económica o imputación incorrecta detectada"},
-       {"id": "n1", "carril": "Analista Contable Senior / Contador(a)", "tipo": "decision", "n": "¿La operación nace en Contabilidad o en otra área?"},
+       {"id": "n0", "carril": "Analista Contable Senior / Contador(a)", "tipo": "inicio", "n": "Operación económica o imputación errónea detectada"},
+       {"id": "n1", "carril": "Analista Contable Senior / Contador(a)", "tipo": "decision", "n": "¿Nace en Contabilidad o en otra área?"},
        {"id": "n1alt", "carril": "Coordinador(a) Contable", "tipo": "tarea", "n": "Validar la imputación del registro originado en otra área"},
-       {"id": "n2", "carril": "Analista Contable Senior / Contador(a)", "tipo": "tarea", "n": "Registrar el asiento de diario con la nomenclatura estándar del lote"},
+       {"id": "n2", "carril": "Analista Contable Senior / Contador(a)", "tipo": "tarea", "n": "Registrar el asiento con la nomenclatura del lote"},
        {"id": "n3", "carril": "Coordinador(a) Contable", "tipo": "decision", "n": "¿La imputación es correcta?"},
-       {"id": "n3alt", "carril": "Coordinador(a) de Sistemas", "tipo": "tarea", "n": "Levantar ticket de corrección de parametrización con el partner del ERP"},
-       {"id": "n4", "carril": "Coordinador(a) de Sistemas", "tipo": "tarea", "n": "Aplicar el asiento corregido una vez resuelta la parametrización"},
-       {"id": "n5", "carril": "Gerente de Contabilidad / Administración", "tipo": "tarea", "n": "Revisar y aprobar los asientos de mayor materialidad"},
-       {"id": "n6", "carril": "Gerente de Contabilidad / Administración", "tipo": "fin", "n": "Operación registrada e imputada correctamente en el ERP"}
+       {"id": "n3alt", "carril": "Coordinador(a) de Sistemas", "tipo": "tarea", "n": "Abrir ticket de parametrización con el partner del ERP"},
+       {"id": "n4", "carril": "Coordinador(a) de Sistemas", "tipo": "tarea", "n": "Aplicar el asiento corregido tras ajustar la parametrización"},
+       {"id": "n5", "carril": "Gerente de Contabilidad / Administración", "tipo": "tarea", "n": "Revisar y aprobar los asientos de mayor monto o impacto"},
+       {"id": "n6", "carril": "Gerente de Contabilidad / Administración", "tipo": "fin", "n": "Operación registrada e imputada en el ERP"}
       ],
       "aristas": [
        {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2", "etq": "Propia"}, {"de": "n1", "a": "n1alt", "etq": "Otra área"},
@@ -6184,11 +6184,11 @@ window.MANUAL_CONTENIDO = {
       "carriles": ["Gerente de Tienda", "Auxiliar Contable", "Asistente Administrativo(a) / Servicios Generales"],
       "nodos": [
        {"id": "n0", "carril": "Gerente de Tienda", "tipo": "inicio", "n": "Cierre de caja diario de un punto de venta"},
-       {"id": "n1", "carril": "Gerente de Tienda", "tipo": "tarea", "n": "Emitir el cierre de caja, el reporte fiscal y realizar el arqueo físico"},
+       {"id": "n1", "carril": "Gerente de Tienda", "tipo": "tarea", "n": "Emitir el cierre de caja y el reporte fiscal, y hacer el arqueo"},
        {"id": "n2", "carril": "Auxiliar Contable", "tipo": "tarea", "n": "Descargar el reporte de venta del sistema"},
-       {"id": "n3", "carril": "Auxiliar Contable", "tipo": "tarea", "n": "Cotejar arqueo físico, detalle de ventas y apuntes contables por medio de pago"},
+       {"id": "n3", "carril": "Auxiliar Contable", "tipo": "tarea", "n": "Cotejar arqueo, ventas y apuntes contables por medio de pago"},
        {"id": "n4", "carril": "Auxiliar Contable", "tipo": "decision", "n": "¿Los tres montos cuadran?"},
-       {"id": "n4alt", "carril": "Auxiliar Contable", "tipo": "tarea", "n": "Documentar la diferencia y solicitar justificación a la tienda"},
+       {"id": "n4alt", "carril": "Auxiliar Contable", "tipo": "tarea", "n": "Documentar la diferencia y pedir justificación a la tienda"},
        {"id": "n5", "carril": "Gerente de Tienda", "tipo": "tarea", "n": "Firmar el acta de recepción y justificar la diferencia si aplica"},
        {"id": "n6", "carril": "Asistente Administrativo(a) / Servicios Generales", "tipo": "tarea", "n": "Recibir el efectivo y las divisas por valija"},
        {"id": "n7", "carril": "Asistente Administrativo(a) / Servicios Generales", "tipo": "fin", "n": "Ingreso validado y cargado a la cuenta transitoria"}
@@ -6238,15 +6238,15 @@ window.MANUAL_CONTENIDO = {
      "diagrama": {
       "carriles": ["Analista Contable Senior / Contador(a)", "Coordinador(a) Contable"],
       "nodos": [
-       {"id": "n0", "carril": "Analista Contable Senior / Contador(a)", "tipo": "inicio", "n": "Extracto bancario o reporte de la plataforma de recaudo disponible"},
+       {"id": "n0", "carril": "Analista Contable Senior / Contador(a)", "tipo": "inicio", "n": "Extracto bancario o reporte de recaudo disponible"},
        {"id": "n1", "carril": "Analista Contable Senior / Contador(a)", "tipo": "tarea", "n": "Cargar el extracto al diario de banco correspondiente"},
-       {"id": "n2", "carril": "Analista Contable Senior / Contador(a)", "tipo": "decision", "n": "¿Es una cuenta de alto volumen/variedad de medios (marketplace, e-commerce)?"},
-       {"id": "n2alt", "carril": "Analista Contable Senior / Contador(a)", "tipo": "tarea", "n": "Conciliar individualmente cada transacción contra el reporte de la plataforma"},
+       {"id": "n2", "carril": "Analista Contable Senior / Contador(a)", "tipo": "decision", "n": "¿Cuenta de alto volumen (marketplace, e-commerce)?"},
+       {"id": "n2alt", "carril": "Analista Contable Senior / Contador(a)", "tipo": "tarea", "n": "Conciliar cada transacción contra el reporte de la plataforma"},
        {"id": "n3", "carril": "Analista Contable Senior / Contador(a)", "tipo": "tarea", "n": "Cruzar cada línea contra su contrapartida contable"},
        {"id": "n4", "carril": "Coordinador(a) Contable", "tipo": "decision", "n": "¿Todas las partidas quedaron cruzadas?"},
-       {"id": "n4alt", "carril": "Coordinador(a) Contable", "tipo": "tarea", "n": "Investigar la partida no identificada con el área correspondiente, sin validarla a ciegas"},
+       {"id": "n4alt", "carril": "Coordinador(a) Contable", "tipo": "tarea", "n": "Investigar con el área la partida no identificada"},
        {"id": "n5", "carril": "Coordinador(a) Contable", "tipo": "tarea", "n": "Emitir el informe de conciliación por cuenta"},
-       {"id": "n6", "carril": "Coordinador(a) Contable", "tipo": "fin", "n": "Conciliación cerrada, cuenta transitoria en cero, partidas en tránsito documentadas"}
+       {"id": "n6", "carril": "Coordinador(a) Contable", "tipo": "fin", "n": "Conciliación cerrada y transitoria en cero"}
       ],
       "aristas": [
        {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n2alt", "etq": "Sí"}, {"de": "n2", "a": "n3", "etq": "No"},
@@ -6281,27 +6281,27 @@ window.MANUAL_CONTENIDO = {
      "texto": "Cubre la revisión periódica de los auxiliares y de las cuentas de balance —cuentas por cobrar, cuentas por pagar, anticipos, transitorias de inventario y de recaudo, socios de negocio— para verificar que el auxiliar concilie con el mayor, identificar el origen de un saldo indebido y ordenar el ajuste o el reproceso con el área responsable del registro. No incluye la conciliación bancaria en sí (proceso 12.3), de la que este proceso hereda las cuentas transitorias ya cerradas.",
      "nota_estado": "Este proceso es híbrido: la revisión de transitorias ya es una disciplina semanal en el país con más tiempo de recorrido con Odoo, pero el sistema exige entender qué cuenta afecta a cuál —un aprendizaje que tomó meses en el país donde el ERP es más reciente— y persisten cuentas con saldos históricos heredados que nadie puede depurar sin distorsionar el resultado."
     },
-    "dueno": {"estado": "borrador"},
+    "dueno": {"estado": "borrador", "participantes": ["Gerente de Contabilidad / Administración (revisión final)", "Coordinador(a) Contable", "Analista Contable Senior / Contador(a)", "Responsable del área que originó el registro"]},
     "disparador": {"estado": "borrador"},
     "flujo": {
      "estado": "borrador",
      "actividades": [
       {"id": "a1", "rol": "Analista Contable Senior / Contador(a)", "texto": "Revisa semanalmente las cuentas transitorias a medida que avanza la conciliación bancaria, para detectar temprano una partida que no cierra."},
       {"id": "a2", "rol": "Analista Contable Senior / Contador(a)", "texto": "Al cierre del mes, revisa el auxiliar completo de cuentas por cobrar, cuentas por pagar y anticipos contra el mayor."},
-      {"id": "a3", "rol": "Analista de Cuentas por Cobrar", "texto": "Investiga el origen de un saldo sin explicación: si nace de un error de registro en otra área, del desconocimiento de qué cuenta afecta a cuál, o de un saldo histórico heredado."},
+      {"id": "a3", "rol": "Analista Contable Senior / Contador(a)", "texto": "Investiga el origen de un saldo sin explicación: si nace de un error de registro en otra área, del desconocimiento de qué cuenta afecta a cuál, o de un saldo histórico heredado."},
       {"id": "a4", "rol": "Coordinador(a) Contable", "texto": "Ordena el ajuste o el reproceso al área responsable del registro original."},
       {"id": "a5", "rol": "Gerente de Contabilidad / Administración", "texto": "Revisa el cierre de las cuentas de balance antes de aprobar el cierre contable del período (proceso 12.8)."}
      ],
      "diagrama": {
-      "carriles": ["Analista Contable Senior / Contador(a)", "Analista de Cuentas por Cobrar", "Coordinador(a) Contable"],
+      "carriles": ["Analista Contable Senior / Contador(a)", "Coordinador(a) Contable"],
       "nodos": [
-       {"id": "n0", "carril": "Analista Contable Senior / Contador(a)", "tipo": "inicio", "n": "Corte quincenal o de cierre mensual, o saldo sin explicación detectado"},
+       {"id": "n0", "carril": "Analista Contable Senior / Contador(a)", "tipo": "inicio", "n": "Corte quincenal, cierre mensual o saldo sin explicar"},
        {"id": "n1", "carril": "Analista Contable Senior / Contador(a)", "tipo": "tarea", "n": "Revisar el auxiliar contra el mayor por cuenta de balance"},
        {"id": "n2", "carril": "Analista Contable Senior / Contador(a)", "tipo": "decision", "n": "¿El auxiliar concilia con el mayor?"},
-       {"id": "n2alt", "carril": "Analista de Cuentas por Cobrar", "tipo": "tarea", "n": "Investigar el origen del saldo (error de registro, cuenta mal afectada, saldo histórico)"},
+       {"id": "n2alt", "carril": "Analista Contable Senior / Contador(a)", "tipo": "tarea", "n": "Investigar el origen del saldo (registro, cuenta o histórico)"},
        {"id": "n3", "carril": "Coordinador(a) Contable", "tipo": "tarea", "n": "Ordenar el ajuste o el reproceso al área responsable del registro"},
        {"id": "n4", "carril": "Coordinador(a) Contable", "tipo": "tarea", "n": "Depurar la cuenta transitoria del período"},
-       {"id": "n5", "carril": "Coordinador(a) Contable", "tipo": "fin", "n": "Cuentas de balance analizadas y transitorias depuradas"}
+       {"id": "n5", "carril": "Coordinador(a) Contable", "tipo": "fin", "n": "Cuentas de balance analizadas y depuradas"}
       ],
       "aristas": [
        {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n4", "etq": "Sí"}, {"de": "n2", "a": "n2alt", "etq": "No"},
@@ -6323,7 +6323,7 @@ window.MANUAL_CONTENIDO = {
      "filas": [
       ["Cuentas de balance con el auxiliar conciliado contra el mayor", "Cuentas conciliadas ÷ total de cuentas de balance", "Mensual", "Coordinador(a) Contable", "100% al cierre"],
       ["Saldos sin explicación pendientes de un período a otro", "Saldos pendientes al cierre ÷ total de saldos revisados", "Mensual", "Gerente de Contabilidad / Administración", "Tendencia decreciente"],
-      ["Tiempo de investigación de un saldo sin explicación", "Fecha de resolución − fecha de detección", "Por saldo", "Analista de Cuentas por Cobrar", "Referencia de seguimiento"]
+      ["Tiempo de investigación de un saldo sin explicación", "Fecha de resolución − fecha de detección", "Por saldo", "Analista Contable Senior / Contador(a)", "Referencia de seguimiento"]
      ]
     }
    },
@@ -6331,37 +6331,42 @@ window.MANUAL_CONTENIDO = {
    "12.5": {
     "proposito": {
      "estado": "borrador",
-     "texto": "Cubre la emisión de la factura de venta una vez validados el pedido, el pago y la preparación en bodega; la emisión de notas de crédito y de débito; y la operación del medio de facturación autorizado en cada país —máquina fiscal, proveedor de facturación digital o PAC de facturación electrónica— y su enlace con el ERP y con la autoridad tributaria. No incluye la validación del pago en sí (procesos 12.2/12.3), que es el paso anterior, ni el despacho físico del pedido.",
+     "texto": "Cubre la emisión de la factura de venta una vez validados el pedido, el pago y la preparación en bodega; la emisión de notas de crédito y de débito; y la operación del medio de facturación autorizado en cada país —máquina fiscal, proveedor de facturación digital o PAC de facturación electrónica— y su enlace con el ERP y con la autoridad tributaria. Recoge como pasos previos, cada uno en su cargo, el pedido que monta Ventas, la confirmación del pago de contado por Tesorería y la preparación en bodega, para que vender, cobrar y facturar no recaigan en una sola persona. No incluye la conciliación del pago (procesos 12.2/12.3) ni el despacho físico del pedido.",
      "nota_estado": "Este proceso es as-is, pero con una historia real detrás: la facturación vivía en Ventas hasta que la pérdida de vouchers y de pedidos despachados sin factura obligó a trasladarla a Contabilidad —separando a quien vende de quien factura y cobra— en la entidad que documentó el problema con más detalle."
     },
-    "dueno": {"estado": "borrador"},
+    "dueno": {"estado": "borrador", "participantes": ["Analista de Facturación (emite y transmite la factura y las notas)", "Analista/Ejecutivo(a) Comercial (monta el pedido aprobado)", "Coordinador(a) de Tesorería / Cobranzas (confirma y registra el pago de contado)", "Supervisor(a) de Bodega / Despacho (prepara el pedido y lo marca como listo)", "Proveedor de facturación electrónica y autoridad tributaria (actores externos)"]},
     "disparador": {"estado": "borrador"},
     "flujo": {
      "estado": "borrador",
      "actividades": [
-      {"id": "a1", "rol": "Analista de Facturación", "texto": "Verifica que el pedido esté listo para facturar: aprobación comercial confirmada (el mismo esquema de doble autorización de Ventas Mayor), pago validado y bodega con el pedido empacado o entregado."},
-      {"id": "a2", "rol": "Analista de Facturación", "texto": "En pedidos a crédito, registra la factura contra el diario correspondiente sin registrar el pago —que aplicará Tesorería cuando el cliente cancele dentro del plazo."},
-      {"id": "a3", "rol": "Analista de Facturación", "texto": "En pedidos de contado, registra el pago según el método (efectivo, transferencia, tarjeta, ACH) al confirmar el pedido, incluido el excedente si el cliente pagó de más."},
-      {"id": "a4", "rol": "Analista de Facturación", "texto": "Emite la factura a través del medio autorizado del país (máquina fiscal, proveedor de facturación digital o PAC) y la transmite a la autoridad tributaria."},
-      {"id": "a5", "rol": "Analista de Facturación", "texto": "Emite la nota de crédito o de débito cuando corresponde (devolución, rectificativa, ajuste por diferencial cambiario) y notifica a bodega si detecta un faltante o error en el pedido."}
+      {"id": "a1", "rol": "Analista/Ejecutivo(a) Comercial", "texto": "Monta en el ERP el pedido ya aprobado (con la doble autorización de Ventas Mayor) y, si es de contado, adjunta el comprobante de pago. En la venta en línea lo hace el asesor del canal."},
+      {"id": "a2", "rol": "Coordinador(a) de Tesorería / Cobranzas", "texto": "En pedidos de contado, verifica que el pago entró al banco y lo registra en el ERP según el método (efectivo, transferencia, tarjeta, ACH), incluido el excedente si el cliente pagó de más. Si el pago no aparece, retiene el pedido y avisa al vendedor."},
+      {"id": "a3", "rol": "Supervisor(a) de Bodega / Despacho", "texto": "Prepara el pedido y lo marca como listo en el ERP; hasta ese momento no se factura."},
+      {"id": "a4", "rol": "Analista de Facturación", "texto": "Comprueba que el pedido tiene el pago confirmado —o la condición de crédito aprobada— y la preparación terminada, y emite la factura por el medio autorizado del país (máquina fiscal, proveedor de facturación digital o PAC). En pedidos a crédito registra la factura sin el pago, que Tesorería aplicará cuando el cliente cancele (proceso 13.6)."},
+      {"id": "a5", "rol": "Analista de Facturación", "texto": "Transmite la factura a la autoridad tributaria y la envía al cliente."},
+      {"id": "a6", "rol": "Analista de Facturación", "texto": "Emite la nota de crédito o de débito cuando corresponde (devolución, rectificativa, ajuste por diferencial cambiario) y notifica a bodega si detecta un faltante o error en el pedido."}
      ],
      "diagrama": {
-      "carriles": ["Analista de Facturación"],
+      "carriles": ["Analista/Ejecutivo(a) Comercial", "Supervisor(a) de Bodega / Despacho", "Coordinador(a) de Tesorería / Cobranzas", "Analista de Facturación"],
       "nodos": [
-       {"id": "n0", "carril": "Analista de Facturación", "tipo": "inicio", "n": "Pedido con pago validado y preparación confirmada por bodega"},
-       {"id": "n1", "carril": "Analista de Facturación", "tipo": "decision", "n": "¿El pedido es a crédito o de contado?"},
-       {"id": "n1a", "carril": "Analista de Facturación", "tipo": "tarea", "n": "Registrar la factura a crédito, sin registrar el pago (lo aplica Tesorería)"},
-       {"id": "n1b", "carril": "Analista de Facturación", "tipo": "tarea", "n": "Registrar el pago según el método del cliente al confirmar el pedido"},
-       {"id": "n2", "carril": "Analista de Facturación", "tipo": "tarea", "n": "Emitir la factura por el medio autorizado del país"},
-       {"id": "n3", "carril": "Analista de Facturación", "tipo": "tarea", "n": "Transmitir la factura a la autoridad tributaria"},
-       {"id": "n4", "carril": "Analista de Facturación", "tipo": "decision", "n": "¿Aplica nota de crédito o de débito?"},
-       {"id": "n4alt", "carril": "Analista de Facturación", "tipo": "tarea", "n": "Emitir la nota de crédito o de débito correspondiente"},
-       {"id": "n5", "carril": "Analista de Facturación", "tipo": "fin", "n": "Factura fiscal emitida y transmitida, documento accesorio emitido cuando corresponde"}
+       {"id": "n0", "carril": "Analista/Ejecutivo(a) Comercial", "tipo": "inicio", "n": "Pedido aprobado en el ERP"},
+       {"id": "n1", "carril": "Analista/Ejecutivo(a) Comercial", "tipo": "decision", "n": "¿Es de contado o a crédito?"},
+       {"id": "n2", "carril": "Coordinador(a) de Tesorería / Cobranzas", "tipo": "decision", "n": "¿El pago entró al banco?"},
+       {"id": "n2b", "carril": "Coordinador(a) de Tesorería / Cobranzas", "tipo": "tarea", "n": "Registrar el pago en el ERP"},
+       {"id": "n2x", "carril": "Coordinador(a) de Tesorería / Cobranzas", "tipo": "tarea", "n": "Retener el pedido y avisar al vendedor"},
+       {"id": "n2f", "carril": "Coordinador(a) de Tesorería / Cobranzas", "tipo": "fin", "n": "Pedido retenido sin pago confirmado"},
+       {"id": "n3", "carril": "Supervisor(a) de Bodega / Despacho", "tipo": "tarea", "n": "Preparar el pedido y marcarlo como listo"},
+       {"id": "n4", "carril": "Analista de Facturación", "tipo": "tarea", "n": "Emitir la factura por el medio autorizado del país"},
+       {"id": "n5", "carril": "Analista de Facturación", "tipo": "tarea", "n": "Transmitir la factura a la autoridad tributaria"},
+       {"id": "n6", "carril": "Analista de Facturación", "tipo": "decision", "n": "¿Aplica nota de crédito o de débito?"},
+       {"id": "n6alt", "carril": "Analista de Facturación", "tipo": "tarea", "n": "Emitir la nota de crédito o de débito correspondiente"},
+       {"id": "n7", "carril": "Analista de Facturación", "tipo": "fin", "n": "Factura fiscal emitida y transmitida"}
       ],
       "aristas": [
-       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n1a", "etq": "Crédito"}, {"de": "n1", "a": "n1b", "etq": "Contado"},
-       {"de": "n1a", "a": "n2"}, {"de": "n1b", "a": "n2"}, {"de": "n2", "a": "n3"}, {"de": "n3", "a": "n4"},
-       {"de": "n4", "a": "n5", "etq": "No"}, {"de": "n4", "a": "n4alt", "etq": "Sí"}, {"de": "n4alt", "a": "n5"}
+       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2", "etq": "Contado"}, {"de": "n1", "a": "n3", "etq": "Crédito"}, {"de": "n2", "a": "n2b", "etq": "Sí"},
+       {"de": "n2", "a": "n2x", "etq": "No"}, {"de": "n2x", "a": "n2f"}, {"de": "n2b", "a": "n3"}, {"de": "n3", "a": "n4"},
+       {"de": "n4", "a": "n5"}, {"de": "n5", "a": "n6"}, {"de": "n6", "a": "n7", "etq": "No"}, {"de": "n6", "a": "n6alt", "etq": "Sí"},
+       {"de": "n6alt", "a": "n7"}
       ]
      }
     },
@@ -6406,13 +6411,13 @@ window.MANUAL_CONTENIDO = {
       "nodos": [
        {"id": "n0", "carril": "Analista Contable Senior / Contador(a)", "tipo": "inicio", "n": "Llegada de la fecha del calendario fiscal de un tributo"},
        {"id": "n1", "carril": "Analista Contable Senior / Contador(a)", "tipo": "tarea", "n": "Extraer el reporte o libro de ventas/compras de Odoo del período"},
-       {"id": "n2", "carril": "Analista Contable Senior / Contador(a)", "tipo": "tarea", "n": "Cruzar el impuesto del reporte contra el sistema y documentar diferencias"},
-       {"id": "n3", "carril": "Revisor(a) Fiscal", "tipo": "decision", "n": "¿El país exige revisión de Revisoría Fiscal antes de presentar?"},
+       {"id": "n2", "carril": "Analista Contable Senior / Contador(a)", "tipo": "tarea", "n": "Cruzar el impuesto contra el sistema y documentar diferencias"},
+       {"id": "n3", "carril": "Revisor(a) Fiscal", "tipo": "decision", "n": "¿Exige Revisoría Fiscal previa?"},
        {"id": "n3alt", "carril": "Revisor(a) Fiscal", "tipo": "tarea", "n": "Obtener el visto bueno de Revisoría Fiscal"},
        {"id": "n4", "carril": "Analista Contable Senior / Contador(a)", "tipo": "tarea", "n": "Cargar la declaración en la plataforma de la autoridad tributaria"},
        {"id": "n5", "carril": "Gerente de Tesorería", "tipo": "tarea", "n": "Notificar monto y fecha límite a Tesorería"},
        {"id": "n6", "carril": "Gerente de Tesorería", "tipo": "tarea", "n": "Archivar la declaración y sus soportes"},
-       {"id": "n7", "carril": "Gerente de Tesorería", "tipo": "fin", "n": "Declaración presentada dentro del plazo, con el pago notificado y el soporte archivado"}
+       {"id": "n7", "carril": "Gerente de Tesorería", "tipo": "fin", "n": "Declaración presentada a tiempo, pagada y archivada"}
       ],
       "aristas": [
        {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3"}, {"de": "n3", "a": "n4", "etq": "No"},
@@ -6445,28 +6450,28 @@ window.MANUAL_CONTENIDO = {
      "texto": "Cubre el alta del activo al momento de la compra según el criterio de capitalización del país, la clasificación por categoría, el cálculo y registro de la depreciación del período, el registro de las bajas por daño o retiro, y el mantenimiento del cuadro de activos que sustenta el requerimiento de auditoría y la declaración fiscal. No incluye la compra del activo en sí (macro 6, Compras y Abastecimiento).",
      "nota_estado": "Este proceso es híbrido con una brecha de madurez real entre países: Panamá ya tiene un módulo de activos fijos en Odoo con depreciación en línea recta automática por categoría; Colombia lleva la depreciación manual mes a mes en un archivo aparte que después sube al sistema; y Venezuela controla el conjunto por masa monetaria, sin un inventario físico preciso. Ningún país tiene todavía la identificación física (etiquetado) de sus activos."
     },
-    "dueno": {"estado": "borrador"},
+    "dueno": {"estado": "borrador", "participantes": ["Gerente de Contabilidad / Administración (aprueba el criterio de capitalización)", "Analista Contable Senior / Contador(a) (registra la compra, el alta, la depreciación y las bajas)", "Coordinador(a) de Sistemas (activos de cómputo)", "Firma de auditoría externa o revisoría fiscal (requerimiento anual)"]},
     "disparador": {"estado": "borrador"},
     "flujo": {
      "estado": "borrador",
      "actividades": [
-      {"id": "a1", "rol": "Analista de Cuentas por Cobrar", "texto": "Registra la compra del activo en una cuenta transitoria de \"activos en proceso\" hasta que Contabilidad confirma si supera el umbral de capitalización del país."},
+      {"id": "a1", "rol": "Analista Contable Senior / Contador(a)", "texto": "Registra la compra del activo en una cuenta transitoria de \"activos en proceso\" hasta que la Gerencia de Contabilidad confirma si supera el umbral de capitalización del país."},
       {"id": "a2", "rol": "Analista Contable Senior / Contador(a)", "texto": "Da de alta el activo por categoría (equipo de cómputo, mobiliario, vehículos, maquinaria) y calcula la depreciación en línea recta del período."},
       {"id": "a3", "rol": "Analista Contable Senior / Contador(a)", "texto": "Registra la baja del activo por daño, retiro o venta, y su efecto en la depreciación acumulada."},
       {"id": "a4", "rol": "Gerente de Contabilidad / Administración", "texto": "Aprueba el criterio de capitalización cuando un caso no es evidente (ej. un grupo de muebles de bajo valor individual)."},
       {"id": "a5", "rol": "Analista Contable Senior / Contador(a)", "texto": "Actualiza el cuadro de activos fijos para la auditoría anual y la declaración de renta, conciliado contra la contabilidad."}
      ],
      "diagrama": {
-      "carriles": ["Analista de Cuentas por Cobrar", "Analista Contable Senior / Contador(a)", "Gerente de Contabilidad / Administración"],
+      "carriles": ["Analista Contable Senior / Contador(a)", "Gerente de Contabilidad / Administración"],
       "nodos": [
-       {"id": "n0", "carril": "Analista de Cuentas por Cobrar", "tipo": "inicio", "n": "Compra de un bien, baja de un activo, o cierre mensual para depreciación"},
-       {"id": "n1", "carril": "Gerente de Contabilidad / Administración", "tipo": "decision", "n": "¿El bien supera el umbral de capitalización del país?"},
-       {"id": "n1alt", "carril": "Analista de Cuentas por Cobrar", "tipo": "tarea", "n": "Registrar el gasto directo, sin crear el activo"},
-       {"id": "n2", "carril": "Analista Contable Senior / Contador(a)", "tipo": "tarea", "n": "Dar de alta el activo por categoría y calcular la depreciación del período"},
+       {"id": "n0", "carril": "Analista Contable Senior / Contador(a)", "tipo": "inicio", "n": "Compra o baja de un activo, o cierre mensual"},
+       {"id": "n1", "carril": "Gerente de Contabilidad / Administración", "tipo": "decision", "n": "¿Supera el umbral de capitalización?"},
+       {"id": "n1alt", "carril": "Analista Contable Senior / Contador(a)", "tipo": "tarea", "n": "Registrar el gasto directo, sin crear el activo"},
+       {"id": "n2", "carril": "Analista Contable Senior / Contador(a)", "tipo": "tarea", "n": "Dar de alta el activo y calcular su depreciación del período"},
        {"id": "n3", "carril": "Analista Contable Senior / Contador(a)", "tipo": "decision", "n": "¿Hubo una baja de activo en el período?"},
        {"id": "n3alt", "carril": "Analista Contable Senior / Contador(a)", "tipo": "tarea", "n": "Registrar la baja y su efecto en la depreciación acumulada"},
        {"id": "n4", "carril": "Analista Contable Senior / Contador(a)", "tipo": "tarea", "n": "Actualizar el cuadro de activos fijos conciliado contra la contabilidad"},
-       {"id": "n5", "carril": "Analista Contable Senior / Contador(a)", "tipo": "fin", "n": "Cuadro de activos fijos actualizado, listo para auditoría y declaración"}
+       {"id": "n5", "carril": "Analista Contable Senior / Contador(a)", "tipo": "fin", "n": "Cuadro de activos fijos actualizado"}
       ],
       "aristas": [
        {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2", "etq": "Sí"}, {"de": "n1", "a": "n1alt", "etq": "No"}, {"de": "n1alt", "a": "n4"},
@@ -6496,7 +6501,7 @@ window.MANUAL_CONTENIDO = {
    "12.8": {
     "proposito": {
      "estado": "borrador",
-     "texto": "Cubre la ejecución del calendario de cierre del período: verificación de que los procesos alimentadores (ingresos, conciliación bancaria, cuentas de balance, activos fijos) están cerrados, registro de los ajustes y provisiones de cierre, cuadre de los auxiliares contra el mayor, y emisión y firma del estado de resultados y del estado de situación financiera del país o entidad legal. No incluye la reportería a terceros más allá de los propios estados financieros (proceso 12.9).",
+     "texto": "Cubre la ejecución del calendario de cierre del período: verificación de que los procesos previos al cierre (ingresos, conciliación bancaria, cuentas de balance, activos fijos) están cerrados, registro de los ajustes y provisiones de cierre, cuadre de los auxiliares contra el mayor, y emisión y firma del estado de resultados y del estado de situación financiera del país o entidad legal. No incluye la reportería a terceros más allá de los propios estados financieros (proceso 12.9).",
      "nota_estado": "Este proceso es híbrido: el cierre ya es mensual y disciplinado en el país con más recorrido en Odoo, pero en la operación de mayor volumen del grupo el cierre completo —balance y estado de resultados juntos, no solo el resultado— todavía no alcanza la meta de los primeros cinco días del mes siguiente que la propia Gerencia de Contabilidad se ha propuesto."
     },
     "dueno": {"estado": "borrador"},
@@ -6504,7 +6509,7 @@ window.MANUAL_CONTENIDO = {
     "flujo": {
      "estado": "borrador",
      "actividades": [
-      {"id": "a1", "rol": "Coordinador(a) Contable", "texto": "Verifica que los procesos alimentadores del período (ingresos, conciliación bancaria, análisis de cuentas de balance, activos fijos) estén cerrados."},
+      {"id": "a1", "rol": "Coordinador(a) Contable", "texto": "Verifica que los procesos previos al cierre del período (ingresos, conciliación bancaria, análisis de cuentas de balance, activos fijos) estén cerrados."},
       {"id": "a2", "rol": "Analista Contable Senior / Contador(a)", "texto": "Registra los ajustes y provisiones de cierre (diferencial cambiario, depreciación del período, provisiones de gasto)."},
       {"id": "a3", "rol": "Analista Contable Senior / Contador(a)", "texto": "Cuadra los auxiliares de cada cuenta contra el mayor antes de cerrar el período."},
       {"id": "a4", "rol": "Gerente de Contabilidad / Administración", "texto": "Emite y firma el estado de resultados y el estado de situación financiera de la entidad."},
@@ -6514,12 +6519,12 @@ window.MANUAL_CONTENIDO = {
       "carriles": ["Coordinador(a) Contable", "Analista Contable Senior / Contador(a)", "Gerente de Contabilidad / Administración"],
       "nodos": [
        {"id": "n0", "carril": "Coordinador(a) Contable", "tipo": "inicio", "n": "Fin del período contable"},
-       {"id": "n1", "carril": "Coordinador(a) Contable", "tipo": "decision", "n": "¿Los procesos alimentadores del período están cerrados?"},
+       {"id": "n1", "carril": "Coordinador(a) Contable", "tipo": "decision", "n": "¿Están cerrados los procesos previos?"},
        {"id": "n1alt", "carril": "Coordinador(a) Contable", "tipo": "tarea", "n": "Escalar al área responsable el proceso pendiente de cierre"},
        {"id": "n2", "carril": "Analista Contable Senior / Contador(a)", "tipo": "tarea", "n": "Registrar los ajustes y provisiones de cierre"},
        {"id": "n3", "carril": "Analista Contable Senior / Contador(a)", "tipo": "tarea", "n": "Cuadrar los auxiliares contra el mayor"},
-       {"id": "n4", "carril": "Gerente de Contabilidad / Administración", "tipo": "tarea", "n": "Emitir y firmar el estado de resultados y el estado de situación financiera"},
-       {"id": "n5", "carril": "Gerente de Contabilidad / Administración", "tipo": "fin", "n": "Estados financieros del período emitidos y firmados, listos para la reportería (proceso 12.9)"}
+       {"id": "n4", "carril": "Gerente de Contabilidad / Administración", "tipo": "tarea", "n": "Emitir y firmar los estados de resultados y de situación"},
+       {"id": "n5", "carril": "Gerente de Contabilidad / Administración", "tipo": "fin", "n": "Estados financieros emitidos y firmados"}
       ],
       "aristas": [
        {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2", "etq": "Sí"}, {"de": "n1", "a": "n1alt", "etq": "No"}, {"de": "n1alt", "a": "n2"},
@@ -6530,8 +6535,8 @@ window.MANUAL_CONTENIDO = {
     "riesgos": {
      "estado": "borrador",
      "filas": [
-      ["Meta de cierre a cinco días todavía no alcanzada en la operación de mayor volumen", "El cierre completo (balance + resultados) sigue con retraso en la entidad más grande del grupo, presentando hoy solo el resultado a la Junta.", "Alta", "Alto", "Priorizar el cierre de los procesos alimentadores (conciliación, cuentas de balance) para acercarse a la meta de cinco días."],
-      ["Meta interna más exigente que la referencia externa del sector", "Las organizaciones con mejor desempeño de cierre financiero (record-to-report) cierran en 10 días o menos, frente a una mediana de 18 a 35 días; la meta interna del grupo (5 días) es más ambiciosa aún y exige que los procesos alimentadores cierren antes.", "Media", "Medio", "Usar el benchmark externo como referencia de ritmo, sin perder de vista que la meta propia del grupo es más exigente."],
+      ["Meta de cierre a cinco días todavía no alcanzada en la operación de mayor volumen", "El cierre completo (balance + resultados) sigue con retraso en la entidad más grande del grupo, presentando hoy solo el resultado a la Junta.", "Alta", "Alto", "Priorizar el cierre de los procesos previos (conciliación, cuentas de balance) para acercarse a la meta de cinco días."],
+      ["Meta interna más exigente que la referencia externa del sector", "Las organizaciones con mejor desempeño de cierre financiero (record-to-report) cierran en 10 días o menos, frente a una mediana de 18 a 35 días; la meta interna del grupo (5 días) es más ambiciosa aún y exige que los procesos previos al cierre terminen antes.", "Media", "Medio", "Usar el benchmark externo como referencia de ritmo, sin perder de vista que la meta propia del grupo es más exigente."],
       ["Presentación parcial de la estructura financiera a la Junta", "Mostrar solo el estado de resultados sin el balance completo limita la visibilidad de cuentas por cobrar, por pagar y saldo en bancos.", "Media", "Alto", "Completar el cierre del balance junto con el resultado antes de la presentación mensual a la Junta."],
       ["Cierre firmado por una sola persona sin segunda revisión formal", "La emisión y firma de los estados financieros recae en el Gerente de Contabilidad / Administración de cada país, sin una revisión cruzada regional antes de circular.", "Baja", "Medio", "Evaluar una revisión cruzada del Planificador Financiero antes de la presentación a la Junta."]
      ]
@@ -6540,7 +6545,7 @@ window.MANUAL_CONTENIDO = {
      "estado": "borrador",
      "filas": [
       ["Días hábiles para el cierre contable completo", "Fecha de cierre − primer día del mes", "Mensual", "Gerente de Contabilidad / Administración", "≤5 días hábiles (meta interna)"],
-      ["Procesos alimentadores cerrados a tiempo para el cierre", "Procesos cerrados a tiempo ÷ total de procesos alimentadores", "Mensual", "Coordinador(a) Contable", "100%"],
+      ["Procesos previos cerrados a tiempo para el cierre", "Procesos cerrados a tiempo ÷ total de procesos previos al cierre", "Mensual", "Coordinador(a) Contable", "100%"],
       ["Estados financieros presentados con balance y resultado completos", "Cierres completos ÷ total de cierres del período", "Mensual", "Planificador Financiero", "100%"]
      ]
     }
@@ -6566,14 +6571,14 @@ window.MANUAL_CONTENIDO = {
      "diagrama": {
       "carriles": ["Analista Contable Senior / Contador(a)", "Gerente de Contabilidad / Administración", "Planificador Financiero"],
       "nodos": [
-       {"id": "n0", "carril": "Analista Contable Senior / Contador(a)", "tipo": "inicio", "n": "Cierre contable emitido, convocatoria del Comité de Finanzas, o requerimiento externo"},
+       {"id": "n0", "carril": "Analista Contable Senior / Contador(a)", "tipo": "inicio", "n": "Cierre, Comité de Finanzas o requerimiento"},
        {"id": "n1", "carril": "Analista Contable Senior / Contador(a)", "tipo": "tarea", "n": "Consolidar la información por centro de costo"},
        {"id": "n2", "carril": "Gerente de Contabilidad / Administración", "tipo": "tarea", "n": "Analizar las variaciones más relevantes del período"},
-       {"id": "n3", "carril": "Gerente de Contabilidad / Administración", "tipo": "decision", "n": "¿Es para el Comité de Finanzas/Junta o para un requerimiento externo puntual?"},
+       {"id": "n3", "carril": "Gerente de Contabilidad / Administración", "tipo": "decision", "n": "¿Es para el Comité o la Junta, o externo?"},
        {"id": "n3a", "carril": "Planificador Financiero", "tipo": "tarea", "n": "Revisar con la Dirección de Finanzas antes del Comité"},
        {"id": "n3b", "carril": "Gerente de Contabilidad / Administración", "tipo": "tarea", "n": "Preparar el paquete de información puntual para el banco o ente externo"},
        {"id": "n4", "carril": "Planificador Financiero", "tipo": "tarea", "n": "Presentar el reporte o el paquete al destinatario"},
-       {"id": "n5", "carril": "Planificador Financiero", "tipo": "fin", "n": "Reporte de análisis financiero entregado y paquete de información remitido"}
+       {"id": "n5", "carril": "Planificador Financiero", "tipo": "fin", "n": "Análisis financiero e información entregados"}
       ],
       "aristas": [
        {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3"}, {"de": "n3", "a": "n3a", "etq": "Interno"},
@@ -6620,14 +6625,14 @@ window.MANUAL_CONTENIDO = {
      "diagrama": {
       "carriles": ["Analista Contable Senior / Contador(a)", "Gerente de Contabilidad / Administración"],
       "nodos": [
-       {"id": "n0", "carril": "Analista Contable Senior / Contador(a)", "tipo": "inicio", "n": "Inicio del ciclo de auditoría o entrega del listado de requerimientos"},
+       {"id": "n0", "carril": "Analista Contable Senior / Contador(a)", "tipo": "inicio", "n": "Inicio de la auditoría o entrega de requerimientos"},
        {"id": "n1", "carril": "Analista Contable Senior / Contador(a)", "tipo": "tarea", "n": "Compartir el balance de comprobación"},
        {"id": "n2", "carril": "Analista Contable Senior / Contador(a)", "tipo": "tarea", "n": "Coordinar con cada área la entrega de soportes y muestras solicitadas"},
-       {"id": "n3", "carril": "Analista Contable Senior / Contador(a)", "tipo": "decision", "n": "¿Hay observaciones del auditor o del revisor fiscal?"},
+       {"id": "n3", "carril": "Analista Contable Senior / Contador(a)", "tipo": "decision", "n": "¿Hay observaciones de auditoría?"},
        {"id": "n3alt", "carril": "Analista Contable Senior / Contador(a)", "tipo": "tarea", "n": "Responder la observación, ajustando o explicando lo señalado"},
        {"id": "n4", "carril": "Gerente de Contabilidad / Administración", "tipo": "tarea", "n": "Elaborar las notas a los estados financieros"},
-       {"id": "n5", "carril": "Gerente de Contabilidad / Administración", "tipo": "tarea", "n": "Recibir los estados financieros auditados y conciliarlos con la declaración de renta"},
-       {"id": "n6", "carril": "Gerente de Contabilidad / Administración", "tipo": "fin", "n": "Estados financieros auditados emitidos, observaciones atendidas o con plan de acción acordado"}
+       {"id": "n5", "carril": "Gerente de Contabilidad / Administración", "tipo": "tarea", "n": "Conciliar los estados auditados con la declaración de renta"},
+       {"id": "n6", "carril": "Gerente de Contabilidad / Administración", "tipo": "fin", "n": "Estados auditados y observaciones atendidas"}
       ],
       "aristas": [
        {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3"}, {"de": "n3", "a": "n4", "etq": "No"},
@@ -6674,14 +6679,14 @@ window.MANUAL_CONTENIDO = {
      "diagrama": {
       "carriles": ["Gerente de Contabilidad / Administración", "Planificador Financiero", "Analista Contable Senior / Contador(a)"],
       "nodos": [
-       {"id": "n0", "carril": "Gerente de Contabilidad / Administración", "tipo": "inicio", "n": "Hallazgo detectado en el análisis contable, o programación del plan de verificaciones del período"},
-       {"id": "n1", "carril": "Gerente de Contabilidad / Administración", "tipo": "tarea", "n": "Definir el alcance y el tipo de verificación (programada o sorpresiva)"},
-       {"id": "n2", "carril": "Planificador Financiero", "tipo": "tarea", "n": "Ejecutar la verificación (arqueo, custodia, toma física, segregación de funciones)"},
+       {"id": "n0", "carril": "Gerente de Contabilidad / Administración", "tipo": "inicio", "n": "Hallazgo contable o verificación programada"},
+       {"id": "n1", "carril": "Gerente de Contabilidad / Administración", "tipo": "tarea", "n": "Definir el alcance y el tipo de verificación"},
+       {"id": "n2", "carril": "Planificador Financiero", "tipo": "tarea", "n": "Ejecutar la verificación (arqueo, custodia, toma física, funciones)"},
        {"id": "n3", "carril": "Analista Contable Senior / Contador(a)", "tipo": "decision", "n": "¿Se detectó una desviación?"},
        {"id": "n3alt", "carril": "Analista Contable Senior / Contador(a)", "tipo": "tarea", "n": "Documentar el hallazgo con su causa raíz"},
        {"id": "n4", "carril": "Gerente de Contabilidad / Administración", "tipo": "tarea", "n": "Emitir el memorando de hallazgos con plan de acción"},
        {"id": "n5", "carril": "Gerente de Contabilidad / Administración", "tipo": "tarea", "n": "Asignar el plan de acción al dueño del proceso auditado"},
-       {"id": "n6", "carril": "Gerente de Contabilidad / Administración", "tipo": "fin", "n": "Verificación cerrada: sin hallazgos, o con memorando y plan de acción asignado"}
+       {"id": "n6", "carril": "Gerente de Contabilidad / Administración", "tipo": "fin", "n": "Verificación cerrada y plan de acción"}
       ],
       "aristas": [
        {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3"}, {"de": "n3", "a": "n6", "etq": "No"},
@@ -6728,14 +6733,14 @@ window.MANUAL_CONTENIDO = {
      "diagrama": {
       "carriles": ["Gerente de Contabilidad / Administración", "Planificador Financiero", "Coordinador(a) Contable", "Coordinador(a) de Sistemas", "Asesor(a) Externo de Finanzas y Auditoría"],
       "nodos": [
-       {"id": "n0", "carril": "Gerente de Contabilidad / Administración", "tipo": "inicio", "n": "Divergencia de criterio entre países, cambio normativo, o brecha de documentación identificada"},
-       {"id": "n1", "carril": "Planificador Financiero", "tipo": "tarea", "n": "Convocar a los Gerentes de Contabilidad / Administración de los países involucrados"},
-       {"id": "n2", "carril": "Planificador Financiero", "tipo": "tarea", "n": "Acordar el criterio común, tomando como base el desarrollo más maduro entre los países"},
+       {"id": "n0", "carril": "Gerente de Contabilidad / Administración", "tipo": "inicio", "n": "Divergencia, cambio normativo o brecha"},
+       {"id": "n1", "carril": "Planificador Financiero", "tipo": "tarea", "n": "Convocar a los Gerentes de Contabilidad de cada país"},
+       {"id": "n2", "carril": "Planificador Financiero", "tipo": "tarea", "n": "Acordar el criterio común sobre el desarrollo más maduro"},
        {"id": "n3", "carril": "Coordinador(a) Contable", "tipo": "tarea", "n": "Redactar o actualizar la instrucción de trabajo del proceso"},
        {"id": "n4", "carril": "Coordinador(a) de Sistemas", "tipo": "decision", "n": "¿El criterio requiere parametrización en el ERP?"},
        {"id": "n4alt", "carril": "Coordinador(a) de Sistemas", "tipo": "tarea", "n": "Parametrizar el criterio en el ERP de cada entidad"},
        {"id": "n5", "carril": "Asesor(a) Externo de Finanzas y Auditoría", "tipo": "tarea", "n": "Validar el criterio contra la normativa fiscal de cada país"},
-       {"id": "n6", "carril": "Asesor(a) Externo de Finanzas y Auditoría", "tipo": "fin", "n": "Política contable del grupo vigente y publicada, con las instrucciones de trabajo homologadas"}
+       {"id": "n6", "carril": "Asesor(a) Externo de Finanzas y Auditoría", "tipo": "fin", "n": "Política contable vigente y publicada"}
       ],
       "aristas": [
        {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3"}, {"de": "n3", "a": "n4"},
@@ -6959,16 +6964,16 @@ window.MANUAL_CONTENIDO = {
      "diagrama": {
       "carriles": ["Analista de Cuentas por Cobrar", "Coordinador(a) de Tesorería / Cobranzas", "Gerente de Tesorería"],
       "nodos": [
-       {"id": "n0", "carril": "Analista de Cuentas por Cobrar", "tipo": "inicio", "n": "Recepción de una factura o solicitud de pago de un proveedor o de un área"},
+       {"id": "n0", "carril": "Analista de Cuentas por Cobrar", "tipo": "inicio", "n": "Factura o solicitud de pago recibida"},
        {"id": "n1", "carril": "Analista de Cuentas por Cobrar", "tipo": "tarea", "n": "Verificar al proveedor en el maestro de contactos"},
        {"id": "n2", "carril": "Analista de Cuentas por Cobrar", "tipo": "tarea", "n": "Registrar la factura y calcular la retención aplicable"},
-       {"id": "n3", "carril": "Analista de Cuentas por Cobrar", "tipo": "decision", "n": "¿Es una importación con gastos asociados (landed costs)?"},
+       {"id": "n3", "carril": "Analista de Cuentas por Cobrar", "tipo": "decision", "n": "¿Importación con gastos asociados?"},
        {"id": "n3alt", "carril": "Analista de Cuentas por Cobrar", "tipo": "tarea", "n": "Registrar y prorratear los gastos en destino al costo del producto"},
-       {"id": "n4", "carril": "Coordinador(a) de Tesorería / Cobranzas", "tipo": "tarea", "n": "Verificar el neto a pagar y preparar el expediente para Tesorería"},
-       {"id": "n5", "carril": "Gerente de Tesorería", "tipo": "decision", "n": "¿El monto requiere aprobación adicional según la matriz?"},
+       {"id": "n4", "carril": "Coordinador(a) de Tesorería / Cobranzas", "tipo": "tarea", "n": "Verificar el neto a pagar y preparar el expediente de Tesorería"},
+       {"id": "n5", "carril": "Gerente de Tesorería", "tipo": "decision", "n": "¿El monto requiere aprobación adicional?"},
        {"id": "n5alt", "carril": "Gerente de Tesorería", "tipo": "tarea", "n": "Escalar la aprobación al siguiente nivel de la matriz"},
        {"id": "n6", "carril": "Gerente de Tesorería", "tipo": "tarea", "n": "Aprobar y programar el pago en el día de caja correspondiente"},
-       {"id": "n7", "carril": "Gerente de Tesorería", "tipo": "fin", "n": "Documento por pagar registrado, con retenciones y pago programado"}
+       {"id": "n7", "carril": "Gerente de Tesorería", "tipo": "fin", "n": "Documento por pagar registrado y pago programado"}
       ],
       "aristas": [
        {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3"}, {"de": "n3", "a": "n4", "etq": "No"}, {"de": "n3", "a": "n3alt", "etq": "Sí"},
@@ -7018,15 +7023,15 @@ window.MANUAL_CONTENIDO = {
      "diagrama": {
       "carriles": ["Coordinador(a) de Tesorería / Cobranzas", "Gerente de Tesorería", "Analista de Cuentas por Cobrar"],
       "nodos": [
-       {"id": "n0", "carril": "Coordinador(a) de Tesorería / Cobranzas", "tipo": "inicio", "n": "Apertura del día y recepción de las solicitudes de pago aprobadas"},
+       {"id": "n0", "carril": "Coordinador(a) de Tesorería / Cobranzas", "tipo": "inicio", "n": "Apertura del día con solicitudes de pago aprobadas"},
        {"id": "n1", "carril": "Gerente de Tesorería", "tipo": "tarea", "n": "Revisar el flujo de caja disponible del día"},
-       {"id": "n2", "carril": "Gerente de Tesorería", "tipo": "decision", "n": "¿La documentación llegó antes del corte del día de caja?"},
+       {"id": "n2", "carril": "Gerente de Tesorería", "tipo": "decision", "n": "¿La documentación llegó antes del corte?"},
        {"id": "n2alt", "carril": "Coordinador(a) de Tesorería / Cobranzas", "tipo": "tarea", "n": "Programar el pago para el siguiente día de caja"},
        {"id": "n3", "carril": "Gerente de Tesorería", "tipo": "tarea", "n": "Programar y ejecutar el pago en la plataforma bancaria"},
-       {"id": "n4", "carril": "Gerente de Tesorería", "tipo": "tarea", "n": "Emitir el soporte de pago y devolver el expediente a Cuentas por Pagar"},
+       {"id": "n4", "carril": "Gerente de Tesorería", "tipo": "tarea", "n": "Emitir el soporte y devolver el expediente a Cuentas por Pagar"},
        {"id": "n5", "carril": "Analista de Cuentas por Cobrar", "tipo": "tarea", "n": "Registrar el pago en el ERP para cerrar la cuenta por pagar"},
-       {"id": "n6", "carril": "Gerente de Tesorería", "tipo": "tarea", "n": "Cerrar el día con el reporte de disponibilidad y la proyección actualizada"},
-       {"id": "n7", "carril": "Gerente de Tesorería", "tipo": "fin", "n": "Pagos ejecutados y conciliados con soporte, flujo de caja actualizado"}
+       {"id": "n6", "carril": "Gerente de Tesorería", "tipo": "tarea", "n": "Cerrar el día con disponibilidad y proyección actualizadas"},
+       {"id": "n7", "carril": "Gerente de Tesorería", "tipo": "fin", "n": "Pagos ejecutados y conciliados, flujo de caja al día"}
       ],
       "aristas": [
        {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3", "etq": "Sí"}, {"de": "n2", "a": "n2alt", "etq": "No"},
@@ -7073,14 +7078,14 @@ window.MANUAL_CONTENIDO = {
      "diagrama": {
       "carriles": ["Coordinador(a) de Tesorería / Cobranzas", "Gerente de Tesorería", "Planificador Financiero"],
       "nodos": [
-       {"id": "n0", "carril": "Coordinador(a) de Tesorería / Cobranzas", "tipo": "inicio", "n": "Disponibilidad de bolívares y necesidad de pago a la casa matriz o al proveedor internacional"},
+       {"id": "n0", "carril": "Coordinador(a) de Tesorería / Cobranzas", "tipo": "inicio", "n": "Bolívares disponibles para pago internacional"},
        {"id": "n1", "carril": "Coordinador(a) de Tesorería / Cobranzas", "tipo": "tarea", "n": "Monitorear la tasa BCV y la brecha frente al mercado paralelo"},
-       {"id": "n2", "carril": "Planificador Financiero", "tipo": "decision", "n": "¿La brecha o la velocidad de devaluación supera el umbral de alerta?"},
+       {"id": "n2", "carril": "Planificador Financiero", "tipo": "decision", "n": "¿Brecha o devaluación en alerta?"},
        {"id": "n2alt", "carril": "Planificador Financiero", "tipo": "tarea", "n": "Alertar a Tesorería y al área comercial y evaluar un título de cobertura"},
        {"id": "n3", "carril": "Gerente de Tesorería", "tipo": "tarea", "n": "Ejecutar la compra de divisas en mesa de cambio"},
        {"id": "n4", "carril": "Gerente de Tesorería", "tipo": "tarea", "n": "Registrar el asiento con el diferencial cambiario correspondiente"},
        {"id": "n5", "carril": "Coordinador(a) de Tesorería / Cobranzas", "tipo": "tarea", "n": "Distribuir los fondos y ejecutar la repatriación a la casa matriz"},
-       {"id": "n6", "carril": "Coordinador(a) de Tesorería / Cobranzas", "tipo": "fin", "n": "Divisas adquiridas y fondos repatriados, registrados en el ERP"}
+       {"id": "n6", "carril": "Coordinador(a) de Tesorería / Cobranzas", "tipo": "fin", "n": "Divisas adquiridas, repatriadas y registradas"}
       ],
       "aristas": [
        {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3", "etq": "No"}, {"de": "n2", "a": "n2alt", "etq": "Sí"},
@@ -7127,14 +7132,14 @@ window.MANUAL_CONTENIDO = {
      "diagrama": {
       "carriles": ["Gerente de Tesorería", "Planificador Financiero", "Junta Directiva"],
       "nodos": [
-       {"id": "n0", "carril": "Gerente de Tesorería", "tipo": "inicio", "n": "Necesidad de financiamiento del ciclo de compra, o vencimiento/renovación de una línea"},
+       {"id": "n0", "carril": "Gerente de Tesorería", "tipo": "inicio", "n": "Necesidad de financiar o línea por vencer"},
        {"id": "n1", "carril": "Planificador Financiero", "tipo": "tarea", "n": "Preparar y entregar a la banca los estados financieros requeridos"},
        {"id": "n2", "carril": "Gerente de Tesorería", "tipo": "tarea", "n": "Negociar tasa y condiciones con el banco"},
-       {"id": "n3", "carril": "Junta Directiva", "tipo": "decision", "n": "¿El monto o plazo requiere aprobación de la Junta Directiva?"},
+       {"id": "n3", "carril": "Junta Directiva", "tipo": "decision", "n": "¿Requiere aprobación de la Junta?"},
        {"id": "n3alt", "carril": "Junta Directiva", "tipo": "tarea", "n": "Presentar la propuesta de financiamiento a la Junta para su aprobación"},
        {"id": "n4", "carril": "Gerente de Tesorería", "tipo": "tarea", "n": "Formalizar el pagaré o el contrato de línea"},
        {"id": "n5", "carril": "Gerente de Tesorería", "tipo": "tarea", "n": "Registrar la línea en el ERP y programar las amortizaciones"},
-       {"id": "n6", "carril": "Gerente de Tesorería", "tipo": "fin", "n": "Línea de crédito vigente o renovada, con los compromisos formalizados"}
+       {"id": "n6", "carril": "Gerente de Tesorería", "tipo": "fin", "n": "Línea de crédito vigente y formalizada"}
       ],
       "aristas": [
        {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3"}, {"de": "n3", "a": "n4", "etq": "No"}, {"de": "n3", "a": "n3alt", "etq": "Sí"},
@@ -7181,16 +7186,16 @@ window.MANUAL_CONTENIDO = {
      "diagrama": {
       "carriles": ["Coordinador(a) Comercial y fuerza de ventas", "Coordinador(a) de Tesorería / Cobranzas", "Gerente de Tesorería", "Analista de Cuentas por Cobrar"],
       "nodos": [
-       {"id": "n0", "carril": "Coordinador(a) Comercial y fuerza de ventas", "tipo": "inicio", "n": "Solicitud de afiliación o de una nueva línea de crédito de un cliente"},
-       {"id": "n1", "carril": "Coordinador(a) Comercial y fuerza de ventas", "tipo": "tarea", "n": "Completar el formulario de afiliación con el documento de relación comercial"},
+       {"id": "n0", "carril": "Coordinador(a) Comercial y fuerza de ventas", "tipo": "inicio", "n": "Solicitud de afiliación o de crédito"},
+       {"id": "n1", "carril": "Coordinador(a) Comercial y fuerza de ventas", "tipo": "tarea", "n": "Completar la afiliación con el documento de relación comercial"},
        {"id": "n2", "carril": "Coordinador(a) de Tesorería / Cobranzas", "tipo": "tarea", "n": "Realizar la debida diligencia y el análisis de riesgo del cliente"},
-       {"id": "n3", "carril": "Coordinador(a) de Tesorería / Cobranzas", "tipo": "decision", "n": "¿Es un cliente internacional sin matriz de riesgo formal?"},
+       {"id": "n3", "carril": "Coordinador(a) de Tesorería / Cobranzas", "tipo": "decision", "n": "¿Cliente internacional sin matriz de riesgo?"},
        {"id": "n3alt", "carril": "Coordinador(a) de Tesorería / Cobranzas", "tipo": "tarea", "n": "Evaluar con el criterio disponible, sin comité de crédito formal"},
        {"id": "n4", "carril": "Coordinador(a) de Tesorería / Cobranzas", "tipo": "tarea", "n": "Definir la línea de crédito propuesta"},
-       {"id": "n5", "carril": "Gerente de Tesorería", "tipo": "decision", "n": "¿El monto o el riesgo requiere escalar la aprobación?"},
+       {"id": "n5", "carril": "Gerente de Tesorería", "tipo": "decision", "n": "¿Requiere escalar la aprobación?"},
        {"id": "n5alt", "carril": "Gerente de Tesorería", "tipo": "tarea", "n": "Escalar la aprobación al siguiente nivel"},
        {"id": "n6", "carril": "Analista de Cuentas por Cobrar", "tipo": "tarea", "n": "Aprobar y crear el cliente con la línea en el ERP"},
-       {"id": "n7", "carril": "Analista de Cuentas por Cobrar", "tipo": "fin", "n": "Cliente creado con línea de crédito aprobada y decisión documentada"}
+       {"id": "n7", "carril": "Analista de Cuentas por Cobrar", "tipo": "fin", "n": "Cliente creado con crédito aprobado y documentado"}
       ],
       "aristas": [
        {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3"}, {"de": "n3", "a": "n4", "etq": "No"}, {"de": "n3", "a": "n3alt", "etq": "Sí"},
@@ -7237,16 +7242,16 @@ window.MANUAL_CONTENIDO = {
      "diagrama": {
       "carriles": ["Analista de Cuentas por Cobrar", "Coordinador(a) de Tesorería / Cobranzas"],
       "nodos": [
-       {"id": "n0", "carril": "Analista de Cuentas por Cobrar", "tipo": "inicio", "n": "Emisión de una factura a crédito o recepción de un cobro"},
+       {"id": "n0", "carril": "Analista de Cuentas por Cobrar", "tipo": "inicio", "n": "Factura a crédito emitida o cobro recibido"},
        {"id": "n1", "carril": "Analista de Cuentas por Cobrar", "tipo": "tarea", "n": "Cotejar el comprobante de pago contra el movimiento bancario"},
-       {"id": "n2", "carril": "Analista de Cuentas por Cobrar", "tipo": "decision", "n": "¿El monto coincide exactamente con lo transferido?"},
-       {"id": "n2alt", "carril": "Analista de Cuentas por Cobrar", "tipo": "tarea", "n": "Registrar la diferencia (cargo bancario intermediario) y documentar la partida"},
+       {"id": "n2", "carril": "Analista de Cuentas por Cobrar", "tipo": "decision", "n": "¿El monto coincide con lo transferido?"},
+       {"id": "n2alt", "carril": "Analista de Cuentas por Cobrar", "tipo": "tarea", "n": "Registrar la diferencia (cargo bancario) y documentar la partida"},
        {"id": "n3", "carril": "Analista de Cuentas por Cobrar", "tipo": "tarea", "n": "Registrar el cobro y conciliarlo contra las facturas abiertas"},
-       {"id": "n4", "carril": "Analista de Cuentas por Cobrar", "tipo": "decision", "n": "¿Hay una solicitud de nota de crédito o de débito asociada?"},
+       {"id": "n4", "carril": "Analista de Cuentas por Cobrar", "tipo": "decision", "n": "¿Hay nota de crédito o débito asociada?"},
        {"id": "n4alt", "carril": "Analista de Cuentas por Cobrar", "tipo": "tarea", "n": "Procesar la nota de crédito o de débito según el motivo aprobado"},
-       {"id": "n5", "carril": "Coordinador(a) de Tesorería / Cobranzas", "tipo": "tarea", "n": "Actualizar la cartera por antigüedad y compartirla con la fuerza de ventas"},
+       {"id": "n5", "carril": "Coordinador(a) de Tesorería / Cobranzas", "tipo": "tarea", "n": "Actualizar la cartera por antigüedad y compartirla con ventas"},
        {"id": "n6", "carril": "Coordinador(a) de Tesorería / Cobranzas", "tipo": "tarea", "n": "Escalar los saldos vencidos y emitir el informe de morosidad"},
-       {"id": "n7", "carril": "Coordinador(a) de Tesorería / Cobranzas", "tipo": "fin", "n": "Cobro aplicado, cartera actualizada y conciliada, informe de morosidad emitido"}
+       {"id": "n7", "carril": "Coordinador(a) de Tesorería / Cobranzas", "tipo": "fin", "n": "Cobro aplicado, cartera conciliada e informe de morosidad"}
       ],
       "aristas": [
        {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3", "etq": "Sí"}, {"de": "n2", "a": "n2alt", "etq": "No"},
@@ -7296,14 +7301,14 @@ window.MANUAL_CONTENIDO = {
      "diagrama": {
       "carriles": ["Analista de Cuentas por Cobrar", "Gerente de Contabilidad / Administración", "Gerente de Tesorería"],
       "nodos": [
-       {"id": "n0", "carril": "Analista de Cuentas por Cobrar", "tipo": "inicio", "n": "Cierre de período o detección de un descuadre en cuentas de compañías relacionadas"},
+       {"id": "n0", "carril": "Analista de Cuentas por Cobrar", "tipo": "inicio", "n": "Cierre de período o descuadre entre relacionadas"},
        {"id": "n1", "carril": "Analista de Cuentas por Cobrar", "tipo": "tarea", "n": "Descargar el estado de cuenta intercompañía de cada país"},
-       {"id": "n2", "carril": "Analista de Cuentas por Cobrar", "tipo": "tarea", "n": "Cruzar facturas y pagos entre las cuentas por pagar y por cobrar de las entidades relacionadas"},
-       {"id": "n3", "carril": "Analista de Cuentas por Cobrar", "tipo": "decision", "n": "¿Hay diferencias entre lo que reporta cada país?"},
+       {"id": "n2", "carril": "Analista de Cuentas por Cobrar", "tipo": "tarea", "n": "Cruzar facturas y pagos por pagar y por cobrar entre relacionadas"},
+       {"id": "n3", "carril": "Analista de Cuentas por Cobrar", "tipo": "decision", "n": "¿Difiere lo que reporta cada país?"},
        {"id": "n3alt", "carril": "Analista de Cuentas por Cobrar", "tipo": "tarea", "n": "Identificar si la diferencia es de timing o requiere ajuste"},
-       {"id": "n4", "carril": "Gerente de Contabilidad / Administración", "tipo": "tarea", "n": "Aplicar el patrón acordado para dejar abiertas solo las facturas más recientes"},
+       {"id": "n4", "carril": "Gerente de Contabilidad / Administración", "tipo": "tarea", "n": "Aplicar el patrón acordado: abiertas solo las facturas recientes"},
        {"id": "n5", "carril": "Gerente de Tesorería", "tipo": "tarea", "n": "Confirmar el saldo intercompañía cuadrado con la contraparte"},
-       {"id": "n6", "carril": "Gerente de Tesorería", "tipo": "fin", "n": "Saldos intercompañía conciliados y cuadrados entre las entidades del grupo"}
+       {"id": "n6", "carril": "Gerente de Tesorería", "tipo": "fin", "n": "Saldos intercompañía conciliados y cuadrados"}
       ],
       "aristas": [
        {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3"}, {"de": "n3", "a": "n4", "etq": "No"}, {"de": "n3", "a": "n3alt", "etq": "Sí"},
@@ -7350,14 +7355,14 @@ window.MANUAL_CONTENIDO = {
      "diagrama": {
       "carriles": ["Gerente de Contabilidad / Administración", "Planificador Financiero", "Coordinador(a) de Tesorería / Cobranzas", "Junta Directiva"],
       "nodos": [
-       {"id": "n0", "carril": "Gerente de Contabilidad / Administración", "tipo": "inicio", "n": "Cierre contable del período o requerimiento de la Junta o de la banca"},
+       {"id": "n0", "carril": "Gerente de Contabilidad / Administración", "tipo": "inicio", "n": "Cierre del período o requerimiento de Junta o banca"},
        {"id": "n1", "carril": "Gerente de Contabilidad / Administración", "tipo": "tarea", "n": "Entregar los insumos del cierre contable"},
        {"id": "n2", "carril": "Planificador Financiero", "tipo": "tarea", "n": "Elaborar la situación financiera y la proyección del período"},
-       {"id": "n3", "carril": "Planificador Financiero", "tipo": "decision", "n": "¿El análisis de margen requiere ajuste por efecto cambiario?"},
+       {"id": "n3", "carril": "Planificador Financiero", "tipo": "decision", "n": "¿El margen requiere ajuste cambiario?"},
        {"id": "n3alt", "carril": "Planificador Financiero", "tipo": "tarea", "n": "Ajustar el análisis de margen a una tasa de cambio comparable"},
        {"id": "n4", "carril": "Coordinador(a) de Tesorería / Cobranzas", "tipo": "tarea", "n": "Incorporar el flujo de caja proyectado y el estado de la cartera"},
        {"id": "n5", "carril": "Planificador Financiero", "tipo": "tarea", "n": "Presentar la situación financiera al Comité de Finanzas"},
-       {"id": "n6", "carril": "Junta Directiva", "tipo": "fin", "n": "Situación financiera, proyecciones y análisis de resultados presentados a la dirección"}
+       {"id": "n6", "carril": "Junta Directiva", "tipo": "fin", "n": "Resultados y proyecciones presentados"}
       ],
       "aristas": [
        {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3"}, {"de": "n3", "a": "n4", "etq": "No"}, {"de": "n3", "a": "n3alt", "etq": "Sí"},
@@ -7404,15 +7409,15 @@ window.MANUAL_CONTENIDO = {
      "diagrama": {
       "carriles": ["Planificador Financiero", "líderes de área", "Gerente de Contabilidad / Administración", "Junta Directiva"],
       "nodos": [
-       {"id": "n0", "carril": "Planificador Financiero", "tipo": "inicio", "n": "Inicio del ciclo presupuestario anual o revisión periódica de la ejecución"},
-       {"id": "n1", "carril": "Planificador Financiero", "tipo": "tarea", "n": "Convocar a los líderes de área para la formulación del presupuesto"},
-       {"id": "n2", "carril": "líderes de área", "tipo": "tarea", "n": "Presentar la propuesta de presupuesto por centro de costo y por rubro"},
+       {"id": "n0", "carril": "Planificador Financiero", "tipo": "inicio", "n": "Ciclo presupuestario o revisión de ejecución"},
+       {"id": "n1", "carril": "Planificador Financiero", "tipo": "tarea", "n": "Convocar a los líderes de área a formular el presupuesto"},
+       {"id": "n2", "carril": "líderes de área", "tipo": "tarea", "n": "Presentar el presupuesto por centro de costo y por rubro"},
        {"id": "n3", "carril": "Planificador Financiero", "tipo": "tarea", "n": "Consolidar el presupuesto del grupo"},
        {"id": "n4", "carril": "Junta Directiva", "tipo": "tarea", "n": "Aprobar el presupuesto del grupo"},
        {"id": "n5", "carril": "Gerente de Contabilidad / Administración", "tipo": "tarea", "n": "Clasificar el gasto real por centro de costo al cierre de cada mes"},
-       {"id": "n6", "carril": "Planificador Financiero", "tipo": "decision", "n": "¿La ejecución se desvía significativamente del presupuesto?"},
+       {"id": "n6", "carril": "Planificador Financiero", "tipo": "decision", "n": "¿La ejecución se desvía significativamente?"},
        {"id": "n6alt", "carril": "Planificador Financiero", "tipo": "tarea", "n": "Reportar la desviación al líder de área y a la Junta"},
-       {"id": "n7", "carril": "Planificador Financiero", "tipo": "fin", "n": "Presupuesto aprobado y reporte de ejecución y de desviaciones por centro de costo"}
+       {"id": "n7", "carril": "Planificador Financiero", "tipo": "fin", "n": "Presupuesto aprobado y ejecución reportada"}
       ],
       "aristas": [
        {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3"}, {"de": "n3", "a": "n4"}, {"de": "n4", "a": "n5"},

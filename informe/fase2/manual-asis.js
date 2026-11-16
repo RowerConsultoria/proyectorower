@@ -1251,7 +1251,7 @@ window.MANUAL_ASIS = {
     },
     "disparador": {
      "estado": "borrador",
-     "disparador": "Se ejecuta un pago a una compañía relacionada, o toca revisar el saldo de la cuenta intercompañía.",
+     "disparador": "Se ejecuta un pago a una compañía relacionada, o corresponde revisar el saldo de la cuenta intercompañía.",
      "cadencia": "Continua para la aplicación de cada pago; la revisión del saldo se hace mes a mes desde el ejercicio de balanceo.",
      "output": "Saldos intercompañía emparejados factura por factura y reporte del estado de la cuenta a la dirección.",
      "evidencia": [
@@ -1847,7 +1847,7 @@ window.MANUAL_ASIS = {
       {
        "id": "a3",
        "rol": "Contador Senior / Coordinador Contable",
-       "texto": "Revisa la imputación de lo que llegó de otras áreas y decide si el asiento es correcto o si la parametrización del sistema lo está mandando a una cuenta que no toca."
+       "texto": "Revisa la imputación de lo que llegó de otras áreas y decide si el asiento es correcto o si la parametrización del sistema lo está mandando a una cuenta que no corresponde."
       },
       {
        "id": "a4",
@@ -2462,7 +2462,7 @@ window.MANUAL_ASIS = {
         "id": "n0",
         "carril": "Contador Senior / Coordinador Contable",
         "tipo": "inicio",
-        "n": "Toca revisar las cuentas de balance"
+        "n": "Revisión periódica de las cuentas de balance"
        },
        {
         "id": "n1",
@@ -3162,7 +3162,7 @@ window.MANUAL_ASIS = {
     "nota_version": "Versión As-Is: describe cómo se cierra hoy el período en cada entidad y por qué el cierre de una de ellas todavía no llega completo. Sin matriz de riesgos ni indicadores.",
     "proposito": {
      "estado": "borrador",
-     "alcance": "La ejecución del cierre del período: verificar que los procesos alimentadores están cerrados, registrar los ajustes y provisiones, cuadrar los auxiliares contra el mayor y emitir el estado de resultados y el estado de situación financiera de la entidad.",
+     "alcance": "La ejecución del cierre del período: verificar que los procesos previos al cierre están terminados, registrar los ajustes y provisiones, cuadrar los auxiliares contra el mayor y emitir el estado de resultados y el estado de situación financiera de la entidad.",
      "texto": "El criterio de cierre que usa el grupo lo formula la Dirección de Finanzas con una frase que resume todo el macroproceso: **«tengo el cierre porque mis cuentas transitorias quedaron cerradas»**. Mientras haya una transitoria viva no se sabe si todos los documentos están registrados, así que la conciliación bancaria funciona como la puerta del cierre.\n\nCon esa vara, la distancia entre entidades es medible. **Panamá cierra.** La entidad mayorista queda conciliada **entre siete y diez días** después de terminar el mes y la de retail alrededor de tres semanas; ambas emiten estado de resultados y balance general, y el de retail se analiza **por tienda mediante centros de costo**, con revisión mensual de que todas las operaciones tengan el suyo asignado. Llegar ahí costó: el equipo entró con seis meses de atraso heredado y se volcó primero sobre la entidad mayorista para ponerla al día.\n\n**Venezuela todavía no.** El propio Gerente de Contabilidad lo dice: el cierre «no ha sido de la forma regular que desearíamos», hay un retraso importante, y a la dirección se le presenta **solo el estado de ganancias y pérdidas**, no la estructura financiera completa con cuentas por cobrar, cuentas por pagar y bancos. El objetivo declarado es cortar dentro de los **primeros cinco días de cada mes**, con el argumento de que si durante el mes se viene analizando, el cierre es apretar un botón. No se alcanza todavía.\n\n**Colombia cierra mensualmente** y firma sus estados financieros la contadora junto con la Revisoría Fiscal y el responsable del país.\n\nEl efecto del retraso se ve arriba: la Dirección de Finanzas describe que puede estar reportando a la Junta una situación financiera **de tres meses atrás** —«estás en abril y estás viendo enero»—, y que los primeros meses del año son los más pesados porque se solapan el día a día y la declaración de renta."
     },
     "dueno": {
@@ -3171,7 +3171,7 @@ window.MANUAL_ASIS = {
      "participantes": [
       "Contadores Senior y Coordinador Contable — verifican que conciliación, cuentas de balance y activos fijos están cerrados antes de tocar el cierre.",
       "Auxiliares y Asistentes Contables — registran los ajustes y provisiones del período.",
-      "Cuentas por Pagar, Cuentas por Cobrar, Tesorería, Recursos Humanos e Inventarios — son los procesos alimentadores; el cierre no avanza hasta que entregan.",
+      "Cuentas por Pagar, Cuentas por Cobrar, Tesorería, Recursos Humanos e Inventarios — son los procesos previos al cierre; el cierre no avanza hasta que entregan.",
       "Revisoría Fiscal (Colombia) — firma los estados financieros junto con la contadora y el responsable del país.",
       "Dirección de Finanzas del grupo — recibe los cierres de cada entidad y construye sobre ellos la situación financiera y las proyecciones."
      ],
@@ -3181,12 +3181,12 @@ window.MANUAL_ASIS = {
       "E-46",
       "E-15"
      ],
-     "notas": "La nómina es el alimentador que más se demora según la Dirección de Finanzas: «siempre hay que contabilizarla».",
+     "notas": "La nómina es el proceso que más se demora según la Dirección de Finanzas: «siempre hay que contabilizarla».",
      "sin_evidencia": "No consta un calendario de cierre escrito ni acordado entre las tres entidades; cada Gerencia de Contabilidad fija su propia meta."
     },
     "disparador": {
      "estado": "borrador",
-     "disparador": "Termina el mes y los procesos alimentadores dan por entregado su período.",
+     "disparador": "Al finalizar el mes, los procesos previos al cierre dan por entregado su período.",
      "cadencia": "Mensual.",
      "output": "Estado de resultados y estado de situación financiera de la entidad, con los auxiliares cuadrados contra el mayor.",
      "evidencia": [
@@ -3206,12 +3206,12 @@ window.MANUAL_ASIS = {
       {
        "id": "a1",
        "rol": "Contador Senior / Coordinador Contable",
-       "texto": "Verifica que los procesos alimentadores del período están cerrados: ingresos validados, conciliación bancaria terminada, cuentas de balance revisadas y depreciación corrida."
+       "texto": "Verifica que los procesos previos al cierre del período están terminados: ingresos validados, conciliación bancaria terminada, cuentas de balance revisadas y depreciación corrida."
       },
       {
        "id": "a2",
        "rol": "Contador Senior / Coordinador Contable",
-       "texto": "Si falta un alimentador —típicamente la contabilización de la nómina— lo reclama al área y retiene el cierre hasta tenerlo."
+       "texto": "Si falta alguno —típicamente la contabilización de la nómina— lo reclama al área y retiene el cierre hasta tenerlo."
       },
       {
        "id": "a3",
@@ -3246,19 +3246,19 @@ window.MANUAL_ASIS = {
         "id": "n0",
         "carril": "Contador Senior / Coordinador Contable",
         "tipo": "inicio",
-        "n": "Termina el mes"
+        "n": "Fin del período contable mensual"
        },
        {
         "id": "n1",
         "carril": "Contador Senior / Coordinador Contable",
         "tipo": "tarea",
-        "n": "Verificar que los alimentadores están cerrados"
+        "n": "Verificar que los procesos previos estén cerrados"
        },
        {
         "id": "n2",
         "carril": "Contador Senior / Coordinador Contable",
         "tipo": "decision",
-        "n": "¿Falta algún alimentador?"
+        "n": "¿Falta algún proceso por cerrar?"
        },
        {
         "id": "n3",
