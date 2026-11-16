@@ -238,6 +238,7 @@ h3.m{font-size:.8rem;text-transform:uppercase;letter-spacing:.1em;color:var(--mu
 .ix-p:hover{background:var(--surface)}
 .ix-p.on{background:var(--surface);box-shadow:var(--shadow)}
 .ix-p.on b{background:var(--navy);color:var(--surface)}
+.ix-p[hidden],.ix-sub[hidden]{display:none}
 .ix-p::after{content:"";flex:none;width:7px;height:7px;margin:7px 4px 0 auto;border:solid var(--muted);border-width:0 2px 2px 0;transform:rotate(-45deg);transition:transform .15s}
 .ix-p.abierto::after{transform:rotate(45deg);margin-top:5px}
 .ix-sub{display:none;flex-direction:column;margin:4px 0 10px 22px;border-left:1px solid var(--line)}
@@ -370,6 +371,143 @@ h3.m{font-size:.8rem;text-transform:uppercase;letter-spacing:.1em;color:var(--mu
   .gu-pasos li::after{display:none}
 }
 @media print{ .gu-cuerpo[hidden],.gu-det article[hidden],.gu-nvp[hidden]{display:block!important} .gu-mapa,.gu-barra,.gu-det-nav,.gu-pag,.gu-buscar{display:none!important} .gu-anat{display:block} }
+/* evaluación de perfiles (piloto): datos de Supabase con la sesión */
+.ev-msg{margin:18px 0;padding:22px 24px;border-radius:16px;border:1px dashed var(--line);background:var(--surface);color:var(--muted);display:flex;flex-direction:column;gap:6px;align-items:flex-start;max-width:70ch}
+.ev-msg b{color:var(--fg);font-size:1.02rem}
+.ev-spin{width:18px;height:18px;border-radius:50%;border:3px solid var(--line);border-top-color:var(--blue);animation:evgira 0.8s linear infinite}
+@keyframes evgira{to{transform:rotate(360deg)}}
+.ev-conf{display:flex;gap:10px;align-items:flex-start;margin:-10px 0 4px;padding:11px 16px;border-radius:12px;font-size:.88rem;
+  background:color-mix(in srgb,var(--s4) 9%,var(--surface));border:1px solid color-mix(in srgb,var(--s4) 26%,var(--line))}
+.ev-conf::before{content:"🔒";flex:none}
+.ev-lead{font-size:1.02rem;line-height:1.65;max-width:84ch}
+.ev-barra{display:flex;height:16px;border-radius:99px;overflow:hidden;gap:2px;margin:14px 0 8px;background:var(--line)}
+.ev-barra i{display:block;min-width:6px}
+.ev-ley{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px 18px;font-size:.86rem}
+.ev-ley li{display:flex;align-items:center;gap:7px}
+.ev-ley i{width:11px;height:11px;border-radius:3px;flex:none}
+.ev-ley b{font-variant-numeric:tabular-nums}
+.ev-concl{margin:6px 0 0;padding:0;list-style:none;counter-reset:c;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:10px}
+.ev-concl li{counter-increment:c;position:relative;padding:12px 14px 12px 50px;border-radius:12px;background:color-mix(in srgb,var(--acc) 7%,var(--surface));border:1px solid color-mix(in srgb,var(--acc) 20%,var(--line));font-size:.92rem}
+.ev-concl li::before{content:counter(c);position:absolute;left:14px;top:12px;width:24px;height:24px;border-radius:8px;background:var(--acc);color:var(--surface);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.78rem}
+.ev-ubi{display:inline-flex;align-items:center;gap:6px;font-size:.76rem;font-weight:700;padding:4px 11px;border-radius:99px;white-space:nowrap;
+  color:var(--u);background:color-mix(in srgb,var(--u) 13%,var(--surface));border:1px solid color-mix(in srgb,var(--u) 35%,transparent)}
+.ev-ubi::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--u)}
+.ev-ubi.g{font-size:.86rem;padding:6px 14px;background:var(--surface)}
+.ev-dot{display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--c);flex:none;box-shadow:0 0 0 3px color-mix(in srgb,var(--c) 18%,transparent)}
+.ev-filtros{display:flex;flex-wrap:wrap;gap:8px;margin:4px 0 14px}
+.ev-filtros button{font:inherit;font-size:.84rem;font-weight:600;padding:6px 13px;border-radius:99px;border:1px solid var(--line);background:var(--surface);color:var(--fg);cursor:pointer;display:inline-flex;gap:7px;align-items:center}
+.ev-filtros button i{width:9px;height:9px;border-radius:50%}
+.ev-filtros button b{font-weight:700;color:var(--muted)}
+.ev-filtros button[aria-pressed="true"]{background:var(--navy);border-color:var(--navy);color:var(--surface)}
+.ev-filtros button[aria-pressed="true"] b{color:inherit;opacity:.8}
+.ev-pers{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(300px,100%),1fr));gap:14px}
+.ev-per{display:flex;flex-direction:column;gap:12px;padding:16px 18px;border-radius:16px;text-decoration:none;color:var(--fg);background:var(--surface);
+  border:1px solid color-mix(in srgb,var(--u) 26%,var(--line));border-top:4px solid var(--u);box-shadow:var(--shadow);transition:transform .15s ease,box-shadow .15s ease}
+.ev-per:hover{transform:translateY(-3px);box-shadow:0 16px 30px -18px var(--u)}
+.ev-per[hidden]{display:none}
+.ev-per-h{display:flex;gap:12px;align-items:center}
+.ev-ini{flex:none;width:42px;height:42px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-weight:700;font-size:.9rem;color:var(--surface);
+  background:linear-gradient(135deg,var(--u),color-mix(in srgb,var(--u) 60%,var(--surface)))}
+.ev-per-h b{display:block;font-size:.98rem;line-height:1.25}
+.ev-per-h small{color:var(--muted);font-size:.8rem}
+.ev-flecha{font-size:.86rem;padding:8px 12px;border-radius:10px;background:var(--surface2);border:1px solid var(--line);line-height:1.35}
+.ev-flecha small{display:block;font-size:.68rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted)}
+.ev-flecha em{display:block;font-style:normal;color:var(--muted);font-size:.78rem}
+.ev-dims{display:grid;grid-template-columns:1fr 1fr;gap:6px 12px;font-size:.8rem;color:var(--muted)}
+.ev-dims span{display:flex;align-items:center;gap:8px}
+.ev-per p{margin:0;font-size:.88rem;line-height:1.5}
+.ev-per-pie{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:auto;font-size:.82rem;color:var(--blue);font-weight:600}
+.ev-cargos{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(230px,100%),1fr));gap:12px}
+.ev-cargo{padding:14px 16px;border-radius:14px;background:var(--surface2);border:1px solid color-mix(in srgb,var(--acc) 22%,var(--line))}
+.ev-cargo-h{display:flex;gap:12px;align-items:center;margin-bottom:6px}
+.ev-cargo-h b{font-family:Georgia,"Times New Roman",serif;font-size:2rem;line-height:1;color:var(--acc)}
+.ev-cargo-h span{font-weight:600;font-size:.9rem;line-height:1.25}
+.ev-cargo-h small{display:block;font-weight:400;color:var(--muted);font-size:.76rem}
+.ev-cargo .ev-barra{height:9px;margin:8px 0}
+.ev-cargo p{margin:0;font-size:.84rem;color:var(--muted)}
+.ev-brechas{display:flex;flex-direction:column;gap:10px}
+.ev-brecha{display:grid;grid-template-columns:minmax(140px,190px) minmax(0,1fr);gap:4px 16px;align-items:center}
+.ev-brecha>b{font-size:.9rem}
+.ev-brecha .bar{display:flex;align-items:center;gap:10px}
+.ev-brecha .bar i{height:14px;border-radius:5px;background:linear-gradient(90deg,color-mix(in srgb,var(--acc) 45%,var(--surface)),var(--acc));min-width:4px}
+.ev-brecha .bar em{font-style:normal;font-weight:700;font-size:.86rem;font-variant-numeric:tabular-nums}
+.ev-brecha p{grid-column:2;margin:0;font-size:.84rem;color:var(--muted)}
+.ev-forma{display:flex;flex-direction:column;gap:8px}
+.ev-forma>div{display:grid;grid-template-columns:52px minmax(0,1fr) auto;gap:12px;align-items:center;padding:10px 14px;border-radius:12px;background:var(--surface2);border:1px solid var(--line)}
+.ev-forma>div>b{font-family:Georgia,"Times New Roman",serif;font-size:1.5rem;text-align:center;color:var(--acc);line-height:1}
+.ev-forma>div>b small{display:block;font-family:inherit;font-size:.62rem;color:var(--muted);font-weight:400}
+.ev-forma span{font-size:.9rem}
+.ev-forma span small{display:block;color:var(--muted);font-size:.78rem}
+.ev-prio{font-size:.72rem;font-weight:700;padding:3px 9px;border-radius:99px;background:color-mix(in srgb,var(--warn) 15%,transparent);color:var(--warn)}
+.ev-prio.media{background:var(--chip);color:var(--muted)}
+.ev-dos{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(320px,100%),1fr));gap:14px}
+.ev-caja{padding:14px 16px;border-radius:14px;border:1px solid var(--line);background:var(--surface2)}
+.ev-caja h4{margin:0 0 8px;font-size:.92rem}
+.ev-caja p{margin:0;font-size:.88rem}
+.ev-rev{display:flex;flex-direction:column;gap:8px}
+.ev-rev>div{padding:10px 12px;border-radius:10px;background:var(--surface);border:1px solid color-mix(in srgb,var(--s4) 25%,var(--line));font-size:.86rem}
+.ev-rev>div small{display:block;color:var(--s4);font-weight:700;font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;margin-bottom:2px}
+.ev-datos{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px}
+.ev-datos li{display:grid;grid-template-columns:34px minmax(0,1fr);gap:10px;font-size:.86rem;align-items:start}
+.ev-datos li>b{display:inline-flex;justify-content:center;padding:2px 0;border-radius:7px;background:var(--chip);color:var(--chipfg);font-size:.8rem}
+.ev-datos li small{display:block;color:var(--muted)}
+.ev-tarjs{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr));gap:12px}
+.ev-tarj{display:flex;gap:12px;padding:14px 16px;border-radius:14px;background:var(--surface2);border:1px solid color-mix(in srgb,var(--acc) 20%,var(--line))}
+.ev-tarj>i{flex:none;width:38px;height:38px;border-radius:11px;display:inline-flex;align-items:center;justify-content:center;font-style:normal;font-size:1.1rem;background:color-mix(in srgb,var(--acc) 12%,var(--surface))}
+.ev-tarj b{display:block;margin-bottom:3px;font-size:.94rem}
+.ev-tarj span{font-size:.88rem;color:var(--muted)}
+.ev-ruta{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;position:relative}
+.ev-ruta>div{padding:14px 16px;border-radius:14px;background:var(--surface2);border:1px solid var(--line);border-top:4px solid var(--acc)}
+.ev-ruta>div:nth-child(2){border-top-color:color-mix(in srgb,var(--acc) 65%,var(--surface))}
+.ev-ruta>div:nth-child(3){border-top-color:color-mix(in srgb,var(--acc) 35%,var(--surface))}
+.ev-ruta h4{margin:0 0 8px;font-size:.9rem;color:var(--acc)}
+.ev-ruta ul{margin:0;padding-left:18px;font-size:.86rem;display:flex;flex-direction:column;gap:5px}
+.ev-nav{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin:22px 0 12px;font-size:.88rem}
+.ev-nav a{text-decoration:none;font-weight:600}
+.ev-nav span{display:flex;gap:12px;align-items:center;color:var(--muted)}
+.ev-sint{margin:18px 0 0;display:flex;gap:14px;align-items:center;flex-wrap:wrap;background:rgba(255,255,255,.08);border-left:3px solid #9FD1FF;padding:12px 16px;border-radius:0 12px 12px 0;font-size:1.02rem;line-height:1.5}
+.cab .dato a{color:inherit}
+.ev-dimg{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr));gap:12px}
+.ev-dim{padding:14px 16px;border-radius:14px;background:var(--surface);border:1px solid color-mix(in srgb,var(--c) 30%,var(--line));border-top:4px solid var(--c)}
+.ev-dim-h{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:8px}
+.ev-dim-h b{font-size:.98rem}
+.ev-pill{font-size:.74rem;font-weight:700;padding:3px 10px;border-radius:99px;color:var(--c);background:color-mix(in srgb,var(--c) 13%,var(--surface));white-space:nowrap}
+.ev-dim p{margin:0 0 6px;font-size:.88rem}
+.ev-dim p.falta{color:var(--muted);margin:0}
+.ev-dim p.falta::before{content:"Qué falta · ";font-weight:700;color:var(--fg)}
+.ev-herr{display:flex;flex-direction:column;gap:8px;max-width:760px}
+.ev-h{display:grid;grid-template-columns:90px minmax(140px,240px) minmax(0,1fr);gap:14px;align-items:center;font-size:.88rem}
+.ev-h>b{font-weight:600}
+.ev-trk{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;position:relative}
+.ev-trk i{height:12px;border-radius:4px;background:color-mix(in srgb,var(--acc) 12%,var(--line))}
+.ev-trk i.on{background:var(--acc)}
+.ev-trk i.req{outline:2px solid var(--fg);outline-offset:1px}
+.ev-h span{color:var(--muted);font-size:.84rem}
+.ev-h span.falta{color:var(--warn);font-weight:600}
+.ev-hley{font-size:.8rem;color:var(--muted);margin:10px 0 0;display:flex;gap:16px;flex-wrap:wrap}
+.ev-hley i{display:inline-block;width:18px;height:10px;border-radius:3px;vertical-align:middle;margin-right:6px;background:var(--acc)}
+.ev-hley i.req{background:transparent;outline:2px solid var(--fg);outline-offset:-1px}
+.ev-clas{display:inline-flex;font-size:.8rem;font-weight:700;padding:4px 12px;border-radius:99px;background:color-mix(in srgb,var(--acc) 14%,var(--surface));color:var(--acc);margin-bottom:8px}
+.ev-resp ul{margin:0;padding-left:18px;font-size:.88rem;display:flex;flex-direction:column;gap:6px}
+.ev-resp .ev-caja.no{border-style:dashed;background:var(--surface)}
+.ev-ind{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr));gap:10px}
+.ev-ind>div{display:flex;gap:12px;padding:12px 14px;border-radius:12px;background:color-mix(in srgb,var(--acc) 7%,var(--surface));border:1px solid color-mix(in srgb,var(--acc) 20%,var(--line))}
+.ev-ind b{display:block;font-size:.92rem;color:var(--acc)}
+.ev-ind span{font-size:.86rem;color:var(--muted)}
+.ev-des{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:12px}
+.ev-des ol,.ev-des ul{margin:0;padding-left:18px;font-size:.88rem;display:flex;flex-direction:column;gap:5px}
+.ev-prop{padding:14px 16px;border-radius:14px;background:color-mix(in srgb,var(--acc) 9%,var(--surface));border:1px solid color-mix(in srgb,var(--acc) 28%,var(--line));font-size:.92rem;margin-bottom:12px}
+.ev-prop small{display:block;font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;font-weight:700;color:var(--acc);margin-bottom:4px}
+@media (max-width:760px){
+  .ev-ruta{grid-template-columns:1fr}
+  .ev-brecha{grid-template-columns:1fr}
+  .ev-brecha p{grid-column:1}
+  .ev-h{grid-template-columns:70px minmax(0,1fr)}
+  .ev-h span{grid-column:1/-1}
+  .ev-forma>div{grid-template-columns:44px minmax(0,1fr)}
+  .ev-forma .ev-prio{grid-column:2;justify-self:start}
+}
+@media print{ .ev-filtros,.ev-nav{display:none!important} .ev-per{break-inside:avoid} }
 @media (max-width:640px){ .gu-ficha{grid-template-columns:1fr} .gu-ficha dl{grid-template-columns:1fr;gap:2px} .gu-ficha dd{margin-bottom:8px} }
 
 /* 1 · Estructura patrón de cargos (vino del artefacto «Escalones de la estructura patrón»; todo bajo .ep) */
@@ -741,6 +879,8 @@ h3.m{font-size:.8rem;text-transform:uppercase;letter-spacing:.1em;color:var(--mu
   <div class="ix-sub" id="ixPatron"></div>
   <a class="ix-p" data-v="desc" href="#/descripciones"><b>3</b>Descripciones de cargo</a>
   <div class="ix-sub" id="ixDesc"></div>
+  <a class="ix-p" data-v="eval" href="#/evaluacion" id="ixEvalP" hidden><b>4</b>Evaluación de perfiles</a>
+  <div class="ix-sub" id="ixEval" hidden></div>
 </aside>
 <main class="wrap" id="vista"></main>
 </div>
@@ -1345,6 +1485,136 @@ h3.m{font-size:.8rem;text-transform:uppercase;letter-spacing:.1em;color:var(--mu
       $('#guGlosaV').hidden = n > 0; });
   }
 
+  // ---------- Evaluación de perfiles (piloto) ----------
+  // Lleva nombres reales: el dato vive solo en Supabase (tabla evaluacion_perfiles; la leen solo las cuentas de
+  // evaluacion_lectores) y se pide con la sesión al entrar. Nunca se guarda en el navegador ni en el repositorio.
+  var EV = { estado: 'nada', filas: null, error: '' };
+  var UBI = { listo: ['Listo', 'var(--ok)'], listo_desarrollo: ['Listo con desarrollo', 'var(--s2)'], desarrollo_prioritario: ['Desarrollo prioritario', 'var(--warn)'], revisar: ['Revisar ubicación', 'var(--s4)'] };
+  var SEM = { cumple: ['Cumple', 'var(--ok)'], menor: ['Brecha menor', 'var(--warn)'], importante: ['Brecha importante', 'var(--risk)'], sin_dato: ['Sin dato', 'var(--muted)'] };
+  var CLASIF = { alineado: 'Alineado con su cargo To-Be', por_encima: 'Por encima de su escalón', por_debajo: 'Por debajo de su escalón o en otro cargo' };
+  var NOMH = { excel: 'Excel', odoo: 'Odoo', lark: 'Lark', powerbi: 'Power BI', ia: 'IA' }, NIVH = { no_aplica: 0, basico: 1, intermedio: 2, avanzado: 3 };
+  var TXH = { no_aplica: 'no aplica', basico: 'básico', intermedio: 'intermedio', avanzado: 'avanzado' };
+  var EV_SECS = [['resumen', 'Resumen'], ['personas', 'Personas evaluadas'], ['tablero', 'Tablero del lote'], ['hallazgos', 'Hallazgos y riesgos'], ['plan', 'Plan y hoja de ruta']];
+  var MESES = ['ene', 'feb', 'mar', 'abr', 'may', 'jun', 'jul', 'ago', 'sep', 'oct', 'nov', 'dic'];
+  function fechaCorta(f){ var x = String(f || '').split('-'); return x.length === 3 ? +x[2] + '-' + MESES[+x[1] - 1] + '-' + x[0] : f; }
+  function cargarEval(){
+    if (EV.estado === 'cargando' || EV.estado === 'listo') return;
+    EV.estado = 'cargando';
+    var S = window.rowerSesion;
+    (S && S.tokenVivo ? S.tokenVivo() : Promise.resolve(null)).then(function(t){
+      if (!t) throw new Error('sin-sesion');
+      return fetch(S.url + '/rest/v1/evaluacion_perfiles?lote=eq.SSG&select=clave,tipo,persona_id,contenido,version_prompt,actualizado_en',
+        { headers: { apikey: S.clave, Authorization: 'Bearer ' + t }, cache: 'no-store' });
+    }).then(function(r){ if (!r.ok) throw new Error('error ' + r.status); return r.json(); })
+      .then(function(f){ EV.filas = f; EV.estado = 'listo'; })
+      .catch(function(e){ EV.error = e.message; EV.estado = 'error'; })
+      .then(function(){ if (/^eval/.test(VISTA || '')){ VISTA = null; router(); } });
+  }
+  function evDatos(){
+    var per = [], tab = null, inf = null, orden = ['coordinador-pais-servicios-generales', 'supervisor-servicios-generales', 'asistente-de-gestion', 'operario-servicios-generales'];
+    (EV.filas || []).forEach(function(f){ if (f.tipo === 'persona') per.push(f); else if (f.tipo === 'tablero') tab = f.contenido; else if (f.tipo === 'informe') inf = f.contenido; });
+    per.sort(function(a, b){ var x = a.contenido, y = b.contenido;
+      return orden.indexOf(x.cargo_tobe.descripcion_id) - orden.indexOf(y.cargo_tobe.descripcion_id) || x.persona.nombre.localeCompare(y.persona.nombre); });
+    return { per: per, tab: tab, inf: inf };
+  }
+  function evEstado(){
+    if (EV.estado === 'nada' || EV.estado === 'cargando') return '<div class="ev-msg"><span class="ev-spin" aria-hidden="true"></span>Cargando la evaluación…</div>';
+    var d = EV.estado === 'listo' ? evDatos() : null;
+    if (!d || !d.per.length || !d.tab || !d.inf) return '<div class="ev-msg"><b>🔒 Sección reservada</b>Esta evaluación lleva nombres y datos de las fichas de personal, así que por ahora solo la ven las cuentas autorizadas del equipo consultor.' +
+      (EV.estado === 'error' && EV.error !== 'sin-sesion' ? ' No se pudo cargar (' + esc(EV.error) + ').' : '') + '</div>';
+    return '';
+  }
+  function ubiChip(u, g){ var x = UBI[u] || [u, 'var(--muted)']; return '<span class="ev-ubi' + (g ? ' g' : '') + '" style="--u:' + x[1] + '">' + esc(x[0]) + '</span>'; }
+  function semDot(s){ var x = SEM[s] || SEM.sin_dato; return '<i class="ev-dot" style="--c:' + x[1] + '" title="' + esc(x[0]) + '"></i>'; }
+  function barraUbi(u){ return '<div class="ev-barra" role="img" aria-label="Distribución por ubicación">' + Object.keys(UBI).map(function(k){ var n = u[k] || 0;
+    return n ? '<i style="flex:' + n + ';background:' + UBI[k][1] + '" title="' + esc(UBI[k][0] + ': ' + n) + '"></i>' : ''; }).join('') + '</div>'; }
+  function leyUbi(u){ return '<ul class="ev-ley">' + Object.keys(UBI).map(function(k){ return '<li><i style="background:' + UBI[k][1] + '"></i>' + UBI[k][0] + ' <b>' + (u[k] || 0) + '</b></li>'; }).join('') + '</ul>'; }
+  function evSec(id, n, tit, sub, cuerpo){ return '<section class="bloque" id="ev-' + id + '" data-n="0' + n + '" style="--acc:var(--s' + n + ')"><h2><b>' + n + '</b>' + tit + '</h2>' + (sub ? '<p class="sub">' + sub + '</p>' : '') + cuerpo + '</section>'; }
+  function iniciales(n){ return n.split(/\s+/).filter(Boolean).slice(0, 2).map(function(w){ return w.charAt(0); }).join('').toUpperCase(); }
+  function evaluacion(){
+    var h = '<section class="hero"><div class="k">Fase 3 · Talento · Evaluación de perfiles</div><h1>Evaluación de perfiles</h1>' +
+      '<p>Qué tanto se ajusta cada persona al perfil de su cargo To-Be y qué le falta para cumplirlo. Sirve para la reclasificación y el plan de desarrollo; no es una evaluación de desempeño ni de competencias.</p>';
+    var est = evEstado(); if (est) return h + '</section>' + est;
+    var d = evDatos(), t = d.tab, inf = d.inf, u = t.ubicaciones;
+    h += '<div class="stats"><div class="stat"><b>' + t.personas + '</b><span>personas evaluadas</span></div><div class="stat"><b>' + (u.listo + u.listo_desarrollo) + '</b><span>listas para su cargo To-Be</span></div>' +
+      '<div class="stat"><b>' + u.revisar + '</b><span>casos para la reclasificación</span></div><div class="stat"><b>' + Object.keys(t.paises).length + '</b><span>' + esc(Object.keys(t.paises).join(' · ')) + '</span></div></div></section>' +
+      '<p class="ev-conf"><span><b>Piloto · ' + esc(t.lote) + ' · corte ' + esc(fechaCorta(t.corte)) + '.</b> Contiene datos personales: se lee de la base con tu sesión y no se guarda en el sitio ni en el repositorio. Lo que dicen las fichas es declarado y falta validarlo con cada gerente.</span></p>';
+    h += evSec('resumen', 1, 'Resumen ejecutivo', '', '<p class="ev-lead">' + md(inf.resumen) + '</p>' + barraUbi(u) + leyUbi(u) +
+      '<h3 class="m">Conclusiones</h3><ol class="ev-concl">' + inf.conclusiones.map(function(c){ return '<li>' + md(c) + '</li>'; }).join('') + '</ol>');
+    h += evSec('personas', 2, 'Personas evaluadas', 'Cada tarjeta resume las cuatro dimensiones del ajuste; tócala para ver la ficha completa.',
+      '<div class="ev-filtros" role="group" aria-label="Filtrar por ubicación"><button type="button" data-f="" aria-pressed="true">Todas <b>' + d.per.length + '</b></button>' +
+      Object.keys(UBI).filter(function(k){ return u[k]; }).map(function(k){ return '<button type="button" data-f="' + k + '" aria-pressed="false"><i style="background:' + UBI[k][1] + '"></i>' + UBI[k][0] + ' <b>' + u[k] + '</b></button>'; }).join('') + '</div>' +
+      '<div class="ev-pers">' + d.per.map(function(f){ var c = f.contenido, pz = c.persona;
+        return '<a class="ev-per" href="#/evaluacion/p/' + f.persona_id + '" data-u="' + c.ubicacion + '" style="--u:' + (UBI[c.ubicacion] || UBI.revisar)[1] + '">' +
+          '<div class="ev-per-h"><span class="ev-ini" aria-hidden="true">' + esc(iniciales(pz.nombre)) + '</span><div><b>' + esc(pz.nombre) + '</b><small>' + esc(pz.cargo_actual) + ' · ' + esc(pz.pais) + '</small></div></div>' +
+          '<div class="ev-flecha"><small>Cargo To-Be</small>' + esc(c.cargo_tobe.denominacion) + '<em>' + esc(c.cargo_tobe.escalon) + ' · ' + esc(c.cargo_tobe.nivel_cargo) + '</em></div>' +
+          '<div class="ev-dims">' + c.dimensiones.map(function(x){ return '<span>' + semDot(x.semaforo) + esc(x.nombre) + '</span>'; }).join('') + '</div>' +
+          '<p>' + md(c.sintesis) + '</p><div class="ev-per-pie">' + ubiChip(c.ubicacion) + '<span>Ver ficha →</span></div></a>'; }).join('') + '</div>');
+    var maxB = Math.max.apply(null, t.brechas.map(function(b){ return b.personas; }).concat([1]));
+    var ia = t.ia, NIA = [['no_aplica', 'No la usa', 'var(--muted)'], ['basico', 'Básico', 'color-mix(in srgb,var(--s3) 55%,var(--surface))'], ['intermedio', 'Intermedio', 'var(--s3)'], ['avanzado', 'Avanzado', 'var(--s1)']];
+    h += evSec('tablero', 3, 'Tablero del lote', 'Las cifras agregadas del lote, por cargo To-Be y por dimensión.',
+      '<h3 class="m">Por cargo To-Be</h3><div class="ev-cargos">' + t.por_cargo.map(function(c){
+        return '<div class="ev-cargo"><div class="ev-cargo-h"><b>' + c.personas + '</b><span>' + esc(c.cargo) + '<small>' + esc(c.escalon) + '</small></span></div>' +
+          (c.personas ? barraUbi(c.ubicaciones) : '<div class="ev-barra"></div>') + '<p>' + md(c.nota) + '</p></div>'; }).join('') + '</div>' +
+      '<h3 class="m">Brechas por dimensión</h3><div class="ev-brechas">' + t.brechas.map(function(b){
+        return '<div class="ev-brecha"><b>' + esc(b.dimension) + '</b><div class="bar"><i style="width:' + Math.round(b.personas / maxB * 70) + '%"></i><em>' + b.personas + ' de ' + t.personas + '</em></div><p>' + md(b.detalle) + '</p></div>'; }).join('') + '</div>' +
+      '<div class="ev-dos" style="margin-top:18px"><div><h3 class="m">Formación priorizada</h3><div class="ev-forma">' + t.formacion.map(function(x){
+        return '<div><b>' + x.personas + '<small>' + (x.personas === 1 ? 'persona' : 'personas') + '</small></b><span>' + md(x.contenido) + '<small>' + esc(x.cargos.join(' · ')) + '</small></span><em class="ev-prio' + (x.prioridad === 'media' ? ' media' : '') + '">Prioridad ' + esc(x.prioridad) + '</em></div>'; }).join('') + '</div></div>' +
+      '<div><h3 class="m">Punto de partida en IA</h3><div class="ev-barra" role="img" aria-label="Uso de IA declarado">' + NIA.map(function(n){ return ia[n[0]] ? '<i style="flex:' + ia[n[0]] + ';background:' + n[2] + '" title="' + n[1] + ': ' + ia[n[0]] + '"></i>' : ''; }).join('') + '</div>' +
+        '<ul class="ev-ley">' + NIA.map(function(n){ return '<li><i style="background:' + n[2] + '"></i>' + n[1] + ' <b>' + (ia[n[0]] || 0) + '</b></li>'; }).join('') + '</ul><p style="font-size:.88rem;margin:10px 0 0">' + md(ia.lectura) + '</p>' +
+        '<h3 class="m">Para la reclasificación</h3><div class="ev-rev">' + t.revisar.map(function(r){
+          return '<div><small>' + esc(CLASIF[r.tipo] || (r.tipo === 'otro_cargo' ? 'Su trabajo corresponde a otro cargo' : r.tipo)) + ' · ' + r.personas + (r.personas === 1 ? ' persona' : ' personas') + '</small><b>' + esc(r.cargo_actual) + '</b> → ' + esc(r.propuesta) + '</div>'; }).join('') + '</div>' +
+        '<h3 class="m">Calidad de los datos</h3><ul class="ev-datos">' + t.datos.map(function(x){ return '<li><b>' + x.fichas + '</b><span>' + esc(x.tema) + '<small>' + md(x.detalle) + '</small></span></li>'; }).join('') + '</ul></div></div>');
+    var tarj = function(l, ic){ return '<div class="ev-tarjs">' + l.map(function(x){ return '<div class="ev-tarj"><i aria-hidden="true">' + ic + '</i><div><b>' + esc(x.titulo) + '</b><span>' + md(x.texto) + '</span></div></div>'; }).join('') + '</div>'; };
+    h += evSec('hallazgos', 4, 'Hallazgos y riesgos', 'Lo que la evaluación dice de la estructura To-Be y del talento del área.',
+      '<h3 class="m">Sobre la estructura</h3>' + tarj(inf.hallazgos_estructura, '🏗️') + '<h3 class="m">Riesgos de talento</h3>' + tarj(inf.riesgos, '⚠️'));
+    h += evSec('plan', 5, 'Plan y hoja de ruta', '', '<h3 class="m">Plan de desarrollo</h3>' + tarj(inf.plan, '🌱') +
+      '<h3 class="m">Hoja de ruta</h3><div class="ev-ruta">' + inf.hoja_ruta.map(function(r){ return '<div><h4>' + esc(r.plazo) + '</h4><ul>' + r.acciones.map(function(a){ return '<li>' + md(a) + '</li>'; }).join('') + '</ul></div>'; }).join('') + '</div>' +
+      '<h3 class="m">Limitaciones del ejercicio</h3><ul class="lista2">' + inf.limitaciones.map(function(x){ return '<li>' + md(x) + '</li>'; }).join('') + '</ul>');
+    return h;
+  }
+  function evalPersona(pid){
+    var est = evEstado(); if (est) return '<div class="ev-nav"><a href="#/evaluacion">← Evaluación de perfiles</a></div>' + est;
+    var d = evDatos(), k = d.per.map(function(f){ return f.persona_id; }).indexOf(pid);
+    if (k < 0) return '<div class="ev-nav"><a href="#/evaluacion/personas">← Todas las personas</a></div><p>No hay una ficha de ajuste para esa persona.</p>';
+    var c = d.per[k].contenido, pz = c.persona, ct = c.cargo_tobe, ant = d.per[k - 1], sig = d.per[k + 1];
+    var h = '<div class="ev-nav"><a href="#/evaluacion/personas">← Todas las personas</a><span>' + (ant ? '<a href="#/evaluacion/p/' + ant.persona_id + '">‹ Anterior</a>' : '') +
+      (k + 1) + ' de ' + d.per.length + (sig ? '<a href="#/evaluacion/p/' + sig.persona_id + '">Siguiente ›</a>' : '') + '</span></div>';
+    h += '<header class="cab"><div class="k">Evaluación de perfiles · ficha de ajuste <span class="badge">Confidencial</span></div><h1>' + esc(pz.nombre) + '</h1><div class="datos">' +
+      '<div class="dato"><small>Cargo actual</small><b>' + esc(pz.cargo_actual) + '</b></div>' +
+      '<div class="dato"><small>Cargo To-Be</small><b><a href="#/c/' + esc(ct.descripcion_id) + '">' + esc(ct.denominacion) + '</a></b></div>' +
+      '<div class="dato"><small>Escalón · nivel de cargo</small><b>' + esc(ct.escalon + ' · ' + ct.nivel_cargo) + '</b></div>' +
+      '<div class="dato"><small>País · entidad</small><b>' + esc(pz.pais + ' · ' + pz.entidad) + '</b></div>' +
+      '<div class="dato"><small>Antigüedad</small><b>' + esc(pz.antiguedad_org) + ' en la organización</b></div></div>' +
+      '<p class="ev-sint">' + ubiChip(c.ubicacion, true) + '<span>' + md(c.sintesis) + '</span></p></header>';
+    if (ct.nota || ct.a_validar) h += '<p class="ev-conf" style="margin-top:14px"><span>' + (ct.a_validar ? '<b>Cargo a validar.</b> ' : '') + md(ct.nota || '') + ' Comparado contra: ' + esc(ct.comparado_contra) + '.</span></p>';
+    h += evSec('dim', 1, 'Dimensiones del ajuste', 'Formación, experiencia, responsabilidades y herramientas, frente a lo que pide el cargo To-Be.',
+      '<div class="ev-dimg">' + c.dimensiones.map(function(x){ var sm = SEM[x.semaforo] || SEM.sin_dato;
+        return '<div class="ev-dim" style="--c:' + sm[1] + '"><div class="ev-dim-h"><b>' + esc(x.nombre) + '</b><span class="ev-pill">' + sm[0] + '</span></div><p>' + md(x.evidencia) + '</p>' + (x.falta ? '<p class="falta">' + md(x.falta) + '</p>' : '') + '</div>'; }).join('') + '</div>');
+    var hz = c.herramientas;
+    h += evSec('herr', 2, 'Herramientas e IA', 'Nivel declarado en la ficha frente al que pide el cargo.',
+      '<div class="ev-herr">' + Object.keys(NOMH).map(function(n){ var x = hz[n] || {}, dv = NIVH[x.declarado] || 0, rq = x.requerido ? NIVH[x.requerido] : 0;
+        var txt = 'Declara ' + (TXH[x.declarado] || 'sin dato') + (x.requerido ? ' · pide ' + TXH[x.requerido] : ' · el cargo no la pide');
+        return '<div class="ev-h"><b>' + NOMH[n] + '</b><div class="ev-trk" aria-hidden="true">' + [1, 2, 3].map(function(j){ return '<i class="' + (j <= dv ? 'on' : '') + (j === rq ? ' req' : '') + '"></i>'; }).join('') + '</div>' +
+          '<span class="' + (x.requerido && dv < rq ? 'falta' : '') + '">' + txt + '</span></div>'; }).join('') +
+        (hz.otra ? '<div class="ev-h"><b>Otras</b><div></div><span>' + esc(hz.otra) + '</span></div>' : '') + '</div>' +
+      '<p class="ev-hley"><span><i></i>Nivel declarado (básico · intermedio · avanzado)</span><span><i class="req"></i>Nivel que pide el cargo</span></p>');
+    var r = c.responsabilidades;
+    h += evSec('resp', 3, 'Responsabilidades', '', '<span class="ev-clas">' + esc(CLASIF[r.clasificacion] || r.clasificacion) + '</span><p style="margin:0 0 12px;max-width:84ch">' + md(r.explicacion) + '</p>' +
+      '<div class="ev-dos ev-resp"><div class="ev-caja"><h4>Lo que declara hacer</h4><ul>' + r.declaradas.map(function(x){ return '<li>' + esc(x) + '</li>'; }).join('') + '</ul></div>' +
+      '<div class="ev-caja no"><h4>Lo que pide el cargo y no declara</h4><ul>' + (r.no_cubiertas.length ? r.no_cubiertas.map(function(x){ return '<li>' + esc(x) + '</li>'; }).join('') : '<li>Nada relevante.</li>') + '</ul></div></div>');
+    if (c.indicios && c.indicios.length) h += evSec('ind', 4, 'Indicios de competencias', 'Competencias específicas de su nivel de cargo que se dejan ver en lo que declara. Son indicios, no una calificación.',
+      '<div class="ev-ind">' + c.indicios.map(function(x){ return '<div><i class="cic" aria-hidden="true" style="flex:none;width:36px;height:36px;border-radius:10px;display:inline-flex;align-items:center;justify-content:center;font-style:normal;background:var(--surface)">' + (ICOMP[x.competencia] || '•') + '</i><div><b>' + esc(x.competencia) + '</b><span>' + md(x.evidencia) + '</span></div></div>'; }).join('') + '</div>');
+    var n = c.indicios && c.indicios.length ? 5 : 4;
+    h += evSec('des', n, 'Ubicación y desarrollo', '', '<div class="ev-prop"><small>Propuesta para la reclasificación</small>' + md(c.propuesta) + '</div>' +
+      '<div class="ev-des"><div class="ev-caja"><h4>Ubicación · ' + esc((UBI[c.ubicacion] || [c.ubicacion])[0]) + '</h4><p>' + md(c.ubicacion_motivo) + '</p></div>' +
+      '<div class="ev-caja"><h4>Facilidad de cierre · ' + esc(c.facilidad) + '</h4><p>' + md(c.facilidad_motivo) + '</p></div>' +
+      '<div class="ev-caja"><h4>Acciones de desarrollo</h4><ol>' + c.acciones.map(function(x){ return '<li>' + md(x) + '</li>'; }).join('') + '</ol></div>' +
+      '<div class="ev-caja"><h4>Fortalezas</h4><ul>' + c.fortalezas.map(function(x){ return '<li>' + md(x) + '</li>'; }).join('') + '</ul></div>' +
+      '<div class="ev-caja no" style="border-style:dashed"><h4>Pendiente de validar</h4><ul>' + c.pendientes.map(function(x){ return '<li>' + md(x) + '</li>'; }).join('') + '</ul></div></div>');
+    return h;
+  }
+
   function org(sup, yo, subs, unidad){
     var h = '<div class="org">' + (unidad ? '<div class="unidadorg">' + esc(unidad) + '</div>' : '') +
       '<div class="nodo"><small>Reporta a</small>' + esc(sup) + '</div><div class="v"></div><div class="nodo yo"><small>Este cargo</small>' + esc(yo) + '</div>';
@@ -1449,11 +1719,21 @@ h3.m{font-size:.8rem;text-transform:uppercase;letter-spacing:.1em;color:var(--mu
     var piloto = D.familias.filter(function(f){ return f.piloto; })[0];
     $('#ixGuia').innerHTML = G.secciones.map(function(s){ return '<a href="#/guia/' + s.id + '" data-a="g-' + s.id + '">' + esc(s.titulo) + '</a>'; }).join('');
     $('#ixPatron').innerHTML = PATRON_SECS.map(function(s){ return '<a href="#/patron/' + s[0] + '" data-a="' + s[0] + '">' + s[1] + '</a>'; }).join('');
+    $('#ixEval').innerHTML = EV_SECS.map(function(s){ return '<a href="#/evaluacion/' + s[0] + '" data-a="ev-' + s[0] + '">' + s[1] + '</a>'; }).join('');
     $('#ixDesc').innerHTML = '<a href="#/descripciones" data-a="familias">Familias de cargos</a>' + (piloto ? piloto.cargos.map(function(n){ var i = POR_NOMBRE[n];
       return i ? '<a href="#/c/' + i + '" data-c="' + i + '">' + esc(n) + '</a>' : ''; }).join('') : '');
   }
+  // El punto 4 del índice solo aparece a quien puede leer la evaluación; la base lo impone igual (RLS).
+  function verEvalIndice(){
+    var S = window.rowerSesion;
+    (S && S.tokenVivo ? S.tokenVivo() : Promise.resolve(null)).then(function(t){
+      if (!t) return false;
+      return fetch(S.url + '/rest/v1/rpc/puede_ver_evaluacion', { method: 'POST', headers: { apikey: S.clave, Authorization: 'Bearer ' + t, 'Content-Type': 'application/json' }, body: '{}', cache: 'no-store' })
+        .then(function(r){ return r.ok ? r.json() : false; });
+    }).then(function(ok){ $('#ixEvalP').hidden = $('#ixEval').hidden = ok !== true; }).catch(function(){});
+  }
   function marcarIndice(vista, id){
-    var grupo = vista === 'cargo' ? 'desc' : vista;
+    var grupo = vista === 'cargo' ? 'desc' : /^eval/.test(vista) ? 'eval' : vista;
     document.querySelectorAll('.ix-p').forEach(function(a){ a.classList.toggle('on', a.dataset.v === grupo); });
     document.querySelectorAll('#ixDesc a').forEach(function(a){ a.classList.toggle('on', vista === 'cargo' ? a.dataset.c === id : a.dataset.a === 'familias'); });
   }
@@ -1474,6 +1754,15 @@ h3.m{font-size:.8rem;text-transform:uppercase;letter-spacing:.1em;color:var(--mu
       espia = new IntersectionObserver(function(es){ es.forEach(function(e){ if (e.isIntersecting) document.querySelectorAll('#ixGuia a').forEach(function(a){ a.classList.toggle('on', a.dataset.a === e.target.id); }); }); }, { rootMargin: '-20% 0px -70% 0px' });
       document.querySelectorAll('.gu section.bloque[id]').forEach(function(b){ espia.observe(b); });
       montarGuia();
+    } else if (vista === 'eval'){
+      espia = new IntersectionObserver(function(es){ es.forEach(function(e){ if (e.isIntersecting) document.querySelectorAll('#ixEval a').forEach(function(a){ a.classList.toggle('on', a.dataset.a === e.target.id); }); }); }, { rootMargin: '-20% 0px -70% 0px' });
+      document.querySelectorAll('#vista section.bloque[id^="ev-"]').forEach(function(b){ espia.observe(b); });
+      document.querySelectorAll('.ev-filtros button').forEach(function(b){ b.addEventListener('click', function(){
+        document.querySelectorAll('.ev-filtros button').forEach(function(x){ x.setAttribute('aria-pressed', String(x === b)); });
+        document.querySelectorAll('.ev-per').forEach(function(c){ c.hidden = !!b.dataset.f && c.dataset.u !== b.dataset.f; });
+      }); });
+    } else if (vista === 'evalp'){
+      // la ficha de una persona no tiene espía ni controles propios
     } else if (vista === 'patron'){
       espia = new IntersectionObserver(function(es){ es.forEach(function(e){ if (e.isIntersecting) document.querySelectorAll('#ixPatron a').forEach(function(a){ a.classList.toggle('on', a.dataset.a === e.target.id); }); }); }, { rootMargin: '-20% 0px -70% 0px' });
       document.querySelectorAll('.ep section.blk[id]').forEach(function(b){ espia.observe(b); });
@@ -1500,31 +1789,35 @@ h3.m{font-size:.8rem;text-transform:uppercase;letter-spacing:.1em;color:var(--mu
     var r = (location.hash || '#/').replace(/^#/, '');
     if (r.charAt(0) !== '/') return;   // anclas sueltas: no rehacer la vista
     var m = r.match(/^\/c\/([\w-]+)(?:\/(s\d))?/), pa = r.match(/^\/patron\/([\w-]+)/), gu = r.match(/^\/guia\/([\w-]+)/);
-    var vista = m ? 'cargo' : /^\/descripciones/.test(r) ? 'desc' : /^\/patron/.test(r) ? 'patron' : 'guia';
-    var clave = vista + (m ? ':' + m[1] : '');
+    var ev = r.match(/^\/evaluacion(?:\/p\/([\w-]+)|\/([\w-]+))?/);
+    var vista = m ? 'cargo' : ev ? (ev[1] ? 'evalp' : 'eval') : /^\/descripciones/.test(r) ? 'desc' : /^\/patron/.test(r) ? 'patron' : 'guia';
+    var clave = vista + (m ? ':' + m[1] : ev && ev[1] ? ':' + ev[1] : '');
+    if (ev) cargarEval();
     if (clave !== VISTA){
-      $('#vista').innerHTML = vista === 'cargo' ? cargo(m[1]) : vista === 'desc' ? inicio() : vista === 'patron' ? $('#tplPatron').innerHTML : guia();
+      $('#vista').innerHTML = vista === 'cargo' ? cargo(m[1]) : vista === 'eval' ? evaluacion() : vista === 'evalp' ? evalPersona(ev[1]) : vista === 'desc' ? inicio() : vista === 'patron' ? $('#tplPatron').innerHTML : guia();
       VISTA = clave;
-      if (!pa && !gu && !(m && m[2])) window.scrollTo(0, 0);
+      if (!pa && !gu && !(m && m[2]) && !(ev && ev[2])) window.scrollTo(0, 0);
       montar(vista);
     }
     marcarIndice(vista, m && m[1]);
-    $('#btnImprimir').hidden = vista !== 'cargo';
-    document.title = (vista === 'cargo' && D.descripciones[m[1]] ? D.descripciones[m[1]].denominacion + ' — Descripciones de cargo' : vista === 'desc' ? 'Descripciones de cargo' : vista === 'patron' ? 'Estructura patrón de cargos' : G.titulo) + ' — Fase 3 | Proyecto Rower';
+    $('#btnImprimir').hidden = vista !== 'cargo' && vista !== 'evalp';
+    document.title = (vista === 'cargo' && D.descripciones[m[1]] ? D.descripciones[m[1]].denominacion + ' — Descripciones de cargo' : vista === 'eval' ? 'Evaluación de perfiles' : vista === 'evalp' ? 'Ficha de ajuste — Evaluación de perfiles' : vista === 'desc' ? 'Descripciones de cargo' : vista === 'patron' ? 'Estructura patrón de cargos' : G.titulo) + ' — Fase 3 | Proyecto Rower';
     if (pa) setTimeout(function(){ irA(pa[1]); }, 40);
     if (gu) setTimeout(function(){ irA('g-' + gu[1]); }, 40);
+    if (ev && ev[2]) setTimeout(function(){ irA('ev-' + ev[2]); }, 40);
     if (m && m[2]) setTimeout(function(){ irA(m[2]); }, 40);
   }
   // Enlaces a #<id> dentro de la vista: se desplazan sin tocar la ruta del hash.
   // Un enlace del índice a la sección en la que ya se está tampoco cambia el hash: se desplaza.
   document.addEventListener('click', function(e){
     var a = e.target.closest ? e.target.closest('a[href^="#"]') : null; if (!a) return;
-    var h = a.getAttribute('href'), pa = h.match(/^#\/(patron|guia)\/([\w-]+)$/);
-    if (pa && h === location.hash){ e.preventDefault(); irA((pa[1] === 'guia' ? 'g-' : '') + pa[2]); return; }
+    var h = a.getAttribute('href'), pa = h.match(/^#\/(patron|guia|evaluacion)\/([\w-]+)$/);
+    if (pa && h === location.hash){ e.preventDefault(); irA((({ guia: 'g-', evaluacion: 'ev-' })[pa[1]] || '') + pa[2]); return; }
     if (h.charAt(1) === '/' || !document.getElementById(h.slice(1))) return;
     e.preventDefault(); irA(h.slice(1));
   });
   armarIndice();
+  verEvalIndice();
   // Los puntos del índice arrancan plegados y solo se despliegan al tocarlos; tocar el punto en curso lo pliega o despliega sin recargar
   document.querySelectorAll('.ix-p').forEach(function(a){
     a.setAttribute('aria-expanded', 'false');

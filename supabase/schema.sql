@@ -2559,3 +2559,79 @@ begin
   return new;
 end;
 $$;
+
+
+-- ============================================================
+-- §18 — Evaluación de perfiles de la Fase 3 (13-nov-2026)
+-- Ver supabase/migraciones/2026-11-13-evaluacion-perfiles.sql (mismo texto).
+-- ============================================================
+-- Resultado de la evaluación de perfiles (ajuste persona–cargo To-Be) por lote
+-- (familia de cargos). Lleva nombres reales, así que vive solo aquí, nunca en
+-- un archivo del repositorio: la página informe/fase3/descripciones-cargo.html
+-- la lee con el JWT de quien mira.
+--   · La leen solo las cuentas de evaluacion_lectores (§18.1), no todo admin.fichas.
+--   · Nadie escribe con sesión: se carga desde el equipo consultor con la clave
+--     de servicio (sin política de escritura). Se recarga entera por lote.
+-- Sin foránea a personal, a propósito: el resultado es un documento del
+-- momento y no debe desaparecer en cascada si se borra una persona.
+create table if not exists public.evaluacion_perfiles (
+  id             uuid primary key default gen_random_uuid(),
+  clave          text not null unique,          -- '<lote>:persona:<persona_id>' · '<lote>:tablero' · '<lote>:informe'
+  lote           text not null,                 -- código de la familia (SSG…)
+  tipo           text not null check (tipo in ('persona','tablero','informe')),
+  persona_id     uuid,                          -- id de personal, solo en tipo 'persona'
+  version_prompt text not null,
+  contenido      jsonb not null,
+  creado_en      timestamptz not null default now(),
+  actualizado_en timestamptz not null default now(),
+  check ((tipo = 'persona') = (persona_id is not null))
+);
+create index if not exists evaluacion_perfiles_lote on public.evaluacion_perfiles (lote, tipo);
+
+alter table public.evaluacion_perfiles enable row level security;
+revoke all on public.evaluacion_perfiles from anon;
+grant select on public.evaluacion_perfiles to authenticated;
+
+-- ============================================================
+-- §18.1 — Quién lee la evaluación de perfiles (16-nov-2026)
+-- Ver supabase/migraciones/2026-11-16-evaluacion-lectores.sql (mismo texto).
+-- ============================================================
+-- Mientras se valida, la evaluación de perfiles la lee solo el equipo
+-- consultor, y no todo quien tiene admin.fichas (que incluye cuentas del
+-- cliente que sí deben seguir viendo las fichas). La lista va por cuenta:
+-- los consultores comparten rol con cuentas del cliente, así que un permiso
+-- no bastaría.
+--   · Las filas de la lista se cargan con la clave de servicio, fuera del
+--     repositorio; ninguna sesión la lee ni la escribe directamente.
+--   · Abrirla al cliente = añadir sus cuentas a la lista, o volver la política
+--     a tiene_permiso('admin.fichas'). Sin tocar código.
+create table if not exists public.evaluacion_lectores (
+  usuario   uuid primary key references auth.users (id) on delete cascade,
+  creado_en timestamptz not null default now()
+);
+alter table public.evaluacion_lectores enable row level security;
+revoke all on public.evaluacion_lectores from anon, authenticated;
+
+-- ¿Puede quien pregunta leer la evaluación? También la usa la página para
+-- ocultar la sección a quien no está en la lista.
+create or replace function public.puede_ver_evaluacion()
+returns boolean
+language sql
+stable
+security definer
+set search_path = public
+as $$
+  select exists (
+    select 1
+      from public.evaluacion_lectores el
+      join public.perfiles pf on pf.id = el.usuario
+     where el.usuario = auth.uid()
+       and pf.activo
+  );
+$$;
+revoke all on function public.puede_ver_evaluacion() from public, anon;
+grant execute on function public.puede_ver_evaluacion() to authenticated;
+
+drop policy if exists evaluacion_perfiles_lectura on public.evaluacion_perfiles;
+create policy evaluacion_perfiles_lectura on public.evaluacion_perfiles for select to authenticated
+  using (public.puede_ver_evaluacion());

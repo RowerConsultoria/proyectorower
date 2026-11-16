@@ -274,6 +274,10 @@ Cuatro roles semilla —**Administrador · Consultor · Junta · Sin accesos**�
 - **Una descripción por nombre de cargo** del Catálogo de Cargos V5 (97 para 105 códigos). Un nombre compartido, como «Asistente de Gestión» (8 familias), lleva una parte común y `matices` por unidad. Cada matiz trae su propio `reporta_a`, y de él sale su diagrama.
 - **La página pone lo automático:** el diagrama de posición, que sale de `reporta_a` y `supervisa_a`, la cláusula final, el texto de la Sección V y el pie «Pendiente de validación».
 - Hoy está redactada solo la familia **Servicios Generales** (4 descripciones, en borrador).
+- **4 Evaluación de perfiles (piloto SSG, 13-nov-2026)** (`#/evaluacion[/<sección>]`, `#/evaluacion/p/<persona_id>`): ajuste persona–cargo To-Be con valoraciones (semáforos por dimensión, ubicación, tablero e informe del lote). ⚠️ **Lleva nombres reales y valoraciones: el dato vive solo en Supabase** (`evaluacion_perfiles`, §18 de `schema.sql`), nunca en el repo; la página lo pide con el JWT de quien mira (`cargarEval()`).
+  - **Lo leen solo las cuentas de `evaluacion_lectores` (§18.1, 16-nov-2026)**, hoy el equipo consultor, y no todo quien tiene `admin.fichas`: los consultores comparten el rol Administrador con cuentas de Kenex que sí deben seguir viendo las fichas, así que un permiso no bastaba. La RLS usa `puede_ver_evaluacion()`, y la página la llama por RPC para ocultar el punto 4 del índice a quien no está en la lista.
+  - Las filas de la lista se cargan con la clave de servicio, fuera del repo. Abrirla a Kenex = añadir sus cuentas, o volver la política a `tiene_permiso('admin.fichas')`. Sin tocar código ni hacer push.
+  - Se carga por lote desde el equipo consultor con la clave de servicio (nadie escribe con sesión).
 - ⚠️ **Los insumos no se publican.** Están en `Fase 3/Insumos para Descripciones de Cargo.xlsx` y el V5, con datos personales; `Fase 3/` está en `.git/info/exclude`. En el `.js` solo van cargos, sin nombres de personas.
 
 ### 🔵 Admin (interno) — panel con sidebar
