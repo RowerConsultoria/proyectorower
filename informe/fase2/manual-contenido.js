@@ -6827,7 +6827,7 @@ window.MANUAL_CONTENIDO = {
     "actores": [
      ["Gerente de Tesorería", "País", "Ejecuta el flujo de caja, los pagos, el financiamiento bancario y —en Venezuela— la compra de divisas.", "Programación de pagos dentro del flujo de caja aprobado; ejecución de transferencias.", "Montos que exceden el umbral de su departamento en la matriz de aprobación escalan al siguiente nivel (regional o Junta)."],
      ["Coordinador(a) de Tesorería / Cobranzas", "Función (CxP, crédito o cobranza, según el país)", "Coordina el equipo operativo de su función y la relación día a día con proveedores o clientes.", "Aprobación de crédito dentro del rango delegado; gestión de excepciones menores de cobranza.", "Nuevas líneas de crédito, cambios de condición o casos de cobranza mayores escalan al Gerente de Tesorería o al Planificador Financiero."],
-     ["Analista de Cuentas por Cobrar", "Operación", "Registra los cobros, gestiona la cartera de clientes y concilia las cuentas transitorias y los saldos intercompañía.", "Registro y corrección dentro de su cuenta o proceso asignado.", "Diferencias sin explicación o clientes nuevos escalan al Coordinador(a) de Tesorería / Cobranzas."], ["Asistente de Tesorería / Cobranzas", "Operación", "Registra las facturas de proveedor, las retenciones y los pagos ejecutados, y archiva el expediente de pago.", "Registro y corrección dentro de su proceso asignado.", "Diferencias sin explicación o proveedores nuevos escalan al Coordinador(a) de Tesorería / Cobranzas."],
+     ["Analista de Cuentas por Cobrar", "Operación", "Registra los cobros, gestiona la cartera de clientes y concilia las cuentas transitorias.", "Registro y corrección dentro de su cuenta o proceso asignado.", "Diferencias sin explicación o clientes nuevos escalan al Coordinador(a) de Tesorería / Cobranzas."], ["Asistente de Tesorería / Cobranzas", "Operación", "Registra las facturas de proveedor, las retenciones y los pagos ejecutados, y archiva el expediente de pago.", "Registro y corrección dentro de su proceso asignado.", "Diferencias sin explicación o proveedores nuevos escalan al Coordinador(a) de Tesorería / Cobranzas."],
      ["Planificador Financiero", "Regional", "Aprueba pagos por matriz de monto, homologa criterios financieros, consolida presupuesto y reportería.", "Aprobación de pagos sobre el umbral departamental; ajustes de forma del presupuesto.", "Decisiones de financiamiento, política de crédito o presupuesto del grupo escalan a la Junta Directiva."],
      ["Junta Directiva / Director(a) Externo(a) de Junta Directiva", "Regional", "Aprueba el endeudamiento, el presupuesto anual y las líneas de crédito de mayor cuantía.", "N/A — instancia de aprobación final.", "N/A"]
     ],
@@ -6907,7 +6907,7 @@ window.MANUAL_CONTENIDO = {
      ["13.4 Gestión del financiamiento bancario y relación con entidades financieras", "Gerente de Tesorería", "Planificador Financiero", "Gerente de Contabilidad / Administración", "Junta Directiva · Director(a) Externo(a) de Junta Directiva"],
      ["13.5 Evaluación y aprobación de crédito de clientes", "Coordinador(a) de Tesorería / Cobranzas", "Gerente de Tesorería", "Analista de Cuentas por Cobrar · Coordinador(a) Comercial y fuerza de ventas", "Planificador Financiero"],
      ["13.6 Gestión de cuentas por cobrar y cobranza", "Analista de Cuentas por Cobrar", "Coordinador(a) de Tesorería / Cobranzas", "Coordinador(a) Comercial y fuerza de ventas · Coordinador(a) Contable", "—"],
-     ["13.7 Conciliación de operaciones y saldos intercompañía", "Analista de Cuentas por Cobrar", "Gerente de Tesorería", "Gerente de Contabilidad / Administración de cada país", "Planificador Financiero"],
+     ["13.7 Conciliación de operaciones y saldos intercompañía", "Supervisor(a) de Cuentas por Cobrar · Coordinador(a) de Tesorería / Cobranzas", "Gerente de Tesorería", "Gerente de Contabilidad / Administración de cada país", "Director(a) de Finanzas"],
      ["13.8 Planificación financiera y reporte de resultados a la dirección", "Planificador Financiero", "Planificador Financiero", "Gerente de Contabilidad / Administración · Coordinador(a) de Tesorería / Cobranzas", "Junta Directiva · Asesor(a) Externo de Finanzas y Auditoría"],
      ["13.9 Gestión presupuestaria y control del gasto", "Planificador Financiero", "Junta Directiva", "Gerente de Contabilidad / Administración · líderes de área", "—"]
     ],
@@ -7287,32 +7287,36 @@ window.MANUAL_CONTENIDO = {
      "texto": "Cubre la conciliación periódica de los saldos y operaciones entre las compañías del grupo (compras a Kenex, repatriaciones y notas), emparejando las cuentas por pagar y por cobrar entre países hasta cuadrar al detalle. No incluye el registro de cada operación en sí (procesos 13.1/13.6), del que este proceso parte.",
      "nota_estado": "Este proceso es híbrido: dependía hasta hace poco de una sola persona sin visibilidad cruzada entre países, lo que dejó saldos intercompañía sin aplicar por montos significativos durante un período prolongado; hoy se concilia de forma directa entre las cuentas por pagar y por cobrar de cada país, con apoyo de inteligencia artificial para acelerar el cruce de cientos de transacciones."
     },
-    "dueno": {"estado": "borrador"},
+    "dueno": {"estado": "borrador", "participantes": ["Supervisor(a) de Cuentas por Cobrar (casa matriz, Panamá) — cruza ambos lados y resuelve las diferencias con cada filial", "Coordinador(a) de Tesorería / Cobranzas (cada filial) — valida su lado de la cuenta y aplica cada pago a su factura", "Gerente de Contabilidad / Administración de cada país — registra los ajustes en su entidad", "Gerente de Tesorería (Panamá) — confirma el saldo cuadrado y lo reporta", "Director(a) de Finanzas — arbitra las diferencias que las dos entidades no resuelven"]},
     "disparador": {"estado": "borrador"},
     "flujo": {
      "estado": "borrador",
      "actividades": [
-      {"id": "a1", "rol": "Analista de Cuentas por Cobrar", "texto": "Descarga el estado de cuenta intercompañía de cada país (compras a Kenex Trading, repatriaciones, notas) para el período a conciliar."},
-      {"id": "a2", "rol": "Analista de Cuentas por Cobrar", "texto": "Cruza las facturas y los pagos entre las cuentas por pagar y por cobrar de las entidades relacionadas, apoyándose en IA para el cruce de grandes volúmenes de transacciones."},
-      {"id": "a3", "rol": "Analista de Cuentas por Cobrar", "texto": "Identifica las diferencias (facturas no aplicadas, duplicadas o de período distinto) y determina si son de timing o requieren ajuste."},
-      {"id": "a4", "rol": "Gerente de Contabilidad / Administración", "texto": "Aplica el patrón acordado entre países para dejar abiertas solo las facturas más recientes y cerrar el resto del saldo."},
-      {"id": "a5", "rol": "Gerente de Tesorería", "texto": "Confirma el saldo intercompañía cuadrado al centavo con la contraparte de cada país."}
+      {"id": "a1", "rol": "Coordinador(a) de Tesorería / Cobranzas (VE · CO)", "texto": "Cada filial descarga el estado de cuenta intercompañía del período (compras a Kenex Trading, repatriaciones, notas) y, al pagar, indica a qué factura se aplica cada pago y cuánto queda pendiente."},
+      {"id": "a2", "rol": "Supervisor(a) de Cuentas por Cobrar (Panamá)", "texto": "Cruza las facturas y los pagos entre las cuentas por cobrar de la casa matriz y las cuentas por pagar de cada filial, apoyándose en IA para el cruce de grandes volúmenes de transacciones."},
+      {"id": "a3", "rol": "Supervisor(a) de Cuentas por Cobrar (Panamá)", "texto": "Identifica las diferencias (facturas no aplicadas, duplicadas o de período distinto) y determina con la contraparte si son de timing o requieren ajuste."},
+      {"id": "a4", "rol": "Director(a) de Finanzas", "texto": "Si las dos entidades no llegan a un acuerdo sobre una diferencia, la arbitra y fija el saldo que ambas reconocen."},
+      {"id": "a5", "rol": "Gerente de Contabilidad / Administración (cada país)", "texto": "Aplica en la contabilidad de su entidad el patrón acordado entre países: deja abiertas solo las facturas más recientes y cierra el resto del saldo."},
+      {"id": "a6", "rol": "Gerente de Tesorería (Panamá)", "texto": "Confirma el saldo intercompañía cuadrado al centavo con la contraparte de cada filial y lo reporta a la Dirección de Finanzas."}
      ],
      "diagrama": {
-      "carriles": ["Analista de Cuentas por Cobrar", "Gerente de Contabilidad / Administración", "Gerente de Tesorería"],
+      "carriles": ["Coordinador(a) de Tesorería / Cobranzas (VE · CO)", "Director(a) de Finanzas", "Supervisor(a) de Cuentas por Cobrar (Panamá)", "Gerente de Contabilidad / Administración (cada país)", "Gerente de Tesorería (Panamá)"],
       "nodos": [
-       {"id": "n0", "carril": "Analista de Cuentas por Cobrar", "tipo": "inicio", "n": "Cierre de período o descuadre entre relacionadas"},
-       {"id": "n1", "carril": "Analista de Cuentas por Cobrar", "tipo": "tarea", "n": "Descargar el estado de cuenta intercompañía de cada país"},
-       {"id": "n2", "carril": "Analista de Cuentas por Cobrar", "tipo": "tarea", "n": "Cruzar facturas y pagos por pagar y por cobrar entre relacionadas"},
-       {"id": "n3", "carril": "Analista de Cuentas por Cobrar", "tipo": "decision", "n": "¿Difiere lo que reporta cada país?"},
-       {"id": "n3alt", "carril": "Analista de Cuentas por Cobrar", "tipo": "tarea", "n": "Identificar si la diferencia es de timing o requiere ajuste"},
-       {"id": "n4", "carril": "Gerente de Contabilidad / Administración", "tipo": "tarea", "n": "Aplicar el patrón acordado: abiertas solo las facturas recientes"},
-       {"id": "n5", "carril": "Gerente de Tesorería", "tipo": "tarea", "n": "Confirmar el saldo intercompañía cuadrado con la contraparte"},
-       {"id": "n6", "carril": "Gerente de Tesorería", "tipo": "fin", "n": "Saldos intercompañía conciliados y cuadrados"}
+       {"id": "n0", "carril": "Coordinador(a) de Tesorería / Cobranzas (VE · CO)", "tipo": "inicio", "n": "Cierre de período o descuadre entre relacionadas"},
+       {"id": "n1", "carril": "Coordinador(a) de Tesorería / Cobranzas (VE · CO)", "tipo": "tarea", "n": "Descargar el estado de cuenta y señalar la factura de cada pago"},
+       {"id": "n2", "carril": "Supervisor(a) de Cuentas por Cobrar (Panamá)", "tipo": "tarea", "n": "Cruzar facturas y pagos de ambos lados"},
+       {"id": "n3", "carril": "Supervisor(a) de Cuentas por Cobrar (Panamá)", "tipo": "decision", "n": "¿Difiere lo que reporta cada país?"},
+       {"id": "n3alt", "carril": "Supervisor(a) de Cuentas por Cobrar (Panamá)", "tipo": "tarea", "n": "Identificar con la contraparte si es de timing o ajuste"},
+       {"id": "n3b", "carril": "Supervisor(a) de Cuentas por Cobrar (Panamá)", "tipo": "decision", "n": "¿Se resolvió entre las dos entidades?"},
+       {"id": "n3c", "carril": "Director(a) de Finanzas", "tipo": "tarea", "n": "Arbitrar la diferencia y fijar el saldo"},
+       {"id": "n4", "carril": "Gerente de Contabilidad / Administración (cada país)", "tipo": "tarea", "n": "Aplicar el patrón acordado: abiertas solo las facturas recientes"},
+       {"id": "n5", "carril": "Gerente de Tesorería (Panamá)", "tipo": "tarea", "n": "Confirmar el saldo intercompañía cuadrado con la contraparte"},
+       {"id": "n6", "carril": "Gerente de Tesorería (Panamá)", "tipo": "fin", "n": "Saldos intercompañía conciliados y cuadrados"}
       ],
       "aristas": [
-       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3"}, {"de": "n3", "a": "n4", "etq": "No"}, {"de": "n3", "a": "n3alt", "etq": "Sí"},
-       {"de": "n3alt", "a": "n4"}, {"de": "n4", "a": "n5"}, {"de": "n5", "a": "n6"}
+       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3"}, {"de": "n3", "a": "n3alt", "etq": "Sí"},
+       {"de": "n3", "a": "n4", "etq": "No"}, {"de": "n3alt", "a": "n3b"}, {"de": "n3b", "a": "n4", "etq": "Sí"}, {"de": "n3b", "a": "n3c", "etq": "No"},
+       {"de": "n3c", "a": "n4"}, {"de": "n4", "a": "n5"}, {"de": "n5", "a": "n6"}
       ]
      }
     },
@@ -7330,7 +7334,7 @@ window.MANUAL_CONTENIDO = {
      "filas": [
       ["Saldos intercompañía conciliados al cierre del período", "Saldos conciliados ÷ total de saldos intercompañía", "Mensual", "Gerente de Contabilidad / Administración", "100%"],
       ["Diferencia intercompañía sin explicar al cierre", "Monto de diferencia sin explicar por país", "Mensual", "Gerente de Tesorería", "$0"],
-      ["Tiempo de conciliación intercompañía por país", "Fecha de cierre de la conciliación − fecha de inicio del cruce", "Por país", "Analista de Cuentas por Cobrar", "Referencia de eficiencia (mejorada con apoyo de IA)"]
+      ["Tiempo de conciliación intercompañía por país", "Fecha de cierre de la conciliación − fecha de inicio del cruce", "Por país", "Supervisor(a) de Cuentas por Cobrar", "Referencia de eficiencia (mejorada con apoyo de IA)"]
      ]
     }
    },
@@ -7401,17 +7405,17 @@ window.MANUAL_CONTENIDO = {
      "estado": "borrador",
      "actividades": [
       {"id": "a1", "rol": "Planificador Financiero", "texto": "Convoca a los líderes de área para la formulación del presupuesto operativo del ciclo anual."},
-      {"id": "a2", "rol": "líderes de área", "texto": "Presentan su propuesta de presupuesto por centro de costo y por rubro."},
+      {"id": "a2", "rol": "Líderes de área", "texto": "Presentan su propuesta de presupuesto por centro de costo y por rubro."},
       {"id": "a3", "rol": "Planificador Financiero", "texto": "Consolida el presupuesto del grupo y lo somete a la Junta Directiva para su aprobación."},
       {"id": "a4", "rol": "Gerente de Contabilidad / Administración", "texto": "Clasifica el gasto real por centro de costo y por rubro al cierre de cada mes."},
       {"id": "a5", "rol": "Planificador Financiero", "texto": "Compara la ejecución contra el presupuesto y reporta las desviaciones a los líderes de área y a la Junta."}
      ],
      "diagrama": {
-      "carriles": ["Planificador Financiero", "líderes de área", "Gerente de Contabilidad / Administración", "Junta Directiva"],
+      "carriles": ["Planificador Financiero", "Líderes de área", "Gerente de Contabilidad / Administración", "Junta Directiva"],
       "nodos": [
        {"id": "n0", "carril": "Planificador Financiero", "tipo": "inicio", "n": "Ciclo presupuestario o revisión de ejecución"},
        {"id": "n1", "carril": "Planificador Financiero", "tipo": "tarea", "n": "Convocar a los líderes de área a formular el presupuesto"},
-       {"id": "n2", "carril": "líderes de área", "tipo": "tarea", "n": "Presentar el presupuesto por centro de costo y por rubro"},
+       {"id": "n2", "carril": "Líderes de área", "tipo": "tarea", "n": "Presentar el presupuesto por centro de costo y por rubro"},
        {"id": "n3", "carril": "Planificador Financiero", "tipo": "tarea", "n": "Consolidar el presupuesto del grupo"},
        {"id": "n4", "carril": "Junta Directiva", "tipo": "tarea", "n": "Aprobar el presupuesto del grupo"},
        {"id": "n5", "carril": "Gerente de Contabilidad / Administración", "tipo": "tarea", "n": "Clasificar el gasto real por centro de costo al cierre de cada mes"},
