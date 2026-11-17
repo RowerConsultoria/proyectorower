@@ -152,7 +152,7 @@
 // a un flujo intercompañía permanente que atraviesa varios procesos. En
 // Venezuela, el régimen cambiario agrega una función sin equivalente en los
 // demás países (13.3, compra de divisas y repatriación) con indicadores
-// propios (velocidad de devaluación, brecha del diferencial, escudo fiscal).
+// propios (velocidad de devaluación, pérdida por diferencial cambiario, escudo fiscal).
 //
 // Fuentes cruzadas: entrevistas E-65 Andrés Largo (CxP, VE, F2), E-62 Noel
 // (crédito/cobranza/intercompañía, PA, F2) —
@@ -6791,7 +6791,7 @@ window.MANUAL_CONTENIDO = {
 
    "contexto": {
     "estado": "borrador",
-    "ubicacion": "Administración y Finanzas es el macroproceso de soporte que mueve el efectivo de la cadena de valor: paga a los proveedores que documenta Compras y Abastecimiento, cobra a los clientes que documentan Ventas Mayor y Ventas Retail, financia el ciclo de compra internacional con líneas bancarias y compra de divisas, y entrega a Contabilidad el registro de cada pago y cada cobro para su cierre. La estructura societaria del grupo obliga a un flujo intercompañía permanente: Kenex Trading (Zona Libre de Colón) solo puede exportar, así que vende a Basaidai, la intermediaria que nacionaliza la mercancía, y esta a su vez vende a Casiolandia (retail) — una cadena de tres empresas que genera cuentas por cobrar y por pagar cruzadas que hay que conciliar entre sí. En Venezuela, la operación de mayor volumen, el efectivo está además sujeto a un régimen cambiario que obliga a comprar divisas en mesa de cambio, medir la brecha frente al mercado paralelo y repatriar fondos a la casa matriz (Kenex, Panamá) para sostener el ciclo de compra — una función que no existe en los demás países.",
+    "ubicacion": "Administración y Finanzas es el macroproceso de soporte que mueve el efectivo de la cadena de valor: paga a los proveedores que documenta Compras y Abastecimiento, cobra a los clientes que documentan Ventas Mayor y Ventas Retail, financia el ciclo de compra internacional con líneas bancarias y compra de divisas, y entrega a Contabilidad el registro de cada pago y cada cobro para su cierre. La estructura societaria del grupo obliga a un flujo intercompañía permanente: Kenex Trading (Zona Libre de Colón) solo puede exportar, así que vende a Basaidai, la intermediaria que nacionaliza la mercancía, y esta a su vez vende a Casiolandia (retail) — una cadena de tres empresas que genera cuentas por cobrar y por pagar cruzadas que hay que conciliar entre sí. En Venezuela, la operación de mayor volumen, el efectivo está además sujeto a un régimen cambiario que obliga a comprar divisas en mesa de cambio, seguir la velocidad de devaluación y repatriar fondos a la casa matriz (Kenex, Panamá) para sostener el ciclo de compra — una función que no existe en los demás países.",
     "duenos": [
      ["Regional / holding", "Planificador Financiero", "Supervisa y aprueba pagos por monto según la matriz de aprobación; homologa criterios financieros entre países; consolida la reportería a la Junta."],
      ["País / entidad legal", "Gerente de Tesorería", "Responsable del flujo de caja, la ejecución de pagos, el financiamiento bancario y —en Venezuela— la compra de divisas y la repatriación de fondos."],
@@ -6827,7 +6827,7 @@ window.MANUAL_CONTENIDO = {
     "actores": [
      ["Gerente de Tesorería", "País", "Ejecuta el flujo de caja, los pagos, el financiamiento bancario y —en Venezuela— la compra de divisas.", "Programación de pagos dentro del flujo de caja aprobado; ejecución de transferencias.", "Montos que exceden el umbral de su departamento en la matriz de aprobación escalan al siguiente nivel (regional o Junta)."],
      ["Coordinador(a) de Tesorería / Cobranzas", "Función (CxP, crédito o cobranza, según el país)", "Coordina el equipo operativo de su función y la relación día a día con proveedores o clientes.", "Aprobación de crédito dentro del rango delegado; gestión de excepciones menores de cobranza.", "Nuevas líneas de crédito, cambios de condición o casos de cobranza mayores escalan al Gerente de Tesorería o al Planificador Financiero."],
-     ["Analista de Cuentas por Cobrar", "Operación", "Registra facturas de proveedor, pagos y cobros; concilia cuentas transitorias y prepara el expediente de pago.", "Registro y corrección dentro de su cuenta o proceso asignado.", "Diferencias sin explicación o proveedores/clientes nuevos escalan al Coordinador(a) de Tesorería / Cobranzas."],
+     ["Analista de Cuentas por Cobrar", "Operación", "Registra los cobros, gestiona la cartera de clientes y concilia las cuentas transitorias y los saldos intercompañía.", "Registro y corrección dentro de su cuenta o proceso asignado.", "Diferencias sin explicación o clientes nuevos escalan al Coordinador(a) de Tesorería / Cobranzas."], ["Asistente de Tesorería / Cobranzas", "Operación", "Registra las facturas de proveedor, las retenciones y los pagos ejecutados, y archiva el expediente de pago.", "Registro y corrección dentro de su proceso asignado.", "Diferencias sin explicación o proveedores nuevos escalan al Coordinador(a) de Tesorería / Cobranzas."],
      ["Planificador Financiero", "Regional", "Aprueba pagos por matriz de monto, homologa criterios financieros, consolida presupuesto y reportería.", "Aprobación de pagos sobre el umbral departamental; ajustes de forma del presupuesto.", "Decisiones de financiamiento, política de crédito o presupuesto del grupo escalan a la Junta Directiva."],
      ["Junta Directiva / Director(a) Externo(a) de Junta Directiva", "Regional", "Aprueba el endeudamiento, el presupuesto anual y las líneas de crédito de mayor cuantía.", "N/A — instancia de aprobación final.", "N/A"]
     ],
@@ -6876,7 +6876,7 @@ window.MANUAL_CONTENIDO = {
     ],
     "brechas": [
      ["13.2 Gestión del flujo de caja y ejecución de pagos", "El expediente de pago sigue siendo enteramente físico entre Cuentas por Pagar y Tesorería, sin digitalización salvo excepciones puntuales para proveedores de monto considerable.", "Evaluar digitalizar el expediente de pago completo, no solo los casos de excepción, aprovechando que ya se hace para montos altos."],
-     ["13.3 Gestión de compra de divisas y repatriación de fondos", "Los indicadores de riesgo cambiario (velocidad de devaluación, brecha del diferencial, escudo fiscal) existen como fórmulas documentadas pero sin evidencia de que se calculen y reporten de forma sistemática y periódica.", "Formalizar el cálculo y el reporte periódico de los indicadores cambiarios ya definidos, con su alerta crítica asociada."],
+     ["13.3 Gestión de compra de divisas y repatriación de fondos", "Los indicadores de riesgo cambiario (velocidad de devaluación, pérdida por diferencial cambiario, escudo fiscal) existen como fórmulas documentadas pero sin evidencia de que se calculen y reporten de forma sistemática y periódica.", "Formalizar el cálculo y el reporte periódico de los indicadores cambiarios ya definidos, con su alerta crítica asociada."],
      ["13.6 Gestión de cuentas por cobrar y cobranza", "El manejo físico de soportes de pago (vouchers, retenciones) que la fuerza de ventas traslada en papel sigue siendo la norma en Venezuela, con el riesgo de extravío y retraso que el propio diagnóstico interno documenta; en Panamá, la rotación de cartera no se puede calcular con precisión porque el sistema no distingue con claridad los clientes de crédito de los de contado.", "Priorizar la digitalización de soportes de cobranza en Venezuela (ya diagnosticada y con plan de acción propio) y, en Panamá, resolver la clasificación crédito/contado en el maestro de clientes para poder calcular la rotación de cartera."],
      ["13.7 Conciliación de operaciones y saldos intercompañía", "La conciliación entre países dependía hasta hace poco de una sola persona sin visibilidad cruzada, lo que dejó saldos intercompañía sin aplicar por montos significativos durante un período prolongado.", "Mantener la conciliación intercompañía como responsabilidad compartida y periódica entre los países, ya con evidencia de que reconciliar con apoyo de IA acelera la detección de diferencias."],
      ["13.9 Gestión presupuestaria y control del gasto", "El seguimiento de ejecución presupuestaria depende de la clasificación analítica del gasto por centro de costo, hecha manualmente por Contabilidad, sin un reporte estándar de desviaciones entre países.", "Definir un formato común de seguimiento de ejecución presupuestaria por centro de costo entre los países."]
@@ -6889,7 +6889,7 @@ window.MANUAL_CONTENIDO = {
      ["Conciliación a tres vías (three-way match)", "Verificación de que la orden de compra, la recepción de la mercancía y la factura del proveedor coinciden antes de liberar el pago."],
      ["Cuadro Multitasas", "Archivo Excel maestro que cruza la cartera vencida de clientes mayoristas contra el tipo de cambio del día para simular el pago según la modalidad (bolívares, divisa o mixto)."],
      ["Día de caja", "Día fijo de la semana en que Tesorería ejecuta los pagos programados a proveedores (martes y jueves en Venezuela; miércoles en Panamá)."],
-     ["Diferencial cambiario", "Brecha entre la tasa oficial y la tasa paralela; cuando se amplía, el consumidor prefiere pagar en la moneda más blanda y la empresa pierde margen real."],
+     ["Diferencial cambiario", "Efecto de la variación de la tasa de cambio entre el momento de la venta y el del cobro o la reposición; cuando se amplía, el consumidor prefiere pagar en la moneda más blanda y la empresa pierde margen real."],
      ["Documento de relación comercial", "Carta firmada por el representante legal del cliente que autoriza a identificar como suyo un pago hecho desde una cuenta o nombre distinto al registrado."],
      ["Escudo fiscal por pérdida cambiaria", "Beneficio tributario estimado sobre la pérdida neta por diferencial cambiario, usado para la planificación fiscal."],
      ["Landed cost (costo en destino)", "Gastos de importación (flete, seguro, aranceles) capitalizados sobre el valor del inventario en vez de llevados directo a gasto."],
@@ -6901,7 +6901,7 @@ window.MANUAL_CONTENIDO = {
      ["5 C del crédito", "Marco de referencia (capacidad, capital, garantía, carácter y condiciones) para evaluar el riesgo de un cliente antes de aprobarle una línea."]
     ],
     "raci": [
-     ["13.1 Gestión de cuentas por pagar a proveedores", "Analista de Cuentas por Cobrar", "Coordinador(a) de Tesorería / Cobranzas", "Gerente de Contabilidad / Administración · Gerente de Tesorería", "—"],
+     ["13.1 Gestión de cuentas por pagar a proveedores", "Asistente de Tesorería / Cobranzas", "Coordinador(a) de Tesorería / Cobranzas", "Gerente de Contabilidad / Administración · Gerente de Tesorería", "—"],
      ["13.2 Gestión del flujo de caja y ejecución de pagos", "Gerente de Tesorería", "Planificador Financiero", "Coordinador(a) de Tesorería / Cobranzas · Analista de Recursos Humanos", "—"],
      ["13.3 Gestión de compra de divisas y repatriación de fondos", "Coordinador(a) de Tesorería / Cobranzas", "Gerente de Tesorería", "Planificador Financiero · Analista de Cuentas por Cobrar", "—"],
      ["13.4 Gestión del financiamiento bancario y relación con entidades financieras", "Gerente de Tesorería", "Planificador Financiero", "Gerente de Contabilidad / Administración", "Junta Directiva · Director(a) Externo(a) de Junta Directiva"],
@@ -6950,25 +6950,25 @@ window.MANUAL_CONTENIDO = {
      "texto": "Cubre el ciclo desde la recepción y validación de la factura del proveedor hasta el registro del documento por pagar en el ERP con sus retenciones (IVA/ISLR o ITBMS), el cálculo del neto, la preparación del lote de pago para Tesorería, el control de anticipos y el costeo de las importaciones (landed costs). No incluye la ejecución del pago en el banco en sí (proceso 13.2), que es el paso siguiente.",
      "nota_estado": "Este proceso es as-is, pero con una brecha real de formalización entre países: Panamá documenta por escrito una matriz de aprobación por departamento y monto y un control de segregación de funciones; Venezuela calcula el neto a pagar con una verificación manual en papel como única segunda revisión, sin una matriz de aprobación equivalente."
     },
-    "dueno": {"estado": "borrador"},
+    "dueno": {"estado": "borrador", "participantes": ["Asistente de Tesorería / Cobranzas (registra la factura, la retención y el pago)", "Coordinador(a) de Tesorería / Cobranzas (verifica el neto a pagar y prepara el expediente)", "Gerente de Tesorería (aprueba y programa el pago)", "Gerente de Contabilidad / Administración (recepción y validación de facturas y control de anticipos)", "Coordinador(a) Contable (conciliación y causación posterior)"]},
     "disparador": {"estado": "borrador"},
     "flujo": {
      "estado": "borrador",
      "actividades": [
-      {"id": "a1", "rol": "Analista de Cuentas por Cobrar", "texto": "Recibe la factura del proveedor (nacional o de importación) y verifica que esté en el maestro de contactos, con su condición fiscal y datos bancarios completos."},
-      {"id": "a2", "rol": "Analista de Cuentas por Cobrar", "texto": "Registra la factura en el ERP, calcula la retención de ley aplicable y coteja el monto contra la orden de compra y la recepción de la mercancía (conciliación a tres vías)."},
+      {"id": "a1", "rol": "Asistente de Tesorería / Cobranzas", "texto": "Recibe la factura del proveedor (nacional o de importación) y verifica que esté en el maestro de contactos, con su condición fiscal y datos bancarios completos."},
+      {"id": "a2", "rol": "Asistente de Tesorería / Cobranzas", "texto": "Registra la factura en el ERP, calcula la retención de ley aplicable y coteja el monto contra la orden de compra y la recepción de la mercancía (conciliación a tres vías)."},
       {"id": "a3", "rol": "Coordinador(a) de Tesorería / Cobranzas", "texto": "Verifica el neto a pagar (factura menos retenciones) y prepara el expediente para Tesorería, respetando el día de caja y el corte de recepción."},
       {"id": "a4", "rol": "Gerente de Tesorería", "texto": "Aprueba el pago según la matriz de aprobación por departamento y monto vigente en el país."},
-      {"id": "a5", "rol": "Analista de Cuentas por Cobrar", "texto": "Registra el pago una vez ejecutado, distribuye el costo de importación al inventario cuando aplica, y archiva el expediente para auditoría."}
+      {"id": "a5", "rol": "Asistente de Tesorería / Cobranzas", "texto": "Registra el pago una vez ejecutado, distribuye el costo de importación al inventario cuando aplica, y archiva el expediente para auditoría."}
      ],
      "diagrama": {
-      "carriles": ["Analista de Cuentas por Cobrar", "Coordinador(a) de Tesorería / Cobranzas", "Gerente de Tesorería"],
+      "carriles": ["Asistente de Tesorería / Cobranzas", "Coordinador(a) de Tesorería / Cobranzas", "Gerente de Tesorería"],
       "nodos": [
-       {"id": "n0", "carril": "Analista de Cuentas por Cobrar", "tipo": "inicio", "n": "Factura o solicitud de pago recibida"},
-       {"id": "n1", "carril": "Analista de Cuentas por Cobrar", "tipo": "tarea", "n": "Verificar al proveedor en el maestro de contactos"},
-       {"id": "n2", "carril": "Analista de Cuentas por Cobrar", "tipo": "tarea", "n": "Registrar la factura y calcular la retención aplicable"},
-       {"id": "n3", "carril": "Analista de Cuentas por Cobrar", "tipo": "decision", "n": "¿Importación con gastos asociados?"},
-       {"id": "n3alt", "carril": "Analista de Cuentas por Cobrar", "tipo": "tarea", "n": "Registrar y prorratear los gastos en destino al costo del producto"},
+       {"id": "n0", "carril": "Asistente de Tesorería / Cobranzas", "tipo": "inicio", "n": "Factura o solicitud de pago recibida"},
+       {"id": "n1", "carril": "Asistente de Tesorería / Cobranzas", "tipo": "tarea", "n": "Verificar al proveedor en el maestro de contactos"},
+       {"id": "n2", "carril": "Asistente de Tesorería / Cobranzas", "tipo": "tarea", "n": "Registrar la factura y calcular la retención aplicable"},
+       {"id": "n3", "carril": "Asistente de Tesorería / Cobranzas", "tipo": "decision", "n": "¿Importación con gastos asociados?"},
+       {"id": "n3alt", "carril": "Asistente de Tesorería / Cobranzas", "tipo": "tarea", "n": "Registrar y prorratear los gastos en destino al costo del producto"},
        {"id": "n4", "carril": "Coordinador(a) de Tesorería / Cobranzas", "tipo": "tarea", "n": "Verificar el neto a pagar y preparar el expediente de Tesorería"},
        {"id": "n5", "carril": "Gerente de Tesorería", "tipo": "decision", "n": "¿El monto requiere aprobación adicional?"},
        {"id": "n5alt", "carril": "Gerente de Tesorería", "tipo": "tarea", "n": "Escalar la aprobación al siguiente nivel de la matriz"},
@@ -6997,7 +6997,7 @@ window.MANUAL_CONTENIDO = {
      "filas": [
       ["Tasa de pagos a tiempo (on-time payment rate)", "Facturas pagadas en o antes de su vencimiento ÷ total de facturas", "Mensual", "Gerente de Tesorería", "≥90%"],
       ["Tiempo promedio del ciclo de procesamiento de facturas", "Fecha de registro y aprobación en el ERP − fecha de recepción de la factura", "Por factura", "Coordinador(a) de Tesorería / Cobranzas", "≤48 horas"],
-      ["Días de cuentas por pagar pendientes (DPO)", "(Saldo promedio de CxP ÷ total de compras al proveedor) × 365", "Mensual", "Planificador Financiero", "Referencia de gestión de caja"],
+      ["Días de cuentas por pagar pendientes (DPO)", "(Saldo promedio de CxP ÷ total de compras al proveedor) × 365", "Mensual", "Gerente de Tesorería", "Referencia de gestión de caja"],
       ["Descuentos por pronto pago aprovechados", "Descuentos tomados ÷ total de descuentos ofrecidos por los proveedores", "Mensual", "Gerente de Tesorería", "Referencia de valor generado"]
      ]
     }
@@ -7009,7 +7009,7 @@ window.MANUAL_CONTENIDO = {
      "texto": "Cubre la apertura y el monitoreo diario de saldos, la construcción y actualización del flujo de caja proyectado, la aprobación y programación de las solicitudes de pago, la ejecución de los desembolsos (proveedores, nómina y financiamiento) y el cierre diario con reporte de disponibilidad. No incluye la preparación del expediente de pago en sí (proceso 13.1), que es el insumo de entrada de este proceso.",
      "nota_estado": "Este proceso es as-is: opera con una estructura de tres fases bien definida —recepción y validación en Cuentas por Pagar, ejecución en Tesorería, cierre y registro de vuelta en Cuentas por Pagar— con una regla explícita de corte y día de caja, pero el expediente que viaja entre las tres fases sigue siendo enteramente físico."
     },
-    "dueno": {"estado": "borrador"},
+    "dueno": {"estado": "borrador", "participantes": ["Coordinador(a) de Tesorería / Cobranzas", "Asistente de Tesorería / Cobranzas (registra el pago ejecutado)", "Planificador Financiero (supervisión y aprobación por monto según matriz)", "Analista de Recursos Humanos (estimado de nómina)"]},
     "disparador": {"estado": "borrador"},
     "flujo": {
      "estado": "borrador",
@@ -7017,11 +7017,11 @@ window.MANUAL_CONTENIDO = {
       {"id": "a1", "rol": "Coordinador(a) de Tesorería / Cobranzas", "texto": "Recibe el expediente de pago validado de Cuentas por Pagar antes del corte del día de caja."},
       {"id": "a2", "rol": "Gerente de Tesorería", "texto": "Revisa el flujo de caja disponible y programa los pagos del día en la plataforma bancaria, priorizando según la disponibilidad."},
       {"id": "a3", "rol": "Gerente de Tesorería", "texto": "Ejecuta las transferencias u otra forma de pago (cheque, Western Union) y emite el soporte de pago físico y digital."},
-      {"id": "a4", "rol": "Analista de Cuentas por Cobrar", "texto": "Recibe de vuelta el expediente con el soporte de pago y registra el pago en el ERP para cerrar la cuenta por pagar."},
+      {"id": "a4", "rol": "Asistente de Tesorería / Cobranzas", "texto": "Recibe de vuelta el expediente con el soporte de pago y registra el pago en el ERP para cerrar la cuenta por pagar."},
       {"id": "a5", "rol": "Gerente de Tesorería", "texto": "Cierra el día con el reporte de disponibilidad y la proyección actualizada del flujo de caja."}
      ],
      "diagrama": {
-      "carriles": ["Coordinador(a) de Tesorería / Cobranzas", "Gerente de Tesorería", "Analista de Cuentas por Cobrar"],
+      "carriles": ["Coordinador(a) de Tesorería / Cobranzas", "Gerente de Tesorería", "Asistente de Tesorería / Cobranzas"],
       "nodos": [
        {"id": "n0", "carril": "Coordinador(a) de Tesorería / Cobranzas", "tipo": "inicio", "n": "Apertura del día con solicitudes de pago aprobadas"},
        {"id": "n1", "carril": "Gerente de Tesorería", "tipo": "tarea", "n": "Revisar el flujo de caja disponible del día"},
@@ -7029,7 +7029,7 @@ window.MANUAL_CONTENIDO = {
        {"id": "n2alt", "carril": "Coordinador(a) de Tesorería / Cobranzas", "tipo": "tarea", "n": "Programar el pago para el siguiente día de caja"},
        {"id": "n3", "carril": "Gerente de Tesorería", "tipo": "tarea", "n": "Programar y ejecutar el pago en la plataforma bancaria"},
        {"id": "n4", "carril": "Gerente de Tesorería", "tipo": "tarea", "n": "Emitir el soporte y devolver el expediente a Cuentas por Pagar"},
-       {"id": "n5", "carril": "Analista de Cuentas por Cobrar", "tipo": "tarea", "n": "Registrar el pago en el ERP para cerrar la cuenta por pagar"},
+       {"id": "n5", "carril": "Asistente de Tesorería / Cobranzas", "tipo": "tarea", "n": "Registrar el pago en el ERP para cerrar la cuenta por pagar"},
        {"id": "n6", "carril": "Gerente de Tesorería", "tipo": "tarea", "n": "Cerrar el día con disponibilidad y proyección actualizadas"},
        {"id": "n7", "carril": "Gerente de Tesorería", "tipo": "fin", "n": "Pagos ejecutados y conciliados, flujo de caja al día"}
       ],
@@ -7053,7 +7053,7 @@ window.MANUAL_CONTENIDO = {
      "filas": [
       ["Pagos ejecutados en el día de caja programado", "Pagos ejecutados a tiempo ÷ total de pagos programados", "Por día de caja", "Gerente de Tesorería", "≥95%"],
       ["Exactitud del flujo de caja proyectado", "Disponibilidad proyectada vs. disponibilidad real al cierre del día", "Diaria", "Gerente de Tesorería", "Referencia de precisión"],
-      ["Tiempo entre la ejecución del pago y su registro en el ERP", "Fecha de registro − fecha de ejecución del pago", "Por pago", "Analista de Cuentas por Cobrar", "≤2 días hábiles"]
+      ["Tiempo entre la ejecución del pago y su registro en el ERP", "Fecha de registro − fecha de ejecución del pago", "Por pago", "Asistente de Tesorería / Cobranzas", "≤2 días hábiles"]
      ]
     }
    },
@@ -7069,18 +7069,18 @@ window.MANUAL_CONTENIDO = {
     "flujo": {
      "estado": "borrador",
      "actividades": [
-      {"id": "a1", "rol": "Coordinador(a) de Tesorería / Cobranzas", "texto": "Monitorea la tasa de cambio oficial y la brecha frente al mercado paralelo para decidir el momento de la compra de divisas."},
+      {"id": "a1", "rol": "Coordinador(a) de Tesorería / Cobranzas", "texto": "Monitorea la tasa de cambio oficial y la velocidad de devaluación para decidir el momento de la compra de divisas."},
       {"id": "a2", "rol": "Gerente de Tesorería", "texto": "Ejecuta la compra de divisas en mesa de cambio con la banca y registra el asiento con la pérdida o ganancia por diferencial cambiario."},
       {"id": "a3", "rol": "Gerente de Tesorería", "texto": "Evalúa la compra de títulos de cobertura como mecanismo de protección cambiaria cuando las condiciones lo ameritan."},
       {"id": "a4", "rol": "Coordinador(a) de Tesorería / Cobranzas", "texto": "Distribuye los fondos entre cuentas y ejecuta la repatriación hacia la casa matriz para sostener el ciclo de compra internacional."},
-      {"id": "a5", "rol": "Planificador Financiero", "texto": "Calcula los indicadores cambiarios (velocidad de devaluación, brecha del diferencial, escudo fiscal) y alerta al área comercial y a Tesorería cuando superan el umbral crítico."}
+      {"id": "a5", "rol": "Planificador Financiero", "texto": "Calcula los indicadores cambiarios (velocidad de devaluación, pérdida por diferencial cambiario, escudo fiscal) y alerta al área comercial y a Tesorería cuando superan el umbral crítico."}
      ],
      "diagrama": {
       "carriles": ["Coordinador(a) de Tesorería / Cobranzas", "Gerente de Tesorería", "Planificador Financiero"],
       "nodos": [
        {"id": "n0", "carril": "Coordinador(a) de Tesorería / Cobranzas", "tipo": "inicio", "n": "Bolívares disponibles para pago internacional"},
-       {"id": "n1", "carril": "Coordinador(a) de Tesorería / Cobranzas", "tipo": "tarea", "n": "Monitorear la tasa BCV y la brecha frente al mercado paralelo"},
-       {"id": "n2", "carril": "Planificador Financiero", "tipo": "decision", "n": "¿Brecha o devaluación en alerta?"},
+       {"id": "n1", "carril": "Coordinador(a) de Tesorería / Cobranzas", "tipo": "tarea", "n": "Monitorear la tasa BCV y la velocidad de devaluación"},
+       {"id": "n2", "carril": "Planificador Financiero", "tipo": "decision", "n": "¿La devaluación supera el umbral?"},
        {"id": "n2alt", "carril": "Planificador Financiero", "tipo": "tarea", "n": "Alertar a Tesorería y al área comercial y evaluar un título de cobertura"},
        {"id": "n3", "carril": "Gerente de Tesorería", "tipo": "tarea", "n": "Ejecutar la compra de divisas en mesa de cambio"},
        {"id": "n4", "carril": "Gerente de Tesorería", "tipo": "tarea", "n": "Registrar el asiento con el diferencial cambiario correspondiente"},
@@ -7096,9 +7096,9 @@ window.MANUAL_CONTENIDO = {
     "riesgos": {
      "estado": "borrador",
      "filas": [
-      ["Indicadores cambiarios definidos pero sin evidencia de cálculo periódico sistemático", "Las fórmulas de velocidad de devaluación, brecha del diferencial y escudo fiscal existen documentadas, pero no hay evidencia de un reporte periódico regular.", "Media", "Alto", "Formalizar el cálculo y el reporte periódico de estos indicadores, con su alerta crítica asociada."],
+      ["Indicadores cambiarios definidos pero sin evidencia de cálculo periódico sistemático", "Las fórmulas de velocidad de devaluación, pérdida por diferencial cambiario y escudo fiscal existen documentadas, pero no hay evidencia de un reporte periódico regular.", "Media", "Alto", "Formalizar el cálculo y el reporte periódico de estos indicadores, con su alerta crítica asociada."],
       ["Concentración de la función en una sola persona", "La compra de divisas y la repatriación de fondos son una función que Venezuela ejecuta sin respaldo documentado para una ausencia.", "Media", "Alto", "Documentar el procedimiento y formar un respaldo para la función de mesa de cambio."],
-      ["Exposición a la brecha del diferencial cambiario sobre el margen comercial", "Si la brecha con el mercado paralelo se amplía, el consumidor prefiere pagar en la moneda más blanda y la empresa pierde margen real en la venta a tasa oficial.", "Alta", "Alto", "Usar el indicador de brecha del diferencial como alerta temprana al área comercial, según el criterio ya definido por Tesorería."],
+      ["Exposición del margen comercial al diferencial cambiario", "Si la devaluación se acelera entre la venta y la reposición, el consumidor prefiere pagar en la moneda más blanda y la empresa pierde margen real en la venta a tasa oficial.", "Alta", "Alto", "Usar el indicador de pérdida por diferencial cambiario como alerta temprana al área comercial, según el criterio ya definido por Tesorería."],
       ["Instrumentos de cobertura cambiaria sin política de uso documentada", "La compra y liquidación de títulos de cobertura está descrita a nivel de asiento contable, pero no hay evidencia de un criterio escrito de cuándo usarlos.", "Baja", "Medio", "Documentar el criterio de decisión para el uso de títulos de cobertura cambiaria."]
      ]
     },
@@ -7106,7 +7106,7 @@ window.MANUAL_CONTENIDO = {
      "estado": "borrador",
      "filas": [
       ["Velocidad de devaluación semanal", "(Tasa BCV actual ÷ Tasa BCV semana anterior − 1) × 100", "Semanal", "Coordinador(a) de Tesorería / Cobranzas", "Alerta crítica si supera 2%"],
-      ["Brecha del diferencial cambiario", "(Tasa paralelo ÷ Tasa BCV − 1) × 100", "Semanal", "Planificador Financiero", "Alerta crítica si supera 10%"],
+      ["Pérdida por diferencial cambiario sobre la venta", "Pérdida neta por diferencial cambiario ÷ ventas del período × 100", "Semanal", "Planificador Financiero", "Alerta si supera el umbral fijado por Tesorería"],
       ["Eficiencia de adjudicación cambiaria", "$ comprados en mesa de cambio ÷ Bs totales disponibles para cambiar", "Semanal", "Gerente de Tesorería", "Referencia: mayor al 85%"]
      ]
     }
