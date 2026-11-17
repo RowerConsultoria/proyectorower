@@ -1685,7 +1685,7 @@ window.MANUAL_ASIS = {
         "id": "n1",
         "carril": "Líder de área o directivo",
         "tipo": "decision",
-        "n": "¿Pasó por solicitud de pago?"
+        "n": "¿Llegó con solicitud de pago?"
        },
        {
         "id": "n2",
