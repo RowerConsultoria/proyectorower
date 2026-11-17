@@ -26,7 +26,7 @@ window.GUIA_MANUAL = {
       parrafos: ['El manual se desarrolló en dos fases, sobre los productos de la Fase 2 del proyecto.'],
       fases: [
         { t: 'Fase 1 · Diagnóstico y estructura patrón',
-          d: 'Se revisaron los procesos, la estructura organizativa To-Be y el censo de personal, y se fijó la **estructura patrón de cargos**: los ocho escalones, del operario al director, con lo que cada uno exige saber, resolver y responder, y la experiencia que se estima para ocuparlo. Con ella se reclasifican los cargos.' },
+          d: 'Se revisaron los procesos, la estructura organizativa To-Be y el censo de personal, y se fijó la **estructura patrón de cargos**: los ocho escalones, del operario al director, con lo que cada uno exige saber, resolver y responder, la experiencia que se estima para ocuparlo y la educación formal deseada. Con ella se reclasifican los cargos.' },
         { t: 'Fase 2 · Elaboración de las descripciones',
           d: 'Se diseñó un formato común y se redactó cada descripción por familia de cargos, de arriba abajo, para que cada nivel se distinga del siguiente. Las fuentes son el manual de procesos To-Be (qué hace cada cargo en cada proceso), la estructura To-Be (a quién reporta y a quién supervisa), la estructura patrón (escalón, formación y experiencia), el diccionario de competencias, las fichas de talento de los ocupantes actuales —para contrastar, no para copiar— y las buenas prácticas de cargos similares en empresas de distribución.' }
       ],
@@ -36,7 +36,7 @@ window.GUIA_MANUAL = {
       items: [
         ['Una descripción por nombre de cargo', 'Si varias familias comparten un mismo nombre de cargo, como «Asistente de Gestión», la descripción es una sola, con una parte común y un apartado de **matices por unidad** donde cada familia dice lo propio.'],
         ['Agrupadas por familia', 'Una familia es el conjunto de cargos de un área de la estructura To-Be (por ejemplo, Servicios Generales u Operaciones y Logística). En el índice se recorren por familia.'],
-        ['Cada cargo en un escalón', 'El escalón dice el nivel del cargo en la estructura patrón: Operario, Auxiliar, Analista I · II · III, Supervisor o Especialista, Coordinador, Gerente de unidad de negocio, Gerente o Director. El escalón fija la formación, la experiencia y el nivel de cargo, que dice qué competencias se exigen.'],
+        ['Cada cargo en un escalón', 'El escalón dice el nivel del cargo en la estructura patrón: Operario, Auxiliar, Analista I · II · III, Supervisor o Especialista, Coordinador I · II, Gerente de unidad de negocio, Gerente o Director. El escalón fija la formación, la experiencia y el nivel de cargo, que dice qué competencias se exigen.'],
         ['El apellido', 'Cuando hace falta, el cargo toma como apellido el nivel de la estructura donde está la posición: corporativo o país. «Coordinador(a) País de Servicios Generales» es un coordinador cuya posición se repite en cada país. El escalón es el mismo; el apellido dice dónde se ejerce.'],
         ['El nombre lo pone la familia', 'El escalón es un nivel, no un nombre de cargo. Cada familia nombra sus cargos («Asesor(a) de Ventas», «Asistente de Gestión»), y dos nombres distintos pueden estar en un mismo escalón.']
       ] },
@@ -101,7 +101,7 @@ window.GUIA_MANUAL = {
       ],
       tabla: { cols: ['Escalón', 'Experiencia estimada'], filas: [
         ['Operario(a)', '0 a 1 año'], ['Auxiliar', '6 meses a 2 años'], ['Analista I · II · III', '0 a 2 · 2 a 4 · 4 a 6 años'],
-        ['Supervisor(a) · Especialista', '3 a 5 años · 6 a 10 años'], ['Coordinador(a)', '5 a 8 años, 1 o 2 conduciendo equipos'],
+        ['Supervisor(a) · Especialista', '3 a 5 años · 6 a 10 años'], ['Coordinador(a) I · II', '5 a 7 · 7 a 10 años'],
         ['Gerente de unidad de negocio', '8 a 12 años, con el canal en más de un país'], ['Gerente', '10 a 15 años, 5 o más dirigiendo áreas'], ['Director(a)', 'Más de 15 años, 5 o más en dirección'] ] },
       nota: 'La experiencia de cada escalón y lo que exige saber se detallan en la estructura patrón de cargos (punto 2 del índice).' },
 
@@ -141,7 +141,7 @@ window.GUIA_MANUAL = {
         ['Cargo', 'Conjunto de responsabilidades que la organización asigna a una o más posiciones con el mismo nombre.'],
         ['Posición', 'Cada puesto concreto de la estructura, que ocupa una persona. Un cargo puede tener varias posiciones.'],
         ['Familia de cargos', 'Los cargos de un área de la estructura To-Be, del escalón más alto al más bajo.'],
-        ['Escalón', 'Nivel del cargo en la estructura patrón: Operario, Auxiliar, Analista I · II · III, Supervisor o Especialista, Coordinador, Gerente de unidad de negocio, Gerente o Director.'],
+        ['Escalón', 'Nivel del cargo en la estructura patrón: Operario, Auxiliar, Analista I · II · III, Supervisor o Especialista, Coordinador I · II, Gerente de unidad de negocio, Gerente o Director.'],
         ['Apellido', 'El nivel de la estructura donde está la posición —corporativo o país— que el cargo toma en su nombre cuando hace falta.'],
         ['Nivel de cargo', 'Grupo de escalones de la estructura patrón que comparten las mismas competencias específicas y el mismo descriptor de las genéricas. Hay cuatro.'],
         ['Deber ser', 'El cargo tal como debe funcionar en la estructura To-Be, distinto de cómo lo ejerce hoy su ocupante.'],

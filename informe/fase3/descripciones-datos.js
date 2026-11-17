@@ -15,7 +15,7 @@ window.DESCRIPCIONES_CARGO = {
     // todos sus escalones. Competencias y definiciones del diccionario de la Fase 3, sin cambios. Lo lee también la guía.
     niveles_cargo: [
       { nombre: "Dirección y gerencia", escalones: ["Director(a)", "Gerente", "Gerente de unidad de negocio"] },
-      { nombre: "Coordinación y supervisión", escalones: ["Coordinador(a)", "Supervisor(a)"] },
+      { nombre: "Coordinación y supervisión", escalones: ["Coordinador(a) II", "Coordinador(a) I", "Supervisor(a)"] },
       { nombre: "Analistas y especialistas", escalones: ["Especialista", "Analista I", "Analista II", "Analista III"] },
       { nombre: "Apoyo y operación", escalones: ["Auxiliar", "Operario(a)"] }
     ],
@@ -25,6 +25,8 @@ window.DESCRIPCIONES_CARGO = {
       "Gerente": "Dirección y gerencia",
       "Gerente de unidad de negocio": "Dirección y gerencia",
       "Coordinador(a)": "Coordinación y supervisión",
+      "Coordinador(a) I": "Coordinación y supervisión",
+      "Coordinador(a) II": "Coordinación y supervisión",
       "Supervisor(a)": "Coordinación y supervisión",
       "Especialista": "Analistas y especialistas",
       "Analista I": "Analistas y especialistas",
