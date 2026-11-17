@@ -7194,7 +7194,7 @@ window.MANUAL_CONTENIDO = {
        {"id": "n4", "carril": "Coordinador(a) de Tesorería / Cobranzas", "tipo": "tarea", "n": "Definir la línea de crédito propuesta"},
        {"id": "n5", "carril": "Gerente de Tesorería", "tipo": "decision", "n": "¿Requiere escalar la aprobación?"},
        {"id": "n5alt", "carril": "Gerente de Tesorería", "tipo": "tarea", "n": "Escalar la aprobación al siguiente nivel"},
-       {"id": "n6", "carril": "Analista de Cuentas por Cobrar", "tipo": "tarea", "n": "Aprobar y crear el cliente con la línea en el ERP"},
+       {"id": "n6", "carril": "Analista de Cuentas por Cobrar", "tipo": "tarea", "n": "Crear el cliente con la línea aprobada en el ERP"},
        {"id": "n7", "carril": "Analista de Cuentas por Cobrar", "tipo": "fin", "n": "Cliente creado con crédito aprobado y documentado"}
       ],
       "aristas": [
@@ -7407,6 +7407,7 @@ window.MANUAL_CONTENIDO = {
       {"id": "a1", "rol": "Planificador Financiero", "texto": "Convoca a los líderes de área para la formulación del presupuesto operativo del ciclo anual."},
       {"id": "a2", "rol": "Líderes de área", "texto": "Presentan su propuesta de presupuesto por centro de costo y por rubro."},
       {"id": "a3", "rol": "Planificador Financiero", "texto": "Consolida el presupuesto del grupo y lo somete a la Junta Directiva para su aprobación."},
+      {"id": "a3b", "rol": "Junta Directiva", "texto": "Aprueba el presupuesto anual del grupo, que pasa a ser la referencia contra la que se mide la ejecución de cada mes."},
       {"id": "a4", "rol": "Gerente de Contabilidad / Administración", "texto": "Clasifica el gasto real por centro de costo y por rubro al cierre de cada mes."},
       {"id": "a5", "rol": "Planificador Financiero", "texto": "Compara la ejecución contra el presupuesto y reporta las desviaciones a los líderes de área y a la Junta."}
      ],
