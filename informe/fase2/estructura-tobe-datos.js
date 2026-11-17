@@ -126,9 +126,9 @@
        marca en rojo, la ficha las lista arriba y Premisas las reúne en su pestaña
      cargos: [{n, sub?, ocupante, funciones, nota}] — cargos de la unidad que no son
        unidad (13-nov-2026): no tienen caja en el organigrama; la ficha de la unidad
-       los lista en «Cargos de la unidad». Hoy, en la gerencia corporativa de Ventas
-       (Planificación de la Demanda y Nuevos Mercados). Sus decisiones van en las de
-       la unidad.
+       los lista en «Cargos de la unidad». Sus decisiones van en las de la unidad.
+       Hoy ninguna unidad lo usa: Planificación de la Demanda y Nuevos Mercados lo usó
+       entre el 13 y el 17-nov-2026 y volvió a tener caja.
    En DIRECCIONES, un nodo con nivel:'n2' es una gerencia corporativa que
    reporta directo a la Presidencia (hoy, la PMO y Tecnología, Gobernanza y
    Cumplimiento).
@@ -177,7 +177,7 @@ window.ESTRUCTURA_TOBE = {
     ocupante:{nombre:'Bernardo Roizental', estado:'actual'},
     funciones:[
       'Conduce el grupo con nueve reportes directos, dos por encima del tramo de 4 a 7 que fija el principio 3: seis direcciones corporativas —las cuatro unidades de negocio (Innovación y Desarrollo de Productos, Diseño y Marca, Compras y Cadena de Suministro y Comercial), Finanzas y Desarrollo Corporativo— y tres gerencias corporativas de staff —Tecnología, Gobernanza del Dato y Cumplimiento, Gobierno de IA y la PMO—.',
-      'Tiene como unidades propias la Asistencia Ejecutiva a la Presidencia y la Consultoría Jurídica.',
+      'Tiene como unidades propias la Coordinación Ejecutiva de la Presidencia y la Consultoría Jurídica.',
       'Preside los órganos de cogobierno o delega su convocatoria en la dirección que corresponda.'
     ]
   },
@@ -193,14 +193,16 @@ window.ESTRUCTURA_TOBE = {
      nota:'No es línea de mando: no se conecta con la Presidencia ni con ninguna dirección. Por eso se muestra con los comités y no en la cima del organigrama.'}
   ],
   STAFF: [
-    {id:'comunicaciones', n:'Asistencia Ejecutiva a la Presidencia', nivel:'staff', etiqueta:'Unidad de la Presidencia',
-     ocupante:{nombre:'Carmela Iribarren', estado:'actual', nota:'Hoy es la asistente ejecutiva de la Presidencia.'},
+    {id:'comunicaciones', n:'Coordinación Ejecutiva de la Presidencia', nivel:'staff', etiqueta:'Unidad de la Presidencia',
+     ocupante:{nombre:'Carmela Iribarren', estado:'actual', nota:'Hoy es la asistente ejecutiva de la Presidencia. El cargo pasa a denominarse Coordinador(a) Ejecutivo(a) de la Presidencia.'},
      funciones:[
-       'Asiste a la Presidencia en su agenda, su despacho y el seguimiento de sus decisiones con las direcciones.',
-       'Entre los procesos que atiende están las comunicaciones corporativas: es el canal único de comunicación institucional hacia toda la organización.',
-       'Recibe de cada dirección qué quiere comunicar (proyectos, talento, cambios) y lo emite con una sola voz.'
+       'Coordina la agenda y el despacho de la Presidencia y el seguimiento de sus decisiones con las direcciones.',
+       'Lleva las comunicaciones internas y externas del grupo: es el canal único de comunicación institucional, hacia toda la organización y hacia fuera. Recibe de cada dirección qué quiere comunicar (proyectos, talento, cambios) y lo emite con una sola voz.',
+       'Lleva las relaciones públicas del grupo.',
+       'Atiende los vínculos con grupos empresariales.',
+       'Todo bajo la supervisión de la Presidencia.'
      ],
-     nota:'Antes se llamaba Comunicaciones Internas. Va junto a la Presidencia —no al nivel de las direcciones— porque la asiste directamente y sirve a todas las áreas.'},
+     nota:'Se llamó Comunicaciones Internas y, hasta el 17-nov-2026, Asistencia Ejecutiva a la Presidencia. Ese día pasa a Coordinación Ejecutiva, con un cargo de Coordinador(a) Ejecutivo(a) de la Presidencia, y suma las comunicaciones externas, las relaciones públicas y los vínculos con grupos empresariales. La comunicación que lleva es la institucional del grupo; la comunicación de las marcas sigue en Mercadeo y en Diseño y Marca. Va junto a la Presidencia —no al nivel de las direcciones— porque trabaja bajo su supervisión directa y sirve a todas las áreas.'},
     {id:'juridica', n:'Consultoría Jurídica', nivel:'staff', etiqueta:'', enLinea:true,
      ocupante:{nombre:'Bernie Weininger', estado:'actual', nota:'Director de la Junta Directiva. Se suma un abogado contratado a tiempo parcial.'},
      funciones:[
@@ -327,10 +329,10 @@ window.ESTRUCTURA_TOBE = {
          funciones:[
            'Compra estratégica de todas las marcas: la hoja de pedido y la asignación con Casio, las órdenes a fábrica de Cubitt y los repuestos.',
            'Negocia las condiciones y sigue cada orden hasta el embarque.',
-           'La planificación de la compra que cada país le hace a Panamá y su reparto a países y tiendas, a través de su coordinación de Planificación, Despacho e Inventarios.',
+           'La planificación de la compra que cada país le hace a Panamá y su reparto a países y tiendas, a través de su coordinación de Planificación y Despacho.',
            'La política de compra interna de toda la organización, que ejecuta en cada país su coordinación de Compras Internas.'
          ],
-         nota:'Separa la decisión de compra de la operación logística, dentro de la misma dirección. Tiene una coordinación por marca, porque Casio y Cubitt compran a fábrica con ritmos y reglas distintos: la de Casio con la casa matriz, la de Cubitt con las fábricas. Una tercera, la de Planificación, Despacho e Inventarios, compra a Panamá lo que necesita cada país y lo reparte (04-nov-2026). La compra interna, lo que no es producto para la venta, se hace en cada país con la política que fija esta gerencia.',
+         nota:'Separa la decisión de compra de la operación logística, dentro de la misma dirección. Tiene una coordinación por marca, porque Casio y Cubitt compran a fábrica con ritmos y reglas distintos: la de Casio con la casa matriz, la de Cubitt con las fábricas. Una tercera, la de Planificación y Despacho, compra a Panamá lo que necesita cada país y lo reparte (04-nov-2026). La compra interna, lo que no es producto para la venta, se hace en cada país con la política que fija esta gerencia.',
          hijos:[
            {id:'compcasio', n:'Compras Casio', nivel:'ccorp',
             ocupante:{nombre:'Vera Gavizon', estado:'actual', nota:'Hoy lleva la compra de Casio (reunión del 04-nov-2026).'},
@@ -346,21 +348,19 @@ window.ESTRUCTURA_TOBE = {
               'Los repuestos de la marca.',
               'Sigue cada orden en producción y hasta el embarque.'
             ]},
-           {id:'planinv', n:'Planificación, Despacho e Inventarios', nivel:'ccorp',
+           {id:'planinv', n:'Planificación y Despacho', nivel:'ccorp',
             ocupante:{nombre:'Jimena Sánchez', estado:'actual', nota:'Hoy es coordinadora de planificación de compras en Venezuela y atiende también a Panamá.'},
             funciones:[
               'Una vez que la mercancía llega de fábrica, planifica lo que cada país le compra a Kenex Panamá: cuánto de cada modelo y color necesita cada uno.',
               'Planifica el despacho: decide qué sale, a dónde y cuándo, y lo entrega como orden de reparto a países, tiendas y clientes, con los traslados entre tiendas. No mueve la mercancía: la orden la ejecuta la coordinación de Despacho de Operaciones y Logística, que le devuelve la confirmación de cada entrega.',
-              'Vigila el inventario de cada país contra su venta, para comprar a tiempo y no sobrestockear.',
-              'El control del inventario físico: conteos, ajustes y cuadre del stock con el sistema en el almacén principal y en las bodegas país.',
-              'La carga y el mantenimiento de los precios en el sistema.',
-              'Reporta las diferencias de inventario y sus causas.'
+              'Planifica sobre el inventario que le entrega cuadrado la coordinación de Inventario de Operaciones y Logística: no lo cuenta ni lo controla.',
+              'La carga y el mantenimiento de los precios en el sistema.'
             ],
             decisiones:[
               'Si el precio queda en esta coordinación o pasa a Comercial.'
             ],
-            interna:['Analista de inventario: por cubrir.', 'Coordinación de despacho y compras: por cubrir. Planifica el despacho; no lo ejecuta.'],
-            nota:'Acordada en la reunión del 04-nov-2026. Es corporativa porque ya atiende a más de un país y crece con cada país que se sume. Su despacho es el plan, no el movimiento: decide qué va a dónde, en qué cantidad y cuándo, con la venta y el inventario de cada país a la vista. El movimiento físico —preparar, cargar, transportar y entregar— lo hace la coordinación de Despacho de Operaciones y Logística (Edgar Claros). Entre las dos viaja una sola orden de reparto: esta la emite y aquella la cumple. Desde el 11-nov-2026 suma el control del inventario y los precios, que estaban en la coordinación de Inventario y Precios de Operaciones y Logística: quien planifica sobre el inventario es quien lo cuadra, y no hay un inventario paralelo.'},
+            interna:['Coordinación de despacho y compras: por cubrir. Planifica el despacho; no lo ejecuta.'],
+            nota:'Acordada en la reunión del 04-nov-2026. Es corporativa porque ya atiende a más de un país y crece con cada país que se sume. Su despacho es el plan, no el movimiento: decide qué va a dónde, en qué cantidad y cuándo, con la venta y el inventario de cada país a la vista. El movimiento físico —preparar, cargar, transportar y entregar— lo hace la coordinación de Despacho de Operaciones y Logística (Edgar Claros). Entre las dos viaja una sola orden de reparto: esta la emite y aquella la cumple. Entre el 11 y el 17-nov-2026 llevó también el control del inventario y se llamó «Planificación, Despacho e Inventarios». Desde el 17-nov-2026 la estrategia y el control del inventario pasan a una coordinación corporativa de Inventario en Operaciones y Logística: su ocupante no hace inventario. Conserva la carga de los precios.'},
            {id:'compinternas', n:'Compras Internas · Procura', nivel:'n3',
             paises:{
               PA:{nombre:'Por definir', estado:'pordefinir', cargo:'Coordinación', nota:'Hoy la compra interna de Panamá la centraliza Recursos Humanos.'},
@@ -380,22 +380,33 @@ window.ESTRUCTURA_TOBE = {
          ocupante:{nombre:'Fernando Alvarado', estado:'propuesto'},
          funciones:[
            'Dueño único de la promesa de entrega: importación, almacén principal y distribución a todos los países.',
-           'Mueve la mercancía según el reparto que planifica la coordinación de Planificación, Despacho e Inventarios, en Compras.'
+           'Mueve la mercancía según el reparto que planifica la coordinación de Planificación y Despacho, en Compras.',
+           'Responde por la estrategia y el control del inventario, a través de su coordinación de Inventario.'
          ],
-         nota:'La visión corporativa es de barco, almacén principal y distribución. En cada país hace falta una gerencia que atienda los permisos, la aduana y la bodega local: desde lo corporativo no se puede gobernar la bodega de otro país. Desde el 06-nov-2026 tiene una coordinación corporativa de Despacho; la de Inventario y Precios, que tuvo entre el 06 y el 11-nov, pasó a Planificación, Despacho e Inventarios, en Compras. Fernando Alvarado envió su propio modelo de funcionamiento de la gerencia.',
+         nota:'La visión corporativa es de barco, almacén principal y distribución. En cada país hace falta una gerencia que atienda los permisos, la aduana y la bodega local: desde lo corporativo no se puede gobernar la bodega de otro país. Desde el 06-nov-2026 tiene una coordinación corporativa de Despacho; la de Inventario y Precios, que tuvo entre el 06 y el 11-nov, pasó a Planificación, Despacho e Inventarios, en Compras. Desde el 17-nov-2026 vuelve a tener una coordinación corporativa de Inventario, con la estrategia y el control del inventario; los precios siguen en Planificación y Despacho. Fernando Alvarado envió su propio modelo de funcionamiento de la gerencia.',
          hijos:[
            {id:'despacho', n:'Despacho', nivel:'ccorp',
             decisiones:[
-              'Fernando Alvarado envió un modelo de funcionamiento de la gerencia corporativa de Operaciones y Logística: confirmar con él esta coordinación, su alcance y su ocupante. Deslindarla de la coordinación de Planificación, Despacho e Inventarios, en Compras, que decide qué va a dónde y tenía por cubrir una coordinación de despacho y compras.'
+              'Fernando Alvarado envió un modelo de funcionamiento de la gerencia corporativa de Operaciones y Logística: confirmar con él esta coordinación, su alcance y su ocupante. Deslindarla de la coordinación de Planificación y Despacho, en Compras, que decide qué va a dónde y tenía por cubrir una coordinación de despacho y compras.'
             ],
             ocupante:{nombre:'Edgar Claros', estado:'actual', nota:'Hoy es coordinador de despacho en la Bodega Obarrio, en Panamá.'},
             funciones:[
-              'Ejecuta el despacho físico desde el almacén principal a los países, las tiendas y los clientes: recibe la orden de reparto de Planificación, Despacho e Inventarios, prepara y carga la mercancía y la embarca.',
+              'Ejecuta el despacho físico desde el almacén principal a los países, las tiendas y los clientes: recibe la orden de reparto de Planificación y Despacho, prepara y carga la mercancía y la embarca.',
               'Programa y coordina el transporte, y confirma cada entrega a esa coordinación.',
-              'No decide qué va a dónde: si la mercancía no alcanza o hay que cambiar el reparto, lo devuelve a Planificación, Despacho e Inventarios.',
+              'No decide qué va a dónde: si la mercancía no alcanza o hay que cambiar el reparto, lo devuelve a Planificación y Despacho.',
               'Fija con las gerencias país la forma común de despachar.'
             ],
-            nota:'Su despacho es el movimiento, no el plan. Planificación, Despacho e Inventarios (Jimena Sánchez), en Compras, decide qué sale, a dónde y cuándo; esta coordinación lo hace llegar: preparación, carga, transporte y entrega. Entre las dos viaja una sola orden de reparto: aquella la emite y esta la cumple y confirma.'},
+            nota:'Su despacho es el movimiento, no el plan. Planificación y Despacho (Jimena Sánchez), en Compras, decide qué sale, a dónde y cuándo; esta coordinación lo hace llegar: preparación, carga, transporte y entrega. Entre las dos viaja una sola orden de reparto: aquella la emite y esta la cumple y confirma.'},
+           {id:'inventario', n:'Inventario', nivel:'ccorp',
+            ocupante:{nombre:'Por definir', estado:'pordefinir'},
+            funciones:[
+              'La estrategia del inventario: la cobertura y los mínimos de cada país y de cada bodega, y la vigilancia del inventario de cada país contra su venta, para que no falte ni sobre.',
+              'El control del inventario físico: conteos, ajustes y cuadre del stock con el sistema en el almacén principal y en las bodegas país.',
+              'Reporta las diferencias de inventario y sus causas.',
+              'Entrega el inventario cuadrado a Planificación y Despacho, en Compras, que planifica sobre él la compra de cada país y el reparto.'
+            ],
+            interna:['Analista de inventario: por cubrir.'],
+            nota:'Creada el 17-nov-2026. La estrategia y el control del inventario salen de la coordinación de Planificación, Despacho e Inventarios de Compras, que pasa a llamarse Planificación y Despacho: su ocupante no hace inventario. Va en Operaciones y Logística porque el inventario físico está en el almacén principal y en las bodegas país que esta gerencia opera. Las bodegas cuentan y mueven con su norma, y no se lleva un inventario paralelo. Los precios siguen en Planificación y Despacho.'},
            {id:'oplpais', n:'Operaciones y Logística', nivel:'n3',
             decisiones:[
               'Confirmar a Isabella Roizental en la gerencia de Operaciones y Logística de Estados Unidos, que suma a la de E-commerce, y aclarar si en Estados Unidos se vende también Casio.'
@@ -456,12 +467,9 @@ window.ESTRUCTURA_TOBE = {
            'Línea rectora de todos los canales de venta y de la postventa.',
            'Su operatividad debe ser baja: hoy está absorbido por tareas de tienda —como formar a los encargados— que corresponden a las gerencias país.'
          ],
-         decisiones:[
-           'Si la planificación de la demanda y los mercados nuevos los lleva un solo cargo o dos.'
-         ],
-         // cargos de la gerencia que no son unidad: van en su ficha, no como caja (13-nov-2026)
-         cargos:[
-           {n:'Coordinación corporativa de Planificación de la Demanda y Nuevos Mercados',
+         hijos:[
+           // sobre la línea que baja de Ventas a sus canales: puede apoyar a cualquiera de los cuatro
+           {id:'plandemanda', n:'Planificación de la Demanda y Nuevos Mercados', nivel:'ccorp', enLinea:true,
             sub:'Cubitt; la demanda de Casio la planifica Brand Management',
             ocupante:{nombre:'Ricardo Baltodano', estado:'propuesto', nota:'Hoy es el gerente regional de Cubitt en Panamá, dentro del equipo de Ventas al Mayor: lleva los datos comerciales de la marca y planifica la venta al mayor. En la reunión con la Presidencia del 16-oct-2026 se planteó que esta es la posición que le corresponde.'},
             funciones:[
@@ -471,9 +479,10 @@ window.ESTRUCTURA_TOBE = {
               'Contrata y lee las fuentes externas de inteligencia de mercado que la venta necesita, con Mercadeo.',
               'Apoya a cualquiera de los cuatro canales de Ventas sin dirigir a ninguno.'
             ],
-            nota:'Acordada en la reunión con la Presidencia del 16-oct-2026, con nombre provisional. En la reunión del 04-nov-2026 se confirmó una por marca: Ricardo Baltodano para Cubitt y Félix Almendral para Casio. Desde el 10-nov-2026 la demanda de Casio la planifica Félix Almendral desde Brand Management, gerencia corporativa de Comercial, y este cargo queda con Cubitt, los mercados nuevos y el plan consolidado. Reporta directo a la gerencia corporativa de Ventas y puede apoyar a los cuatro canales. Desde el 13-nov-2026 no es una unidad sino un cargo de la gerencia corporativa de Ventas, con nivel de coordinación corporativa: se retiró su caja del organigrama. Falta decidir si la planificación de la demanda y los mercados nuevos los lleva un solo cargo o dos.'}
-         ],
-         hijos:[
+            decisiones:[
+              'Si la planificación de la demanda y los mercados nuevos van en una sola unidad o en dos.'
+            ],
+            nota:'Acordada en la reunión con la Presidencia del 16-oct-2026, con nombre provisional. En la reunión del 04-nov-2026 se confirmó una por marca: Ricardo Baltodano para Cubitt y Félix Almendral para Casio. Desde el 10-nov-2026 la demanda de Casio la planifica Félix Almendral desde Brand Management, gerencia corporativa de Comercial, y esta unidad queda con Cubitt, los mercados nuevos y el plan consolidado. Va sobre la línea que baja de la gerencia corporativa de Ventas a sus canales, como la Consultoría Jurídica sobre la de la Presidencia: le reporta directo y puede apoyar a los cuatro. Desde el 11-nov-2026 es una coordinación corporativa. Entre el 13 y el 17-nov-2026 se mostró como cargo de la ficha de Ventas, sin caja; el 17-nov-2026 vuelve a tener su caja. Falta decidir si la planificación de la demanda y los mercados nuevos quedan en una sola unidad o en dos.'},
            {id:'mayorcorp', n:'Ventas al Mayor', nivel:'gun',
             ocupante:{nombre:'Por definir', estado:'pordefinir', nota:'Gerente regional de ventas al mayor de todos los países: hoy la posición no existe.'},
             funciones:[
@@ -909,7 +918,7 @@ window.ESTRUCTURA_TOBE = {
     {t:'La cadena de valor ordena las direcciones',
      d:'El negocio empieza con Innovación y Desarrollo de Productos, que desarrolla el producto con la lectura del mercado que le da Mercadeo y lo diseña con el sistema de marca de Diseño y Marca, que custodia cómo se ve la marca en todo lo que el grupo produce; Compras y Cadena de Suministro lo compra, lo trae y lo almacena; Comercial lo vende —en tienda, al mayor y por la web— y atiende la postventa; Finanzas, desde el staff, cobra y consolida.'},
     {t:'Staff y unidades de negocio',
-     d:'Innovación y Desarrollo de Productos, Diseño y Marca, Compras y Cadena de Suministro y Comercial son las unidades de negocio: la razón de ser del grupo, bajo la línea de mando de la Presidencia y en el orden de la cadena de valor, del producto a la postventa. El staff sostiene a las cuatro y apoya al Comité Directivo, sin mezclarse con ellas: las direcciones de Finanzas y de Desarrollo Corporativo, y tres gerencias corporativas que reportan directo a la Presidencia: Tecnología, Gobernanza del Dato y Cumplimiento, Gobierno de IA y la PMO. La Asistencia Ejecutiva a la Presidencia y la Consultoría Jurídica son unidades de la propia Presidencia. En el organigrama cada grupo va en su contenedor: el staff a la izquierda de la línea que baja de la Presidencia y las unidades de negocio a la derecha; dentro de cada uno, un recuadro agrupa los niveles corporativos y debajo quedan las gerencias país.'},
+     d:'Innovación y Desarrollo de Productos, Diseño y Marca, Compras y Cadena de Suministro y Comercial son las unidades de negocio: la razón de ser del grupo, bajo la línea de mando de la Presidencia y en el orden de la cadena de valor, del producto a la postventa. El staff sostiene a las cuatro y apoya al Comité Directivo, sin mezclarse con ellas: las direcciones de Finanzas y de Desarrollo Corporativo, y tres gerencias corporativas que reportan directo a la Presidencia: Tecnología, Gobernanza del Dato y Cumplimiento, Gobierno de IA y la PMO. La Coordinación Ejecutiva de la Presidencia y la Consultoría Jurídica son unidades de la propia Presidencia. En el organigrama cada grupo va en su contenedor: el staff a la izquierda de la línea que baja de la Presidencia y las unidades de negocio a la derecha; dentro de cada uno, un recuadro agrupa los niveles corporativos y debajo quedan las gerencias país.'},
     {t:'Equipos nucleares que se asignan por demanda',
      d:'Consultoría Jurídica no se replica por país, y la PMO solo tiene gerencia país donde la cartera lo pide —hoy Venezuela—: son equipos centrales que se reparten según lo que pida la corporación, y que subcontratan en los picos.'},
     {t:'Cogobierno por comités',
@@ -929,7 +938,7 @@ window.ESTRUCTURA_TOBE = {
       {id:'gobierno', n:'Gobierno', verbo:'Decide el rumbo',
        d:'La Junta Directiva. Aprueba el rumbo y recibe el cuadro de indicadores de las direcciones. Es gobierno, no línea de mando.'},
       {id:'presidencia', n:'Presidencia', verbo:'Conduce el grupo',
-       d:'Una sola cabeza ejecutiva, con un tramo objetivo de 4 a 7 reportes directos. A su lado, la Asistencia Ejecutiva; sobre su línea, la Consultoría Jurídica; y a un costado de la línea de mando, el staff de apoyo al Comité Directivo, que sirve a toda la organización: dos direcciones y tres gerencias corporativas que le reportan directo.'},
+       d:'Una sola cabeza ejecutiva, con un tramo objetivo de 4 a 7 reportes directos. A su lado, la Coordinación Ejecutiva; sobre su línea, la Consultoría Jurídica; y a un costado de la línea de mando, el staff de apoyo al Comité Directivo, que sirve a toda la organización: dos direcciones y tres gerencias corporativas que le reportan directo.'},
       {id:'n1', nivel:'n1', verbo:'Fijan la línea rectora', escalon:'Director(a) corporativo(a)',
        d:'Aquí están las cuatro unidades de negocio, en el orden de la cadena de valor. El staff no comparte esta capa: apoya desde los costados de la Presidencia, en la capa anterior.'},
       {id:'n2', nivel:'n2', verbo:'Gobiernan una especialidad', escalon:'Gerente corporativo(a)',
@@ -1031,7 +1040,7 @@ window.ESTRUCTURA_TOBE = {
        ahora:'Una gerencia corporativa de PMO con un equipo de gerentes de proyecto asignado por demanda, y una gerencia país donde la cartera lo pide (hoy Venezuela).',
        porque:'El mismo perfil atiende todas las clases de proyecto, y así no quedan capacidades ociosas en un ala mientras la otra se satura.'},
       {antes:'Sin estas piezas.',
-       ahora:'La Dirección de Finanzas con su coordinación de Planificación y Control Financiero y sus gerencias de Administración y Finanzas por país, la coordinación corporativa de Planificación de la Demanda y Nuevos Mercados en Ventas, Consultoría Jurídica, Gobierno de IA, Formación y la Asistencia Ejecutiva a la Presidencia y el Consejo de Familia entre las instancias de cogobierno.',
+       ahora:'La Dirección de Finanzas con su coordinación de Planificación y Control Financiero y sus gerencias de Administración y Finanzas por país, la coordinación corporativa de Planificación de la Demanda y Nuevos Mercados en Ventas, Consultoría Jurídica, Gobierno de IA, Formación y la Coordinación Ejecutiva de la Presidencia y el Consejo de Familia entre las instancias de cogobierno.',
        porque:'Funciones que hoy se reparten entre personas sin cargo, asesores externos o nadie, e instancias de la familia que existen pero no figuraban en la estructura.'}
     ]
   },

@@ -97,7 +97,7 @@ window.POLITICA_MANUAL = {
           ['Dueños de proceso', 'Responden por su proceso: validan su documentación, solicitan sus cambios, deciden qué hacer con sus desviaciones y proponen sus mejoras.'],
           ['Tecnología, Gobernanza del Dato y Cumplimiento', 'Administra el repositorio como sistema: su disponibilidad, sus respaldos y sus permisos de acceso. Confirma que lo documentado sea coherente con los sistemas del grupo.'],
           ['Formación · Universidad Corporativa', 'Forma a los equipos en los procesos nuevos o modificados y los incorpora a la inducción.'],
-          ['Comunicación institucional (Asistencia Ejecutiva a la Presidencia)', 'Comunica los procesos nuevos o modificados a la organización, con una sola voz.'],
+          ['Comunicación institucional (Coordinación Ejecutiva de la Presidencia)', 'Comunica los procesos nuevos o modificados a la organización, con una sola voz.'],
           ['Gerentes y supervisores', 'Aplican el manual en su equipo, acompañan los cambios y facilitan la verificación de su cumplimiento.'],
           ['Todas las personas', 'Conocen y aplican los procesos de su trabajo en su versión vigente, y proponen mejoras.'],
         ] },

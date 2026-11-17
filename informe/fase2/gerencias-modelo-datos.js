@@ -28,6 +28,9 @@
    de Diseño y Marca que le reportan directo; el diseño de producto pasa a Desarrollo
    y Calidad de Productos, la producción y los espacios a Visual Merchandising, y la
    coordinación de Inventario y Precios a Planificación, Despacho e Inventarios.
+   Revisión del 17-nov-2026: la estrategia y el control del inventario salen de esa
+   coordinación, que pasa a llamarse Planificación y Despacho, hacia una coordinación
+   corporativa de Inventario en Operaciones y Logística.
    Revisión del 13-nov-2026: Planificación de la Demanda y Nuevos Mercados deja de ser
    unidad sobre la línea de Ventas: es un cargo de la gerencia corporativa (sin caja).
    Diseño y Marca tiene dos coordinaciones por área —Creatividad y Contenido Audiovisual,
@@ -37,7 +40,7 @@
    lee. Sin nombres de ocupantes, a propósito.
    ============================================================================ */
 window.MODELOS_GERENCIAS = {
-  corte: '13-nov-2026',
+  corte: '17-nov-2026',
   ROT: {mando:'Mando', norma:'Norma', servicio:'Servicio', mision:'Misión', decide:'Decide'},
   gerencias: [
 {id:'ventas', unidad:'ventas', n:'Ventas', dir:'Comercial', red:'Red por canal', capa:'Sí, por canal: Mayor, Retail, E-commerce y Postventa en cada país',
@@ -54,7 +57,7 @@ window.MODELOS_GERENCIAS = {
  conex:[
   {t:'servicio',con:'Brand Management · Comercial',dir:'recibe',que:'El plan de demanda de Casio, que la gerencia corporativa de Ventas suma al de Cubitt en el plan consolidado del grupo.'},
   {t:'servicio',con:'Mercadeo',dir:'recibe',que:'La demanda: campañas, trade con los mayoristas y la pauta de marca. Mercadeo recomienda el precio con data del consumidor; Ventas lo fija.'},
-  {t:'servicio',con:'Planificación, Despacho e Inventarios',dir:'recibe',que:'El sugerido de pedido de cada tienda y país, según su venta y su inventario, que cada canal revisa y ajusta.'},
+  {t:'servicio',con:'Planificación y Despacho',dir:'recibe',que:'El sugerido de pedido de cada tienda y país, según su venta y su inventario, que cada canal revisa y ajusta.'},
   {t:'servicio',con:'Operaciones y Logística país',dir:'recibe',que:'El despacho a tiendas, a mayoristas y de los pedidos web, con plazos acordados.'},
   {t:'norma',con:'Visual Merchandising · Mercadeo',dir:'recibe',que:'Los estándares visuales de tienda y de exhibición.'},
   {t:'servicio',con:'Visual Merchandising · Mercadeo',dir:'recibe',que:'El montaje de la exhibición en las tiendas de Retail y en los clientes de Ventas al Mayor, con plazos por canal.'},
@@ -83,21 +86,21 @@ window.MODELOS_GERENCIAS = {
    ['Montaje del visual en tienda (lo hace Mercadeo, con el estándar de Visual Merchandising)','','C','','C']]},
  decidir:['Si cada país tiene una cabeza país o una dirección general, y qué papel tiene en la mesa del país. Está en las decisiones pendientes de la estructura (1.2).','Si la planificación de la demanda y los mercados nuevos los lleva un solo cargo o dos. Está en las decisiones pendientes de la estructura (1.2).','Con qué frecuencia se reúne la mesa del país y quién la convoca mientras no haya cabeza país.','El gerente regional de Ventas al Mayor: dejar la posición en espera, buscarlo o cubrirla con alguien del grupo. Está en las decisiones pendientes de la estructura (1.2).','Dónde queda el visual merchandising: se dibuja en Mercadeo, como servicio a Retail y a Ventas al Mayor, pero podría ir en Retail. Está en las decisiones pendientes de la estructura (1.2).']},
 
-{id:'operaciones', unidad:'oplcorp', n:'Operaciones y Logística', dir:'Compras y Cadena de Suministro', red:'Centro y bodegas país', capa:'Sí: Operaciones y Logística en PA · VE · CO · US, con Servicios Generales dentro. Arriba, una coordinación corporativa: Despacho',
+{id:'operaciones', unidad:'oplcorp', n:'Operaciones y Logística', dir:'Compras y Cadena de Suministro', red:'Centro y bodegas país', capa:'Sí: Operaciones y Logística en PA · VE · CO · US, con Servicios Generales dentro. Arriba, dos coordinaciones corporativas: Despacho e Inventario',
  riesgo:'Todos le piden a la bodega del país todos los días: los cuatro canales, Finanzas, Compras Internas y la PMO.',
  premisa:'La gerencia país de Operaciones y Logística tiene una sola línea, la corporativa. Los canales del país son sus clientes: le piden por servicio y no le dan órdenes.',
  dilema:'La bodega del país despacha a tiendas, a mayoristas y a la web, y su coordinación de Servicios Generales mantiene sedes y tiendas con contratistas que compra Compras Internas y paga Finanzas. Cada uno le pide algo, y sin regla cada uno actúa como su jefe.',
  resuelve:'Una línea, de la gerencia país a la corporativa, y de Servicios Generales a la gerencia país. Los pedidos llegan como servicio con plazo, y la prioridad comercial entre canales la decide Ventas, no la bodega.',
  mando:{hub:'Gerencia corporativa de Operaciones y Logística',
    nodosEti:'Coordinación corporativa',
-   nodos:[{t:'Despacho',s:'del almacén principal a países y tiendas'}],
+   nodos:[{t:'Despacho',s:'del almacén principal a países y tiendas'},{t:'Inventario',s:'estrategia y control del inventario'}],
    pais:{t:'Operaciones y Logística',p:'PA · VE · CO · US',sub:{t:'Servicios Generales',p:'PA · VE · CO'}}},
  conex:[
   {t:'norma',con:'Dirección de Compras y Cadena de Suministro',dir:'recibe',que:'Cómo debe funcionar una bodega: las prácticas probadas en Colón, replicadas en las demás.'},
   {t:'servicio',con:'Canales de Ventas del país',dir:'da',que:'El despacho a tiendas, mayoristas y pedidos web, con plazos por canal.'},
   {t:'servicio',con:'Compras',dir:'recibe',que:'Cada orden a fábrica, hasta el embarque. Desde el embarque la orden es de Operaciones y Logística.'},
-  {t:'servicio',con:'Planificación, Despacho e Inventarios',dir:'recibe',que:'El reparto a países y tiendas y los traslados entre tiendas: Compras decide qué va a dónde y la coordinación de Despacho lo mueve.'},
-  {t:'servicio',con:'Planificación, Despacho e Inventarios',dir:'da',que:'Los conteos de cada bodega, con los que esa coordinación cuadra el stock con el sistema y planifica la compra de cada país.'},
+  {t:'servicio',con:'Planificación y Despacho',dir:'recibe',que:'El reparto a países y tiendas y los traslados entre tiendas: Compras decide qué va a dónde y la coordinación de Despacho lo mueve.'},
+  {t:'servicio',con:'Planificación y Despacho',dir:'da',que:'El inventario cuadrado de cada bodega, que su coordinación de Inventario cuenta y controla, y sobre el que esa coordinación planifica la compra de cada país.'},
   {t:'servicio',con:'Compras Internas del país',dir:'recibe',que:'Los servicios y contratistas que Servicios Generales coordina y verifica.'},
   {t:'servicio',con:'Administración y Finanzas país',dir:'recibe',que:'El pago de lo que se compra y se contrata.'},
   {t:'mision',con:'PMO',dir:'mutuo',que:'En cada apertura, Servicios Generales lleva la obra y la bodega la mercancía inicial.'}],
@@ -105,11 +108,11 @@ window.MODELOS_GERENCIAS = {
   ['mando','Una línea por caja','La gerencia país reporta a la gerencia corporativa, y Servicios Generales a la gerencia país. Ningún canal, ni Finanzas, ni Compras le asigna trabajo directo al equipo de bodega.'],
   ['servicio','Los canales piden con plazo','Cada canal tiene un plazo de despacho acordado. El orden lo pone el plan, no quien llama primero.'],
   ['norma','Una sola norma de bodega','La publica la gerencia corporativa a partir de Colón. El país la adapta a su aduana, sus permisos y su bodega, y no la cambia.'],
-  ['norma','Un solo inventario cuadrado','Planificación, Despacho e Inventarios, en Compras, cuadra el stock de cada bodega con el sistema, carga los precios y planifica sobre ese inventario. La bodega cuenta y mueve; no lleva un inventario paralelo.'],
+  ['norma','Un solo inventario cuadrado','La coordinación de Inventario fija la cobertura y los mínimos y cuadra el stock de cada bodega con el sistema. Planificación y Despacho, en Compras, planifica sobre ese inventario y carga los precios. La bodega cuenta y mueve con la norma; nadie lleva un inventario paralelo.'],
   ['decide','La bodega no elige entre canales','Si dos canales piden lo mismo para el mismo día y no alcanza, la bodega aplica la prioridad del plan. Si no basta, decide la gerencia corporativa de Ventas.']],
  caso:{t:'Llega a Colón un contenedor con mercancía para tres países',pasos:[
   ['mando','La gerencia corporativa recibe, liquida la importación y almacena en el almacén principal.'],
-  ['servicio','Planificación, Despacho e Inventarios, en Compras, fija el reparto entre países dentro de lo que aprobó el Comité Comercial; la coordinación de Despacho lo programa y lo despacha.'],
+  ['servicio','Planificación y Despacho, en Compras, fija el reparto entre países dentro de lo que aprobó el Comité Comercial; la coordinación de Despacho lo programa y lo despacha.'],
   ['mando','La gerencia país de Venezuela recibe, atiende la aduana y los permisos locales y almacena.'],
   ['servicio','Despacha a tiendas, mayoristas y web en los plazos de cada canal.'],
   ['decide','Si no alcanza para todos el día pactado, aplica la prioridad del plan; si no basta, decide la gerencia corporativa de Ventas.']],
@@ -121,16 +124,16 @@ window.MODELOS_GERENCIAS = {
    ['Contratistas de mantenimiento: verificar el trabajo','','N','D · E',''],
    ['Personal y turnos de la bodega','N','D','',''],
    ['Reparto a países y tiendas (lo planifica Compras)','E','E','','C']]},
- decidir:['Fernando Alvarado envió un modelo de funcionamiento de la gerencia: revisarlo contra este, en especial la coordinación de Despacho y su frontera con Planificación, Despacho e Inventarios, que desde el 11-nov lleva también el inventario y los precios. Está en las decisiones pendientes de la estructura (1.2).','Los plazos de despacho por canal y por país.','Si Estados Unidos necesita su propia coordinación de Servicios Generales.','Confirmar la gerencia país de Estados Unidos, que hoy se propone junto con la de E-commerce. Está en las decisiones pendientes de la estructura (1.2).']},
+ decidir:['Fernando Alvarado envió un modelo de funcionamiento de la gerencia: revisarlo contra este, en especial las coordinaciones de Despacho y de Inventario y su frontera con Planificación y Despacho, en Compras. Está en las decisiones pendientes de la estructura (1.2).','Quién ocupa la coordinación de Inventario, hoy por definir, y cuándo se cubre su analista de inventario.','Los plazos de despacho por canal y por país.','Si Estados Unidos necesita su propia coordinación de Servicios Generales.','Confirmar la gerencia país de Estados Unidos, que hoy se propone junto con la de E-commerce. Está en las decisiones pendientes de la estructura (1.2).']},
 
-{id:'compras', unidad:'compras', n:'Compras', dir:'Compras y Cadena de Suministro', red:'Compra única por marca', capa:'Sí: Compras Internas en PA · VE · CO. Arriba, tres coordinaciones corporativas: Casio, Cubitt y Planificación, Despacho e Inventarios',
+{id:'compras', unidad:'compras', n:'Compras', dir:'Compras y Cadena de Suministro', red:'Compra única por marca', capa:'Sí: Compras Internas en PA · VE · CO. Arriba, tres coordinaciones corporativas: Casio, Cubitt y Planificación y Despacho',
  riesgo:'Un comprador corporativo que recibe órdenes de cada área y de cada país.',
  premisa:'Nadie compra por su cuenta. Todo pedido de compra entra por una sola vía a la coordinación que le toca, con la política de la dirección.',
  dilema:'Hoy cada área compra lo suyo, sin una política común. Al centralizar aparece el riesgo contrario: que cada área y cada país le dé órdenes al comprador, y que el comprador termine respondiendo a todos.',
  resuelve:'El área que pide dice qué necesita y para cuándo; la coordinación decide a quién y cómo se compra, con la política. La compra de producto la aprueba el Comité Comercial y la paga Finanzas. La compra interna se hace en cada país, con la política de la gerencia corporativa, y lo que cada país le compra a Panamá lo planifica una coordinación corporativa.',
  mando:{hub:'Gerencia corporativa de Compras',
    nodosEti:'Coordinación corporativa',
-   nodos:[{t:'Compras Casio',s:'hoja de pedido y asignación'},{t:'Compras Cubitt',s:'órdenes a fábrica'},{t:'Planificación, Despacho e Inventarios',s:'lo que cada país compra a Panamá'}],
+   nodos:[{t:'Compras Casio',s:'hoja de pedido y asignación'},{t:'Compras Cubitt',s:'órdenes a fábrica'},{t:'Planificación y Despacho',s:'lo que cada país compra a Panamá'}],
    pais:{t:'Compras Internas · Procura',p:'PA · VE · CO',eti:'Coordinación país'}},
  conex:[
   {t:'norma',con:'Dirección de Compras y Cadena de Suministro',dir:'recibe',que:'La política de compra: cuántos proveedores se cotizan, qué muestras se piden, quién aprueba y en cuánto tiempo.'},
@@ -138,13 +141,13 @@ window.MODELOS_GERENCIAS = {
   {t:'norma',con:'Desarrollo y Calidad de Productos',dir:'recibe',que:'Las muestras y especificaciones aprobadas con las que Compras Cubitt ordena a fábrica.'},
   {t:'servicio',con:'Todas las áreas y países',dir:'da',que:'La compra interna por una sola vía en cada país: insumos, material POP, mobiliario, equipos y servicios.'},
   {t:'servicio',con:'Canales de Ventas de cada país',dir:'da',que:'El sugerido de pedido de cada tienda y país, según su venta y su inventario.'},
-  {t:'servicio',con:'Operaciones y Logística',dir:'da',que:'El reparto a países y tiendas y los traslados entre tiendas, que ejecuta su coordinación de Despacho. Cuadra además el inventario de cada bodega con el sistema y carga los precios.'},
+  {t:'servicio',con:'Operaciones y Logística',dir:'da',que:'El reparto a países y tiendas y los traslados entre tiendas, que ejecuta su coordinación de Despacho. Planifica sobre el inventario que le entrega cuadrado la coordinación de Inventario de Operaciones y Logística.'},
   {t:'servicio',con:'Visual Merchandising · Mercadeo',dir:'da',que:'La compra del mobiliario y del material POP que Visual Merchandising monta, por Compras Internas de cada país y con la política de compra.'},
   {t:'servicio',con:'Finanzas',dir:'recibe',que:'Paga lo que se compra. Los compromisos grandes llevan el visto bueno del Comité de Finanzas y Riesgos.'},
   {t:'decide',con:'Comité Comercial',dir:'recibe',que:'Aprueba la compra a fábrica que compone Compras.'}],
  reglas:[
   ['servicio','Una sola vía de solicitud','El área que pide dice qué necesita y para cuándo. Compras Internas de su país decide a quién se le compra y cómo, con la política de la gerencia corporativa. Ninguna área negocia con un proveedor por su cuenta.'],
-  ['servicio','El reparto lo planifica Compras','Planificación, Despacho e Inventarios propone lo que cada país le compra a Panamá y cómo se reparte entre tiendas. Cada canal lo revisa con su conocimiento del punto de venta, y la bodega lo mueve.'],
+  ['servicio','El reparto lo planifica Compras','Planificación y Despacho propone lo que cada país le compra a Panamá y cómo se reparte entre tiendas. Cada canal lo revisa con su conocimiento del punto de venta, y la bodega lo mueve.'],
   ['decide','La compra de producto se aprueba en comité','Compras compone la compra a fábrica y el Comité Comercial la aprueba. Si el compromiso es grande, pasa además por el Comité de Finanzas y Riesgos.'],
   ['servicio','La orden cambia de dueño en el embarque','Hasta el embarque la orden es de Compras; desde ahí, de Operaciones y Logística. Nadie la sigue en paralelo.'],
   ['norma','Compras no paga y Finanzas no compra','La separación es la regla de control: quien elige al proveedor no libera el pago.']],
@@ -161,7 +164,7 @@ window.MODELOS_GERENCIAS = {
    ['Compra a fábrica','E','S','','','C (comités)'],
    ['Reparto a países y tiendas','C','D','','C',''],
    ['Pago','','','','','D · E']]},
- decidir:['Los umbrales de aprobación y los plazos de la política de compra.','Quién ocupa la gerencia corporativa y quién coordina las Compras Internas de cada país. Está en las decisiones pendientes de la estructura (1.2).','Cuándo se cubren las dos posiciones que faltan en Planificación, Despacho e Inventarios —un analista de inventario y una coordinación de despacho y compras—, y cómo se deslindan de la coordinación de Despacho de Operaciones y Logística. Está en las decisiones pendientes de la estructura (1.2).','Quién pide las cotizaciones del mobiliario y del material POP: hoy las pide Visual Merchandising, y en la estructura To-Be esa compra es de Compras Internas.']},
+ decidir:['Los umbrales de aprobación y los plazos de la política de compra.','Quién ocupa la gerencia corporativa y quién coordina las Compras Internas de cada país. Está en las decisiones pendientes de la estructura (1.2).','Cuándo se cubre la coordinación de despacho y compras que falta en Planificación y Despacho, y cómo se deslinda de la coordinación de Despacho de Operaciones y Logística. Está en las decisiones pendientes de la estructura (1.2).','Quién pide las cotizaciones del mobiliario y del material POP: hoy las pide Visual Merchandising, y en la estructura To-Be esa compra es de Compras Internas.']},
 
 {id:'producto', unidad:'producto', n:'Desarrollo y Calidad de Productos', dir:'Innovación y Desarrollo de Productos', red:'Dueño del producto', capa:'No',
  riesgo:'Mercadeo, Diseño y Marca, Compras, Postventa y Comercial dándole instrucciones sobre el mismo producto.',
