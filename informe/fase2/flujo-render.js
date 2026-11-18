@@ -306,7 +306,10 @@
     // carriles
     flujo.carriles.forEach(function (c, i) {
       var y = PAD_T + i * LANE_H;
-      s += '<rect class="fx-lane" x="' + PAD_L + '" y="' + y + '" width="' + (L.w - PAD_L - 20) + '" height="' + LANE_H + '"/>';
+      // La alternancia se marca aquí, por índice de carril. Con :nth-child en el CSS
+      // contaban también los textos de cada rótulo (de 1 a 4 renglones), y dos
+      // carriles seguidos podían salir del mismo tono.
+      s += '<rect class="fx-lane' + (i % 2 ? ' fx-lane-alt' : '') + '" x="' + PAD_L + '" y="' + y + '" width="' + (L.w - PAD_L - 20) + '" height="' + LANE_H + '"/>';
       s += '<rect class="fx-lane-cab" x="' + (PAD_L - 150) + '" y="' + y + '" width="150" height="' + LANE_H + '"/>';
       // Cuatro líneas, no tres: el carril tiene 132 px de alto y un cargo con país
       // se come cuatro renglones. Con tres, la última quedaba reducida a «…».
