@@ -227,7 +227,8 @@ window.ESTRUCTURA_TOBE = {
       ],
       decisiones:[
         'Cuando entre una marca o un producto nuevo, si se abre una gerencia corporativa por marca o una por país.',
-        'Falta la conversación con Alejandro Roizental sobre esta dirección y su relación con la nueva Dirección de Diseño y Estrategia de Marca, que fija el sistema de marca. El diseño industrial, el empaque y el diseño de la app vuelven a esta dirección desde el 11-nov-2026.'
+        'Falta la conversación con Alejandro Roizental sobre esta dirección y su relación con la nueva Dirección de Diseño y Estrategia de Marca, que fija el sistema de marca. El diseño industrial, el empaque y el diseño de la app vuelven a esta dirección desde el 11-nov-2026.',
+        'Cuándo pasan el diseño de empaque y el diseño industrial a Diseño y Estrategia de Marca. En esta primera etapa se quedan aquí; el traspaso es administrativo y por etapas, a medida que esa dirección se arma. Para el empaque se incorporará un experto, y falta decidir si entra con Jack Roizental desde el comienzo o con Alejandro Roizental. No se dibuja una unidad de diseño de empaque.'
       ],
       nota:'Antes se llamaba Investigación y Desarrollo. Ya no compra: la compra de producto pasa a Compras y Cadena de Suministro. A cambio reúne lo que hace nacer un producto: la innovación y el desarrollo. La denominación recoge la innovación que planteó María Elvira Sabal en la reunión del 05-oct y no se ata a Cubitt, porque la dirección debe poder acoger marcas y productos futuros.',
       hijos:[
@@ -266,7 +267,7 @@ window.ESTRUCTURA_TOBE = {
       id:'marca', n:'Diseño y Estrategia de Marca', caracter:'negocio',
       sub:'Chief Design Officer (CDO)',
       modelo:{t:'Ver su modelo en Capas y Funcionamiento', d:'Decide cómo se ve, cómo se siente y cómo se usa la marca. Los demás le piden por brief y por una sola vía, con un solo aprobador de negocio por proyecto.', href:'estructura-funcionamiento.html#marca'},
-      ocupante:{nombre:'Jack Roizental', estado:'propuesto', nota:'Diseñador, parte del equipo fundador de Cubitt: diseñó la marca en su origen. Se incorpora al grupo; su primera fase es la renovación de la marca y su manual.'},
+      ocupante:{nombre:'Jack Roizental', estado:'propuesto', nota:'Diseñador, parte del equipo fundador de Cubitt: diseñó la marca en su origen. Se incorpora al grupo por fases: primero, los lineamientos de marca, transversales a todo el grupo, y la unidad de Diseño Gráfico de Campañas y Redes; después, Creatividad y Contenido Audiovisual; y por último, el diseño que hoy está en los países y el del producto, en Innovación y Desarrollo de Productos.'},
       funciones:[
         'La máxima responsabilidad sobre la marca del grupo: cómo se ve, cómo se siente y cómo se usa en cada pieza y en cada canal.',
         'Define, crea y custodia la identidad gráfica, el manual de marca y el sistema de diseño, fuente única para todos los equipos y proveedores.',
@@ -278,6 +279,7 @@ window.ESTRUCTURA_TOBE = {
       nota:'Acordada en la reunión del 04-nov-2026 y descrita por la Dirección Comercial el 29-oct. Hasta el 19-nov-2026 se llamó Diseño y Marca; ese día pasa a Diseño y Estrategia de Marca, porque además de cómo se ve la marca lleva su estrategia: el posicionamiento de cada marca, que construye con Mercadeo. Es dirección corporativa y reporta a la Presidencia, al nivel de las demás unidades de negocio: si dependiera de Comercial o de Mercadeo, la marca quedaría supeditada a las campañas de corto plazo. La regla que la separa de Mercadeo: Mercadeo decide qué necesita el consumidor, qué le decimos y dónde invertimos; Diseño y Estrategia de Marca decide cómo se ve. Entre el 10 y el 11-nov-2026 tuvo tres gerencias: Marca y Creatividad, Diseño de Producto y Producción y Espacios. Desde el 11-nov-2026 el diseño de producto (físico, digital y empaque) pasa a Desarrollo y Calidad de Productos, que ya tenía la contraparte y el calendario del desarrollo, y la producción y los espacios (foto, video, 3D, POP, interiores y los proveedores de producción) pasan a Visual Merchandising, en Mercadeo, que los lleva al punto de venta. La dirección se queda con dos coordinaciones corporativas de Diseño y Marca que le reportan directo y trabajan en dupla: una con el director creativo y otra con la directora de arte. La gerencia de Marca y Creatividad, que las agrupaba, se retiró el mismo día: con dos coordinaciones, una gerencia intermedia solo alargaba la línea. Entre el 12 y el 13-nov-2026 fueron una sola coordinación de Diseño y Marca, en dupla. Desde el 13-nov-2026 vuelven a ser dos, y por área, no por ocupante: Creatividad y Contenido Audiovisual (Kevin Sarmiento), con el concepto y el video, y Diseño Gráfico de Campañas y Redes (María Romero), con las piezas de campaña y las publicaciones en redes. Son perfiles, experiencias y responsabilidades distintas. El video, que desde el 11-nov estaba en Visual Merchandising, pasa aquí. El sistema de marca lo lleva la dirección. Desde el 19-nov-2026 las dos son gerencias corporativas, no coordinaciones: cada una lleva un oficio completo para todo el grupo, con su equipo, y responde directo a la dirección.',
       decisiones:[
         'Confirmar a Jack Roizental en la dirección.',
+        'Cómo se muestra la incorporación por fases sin que parezca que la dirección ya tiene todo a su cargo. Fase 1: los lineamientos de marca y Diseño Gráfico de Campañas y Redes, revisando qué de esa unidad pertenece a otra área y qué le falta. Fase 2: Creatividad y Contenido Audiovisual. Fase 3: el diseño que está en los países y el diseño de producto que hace Innovación y Desarrollo de Productos. Así lo acordó María Elvira Sabal con Jack y Andrés Roizental.',
         'Qué parte del equipo creativo actual pasa a la dirección. La propuesta: el director creativo con el estudio de video y la directora de arte con su equipo de diseño gráfico, hoy en Mercadeo de Panamá. El visual merchandising, la foto de producto y el 3D quedan en Mercadeo.',
         'Cuáles de sus disciplinas se cubren con personal interno y cuáles con freelancers o agencias.'
       ],
@@ -290,7 +292,7 @@ window.ESTRUCTURA_TOBE = {
            'El estudio de video: el videógrafo, los equipos y el set. Hoy funciona en Panamá, y Venezuela está replicando esa estructura.'
          ],
          decisiones:[
-           'Si los equipos de video de cada país quedan en Mercadeo país o pasan a esta gerencia. En Venezuela son tres o cuatro personas que hacen los videos para redes y para las campañas publicitarias; la recomendación es traerlos aquí.'
+           'Si los equipos de video y los estudios de cada país —en Venezuela se monta uno para fotos y videos— quedan en Mercadeo país o pasan a esta gerencia. En Venezuela son tres o cuatro personas que hacen los videos para redes y para las campañas publicitarias; la recomendación es traerlos aquí.'
          ],
          interna:['Director creativo, videógrafo y estudio de video: personal interno.'],
          nota:'Desde el 13-nov-2026 la dirección tiene dos unidades distintas, porque son dos perfiles distintos: el video exige una experiencia y una técnica —videógrafo, estudio, equipos— que no tiene el diseño de piezas de campaña. Esta lleva lo creativo y lo audiovisual. Fue coordinación corporativa hasta el 19-nov-2026, cuando pasa a gerencia corporativa. Entre el 12 y el 13-nov-2026 fue una sola coordinación de Diseño y Marca con la directora de arte.'},
@@ -320,7 +322,8 @@ window.ESTRUCTURA_TOBE = {
       ],
       nota:'Comprar es el primer paso de la cadena, como en las empresas de consumo masivo y de retail: por eso la compra deja la antigua Investigación y Desarrollo y se une a la logística. Roberto Roizental, que hoy lleva la compra de Casio, encabeza la dirección; la operación logística queda en la gerencia corporativa de Operaciones y Logística. Desde el 16-oct-2026 también la compra interna de la organización (insumos, material POP, mobiliario, equipos y servicios) pasa por aquí, en la coordinación de Compras Internas: las políticas de compra salen de esta dirección y la Dirección de Finanzas paga. La denominación deja a la vista que la compra es el primer paso de la cadena; en la reunión se había hablado de «Supply Chain» y de «Compras y Logística». En la socialización del 04-nov-2026 con Roberto y Andrés Roizental se planteó, como transición, una sola dirección de Compras, Logística y Comercial con los dos al frente; se mantienen dos direcciones y el reparto entre ellos se resuelve en el modelo de funcionamiento. Desde el 10-nov-2026 los dos codirigen también esta dirección, como Comercial, y cada uno lleva la subdivisión de la que es especialista: Roberto, Compras; Andrés, Operaciones y Logística. Es una excepción que solo se admite entre familiares y en una dirección corporativa; debajo, cada gerencia conserva una sola línea de mando.',
       decisiones:[
-        'Cómo se reparten la dirección Roberto y Andrés Roizental: Roberto lleva Compras (y con ella la gerencia de Compras) y Andrés, Operaciones y Logística. Falta acordar qué decide cada uno por su lado y qué deciden juntos mientras dure la transición.'
+        'Cómo se reparten la dirección Roberto y Andrés Roizental: Roberto lleva Compras (y con ella la gerencia de Compras) y Andrés, Operaciones y Logística. Falta acordar qué decide cada uno por su lado y qué deciden juntos mientras dure la transición.',
+        'Si se mantiene la codirección o se separa. Máximo Dolman recomienda separarla: en una organización nadie tiene dos jefes para un mismo rol, aunque en la Junta Directiva cada uno tenga claro el suyo. La pregunta que lo resuelve es a quién reporta Fernando Alvarado, gerente corporativo de Operaciones y Logística: a Roberto o a Andrés Roizental. Se llevaría a la reunión como propuesta del equipo y de Máximo Dolman.'
       ],
       hijos:[
         {id:'compras', n:'Compras', nivel:'n2',
@@ -331,6 +334,9 @@ window.ESTRUCTURA_TOBE = {
            'Negocia las condiciones y sigue cada orden hasta el embarque.',
            'La planificación de la compra que cada país le hace a Panamá y su reparto a países y tiendas, a través de su coordinación de Planificación de Compras y Reabastecimiento.',
            'La política de compra interna de toda la organización, que ejecuta en cada país su coordinación de Compras Internas.'
+         ],
+         decisiones:[
+           'Dónde quedan dos funciones que hoy no se dibujan. La compra de material POP en China, que hace Anabel Roizental como tarea corta: por la política de compra única, iría en Compras. Y la gestión en China, a cargo de una persona que está allá: el contacto con los fabricantes, la búsqueda de proveedores y el seguimiento de los embarques hacia Panamá (qué sale, en qué barco y cuándo llega); hoy responde sobre todo a Alejandro Roizental. Podría ir en Compras Cubitt, que hace las órdenes a fábrica y las sigue hasta el embarque, o quedarse en Innovación y Desarrollo de Productos, que identifica las fábricas. Falta hablar con quien la lleva.'
          ],
          nota:'Separa la decisión de compra de la operación logística, dentro de la misma dirección. Tiene una coordinación por marca, porque Casio y Cubitt compran a fábrica con ritmos y reglas distintos: la de Casio con la casa matriz, la de Cubitt con las fábricas. Una tercera, la de Planificación de Compras y Reabastecimiento, compra a Panamá lo que necesita cada país y lo reparte (04-nov-2026). La compra interna, lo que no es producto para la venta, se hace en cada país con la política que fija esta gerencia.',
          hijos:[
@@ -352,15 +358,16 @@ window.ESTRUCTURA_TOBE = {
             ocupante:{nombre:'Jimena Sánchez', estado:'actual', nota:'Hoy es coordinadora de planificación de compras en Venezuela y atiende también a Panamá.'},
             funciones:[
               'Una vez que la mercancía llega de fábrica, planifica lo que cada país le compra a Kenex Panamá: cuánto de cada modelo y color necesita cada uno.',
-              'Planifica el despacho: decide qué sale, a dónde y cuándo, y lo entrega como orden de reparto a países, tiendas y clientes, con los traslados entre tiendas. No mueve la mercancía: la orden la ejecuta la coordinación de Despacho de Operaciones y Logística, que le devuelve la confirmación de cada entrega.',
+              'Atiende lo que piden las tiendas y los canales de cada país, lo compra a Kenex Panamá y garantiza su reabastecimiento.',
+              'Planifica la distribución: decide qué sale, a dónde y cuándo, y lo entrega como orden de reparto a países, tiendas y clientes, con los traslados entre tiendas. No mueve la mercancía: la orden la ejecuta la coordinación de Despacho de Operaciones y Logística, que le devuelve la confirmación de cada entrega.',
               'Planifica sobre el inventario que le entrega cuadrado la coordinación de Inventario de Operaciones y Logística: no lo cuenta ni lo controla.',
               'La carga y el mantenimiento de los precios en el sistema.'
             ],
             decisiones:[
               'Si el precio queda en esta coordinación o pasa a Comercial.'
             ],
-            interna:['Coordinación de despacho y compras: por cubrir. Planifica el despacho; no lo ejecuta.'],
-            nota:'Acordada en la reunión del 04-nov-2026. Es corporativa porque ya atiende a más de un país y crece con cada país que se sume. Su despacho es el plan, no el movimiento: decide qué va a dónde, en qué cantidad y cuándo, con la venta y el inventario de cada país a la vista. El movimiento físico —preparar, cargar, transportar y entregar— lo hace la coordinación de Despacho de Operaciones y Logística (Edgar Claros). Entre las dos viaja una sola orden de reparto: esta la emite y aquella la cumple. Entre el 11 y el 17-nov-2026 llevó también el control del inventario y se llamó «Planificación, Despacho e Inventarios». Desde el 17-nov-2026 la estrategia y el control del inventario pasan a una coordinación corporativa de Inventario en Operaciones y Logística: su ocupante no hace inventario. Conserva la carga de los precios. Del 17 al 19-nov-2026 se llamó «Planificación y Despacho»; desde el 19-nov-2026 se llama Planificación de Compras y Reabastecimiento, que dice mejor lo que hace: planifica lo que cada país le compra a Kenex Panamá y cómo se reabastece.'},
+            interna:['Un cargo de compras y reabastecimiento (hoy, «coordinación de despacho y compras»): por cubrir. Planifica la distribución; no la ejecuta.'],
+            nota:'Acordada en la reunión del 04-nov-2026. Es corporativa porque ya atiende a más de un país y crece con cada país que se sume. Su despacho es el plan, no el movimiento: decide qué va a dónde, en qué cantidad y cuándo, con la venta y el inventario de cada país a la vista. El movimiento físico —preparar, cargar, transportar y entregar— lo hace la coordinación de Despacho de Operaciones y Logística. Entre las dos viaja una sola orden de reparto: esta la emite y aquella la cumple. Entre el 11 y el 17-nov-2026 llevó también el control del inventario y se llamó «Planificación, Despacho e Inventarios». Desde el 17-nov-2026 la estrategia y el control del inventario pasan a una coordinación corporativa de Inventario en Operaciones y Logística: su ocupante no hace inventario. Conserva la carga de los precios. Del 17 al 19-nov-2026 se llamó «Planificación y Despacho»; desde el 19-nov-2026 se llama Planificación de Compras y Reabastecimiento, que dice mejor lo que hace: planifica lo que cada país le compra a Kenex Panamá y cómo se reabastece. No es la planificación comercial: las metas de venta del año y su reparto por país, canal y tienda son de Planificación de la Demanda y Nuevos Mercados, en Ventas. Esta coordinación parte de esas metas y de lo que piden las tiendas para comprar y distribuir.'},
            {id:'compinternas', n:'Compras Internas · Procura', nivel:'n3',
             paises:{
               PA:{nombre:'Por definir', estado:'pordefinir', cargo:'Coordinación', nota:'Hoy la compra interna de Panamá la centraliza Recursos Humanos.'},
@@ -387,9 +394,9 @@ window.ESTRUCTURA_TOBE = {
          hijos:[
            {id:'despacho', n:'Despacho', nivel:'ccorp',
             decisiones:[
-              'Fernando Alvarado envió un modelo de funcionamiento de la gerencia corporativa de Operaciones y Logística: confirmar con él esta coordinación, su alcance y su ocupante. Deslindarla de la coordinación de Planificación de Compras y Reabastecimiento, en Compras, que decide qué va a dónde y tenía por cubrir una coordinación de despacho y compras.'
+              'Fernando Alvarado envió un modelo de funcionamiento de la gerencia corporativa de Operaciones y Logística: confirmar con él esta coordinación, su alcance y su ocupante, por definir desde el 19-nov-2026. Deslindarla de la coordinación de Planificación de Compras y Reabastecimiento, en Compras, que decide qué va a dónde y tenía por cubrir una coordinación de despacho y compras.'
             ],
-            ocupante:{nombre:'Edgar Claros', estado:'actual', nota:'Hoy es coordinador de despacho en la Bodega Obarrio, en Panamá.'},
+            ocupante:{nombre:'Por definir', estado:'pordefinir'},
             funciones:[
               'Ejecuta el despacho físico desde el almacén principal a los países, las tiendas y los clientes: recibe la orden de reparto de Planificación de Compras y Reabastecimiento, prepara y carga la mercancía y la embarca.',
               'Programa y coordina el transporte, y confirma cada entrega a esa coordinación.',
@@ -474,13 +481,15 @@ window.ESTRUCTURA_TOBE = {
             ocupante:{nombre:'Ricardo Baltodano', estado:'propuesto', nota:'Hoy es el gerente regional de Cubitt en Panamá, dentro del equipo de Ventas al Mayor: lleva los datos comerciales de la marca y planifica la venta al mayor. En la reunión con la Presidencia del 16-oct-2026 se planteó que esta es la posición que le corresponde.'},
             funciones:[
               'Planifica la demanda de Cubitt con los datos de venta de todos los canales y países: cuánto se venderá, por qué canal y en qué país.',
+          'La planificación comercial: una vez fijadas las metas del año, las reparte y asigna por país, por canal y por tienda.',
               'Consolida el plan de demanda del grupo: suma al de Cubitt el de Casio, que planifica Brand Management.',
               'Estudia los mercados nuevos —países y canales donde el grupo aún no vende— y prepara la entrada, como se hizo en Colombia, que empezó con grandes superficies y pasó luego a tiendas propias.',
               'Contrata y lee las fuentes externas de inteligencia de mercado que la venta necesita, con Mercadeo.',
               'Apoya a cualquiera de los cuatro canales de Ventas sin dirigir a ninguno.'
             ],
             decisiones:[
-              'Si la planificación de la demanda y los mercados nuevos van en una sola unidad o en dos.'
+              'Si la planificación de la demanda y los mercados nuevos van en una sola unidad o en dos.',
+          'Su denominación: Planificación de la Demanda o Planificación Comercial. Tiene que distinguirse a simple vista de Planificación de Compras y Reabastecimiento, en Compras: esta fija y reparte las metas de venta; aquella compra a Panamá y distribuye lo que piden las tiendas.'
             ],
             nota:'Acordada en la reunión con la Presidencia del 16-oct-2026, con nombre provisional. En la reunión del 04-nov-2026 se confirmó una por marca: Ricardo Baltodano para Cubitt y Félix Almendral para Casio. Desde el 10-nov-2026 la demanda de Casio la planifica Félix Almendral desde Brand Management, gerencia corporativa de Comercial, y esta unidad queda con Cubitt, los mercados nuevos y el plan consolidado. Va sobre la línea que baja de la gerencia corporativa de Ventas a sus canales, como la Consultoría Jurídica sobre la de la Presidencia: le reporta directo y puede apoyar a los cuatro. Desde el 11-nov-2026 es una coordinación corporativa. Entre el 13 y el 17-nov-2026 se mostró como cargo de la ficha de Ventas, sin caja; el 17-nov-2026 vuelve a tener su caja. Falta decidir si la planificación de la demanda y los mercados nuevos quedan en una sola unidad o en dos.'},
            {id:'mayorcorp', n:'Ventas al Mayor', nivel:'gun',
@@ -563,7 +572,7 @@ window.ESTRUCTURA_TOBE = {
               'Queda bajo Ventas porque cada garantía o descuento que concede toca el margen de la venta.',
               'Diseña el estándar de atención al cliente antes de elegir la herramienta que lo soporta: las preguntas de entrada que filtran cada caso, las plantillas de respuesta, la evaluación de chats y llamadas, y los indicadores de satisfacción y de tiempo de atención.'
             ],
-            nota:'Separa la postventa del comercio electrónico, como se acordó al mover a Clara Arosemena a E-commerce. Las gerencias de Experiencia del Cliente de cada país ejecutan su línea. En la reunión del 04-nov-2026 se precisó su primer encargo: montar el estándar de atención al cliente de todos los canales —la mayor carga llega por las redes— y separar la atención de la venta en línea, que en Venezuela hoy van juntas. Hasta el 19-nov-2026 se llamó Postventa; ese día pasa a Experiencia del Cliente, sin cambiar lo que hace: sigue llevando toda la postventa, y el nombre dice que su objeto es la experiencia del cliente después de la compra, en todos los canales. Las gerencias país también pasan ese día de Postventa a Experiencia del Cliente, con la misma postventa del país.',
+            nota:'Separa la postventa del comercio electrónico, como se acordó al mover a Clara Arosemena a E-commerce. Las gerencias de Experiencia del Cliente de cada país ejecutan su línea. En la reunión del 04-nov-2026 se precisó su primer encargo: montar el estándar de atención al cliente de todos los canales —la mayor carga llega por las redes— y separar la atención de la venta en línea, que en Venezuela hoy van juntas. Hasta el 19-nov-2026 se llamó Postventa; ese día pasa a Experiencia del Cliente, sin cambiar lo que hace: sigue llevando toda la postventa, y el nombre dice que su objeto es la experiencia del cliente después de la compra, en todos los canales. Las gerencias país también pasan ese día de Postventa a Experiencia del Cliente, con la misma postventa del país. La estructura de esta área que se aprobó y comunicó hace poco la llama «Postventa y Atención al Cliente», y en el grupo la postventa está arraigada como gestión: la denominación nueva la amplía sin quitarle nada.',
             hijos:[
               {id:'postventa', n:'Experiencia del Cliente', nivel:'n3',
                sub:'Puede haber coordinaciones que se asocien por marca.',
