@@ -205,7 +205,7 @@
   function decide(d){ return listaDec(d).length > 0; }
   // Aprobación (09-nov-2026): la aureola de la caja dice si esa parte de la estructura ya se
   // aprobó. Va por capa: las direcciones y las gerencias corporativas sí; lo que está debajo,
-  // no. También están aprobadas las unidades de la Presidencia (Coordinación Ejecutiva y
+  // no. También están aprobadas las unidades de la Presidencia (Coordinación de Relaciones Corporativas y
   // Consultoría Jurídica). Las direcciones de RAMAS_SIN_APROBAR aún no, con todo lo que cuelga
   // de ellas. La Presidencia y la Junta no llevan aureola. Se define aquí y no en el dato para
   // no cambiar la huella de estructura-tobe-datos.js. Cuando se apruebe otra capa, se añade su
@@ -215,7 +215,7 @@
   // Se quitan de la lista cuando se aprueba su nueva ubicación.
   var CAPAS_APROBADAS = ["n2"];
   var RAMAS_SIN_APROBAR = ["marca"];
-  var UNIDADES_SIN_APROBAR = ["brandmgmt"];
+  var UNIDADES_SIN_APROBAR = ["brandmgmt", "plandemanda"];
   function aprobacion(d){
     var n = d && NODOS[d.id];
     if(!n) return "";

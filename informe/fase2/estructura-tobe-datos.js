@@ -172,12 +172,12 @@ window.ESTRUCTURA_TOBE = {
   CEO: {
     id:'ceo', n:'Presidencia · CEO',
     decisiones:[
-      'La Presidencia tiene nueve reportes directos, dos por encima del tramo de 4 a 7: aceptarlo así o agrupar dos unidades de staff, por ejemplo la PMO bajo Desarrollo Corporativo.'
+      'La Presidencia tiene diez reportes directos, tres por encima del tramo de 4 a 7: aceptarlo así o agrupar dos unidades de staff, por ejemplo la PMO bajo Desarrollo Corporativo.'
     ],
     ocupante:{nombre:'Bernardo Roizental', estado:'actual'},
     funciones:[
-      'Conduce el grupo con nueve reportes directos, dos por encima del tramo de 4 a 7 que fija el principio 3: seis direcciones corporativas —las cuatro unidades de negocio (Innovación y Desarrollo de Productos, Diseño y Estrategia de Marca, Compras y Cadena de Suministro y Comercial), Finanzas y Desarrollo Corporativo— y tres gerencias corporativas de staff —Tecnología, Gobernanza del Dato y Cumplimiento, Gobierno de IA y la PMO—.',
-      'Tiene como unidades propias la Coordinación Ejecutiva de la Presidencia y la Consultoría Jurídica.',
+      'Conduce el grupo con diez reportes directos, tres por encima del tramo de 4 a 7 que fija el principio 3: siete direcciones corporativas —las cinco unidades de negocio (Innovación y Desarrollo de Productos, Diseño y Estrategia de Marca, Compras, Cadena de Suministro y Comercial), Finanzas y Desarrollo Corporativo— y tres gerencias corporativas de staff —Tecnología, Gobernanza del Dato y Cumplimiento, Gobierno de IA y la PMO—.',
+      'Tiene como unidades propias la Coordinación de Relaciones Corporativas y la Consultoría Jurídica.',
       'Preside los órganos de cogobierno o delega su convocatoria en la dirección que corresponda.'
     ]
   },
@@ -193,16 +193,15 @@ window.ESTRUCTURA_TOBE = {
      nota:'No es línea de mando: no se conecta con la Presidencia ni con ninguna dirección. Por eso se muestra con los comités y no en la cima del organigrama.'}
   ],
   STAFF: [
-    {id:'comunicaciones', n:'Coordinación Ejecutiva de la Presidencia', nivel:'staff', etiqueta:'Unidad de la Presidencia',
-     ocupante:{nombre:'Carmela Iribarren', estado:'actual', nota:'Hoy es la asistente ejecutiva de la Presidencia. El cargo pasa a denominarse Coordinador(a) Ejecutivo(a) de la Presidencia.'},
+    {id:'comunicaciones', n:'Coordinación de Relaciones Corporativas', nivel:'staff', etiqueta:'', enLinea:true, lado:'izq',
+     ocupante:{nombre:'Carmela Iribarren', estado:'actual', nota:'Hoy es la asistente ejecutiva de la Presidencia. El cargo pasa a denominarse Coordinador(a) de Relaciones Corporativas.'},
      funciones:[
-       'Coordina la agenda y el despacho de la Presidencia y el seguimiento de sus decisiones con las direcciones.',
        'Lleva las comunicaciones internas y externas del grupo: es el canal único de comunicación institucional, hacia toda la organización y hacia fuera. Recibe de cada dirección qué quiere comunicar (proyectos, talento, cambios) y lo emite con una sola voz.',
        'Lleva las relaciones públicas del grupo.',
        'Atiende los vínculos con grupos empresariales.',
        'Todo bajo la supervisión de la Presidencia.'
      ],
-     nota:'Se llamó Comunicaciones Internas y, hasta el 17-nov-2026, Asistencia Ejecutiva a la Presidencia. Ese día pasa a Coordinación Ejecutiva, con un cargo de Coordinador(a) Ejecutivo(a) de la Presidencia, y suma las comunicaciones externas, las relaciones públicas y los vínculos con grupos empresariales. La comunicación que lleva es la institucional del grupo; la comunicación de las marcas sigue en Mercadeo y en Diseño y Estrategia de Marca. Va junto a la Presidencia —no al nivel de las direcciones— porque trabaja bajo su supervisión directa y sirve a todas las áreas.'},
+     nota:'Se llamó Comunicaciones Internas y, hasta el 17-nov-2026, Asistencia Ejecutiva a la Presidencia. Ese día pasa a Coordinación Ejecutiva, con un cargo de Coordinador(a) Ejecutivo(a) de la Presidencia, y suma las comunicaciones externas, las relaciones públicas y los vínculos con grupos empresariales. La comunicación que lleva es la institucional del grupo; la comunicación de las marcas sigue en Mercadeo y en Diseño y Estrategia de Marca. Desde el 19-nov-2026 se llama Coordinación de Relaciones Corporativas, con un cargo de Coordinador(a) de Relaciones Corporativas, y deja la agenda y el despacho de la Presidencia: se concentra en la comunicación institucional y las relaciones del grupo. Va sobre la línea de la Presidencia, como la Consultoría Jurídica y al otro costado, porque trabaja bajo su supervisión directa y sirve a todas las áreas sin ocupar el nivel de las direcciones.'},
     {id:'juridica', n:'Consultoría Jurídica', nivel:'staff', etiqueta:'', enLinea:true,
      ocupante:{nombre:'Bernie Weininger', estado:'actual', nota:'Director de la Junta Directiva. Se suma un abogado contratado a tiempo parcial.'},
      funciones:[
@@ -221,23 +220,23 @@ window.ESTRUCTURA_TOBE = {
         'Donde empieza el producto: con la lectura del mercado que le entrega Mercadeo, identifica productos y fábricas, y desarrolla y aprueba las muestras.',
         'Hoy está focalizada en Cubitt, la marca propia. En Casio, marca representada, el producto lo define la casa matriz.',
         'El negocio puede abrir dentro de ella niveles de gerencia —corporativos o por país— para las marcas y los productos que vengan. Por eso su denominación no lleva el nombre de ninguna marca.',
-        'Entrega a Compras y Cadena de Suministro lo que hay que comprar, y a Mercadeo el producto listo para lanzar: concepto, atributos y argumentos de venta.',
+        'Entrega a la Dirección de Compras lo que hay que comprar, y a Mercadeo el producto listo para lanzar: concepto, atributos y argumentos de venta.',
         'Decide la colección con Comercial, en el Comité Comercial.',
         'Define cómo funciona y cómo se fabrica cada producto: especificaciones, fábrica, costos y calidad. Desde el 11-nov-2026 también lo diseña —forma, empaque y experiencia digital—, en su gerencia de Desarrollo y Calidad de Productos, con el sistema de marca que fija Diseño y Estrategia de Marca.'
       ],
       decisiones:[
         'Cuando entre una marca o un producto nuevo, si se abre una gerencia corporativa por marca o una por país.',
         'Falta la conversación con Alejandro Roizental sobre esta dirección y su relación con la nueva Dirección de Diseño y Estrategia de Marca, que fija el sistema de marca. El diseño industrial, el empaque y el diseño de la app vuelven a esta dirección desde el 11-nov-2026.',
-        'Cuándo pasan el diseño de empaque y el diseño industrial a Diseño y Estrategia de Marca. En esta primera etapa se quedan aquí; el traspaso es administrativo y por etapas, a medida que esa dirección se arma. Para el empaque se incorporará un experto, y falta decidir si entra con Jack Roizental desde el comienzo o con Alejandro Roizental. No se dibuja una unidad de diseño de empaque.'
+        'Cuándo pasan el diseño de empaque y el diseño industrial (desde el 19-nov-2026, la coordinación de Diseño Industrial) a Diseño y Estrategia de Marca. En esta primera etapa se quedan aquí; el traspaso es administrativo y por etapas, a medida que esa dirección se arma. Para el empaque se incorporará un experto, y falta decidir si entra con Jack Roizental desde el comienzo o con Alejandro Roizental. No se dibuja una unidad de diseño de empaque.'
       ],
-      nota:'Antes se llamaba Investigación y Desarrollo. Ya no compra: la compra de producto pasa a Compras y Cadena de Suministro. A cambio reúne lo que hace nacer un producto: la innovación y el desarrollo. La denominación recoge la innovación que planteó María Elvira Sabal en la reunión del 05-oct y no se ata a Cubitt, porque la dirección debe poder acoger marcas y productos futuros.',
+      nota:'Antes se llamaba Investigación y Desarrollo. Ya no compra: la compra de producto pasa a la Dirección de Compras. A cambio reúne lo que hace nacer un producto: la innovación y el desarrollo. La denominación recoge la innovación que planteó María Elvira Sabal en la reunión del 05-oct y no se ata a Cubitt, porque la dirección debe poder acoger marcas y productos futuros.',
       hijos:[
         {id:'producto', n:'Desarrollo y Calidad de Productos', nivel:'n2',
          modelo:{t:'Ver su modelo en Capas y Funcionamiento', d:'El producto tiene un solo dueño, desde el diseño hasta su calidad en el mercado. Los demás le entregan datos y le piden por servicio; nadie más cambia una especificación.', href:'estructura-funcionamiento.html#producto'},
          ocupante:{nombre:'Stephania Roizental', estado:'propuesto', nota:'Hoy lleva, junto con Alejandro Roizental, el desarrollo de producto, las licencias, los códigos y los lanzamientos de Cubitt. Fuente: E-60.'},
          funciones:[
            'Desarrollo de productos y colecciones: especificaciones, variantes, costos y manuales, con la fábrica.',
-           'Diseño del producto físico: forma, colores, materiales y acabados de relojes y audio, y de sus accesorios (correas, termos y demás complementos), con el sistema de marca de Diseño y Estrategia de Marca.',
+           'Diseño del producto físico, en su coordinación de Diseño Industrial: forma, colores, materiales y acabados de relojes y audio, y de sus accesorios (correas, termos y demás complementos), con el sistema de marca de Diseño y Estrategia de Marca.',
            'Empaque: cajas e impresos, con el sistema de marca y con Mercadeo.',
            'Diseño del producto digital: la experiencia y la interfaz (UX/UI) de la web, los correos, la app y el reloj, y el sistema de diseño digital, alineado con el manual de marca. E-commerce y Growth prioriza y opera las webs; Tecnología las implementa.',
            'Licencias de marcas de terceros: propone modelos y personajes con el resultado de venta de cada licencia y obtiene la aprobación del licenciante.',
@@ -246,8 +245,19 @@ window.ESTRUCTURA_TOBE = {
            'Crea los códigos de producto y conduce el lanzamiento hasta la llegada: avisa a Comercial para abrir la preventa, que es lo que desata los procesos de venta.',
            'Propone cada año el plan de productos nuevos y sus fechas, sobre el que Mercadeo arma el calendario de lanzamientos, y cierra cada lanzamiento con una retrospectiva: lo que costó el desarrollo contra lo que se vendió.'
          ],
-         interna:['Diseñador industrial y diseñador gráfico: personal interno.', 'Diseñador digital: freelance.'],
-         nota:'Lleva lo que hace nacer el producto y cuida que llegue al mercado como se aprobó: diseño, muestras, licencias, códigos y calidad de cada lote. La denominación sigue lo que hoy hace su titular. El desarrollo de producto estaba antes bajo Mercadeo y queda en Innovación y Desarrollo de Productos, como pidió la Presidencia en la reunión del 05-oct. El 06-nov-2026 el diseño industrial —forma, colores, materiales, accesorios y empaque— pasó a la Dirección de Diseño y Estrategia de Marca, y el 10-nov se reunió allí con el diseño de producto digital en una gerencia de Diseño de Producto. Desde el 11-nov-2026 ese diseño vuelve aquí, físico, digital y empaque: un producto de Kenex es físico y digital a la vez —el reloj, su app y su empaque se lanzan juntos— y su diseño tiene el mismo calendario que su desarrollo. Diseño y Estrategia de Marca le da el sistema de marca al que se ajusta. La inteligencia de mercado, que hasta el 13-oct compartía esta gerencia, pasa a Mercadeo: quien planifica y mide la marca lee también el mercado, y entrega a esta gerencia dónde está la oportunidad y qué pide el consumidor.'},
+         interna:['Dentro de la gerencia pueden crearse unidades asociadas a categorías de productos: relojes, termos, vestimenta u otros productos nuevos.', 'Diseñador gráfico: personal interno.', 'Diseñador digital: freelance.'],
+         nota:'Lleva lo que hace nacer el producto y cuida que llegue al mercado como se aprobó: diseño, muestras, licencias, códigos y calidad de cada lote. La denominación sigue lo que hoy hace su titular. El desarrollo de producto estaba antes bajo Mercadeo y queda en Innovación y Desarrollo de Productos, como pidió la Presidencia en la reunión del 05-oct. El 06-nov-2026 el diseño industrial —forma, colores, materiales, accesorios y empaque— pasó a la Dirección de Diseño y Estrategia de Marca, y el 10-nov se reunió allí con el diseño de producto digital en una gerencia de Diseño de Producto. Desde el 11-nov-2026 ese diseño vuelve aquí, físico, digital y empaque: un producto de Kenex es físico y digital a la vez —el reloj, su app y su empaque se lanzan juntos— y su diseño tiene el mismo calendario que su desarrollo. Diseño y Estrategia de Marca le da el sistema de marca al que se ajusta. La inteligencia de mercado, que hasta el 13-oct compartía esta gerencia, pasa a Mercadeo: quien planifica y mide la marca lee también el mercado, y entrega a esta gerencia dónde está la oportunidad y qué pide el consumidor. Desde el 19-nov-2026 el diseño industrial tiene su propia coordinación corporativa, para que el diseño del producto físico tenga un responsable con nombre dentro de la gerencia.',
+         hijos:[
+           {id:'disindustrial', n:'Diseño Industrial', nivel:'ccorp',
+            ocupante:{nombre:'Por definir', estado:'pordefinir', nota:'Hoy el diseño industrial lo hace una diseñadora industrial en el área de Proyectos de Panamá.'},
+            funciones:[
+              'El diseño del producto físico: forma, colores, materiales y acabados de relojes y audio, y de sus accesorios (correas, termos y demás complementos).',
+              'Las especificaciones de diseño que se entregan a la fábrica con cada desarrollo, y la revisión de las muestras en lo que toca al diseño.',
+              'Aplica el sistema de marca que fija Diseño y Estrategia de Marca.'
+            ],
+            interna:['Diseñador industrial: personal interno.'],
+            nota:'Creada el 19-nov-2026. El diseño industrial se queda en esta gerencia en esta primera etapa, con el mismo calendario que el desarrollo del producto. Su paso a Diseño y Estrategia de Marca, si se da, es administrativo y por etapas: está en las decisiones de Innovación y Desarrollo de Productos. El empaque y el diseño digital siguen en la gerencia.'}
+         ]},
         {id:'innotec', n:'Innovación y Tecnología de Productos', nivel:'n2',
          decisiones:[
            'El perfil de CTO de producto, y si se contrata o se forma dentro del grupo.'
@@ -267,7 +277,7 @@ window.ESTRUCTURA_TOBE = {
       id:'marca', n:'Diseño y Estrategia de Marca', caracter:'negocio',
       sub:'Chief Design Officer (CDO)',
       modelo:{t:'Ver su modelo en Capas y Funcionamiento', d:'Decide cómo se ve, cómo se siente y cómo se usa la marca. Los demás le piden por brief y por una sola vía, con un solo aprobador de negocio por proyecto.', href:'estructura-funcionamiento.html#marca'},
-      ocupante:{nombre:'Jack Roizental', estado:'propuesto', nota:'Diseñador, parte del equipo fundador de Cubitt: diseñó la marca en su origen. Se incorpora al grupo por fases: primero, los lineamientos de marca, transversales a todo el grupo, y la unidad de Diseño Gráfico de Campañas y Redes; después, Creatividad y Contenido Audiovisual; y por último, el diseño que hoy está en los países y el del producto, en Innovación y Desarrollo de Productos.'},
+      ocupante:{nombre:'Jack Roizental', estado:'propuesto', nota:'Diseñador, parte del equipo fundador de Cubitt: diseñó la marca en su origen. Se incorpora al grupo por fases: primero, los lineamientos de marca, transversales a todo el grupo, y la unidad de Diseño de Identidad de Marca; después, Creatividad y Contenido Audiovisual; y por último, el diseño que hoy está en los países y el del producto, en Innovación y Desarrollo de Productos.'},
       funciones:[
         'La máxima responsabilidad sobre la marca del grupo: cómo se ve, cómo se siente y cómo se usa en cada pieza y en cada canal.',
         'Define, crea y custodia la identidad gráfica, el manual de marca y el sistema de diseño, fuente única para todos los equipos y proveedores.',
@@ -279,7 +289,7 @@ window.ESTRUCTURA_TOBE = {
       nota:'Acordada en la reunión del 04-nov-2026 y descrita por la Dirección Comercial el 29-oct. Hasta el 19-nov-2026 se llamó Diseño y Marca; ese día pasa a Diseño y Estrategia de Marca, porque además de cómo se ve la marca lleva su estrategia: el posicionamiento de cada marca, que construye con Mercadeo. Es dirección corporativa y reporta a la Presidencia, al nivel de las demás unidades de negocio: si dependiera de Comercial o de Mercadeo, la marca quedaría supeditada a las campañas de corto plazo. La regla que la separa de Mercadeo: Mercadeo decide qué necesita el consumidor, qué le decimos y dónde invertimos; Diseño y Estrategia de Marca decide cómo se ve. Entre el 10 y el 11-nov-2026 tuvo tres gerencias: Marca y Creatividad, Diseño de Producto y Producción y Espacios. Desde el 11-nov-2026 el diseño de producto (físico, digital y empaque) pasa a Desarrollo y Calidad de Productos, que ya tenía la contraparte y el calendario del desarrollo, y la producción y los espacios (foto, video, 3D, POP, interiores y los proveedores de producción) pasan a Visual Merchandising, en Mercadeo, que los lleva al punto de venta. La dirección se queda con dos coordinaciones corporativas de Diseño y Marca que le reportan directo y trabajan en dupla: una con el director creativo y otra con la directora de arte. La gerencia de Marca y Creatividad, que las agrupaba, se retiró el mismo día: con dos coordinaciones, una gerencia intermedia solo alargaba la línea. Entre el 12 y el 13-nov-2026 fueron una sola coordinación de Diseño y Marca, en dupla. Desde el 13-nov-2026 vuelven a ser dos, y por área, no por ocupante: Creatividad y Contenido Audiovisual (Kevin Sarmiento), con el concepto y el video, y Diseño Gráfico de Campañas y Redes (María Romero), con las piezas de campaña y las publicaciones en redes. Son perfiles, experiencias y responsabilidades distintas. El video, que desde el 11-nov estaba en Visual Merchandising, pasa aquí. El sistema de marca lo lleva la dirección. Desde el 19-nov-2026 las dos son gerencias corporativas, no coordinaciones: cada una lleva un oficio completo para todo el grupo, con su equipo, y responde directo a la dirección.',
       decisiones:[
         'Confirmar a Jack Roizental en la dirección.',
-        'Cómo se muestra la incorporación por fases sin que parezca que la dirección ya tiene todo a su cargo. Fase 1: los lineamientos de marca y Diseño Gráfico de Campañas y Redes, revisando qué de esa unidad pertenece a otra área y qué le falta. Fase 2: Creatividad y Contenido Audiovisual. Fase 3: el diseño que está en los países y el diseño de producto que hace Innovación y Desarrollo de Productos. Así lo acordó María Elvira Sabal con Jack y Andrés Roizental.',
+        'Cómo se muestra la incorporación por fases sin que parezca que la dirección ya tiene todo a su cargo. Fase 1: los lineamientos de marca y Diseño de Identidad de Marca, revisando qué de esa unidad pertenece a otra área y qué le falta. Fase 2: Creatividad y Contenido Audiovisual. Fase 3: el diseño que está en los países y el diseño de producto que hace Innovación y Desarrollo de Productos. Así lo acordó María Elvira Sabal con Jack y Andrés Roizental.',
         'Qué parte del equipo creativo actual pasa a la dirección. La propuesta: el director creativo con el estudio de video y la directora de arte con su equipo de diseño gráfico, hoy en Mercadeo de Panamá. El visual merchandising, la foto de producto y el 3D quedan en Mercadeo.',
         'Cuáles de sus disciplinas se cubren con personal interno y cuáles con freelancers o agencias.'
       ],
@@ -296,7 +306,7 @@ window.ESTRUCTURA_TOBE = {
          ],
          interna:['Director creativo, videógrafo y estudio de video: personal interno.'],
          nota:'Desde el 13-nov-2026 la dirección tiene dos unidades distintas, porque son dos perfiles distintos: el video exige una experiencia y una técnica —videógrafo, estudio, equipos— que no tiene el diseño de piezas de campaña. Esta lleva lo creativo y lo audiovisual. Fue coordinación corporativa hasta el 19-nov-2026, cuando pasa a gerencia corporativa. Entre el 12 y el 13-nov-2026 fue una sola coordinación de Diseño y Marca con la directora de arte.'},
-        {id:'dirarte', n:'Diseño Gráfico de Campañas y Redes', nivel:'n2',
+        {id:'dirarte', n:'Diseño de Identidad de Marca', nivel:'n2',
          ocupante:{nombre:'María Romero', estado:'actual', nota:'Hoy es la directora de arte, en Mercadeo de Panamá, con un equipo de diseñadores gráficos que le reporta.'},
          funciones:[
            'El diseño de las piezas de campaña a partir del concepto: vallas, impresos y piezas digitales.',
@@ -304,84 +314,78 @@ window.ESTRUCTURA_TOBE = {
            'El lenguaje gráfico y la composición de cada pieza, y que todas apliquen el sistema de marca.'
          ],
          interna:['Directora de arte y el equipo de diseñadores gráficos que hoy le reporta en Mercadeo: personal interno.'],
-         nota:'Desde el 13-nov-2026 es una unidad aparte de Creatividad y Contenido Audiovisual: el diseñador de piezas de campaña tiene otro perfil, otra experiencia y otras responsabilidades que el equipo de video. Pasa a la dirección con todo su equipo. Fue coordinación corporativa hasta el 19-nov-2026, cuando pasa a gerencia corporativa.'}
+         nota:'Desde el 13-nov-2026 es una unidad aparte de Creatividad y Contenido Audiovisual: el diseñador de piezas de campaña tiene otro perfil, otra experiencia y otras responsabilidades que el equipo de video. Pasa a la dirección con todo su equipo. Fue coordinación corporativa hasta el 19-nov-2026, cuando pasa a gerencia corporativa. Ese mismo día deja de llamarse Diseño Gráfico de Campañas y Redes y pasa a Diseño de Identidad de Marca: con ella arranca la primera fase de la dirección, la de los lineamientos visuales de la marca.'}
       ]
     },
     {
-      id:'opl', n:'Compras y Cadena de Suministro', caracter:'negocio',
-      ocupantes:[
-        {nombre:'Roberto Roizental', estado:'propuesto', nota:'Lleva el lado de Compras, del que es especialista: dirige además la gerencia de Compras. Codirige también Comercial.'},
-        {nombre:'Andrés Roizental', estado:'propuesto', nota:'Lleva el lado de Operaciones y Logística, del que es especialista: ordenó la bodega y el almacén con esa gerencia. Codirige también Comercial y lleva la gerencia corporativa de Ventas.'}
-      ],
+      id:'compras', n:'Compras', caracter:'negocio',
+      modelo:{t:'Ver su modelo en Capas y Funcionamiento', d:'Nadie compra por su cuenta. Todo pedido de compra entra por una sola vía a la coordinación que le toca, con la política de la dirección.', href:'estructura-funcionamiento.html#compras'},
+      ocupante:{nombre:'Roberto Roizental', estado:'propuesto', nota:'Hoy lleva la compra de Casio. Codirige también Comercial.'},
       funciones:[
-        'La codirigen Roberto y Andrés Roizental, cada uno en la parte de la que es especialista: Roberto, Compras; Andrés, Operaciones y Logística.',
-        'Dueño de la mercancía de punta a punta: compra a fábrica, importación, almacén principal y distribución a todos los países.',
-        'Concentra toda la compra de producto de todas las marcas —Casio, Cubitt y las que vengan—, repuestos incluidos.',
-        'Fija cómo debe funcionar una bodega y replica en las demás las prácticas que ya probó en Colón.',
-        'Dicta la política de compra de toda la organización: lo que compra cada área sigue las mismas reglas de proveedores, cotizaciones y aprobación.'
+        'Concentra toda la compra de producto de todas las marcas —Casio, Cubitt y las que vengan—, repuestos incluidos: la hoja de pedido y la asignación con Casio, las órdenes a fábrica de Cubitt y los repuestos.',
+        'Negocia las condiciones y sigue cada orden hasta el embarque; desde ahí la mercancía pasa a Cadena de Suministro.',
+        'La planificación de la compra que cada país le hace a Panamá y su reabastecimiento, a través de su coordinación de Planificación de Compras y Reabastecimiento.',
+        'Dicta la política de compra de toda la organización: lo que compra cada área sigue las mismas reglas de proveedores, cotizaciones y aprobación. La ejecuta en cada país su coordinación de Compras Internas.'
       ],
-      nota:'Comprar es el primer paso de la cadena, como en las empresas de consumo masivo y de retail: por eso la compra deja la antigua Investigación y Desarrollo y se une a la logística. Roberto Roizental, que hoy lleva la compra de Casio, encabeza la dirección; la operación logística queda en la gerencia corporativa de Operaciones y Logística. Desde el 16-oct-2026 también la compra interna de la organización (insumos, material POP, mobiliario, equipos y servicios) pasa por aquí, en la coordinación de Compras Internas: las políticas de compra salen de esta dirección y la Dirección de Finanzas paga. La denominación deja a la vista que la compra es el primer paso de la cadena; en la reunión se había hablado de «Supply Chain» y de «Compras y Logística». En la socialización del 04-nov-2026 con Roberto y Andrés Roizental se planteó, como transición, una sola dirección de Compras, Logística y Comercial con los dos al frente; se mantienen dos direcciones y el reparto entre ellos se resuelve en el modelo de funcionamiento. Desde el 10-nov-2026 los dos codirigen también esta dirección, como Comercial, y cada uno lleva la subdivisión de la que es especialista: Roberto, Compras; Andrés, Operaciones y Logística. Es una excepción que solo se admite entre familiares y en una dirección corporativa; debajo, cada gerencia conserva una sola línea de mando.',
       decisiones:[
-        'Cómo se reparten la dirección Roberto y Andrés Roizental: Roberto lleva Compras (y con ella la gerencia de Compras) y Andrés, Operaciones y Logística. Falta acordar qué decide cada uno por su lado y qué deciden juntos mientras dure la transición.',
-        'Si se mantiene la codirección o se separa. Máximo Dolman recomienda separarla: en una organización nadie tiene dos jefes para un mismo rol, aunque en la Junta Directiva cada uno tenga claro el suyo. La pregunta que lo resuelve es a quién reporta Fernando Alvarado, gerente corporativo de Operaciones y Logística: a Roberto o a Andrés Roizental. Se llevaría a la reunión como propuesta del equipo y de Máximo Dolman.'
+        'Dónde quedan dos funciones que hoy no se dibujan. La compra de material POP en China, que hace Anabel Roizental como tarea corta: por la política de compra única, iría en Compras. Y la gestión en China, a cargo de una persona que está allá: el contacto con los fabricantes, la búsqueda de proveedores y el seguimiento de los embarques hacia Panamá (qué sale, en qué barco y cuándo llega); hoy responde sobre todo a Alejandro Roizental. Podría ir en Compras Cubitt, que hace las órdenes a fábrica y las sigue hasta el embarque, o quedarse en Innovación y Desarrollo de Productos, que identifica las fábricas. Falta hablar con quien la lleva.'
       ],
+      nota:'Nace el 19-nov-2026 al separar en dos direcciones corporativas la que fue Compras y Cadena de Suministro, como recomendó Máximo Dolman: en una organización nadie tiene dos jefes para un mismo rol. Roberto Roizental dirige Compras; Andrés Roizental, Cadena de Suministro. La gerencia corporativa de Compras, que Roberto llevaba además de la dirección, se suprime: sus coordinaciones le reportan directo. Tiene una coordinación por marca, porque Casio y Cubitt compran a fábrica con ritmos y reglas distintos: la de Casio con la casa matriz, la de Cubitt con las fábricas. Una tercera, Planificación de Compras y Reabastecimiento, compra a Panamá lo que necesita cada país y planifica su distribución. Desde el 16-oct-2026 también la compra interna de la organización (insumos, material POP, mobiliario, equipos y servicios) pasa por aquí: las políticas de compra salen de esta dirección, cada país compra con su coordinación de Compras Internas y la Dirección de Finanzas paga. Comprar es el primer paso de la cadena, como en las empresas de consumo masivo y de retail: por eso la compra salió el 05-oct de la antigua Investigación y Desarrollo.',
       hijos:[
-        {id:'compras', n:'Compras', nivel:'n2',
-         modelo:{t:'Ver su modelo en Capas y Funcionamiento', d:'Nadie compra por su cuenta. Todo pedido de compra entra por una sola vía a la coordinación que le toca, con la política de la dirección.', href:'estructura-funcionamiento.html#compras'},
-         ocupante:{nombre:'Roberto Roizental', estado:'propuesto', nota:'Asume la gerencia de Compras además de dirigir Compras y Cadena de Suministro.'},
+        {id:'compcasio', n:'Compras Casio', nivel:'ccorp',
+         ocupante:{nombre:'Vera Gavizon', estado:'actual', nota:'Hoy lleva la compra de Casio (reunión del 04-nov-2026).'},
          funciones:[
-           'Compra estratégica de todas las marcas: la hoja de pedido y la asignación con Casio, las órdenes a fábrica de Cubitt y los repuestos.',
-           'Negocia las condiciones y sigue cada orden hasta el embarque.',
-           'La planificación de la compra que cada país le hace a Panamá y su reparto a países y tiendas, a través de su coordinación de Planificación de Compras y Reabastecimiento.',
-           'La política de compra interna de toda la organización, que ejecuta en cada país su coordinación de Compras Internas.'
+           'La compra de catálogo de Casio, marca representada: la hoja de pedido y la asignación que define la casa matriz.',
+           'Los repuestos de la marca.',
+           'Sigue cada orden hasta el embarque.'
+         ]},
+        {id:'compcubitt', n:'Compras Cubitt', nivel:'ccorp',
+         ocupante:{nombre:'Por definir', estado:'pordefinir', nota:'Roberto Roizental la llevó desde la socialización del 04-nov-2026 hasta el 11-nov-2026.'},
+         funciones:[
+           'La compra de Cubitt, marca propia: las órdenes a las fábricas, con las muestras y especificaciones que aprueba Innovación y Desarrollo de Productos.',
+           'Los repuestos de la marca.',
+           'Sigue cada orden en producción y hasta el embarque.'
+         ]},
+        {id:'planinv', n:'Planificación de Compras y Reabastecimiento', nivel:'ccorp',
+         ocupante:{nombre:'Jimena Sánchez', estado:'actual', nota:'Hoy es coordinadora de planificación de compras en Venezuela y atiende también a Panamá.'},
+         funciones:[
+           'Una vez que la mercancía llega de fábrica, planifica lo que cada país le compra a Kenex Panamá: cuánto de cada modelo y color necesita cada uno.',
+           'Atiende lo que piden las tiendas y los canales de cada país, lo compra a Kenex Panamá y garantiza su reabastecimiento.',
+           'Planifica la distribución: decide qué sale, a dónde y cuándo, y lo entrega como orden de reparto a países, tiendas y clientes, con los traslados entre tiendas. No mueve la mercancía: la orden la ejecuta la coordinación de Despacho de Operaciones y Logística, que le devuelve la confirmación de cada entrega.',
+           'Planifica sobre el inventario que le entrega cuadrado la coordinación de Inventario de Operaciones y Logística: no lo cuenta ni lo controla.',
+           'La carga y el mantenimiento de los precios en el sistema.'
          ],
          decisiones:[
-           'Dónde quedan dos funciones que hoy no se dibujan. La compra de material POP en China, que hace Anabel Roizental como tarea corta: por la política de compra única, iría en Compras. Y la gestión en China, a cargo de una persona que está allá: el contacto con los fabricantes, la búsqueda de proveedores y el seguimiento de los embarques hacia Panamá (qué sale, en qué barco y cuándo llega); hoy responde sobre todo a Alejandro Roizental. Podría ir en Compras Cubitt, que hace las órdenes a fábrica y las sigue hasta el embarque, o quedarse en Innovación y Desarrollo de Productos, que identifica las fábricas. Falta hablar con quien la lleva.'
+           'Si el precio queda en esta coordinación o pasa a Comercial.'
          ],
-         nota:'Separa la decisión de compra de la operación logística, dentro de la misma dirección. Tiene una coordinación por marca, porque Casio y Cubitt compran a fábrica con ritmos y reglas distintos: la de Casio con la casa matriz, la de Cubitt con las fábricas. Una tercera, la de Planificación de Compras y Reabastecimiento, compra a Panamá lo que necesita cada país y lo reparte (04-nov-2026). La compra interna, lo que no es producto para la venta, se hace en cada país con la política que fija esta gerencia.',
-         hijos:[
-           {id:'compcasio', n:'Compras Casio', nivel:'ccorp',
-            ocupante:{nombre:'Vera Gavizon', estado:'actual', nota:'Hoy lleva la compra de Casio (reunión del 04-nov-2026).'},
-            funciones:[
-              'La compra de catálogo de Casio, marca representada: la hoja de pedido y la asignación que define la casa matriz.',
-              'Los repuestos de la marca.',
-              'Sigue cada orden hasta el embarque.'
-            ]},
-           {id:'compcubitt', n:'Compras Cubitt', nivel:'ccorp',
-            ocupante:{nombre:'Por definir', estado:'pordefinir', nota:'Roberto Roizental la llevó desde la socialización del 04-nov-2026 hasta el 11-nov-2026.'},
-            funciones:[
-              'La compra de Cubitt, marca propia: las órdenes a las fábricas, con las muestras y especificaciones que aprueba Innovación y Desarrollo de Productos.',
-              'Los repuestos de la marca.',
-              'Sigue cada orden en producción y hasta el embarque.'
-            ]},
-           {id:'planinv', n:'Planificación de Compras y Reabastecimiento', nivel:'ccorp',
-            ocupante:{nombre:'Jimena Sánchez', estado:'actual', nota:'Hoy es coordinadora de planificación de compras en Venezuela y atiende también a Panamá.'},
-            funciones:[
-              'Una vez que la mercancía llega de fábrica, planifica lo que cada país le compra a Kenex Panamá: cuánto de cada modelo y color necesita cada uno.',
-              'Atiende lo que piden las tiendas y los canales de cada país, lo compra a Kenex Panamá y garantiza su reabastecimiento.',
-              'Planifica la distribución: decide qué sale, a dónde y cuándo, y lo entrega como orden de reparto a países, tiendas y clientes, con los traslados entre tiendas. No mueve la mercancía: la orden la ejecuta la coordinación de Despacho de Operaciones y Logística, que le devuelve la confirmación de cada entrega.',
-              'Planifica sobre el inventario que le entrega cuadrado la coordinación de Inventario de Operaciones y Logística: no lo cuenta ni lo controla.',
-              'La carga y el mantenimiento de los precios en el sistema.'
-            ],
-            decisiones:[
-              'Si el precio queda en esta coordinación o pasa a Comercial.'
-            ],
-            interna:['Un cargo de compras y reabastecimiento (hoy, «coordinación de despacho y compras»): por cubrir. Planifica la distribución; no la ejecuta.'],
-            nota:'Acordada en la reunión del 04-nov-2026. Es corporativa porque ya atiende a más de un país y crece con cada país que se sume. Su despacho es el plan, no el movimiento: decide qué va a dónde, en qué cantidad y cuándo, con la venta y el inventario de cada país a la vista. El movimiento físico —preparar, cargar, transportar y entregar— lo hace la coordinación de Despacho de Operaciones y Logística. Entre las dos viaja una sola orden de reparto: esta la emite y aquella la cumple. Entre el 11 y el 17-nov-2026 llevó también el control del inventario y se llamó «Planificación, Despacho e Inventarios». Desde el 17-nov-2026 la estrategia y el control del inventario pasan a una coordinación corporativa de Inventario en Operaciones y Logística: su ocupante no hace inventario. Conserva la carga de los precios. Del 17 al 19-nov-2026 se llamó «Planificación y Despacho»; desde el 19-nov-2026 se llama Planificación de Compras y Reabastecimiento, que dice mejor lo que hace: planifica lo que cada país le compra a Kenex Panamá y cómo se reabastece. No es la planificación comercial: las metas de venta del año y su reparto por país, canal y tienda son de Planificación de la Demanda y Nuevos Mercados, en Ventas. Esta coordinación parte de esas metas y de lo que piden las tiendas para comprar y distribuir.'},
-           {id:'compinternas', n:'Compras Internas · Procura', nivel:'n3',
-            paises:{
-              PA:{nombre:'Por definir', estado:'pordefinir', cargo:'Coordinación', nota:'Hoy la compra interna de Panamá la centraliza Recursos Humanos.'},
-              VE:{nombre:'Por definir', estado:'pordefinir', cargo:'Coordinación'},
-              CO:{nombre:'Por definir', estado:'pordefinir', cargo:'Coordinación'}
-            },
-            funciones:[
-              'Toda compra del país que no es producto para la venta: insumos y material de oficina, material POP, mobiliario, equipos como las laptops, y los servicios y contratistas que sostienen sedes, tiendas y bodegas.',
-              'Aplica la política de compra que fija la gerencia corporativa de Compras: cuántos proveedores se cotizan, qué muestras se piden, quién aprueba cada solicitud y en cuánto tiempo.',
-              'Mantiene proveedores calificados por rubro, en lugar de que cada área compre por su lado.'
-            ],
-            interna:['Un coordinador con un analista.'],
-            nota:'Acordada como coordinación corporativa en la reunión con la Presidencia del 16-oct-2026; desde el 04-nov-2026 es una coordinación por país, porque cada país compra sus insumos con sus proveedores. Lo corporativo es la política de compra, que fija la gerencia de Compras. Hoy cada área compra lo suyo y la compra de insumos recae en Recursos Humanos o en Administración. La Dirección de Finanzas sigue pagando lo que se compra.'}
-         ]},
+         interna:['Un cargo de compras y reabastecimiento (hoy, «coordinación de despacho y compras»): por cubrir. Planifica la distribución; no la ejecuta.'],
+         nota:'Acordada en la reunión del 04-nov-2026. Es corporativa porque ya atiende a más de un país y crece con cada país que se sume. Su despacho es el plan, no el movimiento: decide qué va a dónde, en qué cantidad y cuándo, con la venta y el inventario de cada país a la vista. El movimiento físico —preparar, cargar, transportar y entregar— lo hace la coordinación de Despacho de Operaciones y Logística. Entre las dos viaja una sola orden de reparto: esta la emite y aquella la cumple. Entre el 11 y el 17-nov-2026 llevó también el control del inventario y se llamó «Planificación, Despacho e Inventarios». Desde el 17-nov-2026 la estrategia y el control del inventario pasan a una coordinación corporativa de Inventario en Operaciones y Logística: su ocupante no hace inventario. Conserva la carga de los precios. Del 17 al 19-nov-2026 se llamó «Planificación y Despacho»; desde el 19-nov-2026 se llama Planificación de Compras y Reabastecimiento, que dice mejor lo que hace: planifica lo que cada país le compra a Kenex Panamá y cómo se reabastece. No es la planificación comercial: las metas de venta del año y su reparto por país, canal y tienda son de Planificación de la Demanda y Nuevos Mercados, gerencia corporativa de Comercial. Esta coordinación parte de esas metas y de lo que piden las tiendas para comprar y distribuir.'},
+        {id:'compinternas', n:'Compras Internas · Procura', nivel:'n3',
+         paises:{
+           PA:{nombre:'Por definir', estado:'pordefinir', cargo:'Coordinación', nota:'Hoy la compra interna de Panamá la centraliza Recursos Humanos.'},
+           VE:{nombre:'Por definir', estado:'pordefinir', cargo:'Coordinación'},
+           CO:{nombre:'Por definir', estado:'pordefinir', cargo:'Coordinación'}
+         },
+         funciones:[
+           'Toda compra del país que no es producto para la venta: insumos y material de oficina, material POP, mobiliario, equipos como las laptops, y los servicios y contratistas que sostienen sedes, tiendas y bodegas.',
+           'Aplica la política de compra que fija la gerencia corporativa de Compras: cuántos proveedores se cotizan, qué muestras se piden, quién aprueba cada solicitud y en cuánto tiempo.',
+           'Mantiene proveedores calificados por rubro, en lugar de que cada área compre por su lado.'
+         ],
+         interna:['Un coordinador con un analista.'],
+         nota:'Acordada como coordinación corporativa en la reunión con la Presidencia del 16-oct-2026; desde el 04-nov-2026 es una coordinación por país, porque cada país compra sus insumos con sus proveedores. Lo corporativo es la política de compra, que fija la gerencia de Compras. Hoy cada área compra lo suyo y la compra de insumos recae en Recursos Humanos o en Administración. La Dirección de Finanzas sigue pagando lo que se compra.'}
+      ]
+    },
+    {
+      id:'opl', n:'Cadena de Suministro', caracter:'negocio',
+      ocupante:{nombre:'Andrés Roizental', estado:'propuesto', nota:'Ordenó la bodega y el almacén con la gerencia de Operaciones y Logística. Codirige también Comercial y lleva la gerencia corporativa de Ventas.'},
+      funciones:[
+        'Dueño del movimiento de la mercancía: importación, almacén principal y distribución a todos los países, desde que sale de la fábrica hasta que llega a cada país, tienda y cliente.',
+        'Ejecuta el reparto que planifica Planificación de Compras y Reabastecimiento, de la Dirección de Compras, y le confirma cada entrega.',
+        'Responde por el inventario: su estrategia y su control, a través de Operaciones y Logística.',
+        'Fija cómo debe funcionar una bodega y replica en las demás las prácticas que ya probó en Colón.'
+      ],
+      nota:'Nace el 19-nov-2026 al separar en dos direcciones corporativas la que fue Compras y Cadena de Suministro, que Roberto y Andrés Roizental codirigían desde el 10-nov-2026, cada uno en su subdivisión. Lo recomendó Máximo Dolman: en una organización nadie tiene dos jefes para un mismo rol. Con eso Fernando Alvarado, gerente corporativo de Operaciones y Logística, reporta a Andrés Roizental. Compras decide qué se compra y cuánto le toca a cada país; Cadena de Suministro lo trae, lo guarda y lo hace llegar. Conserva el id de la dirección anterior.',
+      hijos:[
         {id:'oplcorp', n:'Operaciones y Logística', nivel:'n2',
          modelo:{t:'Ver su modelo en Capas y Funcionamiento', d:'La gerencia país de Operaciones y Logística tiene una sola línea, la corporativa. Los canales del país son sus clientes: le piden por servicio y no le dan órdenes.', href:'estructura-funcionamiento.html#operaciones'},
          ocupante:{nombre:'Fernando Alvarado', estado:'propuesto'},
@@ -454,19 +458,35 @@ window.ESTRUCTURA_TOBE = {
     {
       id:'comercial', n:'Comercial', caracter:'negocio',
       decisiones:[
-        'Cómo se reparten la dirección Andrés y Roberto Roizental: qué parte de lo comercial lleva cada uno. Andrés lleva además la gerencia corporativa de Ventas. Los dos codirigen también Compras y Cadena de Suministro.'
+        'Cómo se reparten la dirección Andrés y Roberto Roizental: qué parte de lo comercial lleva cada uno. Andrés lleva además la gerencia corporativa de Ventas. Desde el 19-nov-2026 Roberto dirige además Compras y Andrés, Cadena de Suministro.'
       ],
       ocupantes:[
-        {nombre:'Andrés Roizental', estado:'propuesto', nota:'La propuesta formaliza el alcance que ya ejerce de hecho: la visión que une mercadeo y venta. Lleva además la gerencia corporativa de Ventas y codirige Compras y Cadena de Suministro, en la parte de Operaciones y Logística.'},
-        {nombre:'Roberto Roizental', estado:'propuesto', nota:'Se suma a la dirección desde el 06-nov-2026: lleva hoy parte de lo comercial. Codirige también Compras y Cadena de Suministro, en la parte de Compras.'}
+        {nombre:'Andrés Roizental', estado:'propuesto', nota:'La propuesta formaliza el alcance que ya ejerce de hecho: la visión que une mercadeo y venta. Lleva además la gerencia corporativa de Ventas y dirige Cadena de Suministro.'},
+        {nombre:'Roberto Roizental', estado:'propuesto', nota:'Se suma a la dirección desde el 06-nov-2026: lleva hoy parte de lo comercial. Dirige también Compras.'}
       ],
       funciones:[
-        'Una sola cabeza para la venta y para la demanda que la produce: dirige Ventas, Mercadeo y Brand Management, que lleva lo que la casa matriz define para Casio. La codirigen Andrés y Roberto Roizental; Andrés lleva además la gerencia corporativa de Ventas.',
+        'Una sola cabeza para la venta y para la demanda que la produce: dirige Planificación de la Demanda y Nuevos Mercados, Ventas, Mercadeo y Brand Management, que lleva lo que la casa matriz define para Casio. La codirigen Andrés y Roberto Roizental; Andrés lleva además la gerencia corporativa de Ventas.',
         'Distribuye la venta en sus canales —tienda, mayor y comercio electrónico— y responde por el resultado de ambas marcas.',
         'Decide qué tiendas se abren; la PMO gestiona cada apertura.'
       ],
       nota:'Cambio central frente a julio: Mercadeo deja de ser una gerencia aparte («Experiencia de Marcas») y entra bajo Comercial, porque hoy trabaja sin ver el impacto de sus campañas en la venta. Se evaluó sacarlo de Comercial y quedó dentro. Ventas se organiza por canal, con una sola gerencia de unidad de negocio por canal para las dos marcas —también en Ventas al Mayor desde el 04-nov-2026—; en los países puede haber coordinaciones por marca. Esa separación por marca puede evaluarse en tanto se analicen las dimensiones de las operaciones que exige cada una por sus procesos. Puede denominarse Vicepresidencia; lo decide el cliente. Desde el 06-nov-2026 lo creativo y de diseño sale de Mercadeo hacia la Dirección de Diseño y Estrategia de Marca, y Mercadeo se queda con el consumidor, la inversión y la demanda. Ese día se suma Roberto Roizental a la dirección, junto a Andrés Roizental: los dos llevan hoy parte de lo comercial.',
       hijos:[
+        {id:'plandemanda', n:'Planificación de la Demanda y Nuevos Mercados', nivel:'n2',
+         sub:'Cubitt; la demanda de Casio la planifica Brand Management',
+         ocupante:{nombre:'Ricardo Baltodano', estado:'propuesto', nota:'Hoy es el gerente regional de Cubitt en Panamá, dentro del equipo de Ventas al Mayor: lleva los datos comerciales de la marca y planifica la venta al mayor. En la reunión con la Presidencia del 16-oct-2026 se planteó que esta es la posición que le corresponde.'},
+         funciones:[
+           'Planifica la demanda de Cubitt con los datos de venta de todos los canales y países: cuánto se venderá, por qué canal y en qué país.',
+       'La planificación comercial: una vez fijadas las metas del año, las reparte y asigna por país, por canal y por tienda.',
+           'Consolida el plan de demanda del grupo: suma al de Cubitt el de Casio, que planifica Brand Management.',
+           'Estudia los mercados nuevos —países y canales donde el grupo aún no vende— y prepara la entrada, como se hizo en Colombia, que empezó con grandes superficies y pasó luego a tiendas propias.',
+           'Contrata y lee las fuentes externas de inteligencia de mercado que la venta necesita, con Mercadeo.',
+           'Le entrega a Ventas el plan y las metas de los cuatro canales sin dirigir a ninguno: Ventas los ejecuta.'
+         ],
+         decisiones:[
+           'Si la planificación de la demanda y los mercados nuevos van en una sola unidad o en dos.',
+       'Su denominación: Planificación de la Demanda o Planificación Comercial. Tiene que distinguirse a simple vista de Planificación de Compras y Reabastecimiento, en Compras: esta fija y reparte las metas de venta; aquella compra a Panamá y distribuye lo que piden las tiendas.'
+         ],
+         nota:'Acordada en la reunión con la Presidencia del 16-oct-2026, con nombre provisional. En la reunión del 04-nov-2026 se confirmó una por marca: Ricardo Baltodano para Cubitt y Félix Almendral para Casio. Desde el 10-nov-2026 la demanda de Casio la planifica Félix Almendral desde Brand Management, gerencia corporativa de Comercial, y esta unidad queda con Cubitt, los mercados nuevos y el plan consolidado. Desde el 11-nov-2026 fue una coordinación corporativa sobre la línea que baja de la gerencia corporativa de Ventas a sus canales. Desde el 19-nov-2026 es gerencia corporativa de la Dirección Comercial, al lado de Ventas, Mercadeo y Brand Management. Entre el 13 y el 17-nov-2026 se mostró como cargo de la ficha de Ventas, sin caja; el 17-nov-2026 vuelve a tener su caja. Falta decidir si la planificación de la demanda y los mercados nuevos quedan en una sola unidad o en dos.'},
         {id:'ventas', n:'Ventas', nivel:'n2',
          modelo:{t:'Ver su modelo en Capas y Funcionamiento', d:'Cada gerencia país de Ventas tiene una sola línea: la de la gerencia de su canal. El país se coordina en una mesa, no con una segunda línea.', href:'estructura-funcionamiento.html#ventas'},
          ocupante:{nombre:'Andrés Roizental', estado:'propuesto', nota:'La lleva junto con la Dirección Comercial: es la parte de la función que ya ejerce de hecho (reunión del 04-nov-2026).'},
@@ -475,23 +495,6 @@ window.ESTRUCTURA_TOBE = {
            'Su operatividad debe ser baja: hoy está absorbido por tareas de tienda —como formar a los encargados— que corresponden a las gerencias país.'
          ],
          hijos:[
-           // sobre la línea que baja de Ventas a sus canales: puede apoyar a cualquiera de los cuatro
-           {id:'plandemanda', n:'Planificación de la Demanda y Nuevos Mercados', nivel:'ccorp', enLinea:true,
-            sub:'Cubitt; la demanda de Casio la planifica Brand Management',
-            ocupante:{nombre:'Ricardo Baltodano', estado:'propuesto', nota:'Hoy es el gerente regional de Cubitt en Panamá, dentro del equipo de Ventas al Mayor: lleva los datos comerciales de la marca y planifica la venta al mayor. En la reunión con la Presidencia del 16-oct-2026 se planteó que esta es la posición que le corresponde.'},
-            funciones:[
-              'Planifica la demanda de Cubitt con los datos de venta de todos los canales y países: cuánto se venderá, por qué canal y en qué país.',
-          'La planificación comercial: una vez fijadas las metas del año, las reparte y asigna por país, por canal y por tienda.',
-              'Consolida el plan de demanda del grupo: suma al de Cubitt el de Casio, que planifica Brand Management.',
-              'Estudia los mercados nuevos —países y canales donde el grupo aún no vende— y prepara la entrada, como se hizo en Colombia, que empezó con grandes superficies y pasó luego a tiendas propias.',
-              'Contrata y lee las fuentes externas de inteligencia de mercado que la venta necesita, con Mercadeo.',
-              'Apoya a cualquiera de los cuatro canales de Ventas sin dirigir a ninguno.'
-            ],
-            decisiones:[
-              'Si la planificación de la demanda y los mercados nuevos van en una sola unidad o en dos.',
-          'Su denominación: Planificación de la Demanda o Planificación Comercial. Tiene que distinguirse a simple vista de Planificación de Compras y Reabastecimiento, en Compras: esta fija y reparte las metas de venta; aquella compra a Panamá y distribuye lo que piden las tiendas.'
-            ],
-            nota:'Acordada en la reunión con la Presidencia del 16-oct-2026, con nombre provisional. En la reunión del 04-nov-2026 se confirmó una por marca: Ricardo Baltodano para Cubitt y Félix Almendral para Casio. Desde el 10-nov-2026 la demanda de Casio la planifica Félix Almendral desde Brand Management, gerencia corporativa de Comercial, y esta unidad queda con Cubitt, los mercados nuevos y el plan consolidado. Va sobre la línea que baja de la gerencia corporativa de Ventas a sus canales, como la Consultoría Jurídica sobre la de la Presidencia: le reporta directo y puede apoyar a los cuatro. Desde el 11-nov-2026 es una coordinación corporativa. Entre el 13 y el 17-nov-2026 se mostró como cargo de la ficha de Ventas, sin caja; el 17-nov-2026 vuelve a tener su caja. Falta decidir si la planificación de la demanda y los mercados nuevos quedan en una sola unidad o en dos.'},
            {id:'mayorcorp', n:'Ventas al Mayor', nivel:'gun',
             ocupante:{nombre:'Por definir', estado:'pordefinir', nota:'Gerente regional de ventas al mayor de todos los países: hoy la posición no existe.'},
             funciones:[
@@ -578,7 +581,7 @@ window.ESTRUCTURA_TOBE = {
                sub:'Puede haber coordinaciones que se asocien por marca.',
                paises:{
                  PA:{nombre:'Jesús Arratia', estado:'propuesto', nota:'Hoy es el coordinador de soporte técnico de Panamá.'},
-                 VE:{nombre:'Por definir', estado:'pordefinir'},
+                 VE:{nombre:'Jesmir Flores', estado:'propuesto', nota:'Hoy es la gerente de Ventas Web de Venezuela, cuyo equipo atiende también al cliente. Propuesta el 19-nov-2026; sigue además en la gerencia de E-commerce de Venezuela.'},
                  CO:{nombre:'Gabriel Otamendi', estado:'propuesto', nota:'Hoy es el líder de servicio al cliente de Colombia.'},
                  OT:{nombre:'Por definir', estado:'pordefinir', nota:'La postventa de Guatemala, Costa Rica y las franquicias, con los criterios de la gerencia de Experiencia del Cliente.'}
                },
@@ -648,7 +651,8 @@ window.ESTRUCTURA_TOBE = {
             paises:{
               PA:{nombre:'Sofiana Tovar', estado:'actual', nota:'Hoy es gerente de mercadeo de Cubitt en Panamá.'},
               VE:{nombre:'Valentina Abreu', estado:'actual'},
-              CO:{nombre:'Por definir', estado:'pordefinir', nota:'Por contratar. Hoy Lesly Laverde es líder de marketing en Colombia.'},
+              CO:{nombre:'Lesly Laverde', estado:'propuesto', nota:'Hoy es líder de marketing en Colombia. Propuesta el 19-nov-2026; hasta ese día la posición estaba por contratar.'},
+              US:{nombre:'Anabel Roizental', estado:'propuesto', nota:'Propuesta el 19-nov-2026 para el mercadeo de Kenex USA.'},
               OT:{nombre:'Por definir', estado:'pordefinir', nota:'Costa Rica.'}
             },
             funciones:[
@@ -673,10 +677,10 @@ window.ESTRUCTURA_TOBE = {
                },
                funciones:['Ejecuta en el país el plan de marca de Cubitt que fija la gerencia corporativa de Mercadeo: lanzamientos, campañas y presupuesto local de la marca.']},
               {id:'mpcasio', n:'Marca Casio', nivel:'coord',
-               decisiones:['Quién coordina la marca Casio en Venezuela: hoy Walter Méndez y Joyce Camacho tienen el mismo cargo, coordinador de marca Casio.'],
+               decisiones:['Dónde queda Joyce Camacho, que hoy tiene en Venezuela el mismo cargo que Walter Méndez, coordinador de marca Casio.'],
                paises:{
                  PA:{nombre:'Kaetlyn García', estado:'propuesto', cargo:'Coordinación', nota:'Hoy es coordinadora regional de mercadeo de Casio.'},
-                 VE:{nombre:'Por definir', estado:'pordefinir', cargo:'Coordinación', nota:'Hoy hay dos coordinadores de marca Casio: Walter Méndez y Joyce Camacho.'},
+                 VE:{nombre:'Walter Méndez', estado:'actual', cargo:'Coordinación', nota:'Hoy es coordinador de marca Casio en Venezuela. Elegido el 19-nov-2026; Joyce Camacho tiene el mismo cargo.'},
                  CO:{nombre:'Por definir', estado:'pordefinir', cargo:'Coordinación'}
                },
                funciones:['Ejecuta en el país el plan anual de Casio con las normas e indicaciones de gestión que emite Brand Management, a partir de lo que define la casa matriz.']},
@@ -691,7 +695,7 @@ window.ESTRUCTURA_TOBE = {
                decisiones:['Si las activaciones y los eventos tienen un proceso propio en el manual: hoy solo aparecen dentro del plan anual (16.1), del reporte (16.8) y de la gestión de mobiliario, POP y activaciones del canal mayorista (8.13).'],
                paises:{
                  PA:{nombre:'Por definir', estado:'pordefinir', cargo:'Coordinación'},
-                 VE:{nombre:'Diana De Queiros', estado:'propuesto', cargo:'Coordinación', nota:'Hoy es coordinadora creativa de activaciones de marca. En Venezuela hay además una coordinación de marketing deportivo (Yosmary Azuaje); la línea de deportes sigue en pausa.'},
+                 VE:{nombre:'Por definir', estado:'pordefinir', cargo:'Coordinación', nota:'En Venezuela hay además una coordinación de marketing deportivo (Yosmary Azuaje); la línea de deportes sigue en pausa.'},
                  CO:{nombre:'Por definir', estado:'pordefinir', cargo:'Coordinación'}
                },
                funciones:['El trade con los clientes del país, las activaciones presenciales y los eventos y su producción, con el plan de Cuentas Clave y Trade.']},
@@ -727,7 +731,7 @@ window.ESTRUCTURA_TOBE = {
         'Lleva la relación con los bancos, las líneas de crédito y la colocación de las inversiones.',
         'Prepara para el Comité de Finanzas y Riesgos lo que sube a la Junta Directiva y a la Presidencia.',
         'Desarrolla negocios nuevos para el grupo.',
-        'Paga las compras internas de la organización, que desde el 16-oct-2026 hace la coordinación de Compras Internas, en Compras y Cadena de Suministro.'
+        'Paga las compras internas de la organización, que desde el 16-oct-2026 hace la coordinación de Compras Internas, en la Dirección de Compras.'
       ],
       nota:'Hasta el 15-oct-2026 se llamó Finanzas y Negocios; desde el 16-oct no tiene gerencia corporativa intermedia: va la dirección, su coordinación corporativa de Planificación y Control Financiero y, debajo, sus gerencias por país. Ricardo Roizental participa en el gobierno del grupo desde la Junta Directiva y el Consejo de Familia, no en la línea ejecutiva. Su relación con la Junta Directiva y con la Presidencia se dibuja en el funcionamiento —el Comité de Finanzas y Riesgos—, no en la línea de mando: el organigrama muestra de quién depende cada unidad, no con quién despacha.',
       hijos:[
@@ -844,7 +848,7 @@ window.ESTRUCTURA_TOBE = {
         'Gobierna la cartera de proyectos de todo el grupo y la presenta al Comité Directivo.',
         'Es la oficina de método: fija cómo se gestiona un proyecto en toda la organización.',
         'Lleva el equipo de gerentes de proyecto que atiende a toda la corporación: aperturas, remodelaciones y cierres de tienda; proyectos de innovación de producto; proyectos de transformación organizacional. Los distribuye según la demanda y en los picos subcontrata por proyecto, con principio y fin.',
-        'En cada apertura coordina a quienes intervienen: Servicios Generales en la obra, Compras y Cadena de Suministro en la mercancía inicial y el mobiliario, Visual Merchandising, en Mercadeo, en el concepto del espacio, Retail en el montaje, TI en los sistemas y Recursos Humanos en el personal.',
+        'En cada apertura coordina a quienes intervienen: Servicios Generales en la obra, Compras en la mercancía inicial y el mobiliario y Cadena de Suministro en su entrega, Visual Merchandising, en Mercadeo, en el concepto del espacio, Retail en el montaje, TI en los sistemas y Recursos Humanos en el personal.',
         'Rinde cuentas a la Presidencia y al Comité Directivo.'
       ],
       nota:'Gerencia corporativa de staff que reporta directo a la Presidencia, junto a Tecnología, Gobernanza del Dato y Cumplimiento. Salió de Desarrollo Corporativo como dirección de staff, como pidió la Presidencia en la reunión del 05-oct, y el 12-oct-2026 pasó a gerencia corporativa. Es una ubicación de transición: hoy la cartera incluye tareas que, con las áreas más maduras, pasarán a cada una. Más adelante podría reportar a Desarrollo Corporativo o convertirse en una gerencia de innovación. Desde el 16-oct-2026 lleva ella misma el equipo de gerentes de proyecto —antes en una gerencia de unidad de negocio— y tiene una gerencia país en Venezuela.',
@@ -878,7 +882,7 @@ window.ESTRUCTURA_TOBE = {
        'Orienta esas prácticas hacia las certificaciones de calidad.'
      ],
      principal:['desarrollo', 'pmo', 'tgr', 'comercial'],
-     ampliado:['id', 'opl', 'finanzas', 'ventas', 'mercadeo', 'ti', 'rrhh', 'finpais']},
+     ampliado:['id', 'compras', 'opl', 'finanzas', 'ventas', 'mercadeo', 'ti', 'rrhh', 'finpais']},
     {id:'c-dato', n:'Comité de Gobierno del Dato e IA', lidera:'ia',
      proposito:'Instancia de cogobierno que ordena el dato del grupo antes de ponerle agentes encima: el dato antes que el agente.',
      funciones:[
@@ -888,7 +892,7 @@ window.ESTRUCTURA_TOBE = {
        'Vela por la privacidad, la protección de datos y la seguridad de la información.'
      ],
      principal:['ia', 'tgr', 'finanzas', 'comercial'],
-     ampliado:['desarrollo', 'id', 'opl', 'ecommerce', 'insights', 'juridica', 'ti']},
+     ampliado:['desarrollo', 'id', 'compras', 'opl', 'ecommerce', 'insights', 'juridica', 'ti']},
     {id:'c-cultura', n:'Comité de Cultura Organizacional', lidera:'desarrollo',
      proposito:'Instancia de cogobierno que alinea la cultura interna con la promesa de las marcas.',
      funciones:[
@@ -907,18 +911,18 @@ window.ESTRUCTURA_TOBE = {
        'Revisa el crédito a clientes y la cobranza.',
        'Vigila el riesgo cambiario entre países: ninguna cifra sin moneda y sin tasa fechada.'
      ],
-     principal:['finanzas', 'comercial', 'opl'],
-     ampliado:['id', 'desarrollo', 'finpais', 'juridica']},
+     principal:['finanzas', 'comercial', 'compras'],
+     ampliado:['id', 'opl', 'desarrollo', 'finpais', 'juridica']},
     {id:'c-comercial', n:'Comité Comercial', lidera:'comercial',
      proposito:'Instancia de cogobierno que formaliza las decisiones de producto y de venta que hoy toma un grupo informal, sin formato ni registro.',
      funciones:[
        'Decide la colección y los colores de temporada con Innovación y Desarrollo de Productos.',
-       'Aprueba la compra a fábrica que compone Compras y Cadena de Suministro.',
+       'Aprueba la compra a fábrica que compone la Dirección de Compras.',
        'Fija el calendario de lanzamientos, sin saturar a mercadeo.',
        'Reparte el producto entre canales y países.'
      ],
-     principal:['comercial', 'id', 'opl', 'mercadeo'],
-     ampliado:['ventas', 'producto', 'compras', 'marca']}
+     principal:['comercial', 'id', 'compras', 'mercadeo'],
+     ampliado:['ventas', 'producto', 'opl', 'marca']}
   ],
 
   /* --------------------------------------------------------- premisas */
@@ -926,9 +930,9 @@ window.ESTRUCTURA_TOBE = {
     {t:'Lo corporativo fija la línea, el país la ejecuta',
      d:'Cada dirección corporativa dicta la línea rectora de su función para todo el grupo; la gerencia país es su espejo y la ejecuta con el marco normativo, los recursos y la operación de su país. Un corporativo recibe, verifica y orienta: si se hunde en la operación, deja de supervisar.'},
     {t:'La cadena de valor ordena las direcciones',
-     d:'El negocio empieza con Innovación y Desarrollo de Productos, que desarrolla el producto con la lectura del mercado que le da Mercadeo y lo diseña con el sistema de marca de Diseño y Estrategia de Marca, que custodia cómo se ve la marca en todo lo que el grupo produce; Compras y Cadena de Suministro lo compra, lo trae y lo almacena; Comercial lo vende —en tienda, al mayor y por la web— y atiende la postventa; Finanzas, desde el staff, cobra y consolida.'},
+     d:'El negocio empieza con Innovación y Desarrollo de Productos, que desarrolla el producto con la lectura del mercado que le da Mercadeo y lo diseña con el sistema de marca de Diseño y Estrategia de Marca, que custodia cómo se ve la marca en todo lo que el grupo produce; Compras lo compra y Cadena de Suministro lo trae, lo almacena y lo distribuye; Comercial lo vende —en tienda, al mayor y por la web— y atiende la postventa; Finanzas, desde el staff, cobra y consolida.'},
     {t:'Staff y unidades de negocio',
-     d:'Innovación y Desarrollo de Productos, Diseño y Estrategia de Marca, Compras y Cadena de Suministro y Comercial son las unidades de negocio: la razón de ser del grupo, bajo la línea de mando de la Presidencia y en el orden de la cadena de valor, del producto a la postventa. El staff sostiene a las cuatro y apoya al Comité Directivo, sin mezclarse con ellas: las direcciones de Finanzas y de Desarrollo Corporativo, y tres gerencias corporativas que reportan directo a la Presidencia: Tecnología, Gobernanza del Dato y Cumplimiento, Gobierno de IA y la PMO. La Coordinación Ejecutiva de la Presidencia y la Consultoría Jurídica son unidades de la propia Presidencia. En el organigrama cada grupo va en su contenedor: el staff a la izquierda de la línea que baja de la Presidencia y las unidades de negocio a la derecha; dentro de cada uno, un recuadro agrupa los niveles corporativos y debajo quedan las gerencias país.'},
+     d:'Innovación y Desarrollo de Productos, Diseño y Estrategia de Marca, Compras, Cadena de Suministro y Comercial son las unidades de negocio: la razón de ser del grupo, bajo la línea de mando de la Presidencia y en el orden de la cadena de valor, del producto a la postventa. El staff sostiene a las cinco y apoya al Comité Directivo, sin mezclarse con ellas: las direcciones de Finanzas y de Desarrollo Corporativo, y tres gerencias corporativas que reportan directo a la Presidencia: Tecnología, Gobernanza del Dato y Cumplimiento, Gobierno de IA y la PMO. La Coordinación de Relaciones Corporativas y la Consultoría Jurídica son unidades de la propia Presidencia. En el organigrama cada grupo va en su contenedor: el staff a la izquierda de la línea que baja de la Presidencia y las unidades de negocio a la derecha; dentro de cada uno, un recuadro agrupa los niveles corporativos y debajo quedan las gerencias país.'},
     {t:'Equipos nucleares que se asignan por demanda',
      d:'Consultoría Jurídica no se replica por país, y la PMO solo tiene gerencia país donde la cartera lo pide —hoy Venezuela—: son equipos centrales que se reparten según lo que pida la corporación, y que subcontratan en los picos.'},
     {t:'Cogobierno por comités',
@@ -948,9 +952,9 @@ window.ESTRUCTURA_TOBE = {
       {id:'gobierno', n:'Gobierno', verbo:'Decide el rumbo',
        d:'La Junta Directiva. Aprueba el rumbo y recibe el cuadro de indicadores de las direcciones. Es gobierno, no línea de mando.'},
       {id:'presidencia', n:'Presidencia', verbo:'Conduce el grupo',
-       d:'Una sola cabeza ejecutiva, con un tramo objetivo de 4 a 7 reportes directos. A su lado, la Coordinación Ejecutiva; sobre su línea, la Consultoría Jurídica; y a un costado de la línea de mando, el staff de apoyo al Comité Directivo, que sirve a toda la organización: dos direcciones y tres gerencias corporativas que le reportan directo.'},
+       d:'Una sola cabeza ejecutiva, con un tramo objetivo de 4 a 7 reportes directos. Sobre su línea, a un lado y otro, la Coordinación de Relaciones Corporativas y la Consultoría Jurídica; y a un costado de la línea de mando, el staff de apoyo al Comité Directivo, que sirve a toda la organización: dos direcciones y tres gerencias corporativas que le reportan directo.'},
       {id:'n1', nivel:'n1', verbo:'Fijan la línea rectora', escalon:'Director(a) corporativo(a)',
-       d:'Aquí están las cuatro unidades de negocio, en el orden de la cadena de valor. El staff no comparte esta capa: apoya desde los costados de la Presidencia, en la capa anterior.'},
+       d:'Aquí están las cinco unidades de negocio, en el orden de la cadena de valor. El staff no comparte esta capa: apoya desde los costados de la Presidencia, en la capa anterior.'},
       {id:'n2', nivel:'n2', verbo:'Gobiernan una especialidad', escalon:'Gerente corporativo(a)',
        d:'Solo existen donde una especialidad conviene llevarla una vez para todos los países.'},
       {id:'gun', n:'Gerencias de unidad de negocio', verbo:'Llevan un canal o un frente', escalon:'Gerente de unidad de negocio',
@@ -985,22 +989,22 @@ window.ESTRUCTURA_TOBE = {
 
   PRINCIPIOS: [
     {n:'Especialización y división del trabajo',
-     como:'La marca y lo creativo se reúnen en Diseño y Estrategia de Marca, el diseño de producto en Desarrollo y Calidad de Productos y la producción y los espacios en Visual Merchandising, y Mercadeo se especializa en el consumidor, la inversión y la medición; Ventas se ordena por canal (tienda, mayor, comercio electrónico, postventa) y la compra se separa de la operación logística dentro de Compras y Cadena de Suministro. Cada responsable deja de saltar entre tareas dispares.',
+     como:'La marca y lo creativo se reúnen en Diseño y Estrategia de Marca, el diseño de producto en Desarrollo y Calidad de Productos y la producción y los espacios en Visual Merchandising, y Mercadeo se especializa en el consumidor, la inversión y la medición; Ventas se ordena por canal (tienda, mayor, comercio electrónico, postventa) y la compra se separa de la operación logística: Compras y Cadena de Suministro son dos direcciones. Cada responsable deja de saltar entre tareas dispares.',
      tension:'La PMO se diseña a propósito como un equipo generalista: la especialización está en el perfil de gerente de proyecto, no en el tipo de proyecto.'},
     {n:'Unidad de mando',
      como:'Cada gerencia país reporta en línea a una sola gerencia o dirección corporativa. Las figuras que hoy responden a varias instancias quedan con una sola línea de reporte: desarrollo de producto en Innovación y Desarrollo de Productos; marca, creatividad y dirección de arte en Diseño y Estrategia de Marca; estándares visuales y producción en Visual Merchandising; redes y contenido ágil en Mercadeo.',
-     tension:'Falta decidir si hay una dirección general por país y qué relación tiene con las gerencias país (ver Pendientes). Hay una excepción declarada: dos familiares pueden codirigir una dirección corporativa cuando cada uno es especialista en una subdivisión distinta, como en Comercial y en Compras y Cadena de Suministro. No se admite en ningún otro nivel.'},
+     tension:'Falta decidir si hay una dirección general por país y qué relación tiene con las gerencias país (ver Pendientes). Hay una excepción declarada: dos familiares pueden codirigir una dirección corporativa cuando cada uno es especialista en una subdivisión distinta, como en Comercial. No se admite en ningún otro nivel.'},
     {n:'Optimización del tramo de control',
-     como:'La Presidencia tiene nueve reportes directos —seis direcciones corporativas (cuatro de negocio, Finanzas y Desarrollo Corporativo) y tres gerencias corporativas de staff— y dos unidades de staff propias.',
-     tension:'Con Diseño y Estrategia de Marca y tres gerencias de staff que le reportan directo, el tramo de la Presidencia pasa a nueve, dos por encima del rango de 4 a 7. Si satura, lo primero es agrupar dos de ellas, por ejemplo la PMO bajo Desarrollo Corporativo, como ya se previó. Ventas concentra muchos reportes: cuatro canales y una unidad de apoyo, cada canal con sus gerencias país; y Mercadeo, cuatro unidades corporativas y sus gerencias país. Son los primeros a revisar si el tramo satura.'},
+     como:'La Presidencia tiene diez reportes directos —siete direcciones corporativas (cinco de negocio, Finanzas y Desarrollo Corporativo) y tres gerencias corporativas de staff— y dos unidades de staff propias.',
+     tension:'Con Diseño y Estrategia de Marca, Compras y Cadena de Suministro separadas y tres gerencias de staff que le reportan directo, el tramo de la Presidencia pasa a diez, tres por encima del rango de 4 a 7. Si satura, lo primero es agrupar dos de ellas, por ejemplo la PMO bajo Desarrollo Corporativo, como ya se previó. Ventas concentra muchos reportes: cuatro canales y una unidad de apoyo, cada canal con sus gerencias país; y Mercadeo, cuatro unidades corporativas y sus gerencias país. Son los primeros a revisar si el tramo satura.'},
     {n:'Equilibrio entre autoridad y responsabilidad',
      como:'Comercial reúne venta y mercadeo: quien responde por el resultado controla también la demanda que lo produce. La postventa, en Experiencia del Cliente, queda bajo Ventas: quien concede una garantía o un descuento responde por el margen. Quien compra responde también por que la mercancía llegue, y quien decide abrir una tienda, por que abra a tiempo.',
      tension:'La amplitud del cargo comercial exige un perfil muy completo, con visión regional de importación, marca y venta.'},
     {n:'Homogeneidad operativa',
-     como:'Compras y Cadena de Suministro es el único dueño de la mercancía: compra, bodega, despacho, tráfico e inventario bajo una misma línea. Toda la compra de producto, de todas las marcas, se concentra ahí, y la compra interna de la organización también, con una sola política de compra.',
-     tension:'Innovación y Desarrollo de Productos decide qué producto y Compras y Cadena de Suministro lo compra: el traspaso entre los dos —qué, cuánto y cuándo— pasa por el Comité Comercial.'},
+     como:'Toda la compra de producto, de todas las marcas, se concentra en la Dirección de Compras, y la compra interna de la organización también, con una sola política de compra. Cadena de Suministro es la única dueña del movimiento de la mercancía: bodega, despacho, tráfico e inventario bajo una misma línea.',
+     tension:'Innovación y Desarrollo de Productos decide qué producto y la Dirección de Compras lo compra: el traspaso entre los dos —qué, cuánto y cuándo— pasa por el Comité Comercial.'},
     {n:'Flexibilidad y adaptabilidad (híbrida)',
-     como:'El modelo corporativo-país permite abrir un país nuevo replicando el espejo de gerencias. Compras y Cadena de Suministro compra cualquier marca con el mismo proceso, Innovación y Desarrollo de Productos puede abrir gerencias por marca o por producto, y Comercial separa por marca solo donde el funcionamiento de la marca lo exige: hoy, una gerencia de Brand Management para Casio, cuyo mercadeo y cuyo catálogo define en su mayor parte la casa matriz.',
+     como:'El modelo corporativo-país permite abrir un país nuevo replicando el espejo de gerencias. La Dirección de Compras compra cualquier marca con el mismo proceso, Innovación y Desarrollo de Productos puede abrir gerencias por marca o por producto, y Comercial separa por marca solo donde el funcionamiento de la marca lo exige: hoy, una gerencia de Brand Management para Casio, cuyo mercadeo y cuyo catálogo define en su mayor parte la casa matriz.',
      tension:'Donde la operación es pequeña, la gerencia país se reduce a una coordinación, y eso debe quedar explícito en cada caso.'},
     {n:'Escalabilidad y canales claros',
      como:'Tres niveles de dirección antes de la coordinación y una estructura patrón de ocho escalones para toda la organización. La capa corporativa no duplica la operación del país.',
@@ -1032,10 +1036,10 @@ window.ESTRUCTURA_TOBE = {
        ahora:'Ventas organizadas por canal; la marca se separa en la compra y en el desarrollo de producto.',
        porque:'En la tienda y en el mayor la operación es la misma para las dos marcas. Donde la marca sí marca otro ritmo —la compra, el desarrollo, el calendario de mercadeo— se separa ahí.'},
       {antes:'La compra de producto repartida: cada marca compraba por su lado y los repuestos de una se compraban desde otra área.',
-       ahora:'Toda la compra de producto en Compras y Cadena de Suministro, junto a la logística.',
+       ahora:'Toda la compra de producto en la Dirección de Compras, y la logística en la de Cadena de Suministro.',
        porque:'Comprar es el primer paso de la cadena: quien compra responde también por que la mercancía llegue.'},
       {antes:'La compra interna dispersa: cada área compraba lo suyo, sin una política común, y la compra de insumos recaía en Recursos Humanos o en Administración.',
-       ahora:'Una coordinación de Compras Internas en Compras y Cadena de Suministro, junto a las de Casio y Cubitt; Finanzas paga.',
+       ahora:'Una coordinación de Compras Internas en la Dirección de Compras, junto a las de Casio y Cubitt; Finanzas paga.',
        porque:'Todo el que compra en la organización pasa por las mismas reglas de proveedores, cotización y aprobación, y el grupo negocia una sola vez lo que hoy compra cada área por su lado.'},
       {antes:'Mantenimiento y Servicios como gerencia corporativa.',
        ahora:'Servicios Generales como coordinación de Operaciones y Logística en cada país.',
@@ -1050,7 +1054,7 @@ window.ESTRUCTURA_TOBE = {
        ahora:'Una gerencia corporativa de PMO con un equipo de gerentes de proyecto asignado por demanda, y una gerencia país donde la cartera lo pide (hoy Venezuela).',
        porque:'El mismo perfil atiende todas las clases de proyecto, y así no quedan capacidades ociosas en un ala mientras la otra se satura.'},
       {antes:'Sin estas piezas.',
-       ahora:'La Dirección de Finanzas con su coordinación de Planificación y Control Financiero y sus gerencias de Administración y Finanzas por país, la coordinación corporativa de Planificación de la Demanda y Nuevos Mercados en Ventas, Consultoría Jurídica, Gobierno de IA, Formación y la Coordinación Ejecutiva de la Presidencia y el Consejo de Familia entre las instancias de cogobierno.',
+       ahora:'La Dirección de Finanzas con su coordinación de Planificación y Control Financiero y sus gerencias de Administración y Finanzas por país, Planificación de la Demanda y Nuevos Mercados en Comercial, Consultoría Jurídica, Gobierno de IA, Formación y la Coordinación de Relaciones Corporativas y el Consejo de Familia entre las instancias de cogobierno.',
        porque:'Funciones que hoy se reparten entre personas sin cargo, asesores externos o nadie, e instancias de la familia que existen pero no figuraban en la estructura.'}
     ]
   },
@@ -1059,7 +1063,7 @@ window.ESTRUCTURA_TOBE = {
     {t:'Gerencias país: cabeza país y tamaño', d:'Precisar si cada país tiene además una dirección general y cómo se relaciona con las gerencias país, y cuándo una gerencia país basta como coordinación.'},
     {t:'Primera línea: Dirección o Vicepresidencia', d:'Si las direcciones corporativas se denominan Dirección o Vicepresidencia.'},
     {t:'Denominaciones de la estructura patrón', d:'Confirmar si supervisor y especialista son dos trayectorias del mismo escalón, según se gestione gente o se valore el conocimiento técnico, y si hacen falta los tres niveles de analista. «Corporativo» y «país» no son escalones: son el apellido que toma el cargo según dónde está la posición. Se trabaja con Desarrollo Corporativo en la reclasificación de cargos.'},
-    {t:'Roles compartidos de la familia', d:'Los familiares que trabajan en el grupo pueden llevar más de un rol mientras dure la transición, pero esos roles compartidos no se replican hacia abajo: debajo de cada uno, una sola línea. La codirección es una excepción que solo se admite entre familiares y en una dirección corporativa, cuando cada uno es especialista en una subdivisión distinta: hoy Comercial y Compras y Cadena de Suministro (Roberto Roizental en Compras, Andrés Roizental en Operaciones y Logística). Revisar también las posiciones de los familiares que no ocupan una dirección ni una gerencia corporativa.'},
+    {t:'Roles compartidos de la familia', d:'Los familiares que trabajan en el grupo pueden llevar más de un rol mientras dure la transición, pero esos roles compartidos no se replican hacia abajo: debajo de cada uno, una sola línea. La codirección es una excepción que solo se admite entre familiares y en una dirección corporativa, cuando cada uno es especialista en una subdivisión distinta: hoy Comercial. Compras y Cadena de Suministro, que codirigieron Roberto y Andrés Roizental, se separó el 19-nov-2026 en dos direcciones, una para cada uno. Revisar también las posiciones de los familiares que no ocupan una dirección ni una gerencia corporativa.'},
     {t:'Otros países', d:'Retail, E-commerce y Experiencia del Cliente tienen una caja para Guatemala, Costa Rica y las franquicias. Falta la información de esas operaciones para decidir si cada una tendrá su espejo o si se agrupan en un clúster.'},
     {t:'Dos comités de finanzas', d:'Deslindar el Comité de Finanzas y Riesgos (ejecutivo) del Comité de Finanzas del gobierno familiar, para que no decidan lo mismo dos veces.'},
     {t:'Calidad y Mejora Continua', d:'Se planteó una persona dedicada a partir de 2027, apoyada por Desarrollo Corporativo y la PMO. Hasta entonces la conduce el comité con el equipo actual.'},

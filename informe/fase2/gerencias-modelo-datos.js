@@ -33,10 +33,15 @@
    corporativa de Inventario en Operaciones y Logística.
    Revisión del 13-nov-2026: Planificación de la Demanda y Nuevos Mercados deja de ser
    unidad sobre la línea de Ventas: es un cargo de la gerencia corporativa (sin caja).
+   Revisión del 19-nov-2026: pasa a gerencia corporativa de la Dirección Comercial, fuera de
+   Ventas; el modelo de Ventas la trata como servicio.
    Diseño y Estrategia de Marca tiene dos coordinaciones por área —Creatividad y Contenido Audiovisual,
    y Diseño Gráfico de Campañas y Redes—, y el video sale de Visual Merchandising.
    Revisión del 19-nov-2026: la dirección pasa a Diseño y Estrategia de Marca, y sus
    dos coordinaciones, a gerencias corporativas.
+   Revisión del 19-nov-2026: Compras y Cadena de Suministro se separa en dos direcciones.
+   Compras (dirección, sin gerencia intermedia) conserva su modelo; Operaciones y Logística
+   cuelga de Cadena de Suministro.
 
    ⚠ Si cambian las unidades en estructura-tobe-datos.js, revisar aquí: no lo
    lee. Sin nombres de ocupantes, a propósito.
@@ -57,7 +62,8 @@ window.MODELOS_GERENCIAS = {
           {t:'E-commerce y Growth',s:'web, performance y CRM',pais:{t:'E-commerce',p:'PA · VE · CO · US · OT'}},
           {t:'Experiencia del Cliente',s:'postventa: garantías, servicio técnico y atención',pais:{t:'Experiencia del Cliente',p:'PA · VE · CO · OT'}}]},
  conex:[
-  {t:'servicio',con:'Brand Management · Comercial',dir:'recibe',que:'El plan de demanda de Casio, que la gerencia corporativa de Ventas suma al de Cubitt en el plan consolidado del grupo.'},
+  {t:'servicio',con:'Brand Management · Comercial',dir:'recibe',que:'El plan de demanda de Casio, que Planificación de la Demanda y Nuevos Mercados suma al de Cubitt en el plan consolidado del grupo.'},
+  {t:'servicio',con:'Planificación de la Demanda y Nuevos Mercados · Comercial',dir:'recibe',que:'El plan de demanda de los cuatro canales y las metas del año repartidas por país, canal y tienda.'},
   {t:'servicio',con:'Mercadeo',dir:'recibe',que:'La demanda: campañas, trade con los mayoristas y la pauta de marca. Mercadeo recomienda el precio con data del consumidor; Ventas lo fija.'},
   {t:'servicio',con:'Planificación de Compras y Reabastecimiento',dir:'recibe',que:'El sugerido de pedido de cada tienda y país, según su venta y su inventario, que cada canal revisa y ajusta.'},
   {t:'servicio',con:'Operaciones y Logística país',dir:'recibe',que:'El despacho a tiendas, a mayoristas y de los pedidos web, con plazos acordados.'},
@@ -69,26 +75,26 @@ window.MODELOS_GERENCIAS = {
  reglas:[
   ['mando','El canal manda','Cada gerente país de Ventas reporta a la gerencia de su canal. La gerencia corporativa de Ventas no salta al canal para darle órdenes al país.'],
   ['mision','El país se coordina en una mesa','Los gerentes país de los cuatro canales, con Operaciones y Logística y Mercadeo del país, comparten inventario, calendario y prioridades en una reunión fija. La mesa coordina y no crea un jefe. Si se define una cabeza país, preside la mesa y arbitra lo local, como espacios o personal compartido, sin dirigir la venta.'],
-  ['servicio','La demanda se planifica una vez','La gerencia corporativa de Ventas arma un solo plan para los cuatro canales: su coordinación de Planificación de la Demanda planifica Cubitt, le suma el plan de Casio, que hace Brand Management, y reparte las metas del año por país, canal y tienda. Ningún canal arma su propio pronóstico para pedir mercancía.'],
+  ['servicio','La demanda se planifica una vez','Hay un solo plan para los cuatro canales: Planificación de la Demanda y Nuevos Mercados, gerencia corporativa de Comercial, planifica Cubitt, le suma el plan de Casio, que hace Brand Management, y reparte las metas del año por país, canal y tienda. Ventas lo ejecuta. Ningún canal arma su propio pronóstico para pedir mercancía.'],
   ['decide','La frontera del mayor se acuerda arriba','La gerencia regional de Ventas al Mayor atiende los países sin operación propia y conduce a las de cada país, que atienden a sus mayoristas locales. Un cliente en la frontera lo asigna la Dirección Comercial.'],
   ['norma','Comercial es dueño de la venta y del margen','Mercadeo genera la demanda y propone promociones; Ventas las aprueba, las ejecuta y fija precios y márgenes. E-commerce y Growth responde por la venta en línea y su pauta de performance.']],
  caso:{t:'Una tienda de Panamá se queda sin un modelo en temporada alta',pasos:[
   ['mando','Retail · tiendas de Panamá lo detecta y lo plantea a la gerencia de Retail, su canal.'],
-  ['mando','La coordinación de Planificación de la Demanda, cargo de la gerencia corporativa de Ventas, revisa la demanda de los cuatro canales y propone de dónde sale la mercancía.'],
+  ['servicio','Planificación de la Demanda y Nuevos Mercados, gerencia corporativa de Comercial, revisa la demanda de los cuatro canales y propone de dónde sale la mercancía.'],
   ['mando','Si hay que quitarle unidades a E-commerce Panamá, no lo negocian los dos gerentes país: lo decide la gerencia corporativa de Ventas, que ve los cuatro canales.'],
   ['servicio','Operaciones y Logística Panamá mueve la mercancía en el plazo acordado.'],
   ['decide','Si el cambio altera el reparto entre países que aprobó el Comité Comercial, sube al comité.']],
   m:'Dos canales que compiten por la misma mercancía tienen un árbitro, y no es ninguno de los dos.'},
- matriz:{cols:['Gerencia corporativa de Ventas','Gerencia del canal','Planificación de la Demanda (cargo de la gerencia corporativa)','Gerencia país del canal'],
+ matriz:{cols:['Gerencia corporativa de Ventas','Gerencia del canal','Planificación de la Demanda (gerencia corporativa de Comercial)','Gerencia país del canal'],
   filas:[['Línea rectora del canal: formato, servicio, criterios','C','D','','E'],
    ['Plan de demanda por canal, país y marca','D','C','S','C'],
    ['Prioridad entre canales dentro del plan','D','C','S','C'],
    ['Estructura y personal del equipo país','','N','','D'],
    ['Garantías y devoluciones dentro de la política','','N','','D · E'],
    ['Montaje del visual en tienda (lo hace Mercadeo, con el estándar de Visual Merchandising)','','C','','C']]},
- decidir:['Si cada país tiene una cabeza país o una dirección general, y qué papel tiene en la mesa del país. Está en las decisiones pendientes de la estructura (1.2).','Si la planificación de la demanda y los mercados nuevos los lleva un solo cargo o dos. Está en las decisiones pendientes de la estructura (1.2).','Con qué frecuencia se reúne la mesa del país y quién la convoca mientras no haya cabeza país.','El gerente regional de Ventas al Mayor: dejar la posición en espera, buscarlo o cubrirla con alguien del grupo. Está en las decisiones pendientes de la estructura (1.2).','Dónde queda el visual merchandising: se dibuja en Mercadeo, como servicio a Retail y a Ventas al Mayor, pero podría ir en Retail. Está en las decisiones pendientes de la estructura (1.2).']},
+ decidir:['Si cada país tiene una cabeza país o una dirección general, y qué papel tiene en la mesa del país. Está en las decisiones pendientes de la estructura (1.2).','Si la planificación de la demanda y los mercados nuevos los lleva una sola gerencia o dos. Está en las decisiones pendientes de la estructura (1.2).','Con qué frecuencia se reúne la mesa del país y quién la convoca mientras no haya cabeza país.','El gerente regional de Ventas al Mayor: dejar la posición en espera, buscarlo o cubrirla con alguien del grupo. Está en las decisiones pendientes de la estructura (1.2).','Dónde queda el visual merchandising: se dibuja en Mercadeo, como servicio a Retail y a Ventas al Mayor, pero podría ir en Retail. Está en las decisiones pendientes de la estructura (1.2).']},
 
-{id:'operaciones', unidad:'oplcorp', n:'Operaciones y Logística', dir:'Compras y Cadena de Suministro', red:'Centro y bodegas país', capa:'Sí: Operaciones y Logística en PA · VE · CO · US, con Servicios Generales dentro. Arriba, dos coordinaciones corporativas: Despacho e Inventario',
+{id:'operaciones', unidad:'oplcorp', n:'Operaciones y Logística', dir:'Cadena de Suministro', red:'Centro y bodegas país', capa:'Sí: Operaciones y Logística en PA · VE · CO · US, con Servicios Generales dentro. Arriba, dos coordinaciones corporativas: Despacho e Inventario',
  riesgo:'Todos le piden a la bodega del país todos los días: los cuatro canales, Finanzas, Compras Internas y la PMO.',
  premisa:'La gerencia país de Operaciones y Logística tiene una sola línea, la corporativa. Los canales del país son sus clientes: le piden por servicio y no le dan órdenes.',
  dilema:'La bodega del país despacha a tiendas, a mayoristas y a la web, y su coordinación de Servicios Generales mantiene sedes y tiendas con contratistas que compra Compras Internas y paga Finanzas. Cada uno le pide algo, y sin regla cada uno actúa como su jefe.',
@@ -98,7 +104,7 @@ window.MODELOS_GERENCIAS = {
    nodos:[{t:'Despacho',s:'del almacén principal a países y tiendas'},{t:'Inventario',s:'estrategia y control del inventario'}],
    pais:{t:'Operaciones y Logística',p:'PA · VE · CO · US',sub:{t:'Servicios Generales',p:'PA · VE · CO'}}},
  conex:[
-  {t:'norma',con:'Dirección de Compras y Cadena de Suministro',dir:'recibe',que:'Cómo debe funcionar una bodega: las prácticas probadas en Colón, replicadas en las demás.'},
+  {t:'norma',con:'Dirección de Cadena de Suministro',dir:'recibe',que:'Cómo debe funcionar una bodega: las prácticas probadas en Colón, replicadas en las demás.'},
   {t:'servicio',con:'Canales de Ventas del país',dir:'da',que:'El despacho a tiendas, mayoristas y pedidos web, con plazos por canal.'},
   {t:'servicio',con:'Compras',dir:'recibe',que:'Cada orden a fábrica, hasta el embarque. Desde el embarque la orden es de Operaciones y Logística.'},
   {t:'servicio',con:'Planificación de Compras y Reabastecimiento',dir:'recibe',que:'El reparto a países y tiendas y los traslados entre tiendas: Compras decide qué va a dónde y la coordinación de Despacho lo mueve.'},
@@ -128,18 +134,17 @@ window.MODELOS_GERENCIAS = {
    ['Reparto a países y tiendas (lo planifica Compras)','E','E','','C']]},
  decidir:['Fernando Alvarado envió un modelo de funcionamiento de la gerencia: revisarlo contra este, en especial las coordinaciones de Despacho y de Inventario y su frontera con Planificación de Compras y Reabastecimiento, en Compras. Está en las decisiones pendientes de la estructura (1.2).','Quién ocupa la coordinación de Inventario, hoy por definir, y cuándo se cubre su analista de inventario.','Los plazos de despacho por canal y por país.','Si Estados Unidos necesita su propia coordinación de Servicios Generales.','Confirmar la gerencia país de Estados Unidos, que hoy se propone junto con la de E-commerce. Está en las decisiones pendientes de la estructura (1.2).']},
 
-{id:'compras', unidad:'compras', n:'Compras', dir:'Compras y Cadena de Suministro', red:'Compra única por marca', capa:'Sí: Compras Internas en PA · VE · CO. Arriba, tres coordinaciones corporativas: Casio, Cubitt y Planificación de Compras y Reabastecimiento',
+{id:'compras', unidad:'compras', n:'Compras', dir:'Presidencia', red:'Compra única por marca', capa:'Sí: Compras Internas en PA · VE · CO. Arriba, tres coordinaciones corporativas: Casio, Cubitt y Planificación de Compras y Reabastecimiento',
  riesgo:'Un comprador corporativo que recibe órdenes de cada área y de cada país.',
  premisa:'Nadie compra por su cuenta. Todo pedido de compra entra por una sola vía a la coordinación que le toca, con la política de la dirección.',
  dilema:'Hoy cada área compra lo suyo, sin una política común. Al centralizar aparece el riesgo contrario: que cada área y cada país le dé órdenes al comprador, y que el comprador termine respondiendo a todos.',
- resuelve:'El área que pide dice qué necesita y para cuándo; la coordinación decide a quién y cómo se compra, con la política. La compra de producto la aprueba el Comité Comercial y la paga Finanzas. La compra interna se hace en cada país, con la política de la gerencia corporativa, y lo que cada país le compra a Panamá lo planifica una coordinación corporativa.',
- mando:{hub:'Gerencia corporativa de Compras',
+ resuelve:'El área que pide dice qué necesita y para cuándo; la coordinación decide a quién y cómo se compra, con la política. La compra de producto la aprueba el Comité Comercial y la paga Finanzas. La compra interna se hace en cada país, con la política de la dirección, y lo que cada país le compra a Panamá lo planifica una coordinación corporativa.',
+ mando:{hub:'Dirección de Compras',
    nodosEti:'Coordinación corporativa',
    nodos:[{t:'Compras Casio',s:'hoja de pedido y asignación'},{t:'Compras Cubitt',s:'órdenes a fábrica'},{t:'Planificación de Compras y Reabastecimiento',s:'lo que cada país compra a Panamá'}],
    pais:{t:'Compras Internas · Procura',p:'PA · VE · CO',eti:'Coordinación país'}},
  conex:[
-  {t:'norma',con:'Dirección de Compras y Cadena de Suministro',dir:'recibe',que:'La política de compra: cuántos proveedores se cotizan, qué muestras se piden, quién aprueba y en cuánto tiempo.'},
-  {t:'norma',con:'Casio · casa matriz',dir:'recibe',que:'La hoja de pedido y la asignación de la marca representada.'},
+    {t:'norma',con:'Casio · casa matriz',dir:'recibe',que:'La hoja de pedido y la asignación de la marca representada.'},
   {t:'norma',con:'Desarrollo y Calidad de Productos',dir:'recibe',que:'Las muestras y especificaciones aprobadas con las que Compras Cubitt ordena a fábrica.'},
   {t:'servicio',con:'Todas las áreas y países',dir:'da',que:'La compra interna por una sola vía en cada país: insumos, material POP, mobiliario, equipos y servicios.'},
   {t:'servicio',con:'Canales de Ventas de cada país',dir:'da',que:'El sugerido de pedido de cada tienda y país, según su venta y su inventario.'},
@@ -148,10 +153,10 @@ window.MODELOS_GERENCIAS = {
   {t:'servicio',con:'Finanzas',dir:'recibe',que:'Paga lo que se compra. Los compromisos grandes llevan el visto bueno del Comité de Finanzas y Riesgos.'},
   {t:'decide',con:'Comité Comercial',dir:'recibe',que:'Aprueba la compra a fábrica que compone Compras.'}],
  reglas:[
-  ['servicio','Una sola vía de solicitud','El área que pide dice qué necesita y para cuándo. Compras Internas de su país decide a quién se le compra y cómo, con la política de la gerencia corporativa. Ninguna área negocia con un proveedor por su cuenta.'],
+  ['servicio','Una sola vía de solicitud','El área que pide dice qué necesita y para cuándo. Compras Internas de su país decide a quién se le compra y cómo, con la política de la dirección. Ninguna área negocia con un proveedor por su cuenta.'],
   ['servicio','El reparto lo planifica Compras','Planificación de Compras y Reabastecimiento propone lo que cada país le compra a Panamá y cómo se reparte entre tiendas. Cada canal lo revisa con su conocimiento del punto de venta, y la bodega lo mueve.'],
   ['decide','La compra de producto se aprueba en comité','Compras compone la compra a fábrica y el Comité Comercial la aprueba. Si el compromiso es grande, pasa además por el Comité de Finanzas y Riesgos.'],
-  ['servicio','La orden cambia de dueño en el embarque','Hasta el embarque la orden es de Compras; desde ahí, de Operaciones y Logística. Nadie la sigue en paralelo.'],
+  ['servicio','La orden cambia de dueño en el embarque','Hasta el embarque la orden es de Compras; desde ahí, de Cadena de Suministro, por su gerencia de Operaciones y Logística. Nadie la sigue en paralelo.'],
   ['norma','Compras no paga y Finanzas no compra','La separación es la regla de control: quien elige al proveedor no libera el pago.']],
  caso:{t:'Una tienda nueva necesita mobiliario y laptops',pasos:[
   ['mision','La PMO, que gestiona la apertura, hace una sola solicitud con todo lo que la tienda necesita.'],
@@ -173,7 +178,9 @@ window.MODELOS_GERENCIAS = {
  premisa:'El producto tiene un solo dueño técnico, desde la especificación hasta su calidad en el mercado. También lo diseña, con el sistema de marca de Diseño y Estrategia de Marca; los demás le entregan datos y le piden por servicio, y nadie más cambia una especificación.',
  dilema:'El desarrollo de producto estuvo bajo Mercadeo y la inteligencia de mercado se compartía hasta el 13-oct. Hoy esta gerencia trabaja con Mercadeo, Compras Cubitt, la gerencia de Experiencia del Cliente de cada país y Comercial, y cada uno tiene algo que decir del producto.',
  resuelve:'Una sola dueña de la especificación. Mercadeo le da el brief de consumidor, Diseño y Estrategia de Marca el sistema de marca al que se ajustan la forma y el empaque, Experiencia del Cliente los datos de falla y Comercial decide la colección en el comité. El lanzamiento tiene un relevo explícito con Mercadeo.',
- mando:{hub:'Gerencia corporativa de Desarrollo y Calidad de Productos'},
+ mando:{hub:'Gerencia corporativa de Desarrollo y Calidad de Productos',
+   nodosEti:'Coordinación corporativa',
+   nodos:[{t:'Diseño Industrial',s:'diseño del producto físico'}]},
  conex:[
   {t:'servicio',con:'Mercadeo',dir:'recibe',que:'El brief de consumidor de cada producto nuevo: para quién es, qué necesita y a qué precio. Firman juntos el sí o el no, con Comercial y Finanzas.'},
   {t:'norma',con:'Diseño y Estrategia de Marca',dir:'recibe',que:'El sistema de marca al que se ajustan la forma, los colores, los materiales, los accesorios, el empaque y la experiencia digital, que diseña esta gerencia.'},
@@ -383,7 +390,7 @@ window.MODELOS_GERENCIAS = {
  resuelve:'Una sola vía de pedido, por brief, con un calendario común y una revisión mensual de capacidad. Un solo aprobador de negocio por proyecto, definido en el brief, y Diseño y Estrategia de Marca aprueba la calidad. El sistema de marca es la norma a la que se ajustan el diseño de producto y lo que se monta en el punto de venta.',
  mando:{hub:'Dirección de Diseño y Estrategia de Marca',
    nodosEti:'Gerencia corporativa',
-   nodos:[{t:'Creatividad y Contenido Audiovisual',s:'concepto creativo, video y estudio'},{t:'Diseño Gráfico de Campañas y Redes',s:'piezas de campaña y publicaciones en redes'}]},
+   nodos:[{t:'Creatividad y Contenido Audiovisual',s:'concepto creativo, video y estudio'},{t:'Diseño de Identidad de Marca',s:'piezas de campaña y publicaciones en redes'}]},
  conex:[
   {t:'servicio',con:'Mercadeo',dir:'da',que:'El concepto, el video y las piezas de cada campaña y de las redes, a partir de su brief.'},
   {t:'servicio',con:'Social y Contenido · Mercadeo',dir:'da',que:'Los videos y el diseño de las publicaciones para redes, según su calendario editorial.'},
@@ -394,14 +401,14 @@ window.MODELOS_GERENCIAS = {
  reglas:[
   ['servicio','Se pide por brief y por una sola vía','Ningún pedido llega por chat ni por cercanía. El brief dice quién aprueba por el negocio.'],
   ['norma','Un solo aprobador de negocio','Quien firmó el brief aprueba que la pieza lo cumpla; Diseño y Estrategia de Marca aprueba su calidad. No hay doble aprobación por pieza.'],
-  ['mando','Dos gerencias, dos oficios','Creatividad y Contenido Audiovisual lleva el concepto y el video, con su estudio; Diseño Gráfico de Campañas y Redes, las piezas de campaña y las publicaciones en redes. Son perfiles y experiencias distintas: cada una responde por lo suyo, y las dos trabajan sobre el mismo concepto.'],
+  ['mando','Dos gerencias, dos oficios','Creatividad y Contenido Audiovisual lleva el concepto y el video, con su estudio; Diseño de Identidad de Marca, las piezas de campaña y las publicaciones en redes. Son perfiles y experiencias distintas: cada una responde por lo suyo, y las dos trabajan sobre el mismo concepto.'],
   ['norma','El sistema de marca no se cambia fuera de aquí','El país adapta las piezas a sus formatos; Producto y Visual Merchandising diseñan y producen con el sistema de marca, y no lo cambian.'],
   ['decide','La capacidad se revisa cada mes','Toda urgencia muestra qué compromiso desplaza. Si dos áreas no se ponen de acuerdo en una prioridad, decide la Dirección.']],
  caso:{t:'La campaña de lanzamiento de un reloj Cubitt',pasos:[
   ['servicio','Mercadeo entrega el brief, con su aprobador de negocio.'],
   ['mando','Creatividad y Contenido Audiovisual propone el concepto, el copy y el key visual.'],
   ['norma','Mercadeo aprueba que cumpla el brief y Diseño y Estrategia de Marca, la calidad.'],
-  ['servicio','Diseño Gráfico de Campañas y Redes diseña las piezas —vallas, digitales y publicaciones en redes— y Creatividad y Contenido Audiovisual produce los videos de campaña y para redes. Visual Merchandising produce la foto y lo lleva a las tiendas con el sistema de marca.'],
+  ['servicio','Diseño de Identidad de Marca diseña las piezas —vallas, digitales y publicaciones en redes— y Creatividad y Contenido Audiovisual produce los videos de campaña y para redes. Visual Merchandising produce la foto y lo lleva a las tiendas con el sistema de marca.'],
   ['norma','Cada país adapta las piezas a sus formatos sin cambiar el sistema de marca.']],
   m:'Uno pide, otro crea, y nadie cambia la marca en el camino.'},
  matriz:{cols:['Diseño y Estrategia de Marca','Mercadeo','Desarrollo y Calidad','Visual Merchandising'],

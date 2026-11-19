@@ -21,7 +21,7 @@ document.documentElement.setAttribute('data-theme',m==='oscuro'?'dark':'light');
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap">
 <style>
 /* Layout: cabecera con dos vistas (Capas · Funcionamiento). Funcionamiento = protocolo común,
-   resumen de las nueve gerencias corporativas y la Dirección de Diseño y Estrategia de Marca y, por cada una, su diagrama con su red al lado. */
+   resumen de las ocho gerencias corporativas y las direcciones de Compras y de Diseño y Estrategia de Marca y, por cada una, su diagrama con su red al lado. */
 :root{
   --bg:#F4F6F9; --surface:#FFFFFF; --surface-2:#EEF2F7; --ink:#14213A; --ink-2:#4A566A; --ink-3:#6B7586;
   --line:#D8DEE7; --line-2:#E6EAF0;
@@ -260,7 +260,7 @@ button{font:inherit;color:inherit}
   <section class="vista" id="vFunc" role="tabpanel" aria-labelledby="tabFunc" hidden>
     <div class="sec lect">
       <h2>El modelo de funcionamiento de cada gerencia corporativa</h2>
-      <p class="lede">El mismo ejercicio para las nueve gerencias corporativas de la estructura y para la Dirección de Diseño y Estrategia de Marca, que nace el 06-nov-2026: cada caja tiene una sola línea de mando, y lo demás que la une con el resto del grupo es norma, servicio o misión. Mercadeo y Diseño y Estrategia de Marca están aplicados en la estructura desde el 06-nov; los demás son propuesta para discusión.</p>
+      <p class="lede">El mismo ejercicio para las ocho gerencias corporativas de la estructura, para la Dirección de Diseño y Estrategia de Marca, que nace el 06-nov-2026, y para la de Compras, que se separa de Cadena de Suministro el 19-nov-2026: cada caja tiene una sola línea de mando, y lo demás que la une con el resto del grupo es norma, servicio o misión. Mercadeo y Diseño y Estrategia de Marca están aplicados en la estructura desde el 06-nov; los demás son propuesta para discusión.</p>
       <p class="aviso-dec"><span class="ico" aria-hidden="true">!</span><span><b>Hay puntos en revisión.</b> La estructura To-Be tiene «decisiones por tomar»: las cajas en rojo del organigrama, listadas en el punto 1.2 del índice. Lo que se resuelva en ellas puede modificar estos modelos de funcionamiento. Cada modelo indica cuántas tiene su parte de la estructura. <a href="informe-fase2.html#/decisiones-estructura">Ver las decisiones pendientes de la estructura →</a></span></p>
     </div>
 
@@ -457,18 +457,18 @@ function pila(){
   var capas = [
     {n:"Gobierno", v:"Decide el rumbo", d:"Gobierna; no es línea de mando.",
      c:'<div class="grupo neutro"><div class="fila"><span class="chip gob">Junta Directiva</span></div></div>'},
-    {n:"Presidencia", v:"Conduce el grupo", d:"Nueve reportes directos —seis direcciones y tres gerencias corporativas de staff—, dos por encima del tramo de 4 a 7, y dos unidades propias.",
-     c:'<div class="grupo neutro"><div class="fila"><span class="chip gob">Presidencia · CEO</span><span class="chip staff">Coordinación Ejecutiva de la Presidencia</span><span class="chip staff">Consultoría Jurídica</span></div></div>'},
+    {n:"Presidencia", v:"Conduce el grupo", d:"Diez reportes directos —siete direcciones y tres gerencias corporativas de staff—, tres por encima del tramo de 4 a 7, y dos unidades propias.",
+     c:'<div class="grupo neutro"><div class="fila"><span class="chip gob">Presidencia · CEO</span><span class="chip staff">Coordinación de Relaciones Corporativas</span><span class="chip staff">Consultoría Jurídica</span></div></div>'},
     {n:"Direcciones corporativas", v:"Fijan la línea rectora", d:"Una por gran función del grupo, con baja operatividad.",
-     c:'<div class="grupo neg"><div class="gtit">Unidades de negocio · cadena de valor →</div><div class="fila"><span class="chip fuerte">Innovación y Desarrollo de Productos</span><span class="chip fuerte">Diseño y Estrategia de Marca</span><span class="chip fuerte">Compras y Cadena de Suministro</span><span class="chip fuerte">Comercial</span></div></div>' +
+     c:'<div class="grupo neg"><div class="gtit">Unidades de negocio · cadena de valor →</div><div class="fila"><span class="chip fuerte">Innovación y Desarrollo de Productos</span><span class="chip fuerte">Diseño y Estrategia de Marca</span><span class="chip fuerte">Compras</span><span class="chip fuerte">Cadena de Suministro</span><span class="chip fuerte">Comercial</span></div></div>' +
        '<div class="grupo apo"><div class="gtit">Unidades de apoyo · apoyo al Comité Directivo</div><div class="fila"><span class="chip fuerte">Finanzas</span><span class="chip fuerte">Desarrollo Corporativo</span></div></div>'},
     {n:"Gerencias corporativas", v:"Gobiernan una especialidad", d:"Solo donde conviene llevarla una vez para todos los países. Algunas tienen coordinaciones corporativas.",
      c:'<div class="grupo neg"><div class="gtit">Unidades de negocio</div>' +
-       '<div class="subgrupo"><span class="stit">Innovación y Desarrollo de Productos</span><div class="fila"><span class="chip">Desarrollo y Calidad de Productos</span><span class="chip">Innovación y Tecnología de Productos</span></div></div>' +
-       '<div class="subgrupo"><span class="stit">Diseño y Estrategia de Marca</span><div class="fila"><span class="chip">Creatividad y Contenido Audiovisual</span><span class="chip">Diseño Gráfico de Campañas y Redes</span></div></div>' +
-       '<div class="subgrupo"><span class="stit">Compras y Cadena de Suministro</span><div class="fila"><span class="chip fuerte">Compras</span><span class="chip sub">Coordinación Compras Casio</span><span class="chip sub">Coordinación Compras Cubitt</span><span class="chip sub">Coordinación Planificación de Compras y Reabastecimiento</span></div>' +
-       '<div class="fila"><span class="chip fuerte">Operaciones y Logística</span><span class="chip sub">Coordinación Despacho</span><span class="chip sub">Coordinación Inventario</span></div></div>' +
-       '<div class="subgrupo"><span class="stit">Comercial</span><div class="fila"><span class="chip">Ventas</span><span class="chip">Mercadeo</span><span class="chip">Brand Management · solo Casio</span></div></div></div>' +
+       '<div class="subgrupo"><span class="stit">Innovación y Desarrollo de Productos</span><div class="fila"><span class="chip fuerte">Desarrollo y Calidad de Productos</span><span class="chip sub">Coordinación Diseño Industrial</span></div><div class="fila"><span class="chip">Innovación y Tecnología de Productos</span></div></div>' +
+       '<div class="subgrupo"><span class="stit">Diseño y Estrategia de Marca</span><div class="fila"><span class="chip">Creatividad y Contenido Audiovisual</span><span class="chip">Diseño de Identidad de Marca</span></div></div>' +
+       '<div class="subgrupo"><span class="stit">Compras · sin gerencia: sus coordinaciones reportan a la dirección</span><div class="fila"><span class="chip sub">Coordinación Compras Casio</span><span class="chip sub">Coordinación Compras Cubitt</span><span class="chip sub">Coordinación Planificación de Compras y Reabastecimiento</span></div></div>' +
+       '<div class="subgrupo"><span class="stit">Cadena de Suministro</span><div class="fila"><span class="chip fuerte">Operaciones y Logística</span><span class="chip sub">Coordinación Despacho</span><span class="chip sub">Coordinación Inventario</span></div></div>' +
+       '<div class="subgrupo"><span class="stit">Comercial</span><div class="fila"><span class="chip">Planificación de la Demanda y Nuevos Mercados</span><span class="chip">Ventas</span><span class="chip">Mercadeo</span><span class="chip">Brand Management · solo Casio</span></div></div></div>' +
        '<div class="grupo apo"><div class="gtit">Unidades de apoyo</div>' +
        '<div class="subgrupo"><span class="stit">Reportan directo a la Presidencia</span><div class="fila"><span class="chip fuerte">Gobierno de IA</span><span class="chip fuerte">Tecnología, Gobernanza del Dato y Cumplimiento</span><span class="chip fuerte">PMO</span></div></div>' +
        '<div class="subgrupo"><span class="stit">Finanzas</span><div class="fila"><span class="chip sub">Coordinación Planificación y Control Financiero</span></div></div><div class="subgrupo"><span class="stit">Desarrollo Corporativo</span><div class="fila"><span class="chip sub">Coordinación Formación · Universidad Corporativa</span></div></div></div>'},
