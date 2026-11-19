@@ -196,12 +196,13 @@ window.ESTRUCTURA_TOBE = {
     {id:'comunicaciones', n:'Coordinación de Relaciones Corporativas', nivel:'staff', etiqueta:'', enLinea:true, lado:'izq',
      ocupante:{nombre:'Carmela Iribarren', estado:'actual', nota:'Hoy es la asistente ejecutiva de la Presidencia. El cargo pasa a denominarse Coordinador(a) de Relaciones Corporativas.'},
      funciones:[
+       'Coordina la agenda y el despacho de la Presidencia y el seguimiento de sus decisiones con las direcciones.',
        'Lleva las comunicaciones internas y externas del grupo: es el canal único de comunicación institucional, hacia toda la organización y hacia fuera. Recibe de cada dirección qué quiere comunicar (proyectos, talento, cambios) y lo emite con una sola voz.',
        'Lleva las relaciones públicas del grupo.',
        'Atiende los vínculos con grupos empresariales.',
        'Todo bajo la supervisión de la Presidencia.'
      ],
-     nota:'Se llamó Comunicaciones Internas y, hasta el 17-nov-2026, Asistencia Ejecutiva a la Presidencia. Ese día pasa a Coordinación Ejecutiva, con un cargo de Coordinador(a) Ejecutivo(a) de la Presidencia, y suma las comunicaciones externas, las relaciones públicas y los vínculos con grupos empresariales. La comunicación que lleva es la institucional del grupo; la comunicación de las marcas sigue en Mercadeo y en Diseño y Estrategia de Marca. Desde el 19-nov-2026 se llama Coordinación de Relaciones Corporativas, con un cargo de Coordinador(a) de Relaciones Corporativas, y deja la agenda y el despacho de la Presidencia: se concentra en la comunicación institucional y las relaciones del grupo. Va sobre la línea de la Presidencia, como la Consultoría Jurídica y al otro costado, porque trabaja bajo su supervisión directa y sirve a todas las áreas sin ocupar el nivel de las direcciones.'},
+     nota:'Se llamó Comunicaciones Internas y, hasta el 17-nov-2026, Asistencia Ejecutiva a la Presidencia. Ese día pasa a Coordinación Ejecutiva, con un cargo de Coordinador(a) Ejecutivo(a) de la Presidencia, y suma las comunicaciones externas, las relaciones públicas y los vínculos con grupos empresariales. La comunicación que lleva es la institucional del grupo; la comunicación de las marcas sigue en Mercadeo y en Diseño y Estrategia de Marca. Desde el 19-nov-2026 se llama Coordinación de Relaciones Corporativas, con un cargo de Coordinador(a) de Relaciones Corporativas. Conserva la agenda y el despacho de la Presidencia, con las actas y el seguimiento de acuerdos que le asignan los procesos de gobierno, y suma la comunicación institucional y las relaciones del grupo. Va sobre la línea de la Presidencia, como la Consultoría Jurídica y al otro costado, porque trabaja bajo su supervisión directa y sirve a todas las áreas sin ocupar el nivel de las direcciones.'},
     {id:'juridica', n:'Consultoría Jurídica', nivel:'staff', etiqueta:'', enLinea:true,
      ocupante:{nombre:'Bernie Weininger', estado:'actual', nota:'Director de la Junta Directiva. Se suma un abogado contratado a tiempo parcial.'},
      funciones:[
@@ -620,8 +621,7 @@ window.ESTRUCTURA_TOBE = {
               'El contenido ágil para redes y creadores; el video lo produce Diseño y Estrategia de Marca, y las producciones grandes de foto y 3D son de Visual Merchandising.'
             ],
             decisiones:[
-              'Quién lidera Social y Contenido: la Dirección Comercial propone a Macarena Bachor; en la propuesta anterior las redes iban en Experiencia Digital, con Anabel Roizental.',
-              'Quién lleva la comunicación interna, que el macroproceso 16 (Gestión de Mercadeo, Marca y Comunicaciones) nombra y ninguna unidad tiene hoy: esta gerencia o Recursos Humanos.'
+              'Quién lidera Social y Contenido: la Dirección Comercial propone a Macarena Bachor; en la propuesta anterior las redes iban en Experiencia Digital, con Anabel Roizental.'
             ]},
            {id:'cuentasclave', n:'Cuentas Clave y Trade', nivel:'gun',
             ocupante:{nombre:'Ivonne de la Guardia', estado:'actual', nota:'Hoy es la gerente de cuentas clave, con equipo en varios países.'},

@@ -203,7 +203,7 @@ window.IA_DOC = {
        "3,87",
        "Faltantes registrados con su motivo y demanda no atendida por SKU",
        "≥ 90 % de líneas recortadas o venta perdida registradas con motivo, a los 3 meses",
-       "Comité Comercial / Director de Compras y Cadena de Suministros"
+       "Comité Comercial / Director de Compras"
       ],
       [
        "7",
@@ -223,7 +223,7 @@ window.IA_DOC = {
        "3,85",
        "Día hábil en que el borrador del PCI está listo y días-persona del cierre",
        "Borrador listo el día hábil 3 y ≤ 1 día de revisión, tras 3 cierres",
-       "Comité Comercial / Director de Compras y Cadena de Suministros"
+       "Comité Comercial / Director de Compras"
       ],
       [
        "9",
@@ -652,7 +652,7 @@ window.IA_DOC = {
         ],
         [
          "Dueño",
-         "Comité Comercial / Director de Compras y Cadena de Suministros"
+         "Comité Comercial / Director de Compras"
         ],
         [
          "Opera",
@@ -794,7 +794,7 @@ window.IA_DOC = {
         ],
         [
          "Dueño",
-         "Comité Comercial / Director de Compras y Cadena de Suministros"
+         "Comité Comercial / Director de Compras"
         ],
         [
          "Opera",
@@ -1847,7 +1847,7 @@ window.IA_DOC = {
         ],
         [
          "Dueño",
-         "Comité Comercial / Director de Compras y Cadena de Suministros"
+         "Comité Comercial / Director de Compras"
         ],
         [
          "Opera",
@@ -1919,7 +1919,7 @@ window.IA_DOC = {
         ],
         [
          "Dueño",
-         "Comité Comercial / Director de Compras y Cadena de Suministros"
+         "Comité Comercial / Director de Compras"
         ],
         [
          "Opera",
@@ -2063,7 +2063,7 @@ window.IA_DOC = {
         ],
         [
          "Dueño",
-         "Comité Comercial / Director de Compras y Cadena de Suministros"
+         "Comité Comercial / Director de Compras"
         ],
         [
          "Opera",
@@ -2135,7 +2135,7 @@ window.IA_DOC = {
         ],
         [
          "Dueño",
-         "Comité Comercial / Director de Compras y Cadena de Suministros"
+         "Comité Comercial / Director de Compras"
         ],
         [
          "Opera",
@@ -4820,7 +4820,7 @@ window.IA_DOC = {
         ],
         [
          "Dueño",
-         "Gerente de Servicio Técnico (proceso 11.2)"
+         "Gerente de Experiencia del Cliente (corporativo) (proceso 11.2)"
         ],
         [
          "Opera",
@@ -4828,7 +4828,7 @@ window.IA_DOC = {
         ],
         [
          "Firma",
-         "Gerente de Servicio Técnico del país, para las excepciones de elegibilidad"
+         "Gerente de Experiencia del Cliente del país, para las excepciones de elegibilidad"
         ],
         [
          "Calificación",
@@ -5036,7 +5036,7 @@ window.IA_DOC = {
         ],
         [
          "Dueño",
-         "Gerente de Servicio Técnico, con alcance regional para Casio (proceso 11.5)"
+         "Gerente de Experiencia del Cliente (por país), con alcance regional para Casio (proceso 11.5)"
         ],
         [
          "Opera",
@@ -5044,7 +5044,7 @@ window.IA_DOC = {
         ],
         [
          "Firma",
-         "Gerente de Servicio Técnico, que firma la OC de repuestos"
+         "Gerente de Experiencia del Cliente (por país), que firma la OC de repuestos"
         ],
         [
          "Calificación",
@@ -5180,7 +5180,7 @@ window.IA_DOC = {
         ],
         [
          "Dueño",
-         "Gerente de Servicio Técnico (proceso 11.2)"
+         "Gerente de Experiencia del Cliente (corporativo) (proceso 11.2)"
         ],
         [
          "Opera",
@@ -5396,7 +5396,7 @@ window.IA_DOC = {
         ],
         [
          "Dueño",
-         "Gerente de Servicio Técnico (proceso 11.8)"
+         "Gerente de Experiencia del Cliente (corporativo) (proceso 11.8)"
         ],
         [
          "Opera",
@@ -5468,7 +5468,7 @@ window.IA_DOC = {
         ],
         [
          "Dueño",
-         "Gerente de Servicio Técnico (proceso 11.1)"
+         "Gerente de Experiencia del Cliente (corporativo) (proceso 11.1)"
         ],
         [
          "Opera",
@@ -5612,7 +5612,7 @@ window.IA_DOC = {
         ],
         [
          "Dueño",
-         "Gerente de Servicio Técnico (proceso 11.1)"
+         "Gerente de Experiencia del Cliente (corporativo) (proceso 11.1)"
         ],
         [
          "Opera",
@@ -5684,7 +5684,7 @@ window.IA_DOC = {
         ],
         [
          "Dueño",
-         "Gerente de Servicio Técnico (proceso 11.6)"
+         "Gerente de Experiencia del Cliente (corporativo) (proceso 11.6)"
         ],
         [
          "Opera",
@@ -5692,7 +5692,7 @@ window.IA_DOC = {
         ],
         [
          "Firma",
-         "Ninguna en la órbita; se propone que el Gerente de Servicio Técnico firme las resoluciones de reemplazo o reembolso"
+         "Ninguna en la órbita; se propone que el Gerente de Experiencia del Cliente (corporativo) firme las resoluciones de reemplazo o reembolso"
         ],
         [
          "Calificación",
@@ -6760,11 +6760,11 @@ window.IA_DOC = {
         ],
         [
          "Dueño",
-         "Asistente Ejecutivo(a) de la Presidencia (proceso 1.4)"
+         "Coordinador(a) de Relaciones Corporativas (proceso 1.4)"
         ],
         [
          "Opera",
-         "Asistente Ejecutivo(a) de la Presidencia"
+         "Coordinador(a) de Relaciones Corporativas"
         ],
         [
          "Firma",
@@ -7829,7 +7829,7 @@ window.IA_DOC = {
        "11. [[mod:m-plan-de-temporada|Plan de temporada]] · 35. [[mod:m-panel-unico-del-pedido|Panel único del pedido]] · 38. [[mod:m-limpieza-de-pedidos-cashea|Limpieza de pedidos Cashea]] · 66. [[mod:m-venta-asistida-por-chat|Venta asistida por chat]] · 69. [[mod:m-publicacion-por-canal|Publicación por canal]]"
       ],
       [
-       "Comité Comercial / Director de Compras y Cadena de Suministros",
+       "Comité Comercial / Director de Compras",
        "4",
        "6. [[mod:m-demanda-y-s-op|Demanda y S&OP]] · 8. [[mod:m-reporte-pci-a-casio|Reporte PCI a Casio]] · 15. [[mod:m-transito-internacional|Tránsito internacional]] · 18. [[mod:m-mesa-de-compra-casio|Mesa de compra Casio]]"
       ],
@@ -7864,6 +7864,16 @@ window.IA_DOC = {
        "3. [[mod:m-cuadre-previo-de-caja|Cuadre previo de caja]] · 14. [[mod:m-conciliacion-de-plataformas|Conciliación de plataformas]]"
       ],
       [
+       "Gerente de Experiencia del Cliente (corporativo) (proceso 11.1)",
+       "2",
+       "61. [[mod:m-bandeja-de-mayoristas|Bandeja de mayoristas]] · 68. [[mod:m-copiloto-de-atencion-omnicanal|Copiloto de atención omnicanal]]"
+      ],
+      [
+       "Gerente de Experiencia del Cliente (corporativo) (proceso 11.2)",
+       "2",
+       "20. [[mod:m-expediente-unico-de-garantia|Expediente único de garantía]] · 52. [[mod:m-stock-de-garantia-y-reemplazos|Stock de garantía y reemplazos]]"
+      ],
+      [
        "Gerente de Recursos Humanos (proceso 17.1)",
        "2",
        "71. [[mod:m-vacantes-y-requisiciones|Vacantes y requisiciones]] · 74. [[mod:m-reclutamiento-y-lector-de-cv|Reclutamiento y lector de CV]]"
@@ -7872,16 +7882,6 @@ window.IA_DOC = {
        "Gerente de Recursos Humanos (proceso 17.5)",
        "2",
        "70. [[mod:m-analitica-de-talento-en-tiempo-real|Analítica de talento en tiempo real]] · 78. [[mod:m-compensacion-y-percentiles-salariales|Compensación y percentiles salariales]]"
-      ],
-      [
-       "Gerente de Servicio Técnico (proceso 11.1)",
-       "2",
-       "61. [[mod:m-bandeja-de-mayoristas|Bandeja de mayoristas]] · 68. [[mod:m-copiloto-de-atencion-omnicanal|Copiloto de atención omnicanal]]"
-      ],
-      [
-       "Gerente de Servicio Técnico (proceso 11.2)",
-       "2",
-       "20. [[mod:m-expediente-unico-de-garantia|Expediente único de garantía]] · 52. [[mod:m-stock-de-garantia-y-reemplazos|Stock de garantía y reemplazos]]"
       ],
       [
        "Gerente de Tesorería",
@@ -7909,11 +7909,6 @@ window.IA_DOC = {
        "53. [[mod:m-contratos-digitales|Contratos digitales]]"
       ],
       [
-       "Asistente Ejecutivo(a) de la Presidencia (proceso 1.4)",
-       "1",
-       "26. [[mod:m-registro-de-acuerdos-y-decisiones|Registro de acuerdos y decisiones]]"
-      ],
-      [
        "Coordinador(a) Comercial (proceso 8.8)",
        "1",
        "75. [[mod:m-portal-de-socios-y-franquicias|Portal de socios y franquicias]]"
@@ -7927,6 +7922,11 @@ window.IA_DOC = {
        "Coordinador(a) de Recursos Humanos (proceso 17.4)",
        "1",
        "72. [[mod:m-repositorio-de-fichas-del-colaborador|Repositorio de fichas del colaborador]]"
+      ],
+      [
+       "Coordinador(a) de Relaciones Corporativas (proceso 1.4)",
+       "1",
+       "26. [[mod:m-registro-de-acuerdos-y-decisiones|Registro de acuerdos y decisiones]]"
       ],
       [
        "Coordinador(a) de Tesorería / Cobranzas (Cobranza)",
@@ -7979,6 +7979,21 @@ window.IA_DOC = {
        "65. [[mod:m-kenex-usa-y-marketplaces-de-ee-uu|Kenex USA y marketplaces de EE. UU.]]"
       ],
       [
+       "Gerente de Experiencia del Cliente (corporativo) (proceso 11.6)",
+       "1",
+       "77. [[mod:m-garantias-en-mercados-sin-operacion|Garantías en mercados sin operación]]"
+      ],
+      [
+       "Gerente de Experiencia del Cliente (corporativo) (proceso 11.8)",
+       "1",
+       "60. [[mod:m-reembolsos-y-cambios-b2b|Reembolsos y cambios B2B]]"
+      ],
+      [
+       "Gerente de Experiencia del Cliente (por país), con alcance regional para Casio (proceso 11.5)",
+       "1",
+       "44. [[mod:m-repuestos-y-servicio-casio|Repuestos y servicio Casio]]"
+      ],
+      [
        "Gerente de Marketing (país) (proceso 16.6)",
        "1",
        "56. [[mod:m-co-marketing|Co-marketing]]"
@@ -8007,21 +8022,6 @@ window.IA_DOC = {
        "Gerente de Recursos Humanos (proceso 17.7)",
        "1",
        "76. [[mod:m-desarrollo-y-carrera|Desarrollo y carrera]]"
-      ],
-      [
-       "Gerente de Servicio Técnico (proceso 11.6)",
-       "1",
-       "77. [[mod:m-garantias-en-mercados-sin-operacion|Garantías en mercados sin operación]]"
-      ],
-      [
-       "Gerente de Servicio Técnico (proceso 11.8)",
-       "1",
-       "60. [[mod:m-reembolsos-y-cambios-b2b|Reembolsos y cambios B2B]]"
-      ],
-      [
-       "Gerente de Servicio Técnico, con alcance regional para Casio (proceso 11.5)",
-       "1",
-       "44. [[mod:m-repuestos-y-servicio-casio|Repuestos y servicio Casio]]"
       ],
       [
        "Gerente de Tienda / Supervisor de Ventas (proceso 9.6); el soporte lo presta Tecnología (14.5)",

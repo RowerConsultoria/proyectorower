@@ -5,7 +5,7 @@
 window.MANUAL_FASE2 = {
  "meta": {
   "version": "v18",
-  "generado": "2026-11-13",
+  "generado": "2026-11-19",
   "fuenteMapa": "Mapa de Procesos Actualizado v18 — validado por el equipo consultor",
   "niveles": "N0 (macroprocesos) y N1 (procesos). Sin N2: los procedimientos quedaron fuera del alcance de la Fase 2.",
   "totales": {
@@ -1112,7 +1112,7 @@ window.MANUAL_FASE2 = {
       "participantes": [
        "Gerente Corporativo(a) de Mercadeo",
        "Coordinador(a) Comercial (desempeño de colecciones previas)",
-       "Diseñador(a) (Diseño y Marca)",
+       "Diseñador(a) (Diseño y Estrategia de Marca)",
        "Gerente Corporativo(a) de Mercadeo",
        "Asesor(a) Jurídico(a) Externo(a) del Grupo",
        "licenciante (actor externo)"
@@ -3571,7 +3571,7 @@ window.MANUAL_FASE2 = {
      "madurez": "as-is",
      "mapa": {
       "alcance": "Recepción del reclamo en tienda, decisión inmediata de cambio versus derivación a taller según criticidad y disponibilidad, ejecución diferenciada por marca: Casio con relojero de tienda (cambios menores) o relojera central (reparaciones mayores) más envío de número de serie a analista corporativo que reporta a Casio Japón para nota de crédito; Cubitt vía flujo Lark creado por Servicio Técnico PA con recepción y ajuste mensual en bodega. En VE existe sistema paralelo Cisco. Incluye recepción de garantías de clientes que compraron en tiendas de terceros que revenden la marca.",
-      "dueno": "Gerente de Servicio Técnico (por país)",
+      "dueno": "Gerente de Experiencia del Cliente (por país)",
       "participantes": [
        "Gerente de Tienda / Supervisor de Ventas / Supervisor de Ventas (recepción del reclamo)",
        "Técnico(a) de Servicio / Relojero(a) (reparaciones menores Casio)",
@@ -4321,7 +4321,7 @@ window.MANUAL_FASE2 = {
       "dueno": "Gerente de E-commerce / Ventas Web (por país); Coordinador(a) de Soporte / Servicio al Cliente (Colombia — Gaby en Deltadir)",
       "participantes": [
        "Asesor(a) de Ventas Web",
-       "Gerente de Servicio Técnico (recibe derivaciones)",
+       "Gerente de Experiencia del Cliente (corporativo) (recibe derivaciones)",
        "Marketing (derivación de DM de redes sociales)",
        "Analista de Sistemas / Datos (uso de Gemini)"
       ],
@@ -4361,7 +4361,7 @@ window.MANUAL_FASE2 = {
       "participantes": [
        "Supervisor(a) de Bodega / Despacho (recepción física)",
        "Auxiliar / Ayudante de Bodega y Tráfico (reingreso al inventario)",
-       "Gerente de Servicio Técnico (si el retorno es por garantía)",
+       "Gerente de Experiencia del Cliente (corporativo) (si el retorno es por garantía)",
        "Contabilidad (nota de crédito)",
        "Coordinador(a) de Sistemas (implementación del tracker en Odoo — proyecto Kenex USA)"
       ],
@@ -4506,13 +4506,13 @@ window.MANUAL_FASE2 = {
      "madurez": "híbrido",
      "mapa": {
       "alcance": "Recepción, clasificación y enrutamiento de todo contacto entrante del cliente final (WhatsApp Business, correo, DM de redes, chat web, atención presencial en oficina y en el centro de experiencia) a través de la plataforma de omnicanalidad, con bifurcación entre ruta comercial y ruta de soporte, asignación al agente del país y seguimiento hasta el cierre del contacto bajo SLA de respuesta.",
-      "dueno": "Gerente de Servicio Técnico",
+      "dueno": "Gerente de Experiencia del Cliente (corporativo)",
       "participantes": [
        "Subgerente de Servicio Técnico",
        "Asesor(a) de Servicio al Cliente (por país)",
        "Coordinador(a) de Soporte / Servicio al Cliente (Colombia)",
        "Gerente de E-commerce / Ventas Web (por país) para la ruta comercial",
-       "Gerente de Servicio Técnico (por país)"
+       "Gerente de Experiencia del Cliente (por país)"
       ],
       "cadencia": "Continua (todo el horario operativo; extendida en temporada alta)",
       "disparador": "Contacto entrante del cliente por cualquiera de los canales habilitados",
@@ -4546,13 +4546,13 @@ window.MANUAL_FASE2 = {
      "madurez": "as-is",
      "mapa": {
       "alcance": "Desde la recepción del producto reclamado (oficina, tienda o envío) hasta la entrega del reemplazo al cliente: verificación de elegibilidad contra la carta de garantía, diagnóstico inicial, traslado en el ERP hacia la bodega de desecho, validación cruzada de bodega o del gerente de servicio del país, entrega del producto nuevo y carga del reporte de garantía en la tabla compartida.",
-      "dueno": "Gerente de Servicio Técnico",
+      "dueno": "Gerente de Experiencia del Cliente (corporativo)",
       "participantes": [
        "Subgerente de Servicio Técnico",
        "Asesor(a) de Servicio al Cliente (por país)",
        "Supervisor(a) de Bodega / Despacho (valida el traslado)",
        "Gerente de Tienda / Supervisor de Ventas / Supervisor de Ventas (recepción en punto de venta)",
-       "Gerente de Servicio Técnico (por país) como auditor en la vía tienda"
+       "Gerente de Experiencia del Cliente (por país) como auditor en la vía tienda"
       ],
       "cadencia": "Continua diaria (25 a 30 casos por día solo en Panamá); auditoría de cierre mensual",
       "disparador": "Cliente presenta un producto con falla dentro del período de garantía de un año",
@@ -4588,9 +4588,9 @@ window.MANUAL_FASE2 = {
       "alcance": "Clasificación del caso como falla de hardware o de software; para software, carga en la tabla compartida con la fábrica, ciclo de corrección de siete días, prueba y devolución al cliente sin reemplazo; consolidación de defectos recurrentes por producto, serial y lote y reporte a la fábrica para cobertura de garantía o retiro de lote.",
       "dueno": "Subgerente de Servicio Técnico",
       "participantes": [
-       "Gerente de Servicio Técnico",
+       "Gerente de Experiencia del Cliente (corporativo)",
        "Especialista de Producto / Proyecto (interlocución con fábricas)",
-       "Gerente de Postventa (corporativo) (decisión final sobre el producto)",
+       "Gerente de Experiencia del Cliente (corporativo) (decisión final sobre el producto)",
        "Asesor(a) de Servicio al Cliente",
        "fábrica (actor externo)"
       ],
@@ -4626,7 +4626,7 @@ window.MANUAL_FASE2 = {
      "madurez": "as-is",
      "mapa": {
       "alcance": "Ciclo del producto reparable de la marca representada: recepción y apertura de la orden de servicio, valoración técnica, presupuesto y cobro al cliente cuando está fuera de garantía, reparación por el relojero, cierre de la orden y devolución al cliente o a la tienda de origen.",
-      "dueno": "Gerente de Servicio Técnico (por país)",
+      "dueno": "Gerente de Experiencia del Cliente (por país)",
       "participantes": [
        "Técnico(a) de Servicio / Relojero(a)",
        "Técnico(a) de Servicio / Relojero(a)",
@@ -4666,12 +4666,12 @@ window.MANUAL_FASE2 = {
      "madurez": "híbrido",
      "mapa": {
       "alcance": "Determinación de la necesidad de repuestos y accesorios para el servicio postventa, consolidación y filtro de los pedidos de los países, validación de razonabilidad y destino, colocación del pedido ante la casa matriz de la marca representada o ante la fábrica de marca propia, y definición del tope de precio de venta del repuesto.",
-      "dueno": "Gerente de Servicio Técnico (por país), con alcance regional para la marca representada",
+      "dueno": "Gerente de Experiencia del Cliente (por país), con alcance regional para la marca representada",
       "participantes": [
        "Country Manager (aprueba pedidos por encima del umbral)",
        "Subgerente de Servicio Técnico",
        "Gerente Regional de Marketing (gestión de repuestos ante fábrica de marca propia)",
-       "Gerente de Servicio Técnico de otros países (solicitantes)"
+       "Gerente de Experiencia del Cliente de otros países (solicitantes)"
       ],
       "cadencia": "Por evento (pedido consolidado); ciclos de reposición de 6 a 8 meses en marca propia",
       "disparador": "Necesidad de repuesto detectada en taller, o solicitud de repuesto de otro país o de un cliente mayorista",
@@ -4705,7 +4705,7 @@ window.MANUAL_FASE2 = {
      "madurez": "híbrido",
      "mapa": {
       "alcance": "Atención de garantías de clientes ubicados en países donde el grupo no tiene operación ni socio (compra en tránsito aeroportuario, mercados atendidos por un agente): envío de stock de reposición al agente del país, coordinación del despacho internacional del reemplazo, y registro y control del costo logístico asociado.",
-      "dueno": "Gerente de Servicio Técnico",
+      "dueno": "Gerente de Experiencia del Cliente (corporativo)",
       "participantes": [
        "Subgerente de Servicio Técnico",
        "agente de servicio del país (externo o freelance)",
@@ -4744,13 +4744,13 @@ window.MANUAL_FASE2 = {
      "madurez": "híbrido",
      "mapa": {
       "alcance": "Tratamiento de los casos que exceden la resolución del agente: clasificación por nivel de escalamiento, intervención del coordinador o del gerente, revisión del historial del cliente y del producto, y acuerdo de una solución excepcional (cambio de generación, reembolso, compensación) con el cliente.",
-      "dueno": "Gerente de Servicio Técnico",
+      "dueno": "Gerente de Experiencia del Cliente (corporativo)",
       "participantes": [
        "Subgerente de Servicio Técnico",
-       "Gerente de Servicio Técnico (por país)",
+       "Gerente de Experiencia del Cliente (por país)",
        "Gerente de Tienda / Supervisor de Ventas / Supervisor de Ventas",
        "Asesor(a) de Servicio al Cliente",
-       "Gerente de Postventa (corporativo) para excepciones de alto impacto"
+       "Gerente de Experiencia del Cliente (corporativo) para excepciones de alto impacto"
       ],
       "cadencia": "Por evento",
       "disparador": "Caso marcado como crítico por el agente, la tienda o el gerente del país (reincidencia del producto, cliente molesto, reclamo público)",
@@ -4784,7 +4784,7 @@ window.MANUAL_FASE2 = {
      "madurez": "híbrido",
      "mapa": {
       "alcance": "Ciclo del reembolso al cliente cuando no procede el reemplazo (falta de stock, reincidencia o decisión del cliente): levantamiento de la solicitud en el flujo de aprobación, validación por Contabilidad, ejecución del pago y confirmación al cliente dentro del SLA acordado.",
-      "dueno": "Gerente de Servicio Técnico (levanta la solicitud y responde por el SLA)",
+      "dueno": "Gerente de Experiencia del Cliente (corporativo) (levanta la solicitud y responde por el SLA)",
       "participantes": [
        "Analista de Cuentas por Cobrar (ejecución del pago)",
        "Gerente de Contabilidad / Administración (aprobación)",
@@ -4824,9 +4824,9 @@ window.MANUAL_FASE2 = {
       "alcance": "Acumulación del producto reemplazado en la bodega de desecho, segunda revisión para recuperación de unidades y partes, extracción mensual de los traslados del ERP y conciliación contra los reportes de garantía y el inventario físico de bodega, y entrega a la empresa certificada de reciclaje.",
       "dueno": "Subgerente de Servicio Técnico",
       "participantes": [
-       "Gerente de Servicio Técnico (aprueba el cierre mensual)",
+       "Gerente de Experiencia del Cliente (corporativo) (aprueba el cierre mensual)",
        "Supervisor(a) de Bodega / Despacho",
-       "Gerente de Servicio Técnico (por país)",
+       "Gerente de Experiencia del Cliente (por país)",
        "empresa de reciclaje certificada (actor externo)"
       ],
       "cadencia": "Mensual (extracción y conciliación en los días 28 a 29)",
@@ -4861,10 +4861,10 @@ window.MANUAL_FASE2 = {
      "madurez": "híbrido",
      "mapa": {
       "alcance": "Definición y mantenimiento de la carta de garantía, los protocolos de atención, los estándares de servicio y el catálogo de manuales del wiki; homologación del modelo entre países propios, socios y distribuidores; inducción de los nuevos agentes al estándar; y sostenimiento de la agenda de mejora del macroproceso.",
-      "dueno": "Gerente de Servicio Técnico",
+      "dueno": "Gerente de Experiencia del Cliente (corporativo)",
       "participantes": [
        "Subgerente de Servicio Técnico",
-       "Gerente de Servicio Técnico (por país)",
+       "Gerente de Experiencia del Cliente (por país)",
        "Gerente de E-commerce / Ventas Web (por país)",
        "Gerente Regional de Marketing",
        "Gerente de Proyectos (PMO) para iniciativas transversales"
@@ -4901,7 +4901,7 @@ window.MANUAL_FASE2 = {
      "madurez": "híbrido",
      "mapa": {
       "alcance": "Definición y seguimiento de los indicadores del macroproceso (SLA de respuesta al cliente y a la fábrica, índice y porcentaje de garantías sobre sell-out, satisfacción y reputación digital), operación de los tableros de garantías y del centro de mando de omnicanalidad, y emisión del reporte mensual a la Junta Directiva.",
-      "dueno": "Gerente de Servicio Técnico",
+      "dueno": "Gerente de Experiencia del Cliente (corporativo)",
       "participantes": [
        "Subgerente de Servicio Técnico",
        "Analista de Sistemas / Datos",
@@ -6432,7 +6432,7 @@ window.MANUAL_FASE2 = {
        "Casio Brasil",
        "Brand Manager de Casio",
        "Gerente de Mercadeo (país)",
-       "Director(a) de Diseño y Marca",
+       "Director(a) de Diseño y Estrategia de Marca",
        "Gerente de E-commerce y Growth",
        "Gerente Regional Comercial / Retail",
        "Gerente de Proyectos (PMO)"
@@ -6473,8 +6473,8 @@ window.MANUAL_FASE2 = {
       "participantes": [
        "Gerente Corporativo(a) de Mercadeo (en Casio, Brand Manager de Casio)",
        "Director(a) Creativo(a) · Creatividad y Contenido Audiovisual",
-       "Diseñador(a) (Diseño y Marca)",
-       "Director(a) de Diseño y Marca",
+       "Diseñador(a) (Diseño y Estrategia de Marca)",
+       "Director(a) de Diseño y Estrategia de Marca",
        "Junta Directiva (lanzamientos y alto alcance de Cubitt)",
        "Casio Brasil (campañas de Casio)",
        "Trafficker de campañas (Mercadeo)",
@@ -6513,11 +6513,11 @@ window.MANUAL_FASE2 = {
      "n": "Gestión de solicitudes y tráfico creativo",
      "madurez": "as-is",
      "mapa": {
-      "alcance": "Canalización de toda solicitud de diseño a la Dirección de Diseño y Marca por el formulario único, clasificación y priorización contra el calendario común y la capacidad del mes, asignación al diseñador interno o freelance, seguimiento del avance y entrega al solicitante, con trazabilidad del tráfico y de los tiempos de respuesta.",
-      "dueno": "Director(a) de Arte · Diseño Gráfico de Campañas y Redes",
+      "alcance": "Canalización de toda solicitud de diseño a la Dirección de Diseño y Estrategia de Marca por el formulario único, clasificación y priorización contra el calendario común y la capacidad del mes, asignación al diseñador interno o freelance, seguimiento del avance y entrega al solicitante, con trazabilidad del tráfico y de los tiempos de respuesta.",
+      "dueno": "Director(a) de Arte · Diseño de Identidad de Marca",
       "participantes": [
-       "Director(a) de Diseño y Marca (revisión mensual de capacidad)",
-       "Diseñador(a) (Diseño y Marca) y freelancers",
+       "Director(a) de Diseño y Estrategia de Marca (revisión mensual de capacidad)",
+       "Diseñador(a) (Diseño y Estrategia de Marca) y freelancers",
        "áreas solicitantes (mercadeo, comercial, retail, visual merchandising, e-commerce, producto, servicio al cliente)"
       ],
       "cadencia": "Continua; asignación y seguimiento diarios",
@@ -6598,7 +6598,7 @@ window.MANUAL_FASE2 = {
        "Gerente de Mercadeo (país)",
        "Creador(a) de contenido (Social y Contenido)",
        "Analista de Social y Contenido (comunidad)",
-       "Diseñador(a) (Diseño y Marca)",
+       "Diseñador(a) (Diseño y Estrategia de Marca)",
        "Brand Manager de Casio",
        "Gerente de E-commerce (país)",
        "Coordinador(a) de Soporte / Servicio al Cliente"
@@ -6681,7 +6681,7 @@ window.MANUAL_FASE2 = {
       "participantes": [
        "Coordinador(a) de Visual Merchandising (país)",
        "Ejecutivo(a) de Visual Merchandising",
-       "Diseñador(a) (Diseño y Marca)",
+       "Diseñador(a) (Diseño y Estrategia de Marca)",
        "Gerente Regional Comercial / Retail",
        "Analista/Ejecutivo(a) Comercial",
        "Gerente de Cuentas Clave y Trade",
@@ -6762,12 +6762,12 @@ window.MANUAL_FASE2 = {
      "madurez": "to-be",
      "mapa": {
       "alcance": "Posicionamiento de cada marca construido con Mercadeo y aprobado por la Presidencia, manual de marca y sistema de diseño gráfico y digital como fuente única, biblioteca de activos con versión vigente, derechos y vencimiento, inducción de equipos y proveedores, y auditoría semestral de coherencia de la marca en todos los canales.",
-      "dueno": "Director(a) de Diseño y Marca",
+      "dueno": "Director(a) de Diseño y Estrategia de Marca",
       "participantes": [
        "Gerente Corporativo(a) de Mercadeo",
        "Presidencia",
        "Director(a) Creativo(a) · Creatividad y Contenido Audiovisual",
-       "Director(a) de Arte · Diseño Gráfico de Campañas y Redes",
+       "Director(a) de Arte · Diseño de Identidad de Marca",
        "Gerente Corporativo(a) de Desarrollo y Calidad de Productos",
        "Gerente de Visual Merchandising",
        "equipos, proveedores, franquiciados y socios que producen piezas"
@@ -6807,8 +6807,8 @@ window.MANUAL_FASE2 = {
       "dueno": "Gerente de Visual Merchandising",
       "participantes": [
        "Director(a) Creativo(a) · Creatividad y Contenido Audiovisual",
-       "Director(a) de Diseño y Marca",
-       "Director(a) de Arte · Diseño Gráfico de Campañas y Redes",
+       "Director(a) de Diseño y Estrategia de Marca",
+       "Director(a) de Arte · Diseño de Identidad de Marca",
        "fotógrafos, productoras y freelancers de 3D y motion",
        "Logística (reserva del producto)"
       ],
@@ -6848,7 +6848,7 @@ window.MANUAL_FASE2 = {
       "participantes": [
        "Retail, Ventas al Mayor, PMO y Mercadeo (solicitantes)",
        "agencia de interiores",
-       "Director(a) de Diseño y Marca",
+       "Director(a) de Diseño y Estrategia de Marca",
        "Junta Directiva (GO de nuevos espacios)"
       ],
       "cadencia": "Por proyecto y por campaña; revisión del estándar con las auditorías semestrales",
@@ -6888,7 +6888,7 @@ window.MANUAL_FASE2 = {
        "Gerente de E-commerce y Growth (webs)",
        "Innovación y Desarrollo de Productos (app)",
        "Diseñador(a) digital (freelance)",
-       "Director(a) de Diseño y Marca",
+       "Director(a) de Diseño y Estrategia de Marca",
        "Especialista de Tecnología (Web/Infraestructura)"
       ],
       "cadencia": "Por solicitud priorizada; revisión trimestral del sistema de diseño",
