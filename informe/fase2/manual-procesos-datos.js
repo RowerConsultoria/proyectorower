@@ -5,7 +5,7 @@
 window.MANUAL_FASE2 = {
  "meta": {
   "version": "v18",
-  "generado": "2026-11-19",
+  "generado": "2026-11-20",
   "fuenteMapa": "Mapa de Procesos Actualizado v18 — validado por el equipo consultor",
   "niveles": "N0 (macroprocesos) y N1 (procesos). Sin N2: los procedimientos quedaron fuera del alcance de la Fase 2.",
   "totales": {
@@ -3571,7 +3571,7 @@ window.MANUAL_FASE2 = {
      "madurez": "as-is",
      "mapa": {
       "alcance": "Recepción del reclamo en tienda, decisión inmediata de cambio versus derivación a taller según criticidad y disponibilidad, ejecución diferenciada por marca: Casio con relojero de tienda (cambios menores) o relojera central (reparaciones mayores) más envío de número de serie a analista corporativo que reporta a Casio Japón para nota de crédito; Cubitt vía flujo Lark creado por Servicio Técnico PA con recepción y ajuste mensual en bodega. En VE existe sistema paralelo Cisco. Incluye recepción de garantías de clientes que compraron en tiendas de terceros que revenden la marca.",
-      "dueno": "Gerente de Experiencia del Cliente (por país)",
+      "dueno": "Gerente de Postventa (por país)",
       "participantes": [
        "Gerente de Tienda / Supervisor de Ventas / Supervisor de Ventas (recepción del reclamo)",
        "Técnico(a) de Servicio / Relojero(a) (reparaciones menores Casio)",
@@ -4321,7 +4321,7 @@ window.MANUAL_FASE2 = {
       "dueno": "Gerente de E-commerce / Ventas Web (por país); Coordinador(a) de Soporte / Servicio al Cliente (Colombia — Gaby en Deltadir)",
       "participantes": [
        "Asesor(a) de Ventas Web",
-       "Gerente de Experiencia del Cliente (corporativo) (recibe derivaciones)",
+       "Gerente de Postventa (corporativo) (recibe derivaciones)",
        "Marketing (derivación de DM de redes sociales)",
        "Analista de Sistemas / Datos (uso de Gemini)"
       ],
@@ -4361,7 +4361,7 @@ window.MANUAL_FASE2 = {
       "participantes": [
        "Supervisor(a) de Bodega / Despacho (recepción física)",
        "Auxiliar / Ayudante de Bodega y Tráfico (reingreso al inventario)",
-       "Gerente de Experiencia del Cliente (corporativo) (si el retorno es por garantía)",
+       "Gerente de Postventa (corporativo) (si el retorno es por garantía)",
        "Contabilidad (nota de crédito)",
        "Coordinador(a) de Sistemas (implementación del tracker en Odoo — proyecto Kenex USA)"
       ],
@@ -4506,13 +4506,13 @@ window.MANUAL_FASE2 = {
      "madurez": "híbrido",
      "mapa": {
       "alcance": "Recepción, clasificación y enrutamiento de todo contacto entrante del cliente final (WhatsApp Business, correo, DM de redes, chat web, atención presencial en oficina y en el centro de experiencia) a través de la plataforma de omnicanalidad, con bifurcación entre ruta comercial y ruta de soporte, asignación al agente del país y seguimiento hasta el cierre del contacto bajo SLA de respuesta.",
-      "dueno": "Gerente de Experiencia del Cliente (corporativo)",
+      "dueno": "Gerente de Postventa (corporativo)",
       "participantes": [
        "Subgerente de Servicio Técnico",
        "Asesor(a) de Servicio al Cliente (por país)",
        "Coordinador(a) de Soporte / Servicio al Cliente (Colombia)",
        "Gerente de E-commerce / Ventas Web (por país) para la ruta comercial",
-       "Gerente de Experiencia del Cliente (por país)"
+       "Gerente de Postventa (por país)"
       ],
       "cadencia": "Continua (todo el horario operativo; extendida en temporada alta)",
       "disparador": "Contacto entrante del cliente por cualquiera de los canales habilitados",
@@ -4546,13 +4546,13 @@ window.MANUAL_FASE2 = {
      "madurez": "as-is",
      "mapa": {
       "alcance": "Desde la recepción del producto reclamado (oficina, tienda o envío) hasta la entrega del reemplazo al cliente: verificación de elegibilidad contra la carta de garantía, diagnóstico inicial, traslado en el ERP hacia la bodega de desecho, validación cruzada de bodega o del gerente de servicio del país, entrega del producto nuevo y carga del reporte de garantía en la tabla compartida.",
-      "dueno": "Gerente de Experiencia del Cliente (corporativo)",
+      "dueno": "Gerente de Postventa (corporativo)",
       "participantes": [
        "Subgerente de Servicio Técnico",
        "Asesor(a) de Servicio al Cliente (por país)",
        "Supervisor(a) de Bodega / Despacho (valida el traslado)",
        "Gerente de Tienda / Supervisor de Ventas / Supervisor de Ventas (recepción en punto de venta)",
-       "Gerente de Experiencia del Cliente (por país) como auditor en la vía tienda"
+       "Gerente de Postventa (por país) como auditor en la vía tienda"
       ],
       "cadencia": "Continua diaria (25 a 30 casos por día solo en Panamá); auditoría de cierre mensual",
       "disparador": "Cliente presenta un producto con falla dentro del período de garantía de un año",
@@ -4588,9 +4588,9 @@ window.MANUAL_FASE2 = {
       "alcance": "Clasificación del caso como falla de hardware o de software; para software, carga en la tabla compartida con la fábrica, ciclo de corrección de siete días, prueba y devolución al cliente sin reemplazo; consolidación de defectos recurrentes por producto, serial y lote y reporte a la fábrica para cobertura de garantía o retiro de lote.",
       "dueno": "Subgerente de Servicio Técnico",
       "participantes": [
-       "Gerente de Experiencia del Cliente (corporativo)",
+       "Gerente de Postventa (corporativo)",
        "Especialista de Producto / Proyecto (interlocución con fábricas)",
-       "Gerente de Experiencia del Cliente (corporativo) (decisión final sobre el producto)",
+       "Gerente de Postventa (corporativo) (decisión final sobre el producto)",
        "Asesor(a) de Servicio al Cliente",
        "fábrica (actor externo)"
       ],
@@ -4626,7 +4626,7 @@ window.MANUAL_FASE2 = {
      "madurez": "as-is",
      "mapa": {
       "alcance": "Ciclo del producto reparable de la marca representada: recepción y apertura de la orden de servicio, valoración técnica, presupuesto y cobro al cliente cuando está fuera de garantía, reparación por el relojero, cierre de la orden y devolución al cliente o a la tienda de origen.",
-      "dueno": "Gerente de Experiencia del Cliente (por país)",
+      "dueno": "Gerente de Postventa (por país)",
       "participantes": [
        "Técnico(a) de Servicio / Relojero(a)",
        "Técnico(a) de Servicio / Relojero(a)",
@@ -4666,12 +4666,12 @@ window.MANUAL_FASE2 = {
      "madurez": "híbrido",
      "mapa": {
       "alcance": "Determinación de la necesidad de repuestos y accesorios para el servicio postventa, consolidación y filtro de los pedidos de los países, validación de razonabilidad y destino, colocación del pedido ante la casa matriz de la marca representada o ante la fábrica de marca propia, y definición del tope de precio de venta del repuesto.",
-      "dueno": "Gerente de Experiencia del Cliente (por país), con alcance regional para la marca representada",
+      "dueno": "Gerente de Postventa (por país), con alcance regional para la marca representada",
       "participantes": [
        "Country Manager (aprueba pedidos por encima del umbral)",
        "Subgerente de Servicio Técnico",
        "Gerente Regional de Marketing (gestión de repuestos ante fábrica de marca propia)",
-       "Gerente de Experiencia del Cliente de otros países (solicitantes)"
+       "Gerente de Postventa de otros países (solicitantes)"
       ],
       "cadencia": "Por evento (pedido consolidado); ciclos de reposición de 6 a 8 meses en marca propia",
       "disparador": "Necesidad de repuesto detectada en taller, o solicitud de repuesto de otro país o de un cliente mayorista",
@@ -4705,7 +4705,7 @@ window.MANUAL_FASE2 = {
      "madurez": "híbrido",
      "mapa": {
       "alcance": "Atención de garantías de clientes ubicados en países donde el grupo no tiene operación ni socio (compra en tránsito aeroportuario, mercados atendidos por un agente): envío de stock de reposición al agente del país, coordinación del despacho internacional del reemplazo, y registro y control del costo logístico asociado.",
-      "dueno": "Gerente de Experiencia del Cliente (corporativo)",
+      "dueno": "Gerente de Postventa (corporativo)",
       "participantes": [
        "Subgerente de Servicio Técnico",
        "agente de servicio del país (externo o freelance)",
@@ -4744,13 +4744,13 @@ window.MANUAL_FASE2 = {
      "madurez": "híbrido",
      "mapa": {
       "alcance": "Tratamiento de los casos que exceden la resolución del agente: clasificación por nivel de escalamiento, intervención del coordinador o del gerente, revisión del historial del cliente y del producto, y acuerdo de una solución excepcional (cambio de generación, reembolso, compensación) con el cliente.",
-      "dueno": "Gerente de Experiencia del Cliente (corporativo)",
+      "dueno": "Gerente de Postventa (corporativo)",
       "participantes": [
        "Subgerente de Servicio Técnico",
-       "Gerente de Experiencia del Cliente (por país)",
+       "Gerente de Postventa (por país)",
        "Gerente de Tienda / Supervisor de Ventas / Supervisor de Ventas",
        "Asesor(a) de Servicio al Cliente",
-       "Gerente de Experiencia del Cliente (corporativo) para excepciones de alto impacto"
+       "Gerente de Postventa (corporativo) para excepciones de alto impacto"
       ],
       "cadencia": "Por evento",
       "disparador": "Caso marcado como crítico por el agente, la tienda o el gerente del país (reincidencia del producto, cliente molesto, reclamo público)",
@@ -4784,7 +4784,7 @@ window.MANUAL_FASE2 = {
      "madurez": "híbrido",
      "mapa": {
       "alcance": "Ciclo del reembolso al cliente cuando no procede el reemplazo (falta de stock, reincidencia o decisión del cliente): levantamiento de la solicitud en el flujo de aprobación, validación por Contabilidad, ejecución del pago y confirmación al cliente dentro del SLA acordado.",
-      "dueno": "Gerente de Experiencia del Cliente (corporativo) (levanta la solicitud y responde por el SLA)",
+      "dueno": "Gerente de Postventa (corporativo) (levanta la solicitud y responde por el SLA)",
       "participantes": [
        "Analista de Cuentas por Cobrar (ejecución del pago)",
        "Gerente de Contabilidad / Administración (aprobación)",
@@ -4824,9 +4824,9 @@ window.MANUAL_FASE2 = {
       "alcance": "Acumulación del producto reemplazado en la bodega de desecho, segunda revisión para recuperación de unidades y partes, extracción mensual de los traslados del ERP y conciliación contra los reportes de garantía y el inventario físico de bodega, y entrega a la empresa certificada de reciclaje.",
       "dueno": "Subgerente de Servicio Técnico",
       "participantes": [
-       "Gerente de Experiencia del Cliente (corporativo) (aprueba el cierre mensual)",
+       "Gerente de Postventa (corporativo) (aprueba el cierre mensual)",
        "Supervisor(a) de Bodega / Despacho",
-       "Gerente de Experiencia del Cliente (por país)",
+       "Gerente de Postventa (por país)",
        "empresa de reciclaje certificada (actor externo)"
       ],
       "cadencia": "Mensual (extracción y conciliación en los días 28 a 29)",
@@ -4861,10 +4861,10 @@ window.MANUAL_FASE2 = {
      "madurez": "híbrido",
      "mapa": {
       "alcance": "Definición y mantenimiento de la carta de garantía, los protocolos de atención, los estándares de servicio y el catálogo de manuales del wiki; homologación del modelo entre países propios, socios y distribuidores; inducción de los nuevos agentes al estándar; y sostenimiento de la agenda de mejora del macroproceso.",
-      "dueno": "Gerente de Experiencia del Cliente (corporativo)",
+      "dueno": "Gerente de Postventa (corporativo)",
       "participantes": [
        "Subgerente de Servicio Técnico",
-       "Gerente de Experiencia del Cliente (por país)",
+       "Gerente de Postventa (por país)",
        "Gerente de E-commerce / Ventas Web (por país)",
        "Gerente Regional de Marketing",
        "Gerente de Proyectos (PMO) para iniciativas transversales"
@@ -4901,7 +4901,7 @@ window.MANUAL_FASE2 = {
      "madurez": "híbrido",
      "mapa": {
       "alcance": "Definición y seguimiento de los indicadores del macroproceso (SLA de respuesta al cliente y a la fábrica, índice y porcentaje de garantías sobre sell-out, satisfacción y reputación digital), operación de los tableros de garantías y del centro de mando de omnicanalidad, y emisión del reporte mensual a la Junta Directiva.",
-      "dueno": "Gerente de Experiencia del Cliente (corporativo)",
+      "dueno": "Gerente de Postventa (corporativo)",
       "participantes": [
        "Subgerente de Servicio Técnico",
        "Analista de Sistemas / Datos",

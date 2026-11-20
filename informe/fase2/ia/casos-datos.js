@@ -4820,7 +4820,7 @@ window.IA_DOC = {
         ],
         [
          "Dueño",
-         "Gerente de Experiencia del Cliente (corporativo) (proceso 11.2)"
+         "Gerente de Postventa (corporativo) (proceso 11.2)"
         ],
         [
          "Opera",
@@ -4828,7 +4828,7 @@ window.IA_DOC = {
         ],
         [
          "Firma",
-         "Gerente de Experiencia del Cliente del país, para las excepciones de elegibilidad"
+         "Gerente de Postventa del país, para las excepciones de elegibilidad"
         ],
         [
          "Calificación",
@@ -5036,7 +5036,7 @@ window.IA_DOC = {
         ],
         [
          "Dueño",
-         "Gerente de Experiencia del Cliente (por país), con alcance regional para Casio (proceso 11.5)"
+         "Gerente de Postventa (por país), con alcance regional para Casio (proceso 11.5)"
         ],
         [
          "Opera",
@@ -5044,7 +5044,7 @@ window.IA_DOC = {
         ],
         [
          "Firma",
-         "Gerente de Experiencia del Cliente (por país), que firma la OC de repuestos"
+         "Gerente de Postventa (por país), que firma la OC de repuestos"
         ],
         [
          "Calificación",
@@ -5180,7 +5180,7 @@ window.IA_DOC = {
         ],
         [
          "Dueño",
-         "Gerente de Experiencia del Cliente (corporativo) (proceso 11.2)"
+         "Gerente de Postventa (corporativo) (proceso 11.2)"
         ],
         [
          "Opera",
@@ -5396,7 +5396,7 @@ window.IA_DOC = {
         ],
         [
          "Dueño",
-         "Gerente de Experiencia del Cliente (corporativo) (proceso 11.8)"
+         "Gerente de Postventa (corporativo) (proceso 11.8)"
         ],
         [
          "Opera",
@@ -5468,7 +5468,7 @@ window.IA_DOC = {
         ],
         [
          "Dueño",
-         "Gerente de Experiencia del Cliente (corporativo) (proceso 11.1)"
+         "Gerente de Postventa (corporativo) (proceso 11.1)"
         ],
         [
          "Opera",
@@ -5612,7 +5612,7 @@ window.IA_DOC = {
         ],
         [
          "Dueño",
-         "Gerente de Experiencia del Cliente (corporativo) (proceso 11.1)"
+         "Gerente de Postventa (corporativo) (proceso 11.1)"
         ],
         [
          "Opera",
@@ -5684,7 +5684,7 @@ window.IA_DOC = {
         ],
         [
          "Dueño",
-         "Gerente de Experiencia del Cliente (corporativo) (proceso 11.6)"
+         "Gerente de Postventa (corporativo) (proceso 11.6)"
         ],
         [
          "Opera",
@@ -5692,7 +5692,7 @@ window.IA_DOC = {
         ],
         [
          "Firma",
-         "Ninguna en la órbita; se propone que el Gerente de Experiencia del Cliente (corporativo) firme las resoluciones de reemplazo o reembolso"
+         "Ninguna en la órbita; se propone que el Gerente de Postventa (corporativo) firme las resoluciones de reemplazo o reembolso"
         ],
         [
          "Calificación",
@@ -7864,12 +7864,12 @@ window.IA_DOC = {
        "3. [[mod:m-cuadre-previo-de-caja|Cuadre previo de caja]] · 14. [[mod:m-conciliacion-de-plataformas|Conciliación de plataformas]]"
       ],
       [
-       "Gerente de Experiencia del Cliente (corporativo) (proceso 11.1)",
+       "Gerente de Postventa (corporativo) (proceso 11.1)",
        "2",
        "61. [[mod:m-bandeja-de-mayoristas|Bandeja de mayoristas]] · 68. [[mod:m-copiloto-de-atencion-omnicanal|Copiloto de atención omnicanal]]"
       ],
       [
-       "Gerente de Experiencia del Cliente (corporativo) (proceso 11.2)",
+       "Gerente de Postventa (corporativo) (proceso 11.2)",
        "2",
        "20. [[mod:m-expediente-unico-de-garantia|Expediente único de garantía]] · 52. [[mod:m-stock-de-garantia-y-reemplazos|Stock de garantía y reemplazos]]"
       ],
@@ -7979,21 +7979,6 @@ window.IA_DOC = {
        "65. [[mod:m-kenex-usa-y-marketplaces-de-ee-uu|Kenex USA y marketplaces de EE. UU.]]"
       ],
       [
-       "Gerente de Experiencia del Cliente (corporativo) (proceso 11.6)",
-       "1",
-       "77. [[mod:m-garantias-en-mercados-sin-operacion|Garantías en mercados sin operación]]"
-      ],
-      [
-       "Gerente de Experiencia del Cliente (corporativo) (proceso 11.8)",
-       "1",
-       "60. [[mod:m-reembolsos-y-cambios-b2b|Reembolsos y cambios B2B]]"
-      ],
-      [
-       "Gerente de Experiencia del Cliente (por país), con alcance regional para Casio (proceso 11.5)",
-       "1",
-       "44. [[mod:m-repuestos-y-servicio-casio|Repuestos y servicio Casio]]"
-      ],
-      [
        "Gerente de Marketing (país) (proceso 16.6)",
        "1",
        "56. [[mod:m-co-marketing|Co-marketing]]"
@@ -8002,6 +7987,21 @@ window.IA_DOC = {
        "Gerente de Operaciones y Logística",
        "1",
        "48. [[mod:m-reclamos-a-proveedor|Reclamos a proveedor]]"
+      ],
+      [
+       "Gerente de Postventa (corporativo) (proceso 11.6)",
+       "1",
+       "77. [[mod:m-garantias-en-mercados-sin-operacion|Garantías en mercados sin operación]]"
+      ],
+      [
+       "Gerente de Postventa (corporativo) (proceso 11.8)",
+       "1",
+       "60. [[mod:m-reembolsos-y-cambios-b2b|Reembolsos y cambios B2B]]"
+      ],
+      [
+       "Gerente de Postventa (por país), con alcance regional para Casio (proceso 11.5)",
+       "1",
+       "44. [[mod:m-repuestos-y-servicio-casio|Repuestos y servicio Casio]]"
       ],
       [
        "Gerente de Proyectos (PMO)",

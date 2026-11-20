@@ -2233,7 +2233,7 @@
     "meta": "En un piloto de 6 meses: −30 % en el tiempo de primera respuesta y ≥ 70 % de propuestas enviadas sin corrección",
     "umbral": "< 50 % de propuestas aceptadas sin corrección a los 90 días, o caída de la satisfacción del cliente"
    },
-   "dueno": "Gerente de Experiencia del Cliente (corporativo) (proceso 11.1)",
+   "dueno": "Gerente de Postventa (corporativo) (proceso 11.1)",
    "operador": "Asesor(a) de Servicio al Cliente y Asesor(a) de Ventas Web",
    "firmante": "El asesor, que envía cada respuesta",
    "estado": "propuesto",
@@ -2275,7 +2275,7 @@
     "meta": "Cero chats sin leer con más de 24 h, a los 3 meses de operar",
     "umbral": "> 20 chats sin leer con más de 48 h"
    },
-   "dueno": "Gerente de Experiencia del Cliente (corporativo) (proceso 11.1)",
+   "dueno": "Gerente de Postventa (corporativo) (proceso 11.1)",
    "operador": "Analista/Ejecutivo(a) Comercial del mayor en VE",
    "firmante": "No requiere: solo ordena la bandeja; el vendedor responde con su nombre",
    "estado": "propuesto",
@@ -2311,9 +2311,9 @@
     "meta": "Un solo registro por caso en PA a los 3 meses y en VE a los 9; −30 % de tiempo de ciclo en PA a los 6 meses; ≥ 80 % de triages aceptados sin corrección",
     "umbral": "< 60 % de triages aceptados sin corrección, o el equipo sigue registrando en paralelo a los 90 días"
    },
-   "dueno": "Gerente de Experiencia del Cliente (corporativo) (proceso 11.2)",
+   "dueno": "Gerente de Postventa (corporativo) (proceso 11.2)",
    "operador": "Técnico(a) y asesor(a) de Servicio Técnico de cada país",
-   "firmante": "Gerente de Experiencia del Cliente del país, para las excepciones de elegibilidad",
+   "firmante": "Gerente de Postventa del país, para las excepciones de elegibilidad",
    "estado": "propuesto",
    "nota": "Resuelve un freno que detiene (PV.1), con volumen medido y pedido explícito de la Presidencia y del dueño de Postventa. En Panamá los casos y las reglas ya existen (Lark Base y manual regional); siguen abiertas la serialización, la lectura de fotos y la política de reembolso de VE.",
    "evidencia": [
@@ -2351,7 +2351,7 @@
     "meta": "Ningún modelo con quiebre de garantía de más de 7 días en VE, a los 6 meses",
     "umbral": "Algún modelo sin stock de garantía más de 15 días"
    },
-   "dueno": "Gerente de Experiencia del Cliente (corporativo) (proceso 11.2)",
+   "dueno": "Gerente de Postventa (corporativo) (proceso 11.2)",
    "operador": "Coordinador(a) de Logística y Bodega (proceso 7.7)",
    "firmante": "Ninguna en la órbita; se propone que el Coordinador(a) de Logística y Bodega confirme la reposición, porque mueve inventario",
    "estado": "propuesto",
@@ -2384,9 +2384,9 @@
     "meta": "Reporte en borrador en < 2 h y al menos dos personas capaces de emitirlo, a los 4 meses",
     "umbral": "Más del 30 % de líneas corregidas en el borrador"
    },
-   "dueno": "Gerente de Experiencia del Cliente (por país), con alcance regional para Casio (proceso 11.5)",
+   "dueno": "Gerente de Postventa (por país), con alcance regional para Casio (proceso 11.5)",
    "operador": "Técnico(a) de servicio Casio",
-   "firmante": "Gerente de Experiencia del Cliente (por país), que firma la OC de repuestos",
+   "firmante": "Gerente de Postventa (por país), que firma la OC de repuestos",
    "estado": "propuesto",
    "nota": "Resuelve un freno que detiene (PV.2: todo depende de una persona), con nivel 1 y firma de la OC. Nadie lo pide; el dato vive en los archivos de esa persona y el canal de servicio de Casio está por confirmar.",
    "evidencia": [
@@ -2420,7 +2420,7 @@
     "meta": "≤ 1 día hábil en B2B en PA y estándar del grupo ≤ 48 h en web, a los 4 meses",
     "umbral": "> 2 días de mediana en B2B"
    },
-   "dueno": "Gerente de Experiencia del Cliente (corporativo) (proceso 11.8)",
+   "dueno": "Gerente de Postventa (corporativo) (proceso 11.8)",
    "operador": "Analista/Ejecutivo(a) Comercial y Asesor(a) de Servicio al Cliente",
    "firmante": "Contabilidad, que emite la nota de crédito; el Gerente Comercial (País / Canal) aprueba la devolución B2B",
    "estado": "propuesto",
@@ -2528,9 +2528,9 @@
     "meta": "100 % de los casos de los socios registrados, a los 6 meses de abrir el acceso",
     "umbral": "< 50 % de los casos registrados"
    },
-   "dueno": "Gerente de Experiencia del Cliente (corporativo) (proceso 11.6)",
+   "dueno": "Gerente de Postventa (corporativo) (proceso 11.6)",
    "operador": "El socio o distribuidor de cada país, con el equipo de Postventa",
-   "firmante": "Ninguna en la órbita; se propone que el Gerente de Experiencia del Cliente (corporativo) firme las resoluciones de reemplazo o reembolso",
+   "firmante": "Ninguna en la órbita; se propone que el Gerente de Postventa (corporativo) firme las resoluciones de reemplazo o reembolso",
    "estado": "propuesto",
    "nota": "Bajo volumen y sin freno del circuito. Comparte datos de consumidores con terceros y la IA lleva el caso en nivel 2 sin firma; depende de que exista el expediente y de un acuerdo con cada socio.",
    "evidencia": [

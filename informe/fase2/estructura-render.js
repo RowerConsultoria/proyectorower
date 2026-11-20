@@ -211,11 +211,13 @@
   // no cambiar la huella de estructura-tobe-datos.js. Cuando se apruebe otra capa, se añade su
   // nivel a CAPAS_APROBADAS; cuando se apruebe una rama, se quita de RAMAS_SIN_APROBAR.
   // UNIDADES_SIN_APROBAR: unidades sueltas que se crearon o se movieron después de aprobar su
-  // capa (Brand Management pasó de Mercadeo a gerencia corporativa de Comercial el 10-nov-2026).
+  // capa (Brand Management pasó de Mercadeo a gerencia corporativa de Comercial el 10-nov-2026;
+  // Inventario, de coordinación de Operaciones y Logística a gerencia corporativa de Cadena de
+  // Suministro el 20-nov-2026).
   // Se quitan de la lista cuando se aprueba su nueva ubicación.
   var CAPAS_APROBADAS = ["n2"];
   var RAMAS_SIN_APROBAR = ["marca"];
-  var UNIDADES_SIN_APROBAR = ["brandmgmt", "plandemanda"];
+  var UNIDADES_SIN_APROBAR = ["brandmgmt", "plandemanda", "inventario"];
   function aprobacion(d){
     var n = d && NODOS[d.id];
     if(!n) return "";

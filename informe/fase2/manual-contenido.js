@@ -436,7 +436,7 @@ window.MANUAL_CONTENIDO = {
      ["9.10 Gestión de franquicias Cubitt", "Gerente Regional de Retail", "Junta / Comité Directivo", "Franquiciado", "Gerente de Visual Merchandising"],
      ["9.11 Socios y partners regionales", "Gerente Regional de Retail", "Gerente Regional de Retail", "Planificador Financiero · Analista de Sistemas / Datos", "Junta / Comité Directivo"],
      ["9.12 Auditoría y autoauditoría de tienda", "Gerente de Tienda", "Gerente Regional de Retail", "Gerente de Ventas al Detal (País)", "Gerente de Ventas al Detal (País)"],
-     ["9.13 Garantías y servicio postventa", "Gerente de Tienda", "Gerente de Experiencia del Cliente (corporativo)", "Técnico(a) de Servicio / Relojero(a) · Especialista de Producto", "Cliente"],
+     ["9.13 Garantías y servicio postventa", "Gerente de Tienda", "Gerente de Postventa (corporativo)", "Técnico(a) de Servicio / Relojero(a) · Especialista de Producto", "Cliente"],
      ["9.14 Inventarios selectivos y general", "Gerente de Tienda", "Gerente de Ventas al Detal (País)", "Supervisor(a) de Bodega / Despacho", "Gerente de Ventas al Detal (País)"],
      ["9.15 Manejo de efectivo", "Gerente de Tienda", "Coordinador(a) de Tesorería / Cobranzas", "Auxiliar / Ayudante de Bodega y Tráfico", "—"],
      ["9.16 Gestión operativa del personal", "Gerente de Tienda", "Gerente de Ventas al Detal (País)", "Coordinador(a) de Recursos Humanos", "Gerente Regional de Retail"],
@@ -450,7 +450,7 @@ window.MANUAL_CONTENIDO = {
      ["Cuadro consolidado (Drive) / Torre de control (en desarrollo)", "KPI diario, forecast, consolidado regional", "9.1 · 9.2 · 9.5 · 9.11", "Gerente Regional de Retail"],
      ["Follow Up", "Tráfico y conversión — naturaleza exacta sin confirmar", "9.2 · 9.17", "Sin confirmar"],
      ["WMS", "Preparación de pedidos; inventarios con tablet", "9.3 · 9.14", "Coordinador(a) de Sistemas"],
-     ["Cisco", "Registro paralelo de garantías (Venezuela)", "9.13", "Gerente de Experiencia del Cliente (corporativo)"]
+     ["Cisco", "Registro paralelo de garantías (Venezuela)", "9.13", "Gerente de Postventa (corporativo)"]
     ],
     "interfaces_detalle": [
      ["Compras y Abastecimiento / Logística y Operaciones", "Entrega en bodega central, o directo al punto en el piloto de Panamá", "Mercancía asignada, lista de empaque"],
@@ -1473,7 +1473,7 @@ window.MANUAL_CONTENIDO = {
      "filas": [
       ["Tiempo de resolución del reclamo en tienda", "Fecha de cierre − fecha de reclamo", "Por caso", "Gerente de Tienda", "Según criticidad (inmediato a 5 días)"],
       ["Garantías Casio con nota de crédito solicitada", "Notas de crédito solicitadas ÷ casos elegibles", "Mensual", "Especialista de Producto / Proyecto", "100%"],
-      ["Producto con mayor incidencia de garantía", "Reclamos por SKU", "Mensual", "Gerente de Experiencia del Cliente (corporativo)", "Insumo para calidad y compras"]
+      ["Producto con mayor incidencia de garantía", "Reclamos por SKU", "Mensual", "Gerente de Postventa (corporativo)", "Insumo para calidad y compras"]
      ]
     }
    },
@@ -2119,7 +2119,7 @@ window.MANUAL_CONTENIDO = {
 
    "6.3": {
     "proposito": {"estado": "borrador", "texto": "Cubre cómo se compone y se coloca cada mes la compra internacional de la marca representada: la recepción de la oferta mensual de la fábrica, la preparación del archivo de compras que cruza venta histórica, inventario y tránsito, la decisión de qué pedir de esa oferta, la colocación de la orden, la instrucción del pago según el calendario de la fábrica, la aprobación del flete y la reconciliación posterior. El pago va dentro del proceso porque condiciona el embarque: el flete se arma después de pagar, no antes. No incluye la recepción física ni la nacionalización (macro 7, Logística y Operaciones); ni la distribución a cada país (procesos 6.6 y 6.7); ni la ejecución del pago y la consecución de los fondos, que son 13.1 (cuentas por pagar a proveedores) y 13.2 (flujo de caja y ejecución de pagos)."},
-    "dueno": {"estado": "borrador", "dueno": "Comité Comercial / Director de Compras", "participantes": ["Comité Comercial / Director de Compras — compone y coloca la compra de la marca representada, es el único contacto con la fábrica y aprueba la cotización del flete. Lo atiende el director que lleva esta marca; interviene como instancia de gobierno, no porque exista una unidad de compras que lo respalde.", "Analista de Compras — prepara cada mes el archivo de compras: la venta del año mes a mes, el inventario en stock, la mercancía en tránsito y la oferta recibida de la fábrica. No forma parte de la plantilla.", "Analista de Sistemas / Datos — mantiene el modelo que produce el sugerido de pedido con el que se contrasta la decisión.", "Gerente de Contabilidad / Administración — recibe la instrucción de pago, verifica que corresponda a una orden colocada y que encaje en el ciclo de caja del mes, y lo ejecuta contra 13.2. Es la entidad que paga; el proceso de compra no mueve dinero por su cuenta.", "Gerente de Operaciones y Logística — solicita la cotización del flete a la fábrica, ejecuta el embarque una vez aprobado y da seguimiento hasta el hub de Zona Libre.", "Brand Manager de Casio — incorporado recientemente para la marca representada; todavía no asume la relación con la fábrica, y es la vía prevista para que deje de depender de una sola persona."]},
+    "dueno": {"estado": "borrador", "dueno": "Comité Comercial / Director de Compras", "participantes": ["Comité Comercial / Director de Compras — compone y coloca la compra de la marca representada, es el único contacto con la fábrica y aprueba la cotización del flete. Lo atiende el director que lleva esta marca; interviene como instancia de gobierno, no porque exista una unidad de compras que lo respalde.", "Analista de Compras — prepara cada mes el archivo de compras: la venta del año mes a mes, el inventario en stock, la mercancía en tránsito y la oferta recibida de la fábrica. No forma parte de la plantilla.", "Analista de Sistemas / Datos — mantiene el modelo que produce el sugerido de pedido con el que se contrasta la decisión.", "Gerente de Contabilidad / Administración — recibe la instrucción de pago, verifica que corresponda a una orden colocada y que encaje en el ciclo de caja del mes, y lo ejecuta contra 13.2. Es la entidad que paga; el proceso de compra no mueve dinero por su cuenta.", "Gerente de Operaciones y Logística — solicita la cotización del flete a la fábrica, ejecuta el embarque una vez aprobado y da seguimiento hasta el hub de Zona Libre.", "Gerente de Marca Casio — incorporado recientemente para la marca representada; todavía no asume la relación con la fábrica, y es la vía prevista para que deje de depender de una sola persona."]},
     "disparador": {"estado": "borrador", "disparador": "Recepción mensual del «order sheet» de la fábrica: la lista de mercancía que tiene disponible y que el grupo puede pedir. ⚠️ No es una cuota asignada ni un allocation por país — es una oferta, y la compra se compone a partir de ella decidiendo qué interesa pedir.", "cadencia": "Mensual, en días fijos del mes.", "output": "Orden de compra colocada con la fábrica, cotización de flete aprobada y archivo de compras del mes actualizado.", "evidencia": ["E-08", "E-10"], "notas": "La compra se coloca para la bodega de Zona Libre, donde converge toda la mercancía del grupo antes de redistribuirse; no se compra por país. El sugerido del modelo acompaña la decisión pero no la sustituye: la composición final es criterio experto."},
     "flujo": {
      "estado": "borrador",
@@ -4804,8 +4804,8 @@ window.MANUAL_CONTENIDO = {
      ["10.10 Facturación fiscal del pedido web", "Analista de Facturación", "Gerente de E-commerce / Ventas Web", "Asesor(a) de Ventas Web · Coordinador(a) de Sistemas", "—"],
      ["10.11 Despacho, retiro en tienda y última milla e-commerce", "Supervisor(a) de Bodega / Despacho", "Gerente de E-commerce / Ventas Web", "Auxiliar / Ayudante de Bodega y Tráfico", "—"],
      ["10.12 Reposición e inventario del almacén e-commerce", "Gerente de E-commerce / Ventas Web", "Gerente de E-commerce / Ventas Web", "Analista de Logística · Gerente de Operaciones y Logística", "—"],
-     ["10.13 Servicio al cliente digital pre y postventa", "Asesor(a) de Ventas Web", "Coordinador(a) de Soporte / Servicio al Cliente", "Gerente de Experiencia del Cliente (corporativo)", "—"],
-     ["10.14 Devoluciones y logística inversa e-commerce", "Supervisor(a) de Bodega / Despacho", "Gerente de E-commerce / Ventas Web", "Gerente de Experiencia del Cliente (corporativo) · Contabilidad", "Coordinador(a) de Sistemas"],
+     ["10.13 Servicio al cliente digital pre y postventa", "Asesor(a) de Ventas Web", "Coordinador(a) de Soporte / Servicio al Cliente", "Gerente de Postventa (corporativo)", "—"],
+     ["10.14 Devoluciones y logística inversa e-commerce", "Supervisor(a) de Bodega / Despacho", "Gerente de E-commerce / Ventas Web", "Gerente de Postventa (corporativo) · Contabilidad", "Coordinador(a) de Sistemas"],
      ["10.15 Planificación de temporadas altas y capacidad operativa", "Gerente de E-commerce / Ventas Web", "Gerente de E-commerce / Ventas Web", "Coordinador(a) de Recursos Humanos · Analista de Logística", "Planificador Financiero"],
      ["10.16 Reportería y KPIs de e-commerce", "Analista de Sistemas / Datos", "Gerente Regional Comercial / Retail", "Gerente Corporativo(a) de Mercadeo · Planificador Financiero", "Junta / Comité Directivo"]
     ],
@@ -5771,18 +5771,18 @@ window.MANUAL_CONTENIDO = {
      "actividades": [
       {"id": "a1", "rol": "Supervisor(a) de Bodega / Despacho", "texto": "Recibe físicamente la mercancía devuelta, del courier o del cliente."},
       {"id": "a2", "rol": "Supervisor(a) de Bodega / Despacho", "texto": "Clasifica el motivo de la devolución: daño en tránsito, cambio sin defecto, retracto o garantía técnica."},
-      {"id": "a3", "rol": "Gerente de Experiencia del Cliente (corporativo)", "texto": "Recibe la devolución cuando el motivo es garantía técnica."},
+      {"id": "a3", "rol": "Gerente de Postventa (corporativo)", "texto": "Recibe la devolución cuando el motivo es garantía técnica."},
       {"id": "a4", "rol": "Auxiliar / Ayudante de Bodega y Tráfico", "texto": "Reingresa la mercancía al inventario del almacén web con el estado marcado (nuevo, usado, dañado)."},
       {"id": "a5", "rol": "Contabilidad", "texto": "Emite la nota de crédito cuando corresponde."},
       {"id": "a6", "rol": "Gerente de E-commerce / Ventas Web", "texto": "Decide si el producto se rehabilita, se repone, se desecha o se reporta a fábrica."}
      ],
      "diagrama": {
-      "carriles": ["Supervisor(a) de Bodega / Despacho", "Gerente de Experiencia del Cliente (corporativo)", "Auxiliar / Ayudante de Bodega y Tráfico", "Contabilidad"],
+      "carriles": ["Supervisor(a) de Bodega / Despacho", "Gerente de Postventa (corporativo)", "Auxiliar / Ayudante de Bodega y Tráfico", "Contabilidad"],
       "nodos": [
        {"id": "n0", "carril": "Supervisor(a) de Bodega / Despacho", "tipo": "inicio", "n": "Cliente reporta problema o retorno del courier"},
        {"id": "n1", "carril": "Supervisor(a) de Bodega / Despacho", "tipo": "tarea", "n": "Recibir físicamente la mercancía devuelta"},
        {"id": "n2", "carril": "Supervisor(a) de Bodega / Despacho", "tipo": "decision", "n": "¿Es garantía técnica?"},
-       {"id": "n2alt", "carril": "Gerente de Experiencia del Cliente (corporativo)", "tipo": "tarea", "n": "Recibir la devolución por garantía técnica"},
+       {"id": "n2alt", "carril": "Gerente de Postventa (corporativo)", "tipo": "tarea", "n": "Recibir la devolución por garantía técnica"},
        {"id": "n3", "carril": "Auxiliar / Ayudante de Bodega y Tráfico", "tipo": "tarea", "n": "Reingresar al inventario con estado marcado", "sistemas": ["Odoo / WMS"]},
        {"id": "n4", "carril": "Contabilidad", "tipo": "tarea", "n": "Emitir nota de crédito cuando corresponde"},
        {"id": "n5", "carril": "Gerente de E-commerce / Ventas Web", "tipo": "tarea", "n": "Decidir rehabilitar, reponer, desechar o reportar a fábrica"},
@@ -7459,9 +7459,9 @@ window.MANUAL_CONTENIDO = {
     "proposito": "Este manual reúne cómo se opera hoy —y cómo debería operarse de forma homologada— la postventa y la experiencia del cliente de Grupo Kenex: la atención omnicanal del cliente final, la garantía y el reemplazo del producto de marca propia (Cubitt), la gestión de casos técnicos y el reporte de calidad a fábrica, el servicio de reparación de la marca representada (Casio), la gestión de repuestos y accesorios de servicio, la atención de garantías en mercados sin operación propia, el escalamiento del cliente insatisfecho, los reembolsos, la disposición final del producto defectuoso (scrap), y el gobierno del modelo de servicio y su medición. Sirve como referencia única para que un país nuevo, un socio o una persona nueva en el cargo puedan operar bajo el mismo estándar de garantía que hoy sostiene, según el propio equipo, \"el pilar más importante\" del éxito de la marca.",
     "alcance": "Desde el contacto del cliente por cualquier canal (WhatsApp, correo, chat web, redes o presencial) hasta el cierre del caso —reemplazo, reparación, corrección de software, reembolso o rechazo documentado—, y desde la detección de un patrón de fallas hasta el reporte formal a fábrica. No incluye la venta original del producto (macro de Ventas), de la que este macroproceso recibe el registro de compra como insumo, ni el registro contable del reembolso o del costo de la garantía en sí (macros Contabilidad y Administración y Finanzas), aunque interactúa con ambos en cada cierre de mes.",
     "audiencia": [
-     "Gerente de Experiencia del Cliente (corporativo)",
+     "Gerente de Postventa (corporativo)",
      "Subgerente de Servicio Técnico",
-     "Gerente de Experiencia del Cliente (por país)",
+     "Gerente de Postventa (por país)",
      "Asesor(a) de Servicio al Cliente",
      "Técnico(a) de Servicio / Relojero(a)",
      "Especialista de Producto / Proyecto",
@@ -7477,12 +7477,12 @@ window.MANUAL_CONTENIDO = {
     "duenos": [
      [
       "Regional / holding",
-      "Gerente de Experiencia del Cliente (corporativo)",
+      "Gerente de Postventa (corporativo)",
       "Dueño regional del soporte técnico y la postventa de toda la región salvo Venezuela, que mantiene un liderazgo propio; define el estándar de garantía, la carta de garantía y el modelo de escalamiento."
      ],
      [
       "País / operación",
-      "Gerente de Experiencia del Cliente (por país) / Subgerente de Servicio Técnico",
+      "Gerente de Postventa (por país) / Subgerente de Servicio Técnico",
       "Responsable de la operación diaria de garantías, reparación, repuestos y bodega de desecho en su país, y de la auditoría de cierre de mes."
      ],
      [
@@ -7592,7 +7592,7 @@ window.MANUAL_CONTENIDO = {
     "estado": "borrador",
     "actores": [
      [
-      "Gerente de Experiencia del Cliente (corporativo)",
+      "Gerente de Postventa (corporativo)",
       "Regional",
       "Define el estándar de garantía, el modelo de escalamiento y los protocolos de atención; opera el centro de mando y consolida el reporte a la Junta.",
       "Aprobación de excepciones de alto impacto (cambio de generación, reembolso fuera de política).",
@@ -7603,10 +7603,10 @@ window.MANUAL_CONTENIDO = {
       "Regional / país",
       "Coordina la gestión de casos técnicos, el reporte de calidad a fábrica y la disposición final de producto (scrap).",
       "Clasificación de casos por producto/serial/lote y cierre de la conciliación mensual.",
-      "Patrones de defecto recurrente escalan al Gerente de Experiencia del Cliente (corporativo) y a Marketing regional."
+      "Patrones de defecto recurrente escalan al Gerente de Postventa (corporativo) y a Marketing regional."
      ],
      [
-      "Gerente de Experiencia del Cliente (por país)",
+      "Gerente de Postventa (por país)",
       "País",
       "Ejecuta la operación diaria de garantías, reparación, repuestos y auditoría de bodega en su país.",
       "Aprobación de pedidos de repuestos dentro del umbral del país; contacto directo con clientes escalados.",
@@ -7617,7 +7617,7 @@ window.MANUAL_CONTENIDO = {
       "Operación",
       "Atiende al cliente por los canales habilitados, diagnostica, reemplaza o deriva el caso.",
       "Reemplazo directo dentro de la política estándar de garantía.",
-      "Casos fuera de política o clientes molestos escalan al Gerente de Experiencia del Cliente (por país)."
+      "Casos fuera de política o clientes molestos escalan al Gerente de Postventa (por país)."
      ],
      [
       "Gerente Corporativo(a) de Mercadeo",
@@ -7639,7 +7639,7 @@ window.MANUAL_CONTENIDO = {
       "Reunión mensual de soporte técnico regional",
       "Repasar el estado de los casos, las brechas de homologación y las iniciativas de mejora entre los países.",
       "Mensual",
-      "Gerente de Experiencia del Cliente (corporativo) (hoy delegada en el Coordinador de Soporte) · Gerente de Experiencia del Cliente (por país)",
+      "Gerente de Postventa (corporativo) (hoy delegada en el Coordinador de Soporte) · Gerente de Postventa (por país)",
       "Reporte de casos y tablero de garantías del mes",
       "Ajustes de proceso y compromisos de homologación por país",
       "Minuta y compromisos de seguimiento"
@@ -7648,7 +7648,7 @@ window.MANUAL_CONTENIDO = {
       "Seguimiento individual (one to one) con cada país",
       "Dar seguimiento cercano a cada equipo de país y detectar cuellos de botella no visibles en el tablero.",
       "Semanal (objetivo declarado, no siempre cumplido)",
-      "Gerente de Experiencia del Cliente (corporativo) · Gerente de Experiencia del Cliente (por país)",
+      "Gerente de Postventa (corporativo) · Gerente de Postventa (por país)",
       "Novedades del país por WhatsApp o llamada",
       "Ajustes puntuales de operación",
       "Compromisos de la semana"
@@ -7657,7 +7657,7 @@ window.MANUAL_CONTENIDO = {
       "Gobierno del modelo de servicio (recomendado, sin formalizar hoy)",
       "Revisar y aprobar cambios a la carta de garantía, los protocolos y la homologación entre países, con participación formal de más de una persona.",
       "Trimestral (propuesto)",
-      "Gerente de Experiencia del Cliente (corporativo) · Gerente de Experiencia del Cliente (por país) · Gerente de Proyectos (PMO)",
+      "Gerente de Postventa (corporativo) · Gerente de Postventa (por país) · Gerente de Proyectos (PMO)",
       "Brechas de homologación reportadas por país",
       "Cambios de política o protocolo aprobados de forma colegiada",
       "Estándar actualizado publicado en el wiki"
@@ -7785,14 +7785,14 @@ window.MANUAL_CONTENIDO = {
      [
       "11.1 Gestión de la atención omnicanal al cliente",
       "Asesor(a) de Servicio al Cliente",
-      "Gerente de Experiencia del Cliente (por país)",
-      "Gerente de Experiencia del Cliente (corporativo) · Coordinador(a) de Soporte / Servicio al Cliente (Colombia)",
+      "Gerente de Postventa (por país)",
+      "Gerente de Postventa (corporativo) · Coordinador(a) de Soporte / Servicio al Cliente (Colombia)",
       "—"
      ],
      [
       "11.2 Gestión de garantías y reemplazo de producto de marca propia",
       "Asesor(a) de Servicio al Cliente",
-      "Gerente de Experiencia del Cliente (corporativo)",
+      "Gerente de Postventa (corporativo)",
       "Supervisor(a) de Bodega / Despacho · Gerente de Tienda / Supervisor de Ventas",
       "—"
      ],
@@ -7806,28 +7806,28 @@ window.MANUAL_CONTENIDO = {
      [
       "11.4 Servicio técnico y reparación de marca representada",
       "Técnico(a) de Servicio / Relojero(a)",
-      "Gerente de Experiencia del Cliente (por país)",
+      "Gerente de Postventa (por país)",
       "Asesor(a) de Servicio al Cliente · Gerente de Tienda / Supervisor de Ventas",
       "—"
      ],
      [
       "11.5 Gestión de repuestos y accesorios de servicio",
-      "Gerente de Experiencia del Cliente (por país)",
+      "Gerente de Postventa (por país)",
       "Country Manager",
       "Técnico(a) de Servicio / Relojero(a) · Gerente Corporativo(a) de Mercadeo",
-      "Gerente de Experiencia del Cliente de otros países"
+      "Gerente de Postventa de otros países"
      ],
      [
       "11.6 Gestión de garantías en mercados sin operación propia",
       "agente de servicio del país (externo o freelance)",
-      "Gerente de Experiencia del Cliente (corporativo)",
+      "Gerente de Postventa (corporativo)",
       "Coordinador(a) de Logística y Bodega · Analista de Cuentas por Cobrar",
       "—"
      ],
      [
       "11.7 Escalamiento y recuperación del cliente insatisfecho",
-      "Gerente de Experiencia del Cliente (por país)",
-      "Gerente de Experiencia del Cliente (corporativo)",
+      "Gerente de Postventa (por país)",
+      "Gerente de Postventa (corporativo)",
       "Gerente Corporativo(a) de Mercadeo",
       "Asesor(a) de Servicio al Cliente"
      ],
@@ -7835,27 +7835,27 @@ window.MANUAL_CONTENIDO = {
       "11.8 Gestión de reembolsos y reversos de postventa",
       "Analista de Cuentas por Cobrar",
       "Gerente de Contabilidad / Administración",
-      "Gerente de Experiencia del Cliente (corporativo) · Asesor(a) de Servicio al Cliente",
+      "Gerente de Postventa (corporativo) · Asesor(a) de Servicio al Cliente",
       "—"
      ],
      [
       "11.9 Disposición final de producto defectuoso (scrap)",
       "Supervisor(a) de Bodega / Despacho",
       "Subgerente de Servicio Técnico",
-      "Gerente de Experiencia del Cliente (por país)",
+      "Gerente de Postventa (por país)",
       "—"
      ],
      [
       "11.10 Gobierno del modelo de servicio, estándares y base de conocimiento",
-      "Gerente de Experiencia del Cliente (por país)",
-      "Gerente de Experiencia del Cliente (corporativo)",
+      "Gerente de Postventa (por país)",
+      "Gerente de Postventa (corporativo)",
       "Gerente de Proyectos (PMO)",
       "Junta Directiva"
      ],
      [
       "11.11 Medición de la experiencia del cliente y reportería de postventa",
       "Analista de Sistemas / Datos",
-      "Gerente de Experiencia del Cliente (corporativo)",
+      "Gerente de Postventa (corporativo)",
       "Gerente Regional Comercial / Retail",
       "Junta Directiva"
      ]
@@ -7871,7 +7871,7 @@ window.MANUAL_CONTENIDO = {
       "Mercately",
       "Omnicanalidad (WhatsApp/chat) por país",
       "11.1 · 11.7",
-      "Gerente de Experiencia del Cliente (corporativo)"
+      "Gerente de Postventa (corporativo)"
      ],
      [
       "Odoo (ERP)",
@@ -7883,13 +7883,13 @@ window.MANUAL_CONTENIDO = {
       "Sistema propio de RMA (en desarrollo)",
       "Digitalización de la recepción de garantía",
       "11.2",
-      "Gerente de Experiencia del Cliente (por país) — Panamá"
+      "Gerente de Postventa (por país) — Panamá"
      ],
      [
       "Centro de mando de omnicanalidad (Supabase + IA)",
       "Tiempo de respuesta, calidad de redacción, sentimiento del cliente",
       "11.1 · 11.11",
-      "Gerente de Experiencia del Cliente (corporativo)"
+      "Gerente de Postventa (corporativo)"
      ],
      [
       "DHL / Servientrega / ASAP",
@@ -8006,11 +8006,11 @@ window.MANUAL_CONTENIDO = {
     { "id": "a1", "rol": "Asesor(a) de Servicio al Cliente", "texto": "Recibe el contacto del cliente por el canal que use (WhatsApp, correo, chat web, DM o presencial) a través de la plataforma de omnicanalidad." },
     { "id": "a2", "rol": "Asesor(a) de Servicio al Cliente", "texto": "Clasifica el contacto entre ruta comercial (consulta de venta o producto nuevo) y ruta de soporte (garantía, reparación o queja), y verifica el registro del cliente y del producto cuando aplica." },
     { "id": "a3", "rol": "Asesor(a) de Servicio al Cliente", "texto": "Atiende el caso dentro del guion de comunicación corporativo (saludo, personalización, empatía) o lo deriva a la tienda física más cercana cuando el canal no permite resolverlo a distancia." },
-    { "id": "a4", "rol": "Gerente de Experiencia del Cliente (por país)", "texto": "Supervisa el tablero de tiempos de respuesta y calidad de redacción, e interviene cuando un caso se acerca al límite del SLA o el cliente escala su tono." },
+    { "id": "a4", "rol": "Gerente de Postventa (por país)", "texto": "Supervisa el tablero de tiempos de respuesta y calidad de redacción, e interviene cuando un caso se acerca al límite del SLA o el cliente escala su tono." },
     { "id": "a5", "rol": "Asesor(a) de Servicio al Cliente", "texto": "Cierra el contacto en la plataforma con el resultado y el tiempo de respuesta registrado, o lo deriva al proceso de garantía, reparación o escalamiento correspondiente." }
    ],
    "diagrama": {
-    "carriles": ["Gerente de Experiencia del Cliente (por país)", "Asesor(a) de Servicio al Cliente"],
+    "carriles": ["Gerente de Postventa (por país)", "Asesor(a) de Servicio al Cliente"],
     "nodos": [
      { "id": "n0", "carril": "Asesor(a) de Servicio al Cliente", "tipo": "inicio", "n": "Entra un contacto del cliente por cualquier canal" },
      { "id": "n1", "carril": "Asesor(a) de Servicio al Cliente", "tipo": "tarea", "n": "Clasificar el contacto en ruta comercial o ruta de soporte" },
@@ -8018,8 +8018,8 @@ window.MANUAL_CONTENIDO = {
      { "id": "n3", "carril": "Asesor(a) de Servicio al Cliente", "tipo": "tarea", "n": "Atender y responder con el guion corporativo" },
      { "id": "n2alt", "carril": "Asesor(a) de Servicio al Cliente", "tipo": "tarea", "n": "Registrar la derivación y notificar al proceso correspondiente" },
      { "id": "n2fin", "carril": "Asesor(a) de Servicio al Cliente", "tipo": "fin", "n": "Caso derivado a garantía, reparación o escalamiento" },
-     { "id": "n4", "carril": "Gerente de Experiencia del Cliente (por país)", "tipo": "decision", "n": "¿Se acerca al límite del SLA?" },
-     { "id": "n4alt", "carril": "Gerente de Experiencia del Cliente (por país)", "tipo": "tarea", "n": "Intervenir directamente o reasignar el caso" },
+     { "id": "n4", "carril": "Gerente de Postventa (por país)", "tipo": "decision", "n": "¿Se acerca al límite del SLA?" },
+     { "id": "n4alt", "carril": "Gerente de Postventa (por país)", "tipo": "tarea", "n": "Intervenir directamente o reasignar el caso" },
      { "id": "n5", "carril": "Asesor(a) de Servicio al Cliente", "tipo": "fin", "n": "Contacto cerrado con el tiempo de respuesta registrado" }
     ],
     "aristas": [
@@ -8047,9 +8047,9 @@ window.MANUAL_CONTENIDO = {
   "indicadores": {
    "estado": "borrador",
    "filas": [
-    ["Tiempo de primera respuesta por canal", "Hora de primera respuesta del agente − hora del contacto entrante", "Diaria", "Gerente de Experiencia del Cliente (por país)", "Referencia interna (sin meta formal de la organización)"],
-    ["Casos atendidos por canal y por agente", "Conteo de casos cerrados por canal y por agente", "Diaria", "Gerente de Experiencia del Cliente (corporativo)", "Referencia de volumen"],
-    ["Errores de ortografía o redacción detectados", "Alertas de calidad de redacción ÷ total de respuestas", "Semanal", "Gerente de Experiencia del Cliente (corporativo)", "Tendencia a la baja"]
+    ["Tiempo de primera respuesta por canal", "Hora de primera respuesta del agente − hora del contacto entrante", "Diaria", "Gerente de Postventa (por país)", "Referencia interna (sin meta formal de la organización)"],
+    ["Casos atendidos por canal y por agente", "Conteo de casos cerrados por canal y por agente", "Diaria", "Gerente de Postventa (corporativo)", "Referencia de volumen"],
+    ["Errores de ortografía o redacción detectados", "Alertas de calidad de redacción ÷ total de respuestas", "Semanal", "Gerente de Postventa (corporativo)", "Tendencia a la baja"]
    ]
   }
  },
@@ -8112,9 +8112,9 @@ window.MANUAL_CONTENIDO = {
   "indicadores": {
    "estado": "borrador",
    "filas": [
-    ["Casos de garantía atendidos por día", "Conteo de casos de garantía ÷ día", "Diaria", "Gerente de Experiencia del Cliente (por país)", "Referencia de volumen (25 a 30/día en Panamá)"],
+    ["Casos de garantía atendidos por día", "Conteo de casos de garantía ÷ día", "Diaria", "Gerente de Postventa (por país)", "Referencia de volumen (25 a 30/día en Panamá)"],
     ["Tiempo de resolución del reemplazo", "Hora de entrega del producto nuevo − hora de recepción del reclamo", "Por caso", "Asesor(a) de Servicio al Cliente", "Mismo día (falla de hardware)"],
-    ["% de garantías sobre sell-out", "Unidades reemplazadas ÷ unidades vendidas del período", "Mensual", "Gerente de Experiencia del Cliente (corporativo)", "< 4% (referencia de industria: 4% a 6%)"],
+    ["% de garantías sobre sell-out", "Unidades reemplazadas ÷ unidades vendidas del período", "Mensual", "Gerente de Postventa (corporativo)", "< 4% (referencia de industria: 4% a 6%)"],
     ["Traslados de garantía sin conciliar al cierre de mes", "Traslados abiertos ÷ total de traslados del período", "Mensual", "Supervisor(a) de Bodega / Despacho", "0"]
    ]
   }
@@ -8130,14 +8130,14 @@ window.MANUAL_CONTENIDO = {
     {"id": "a2", "rol": "Especialista de Producto / Proyecto", "texto": "Da seguimiento a la tabla y coordina con el agente de la fábrica la revisión del archivo y el envío de la actualización correctiva al dispositivo."},
     {"id": "a3", "rol": "Asesor(a) de Servicio al Cliente", "texto": "Mantiene el producto en espera hasta siete días, aplica la actualización cuando llega y prueba el dispositivo antes de devolverlo al cliente sin reemplazo."},
     {"id": "a4", "rol": "Subgerente de Servicio Técnico", "texto": "Consolida mensualmente los casos de reemplazo por producto, serial y lote, y detecta patrones de falla recurrente en una misma referencia o lote de fabricación."},
-    {"id": "a5", "rol": "Gerente de Experiencia del Cliente (corporativo)", "texto": "Revisa el reporte de defecto recurrente con la fábrica y decide, junto con el Especialista de Producto / Proyecto, si procede la cobertura de garantía extendida, el retiro del lote o la revisión preventiva de todo el stock de la referencia."}
+    {"id": "a5", "rol": "Gerente de Postventa (corporativo)", "texto": "Revisa el reporte de defecto recurrente con la fábrica y decide, junto con el Especialista de Producto / Proyecto, si procede la cobertura de garantía extendida, el retiro del lote o la revisión preventiva de todo el stock de la referencia."}
    ],
    "diagrama": {
     "carriles": [
      "Asesor(a) de Servicio al Cliente",
      "Especialista de Producto / Proyecto",
      "Subgerente de Servicio Técnico",
-     "Gerente de Experiencia del Cliente (corporativo)"
+     "Gerente de Postventa (corporativo)"
     ],
     "nodos": [
      {"id": "n0", "carril": "Subgerente de Servicio Técnico", "tipo": "inicio", "n": "Falla de software o patrón de fallas en un lote"},
@@ -8147,7 +8147,7 @@ window.MANUAL_CONTENIDO = {
      {"id": "n3", "carril": "Especialista de Producto / Proyecto", "tipo": "tarea", "n": "Coordinar con la fábrica la actualización correctiva"},
      {"id": "n4", "carril": "Asesor(a) de Servicio al Cliente", "tipo": "tarea", "n": "Aplicar la actualización, probar y devolver al cliente"},
      {"id": "n5", "carril": "Subgerente de Servicio Técnico", "tipo": "decision", "n": "¿Defecto recurrente por lote?"},
-     {"id": "n5alt", "carril": "Gerente de Experiencia del Cliente (corporativo)", "tipo": "tarea", "n": "Decidir la cobertura, el retiro o la revisión del lote"},
+     {"id": "n5alt", "carril": "Gerente de Postventa (corporativo)", "tipo": "tarea", "n": "Decidir la cobertura, el retiro o la revisión del lote"},
      {"id": "n6", "carril": "Subgerente de Servicio Técnico", "tipo": "fin", "n": "Caso cerrado o defecto reportado a fábrica"}
     ],
     "aristas": [
@@ -8190,7 +8190,7 @@ window.MANUAL_CONTENIDO = {
     ],
     [
      "Decisión de cobertura de garantía extendida concentrada en una sola persona",
-     "La aprobación final de cobertura extendida o retiro de lote depende de un único aprobador (Gerente de Experiencia del Cliente).",
+     "La aprobación final de cobertura extendida o retiro de lote depende de un único aprobador (Gerente de Postventa).",
      "Media",
      "Alto",
      "Definir un segundo aprobador de respaldo para esta decisión."
@@ -8277,7 +8277,7 @@ window.MANUAL_CONTENIDO = {
   "indicadores": {
    "estado": "borrador",
    "filas": [
-    ["Órdenes de servicio cerradas por mes", "Conteo de órdenes de servicio cerradas", "Mensual", "Gerente de Experiencia del Cliente (por país)", "Referencia de volumen (≈700/mes en Venezuela)"],
+    ["Órdenes de servicio cerradas por mes", "Conteo de órdenes de servicio cerradas", "Mensual", "Gerente de Postventa (por país)", "Referencia de volumen (≈700/mes en Venezuela)"],
     ["Tiempo de ciclo de reparación", "Fecha de cierre − fecha de apertura de la orden", "Por orden", "Técnico(a) de Servicio / Relojero(a)", "≤ 7 días"],
     ["% de órdenes fuera de garantía con presupuesto cobrado", "Órdenes cobradas ÷ órdenes fuera de garantía", "Mensual", "Asesor(a) de Servicio al Cliente", "Referencia de gestión"]
    ]
@@ -8295,23 +8295,23 @@ window.MANUAL_CONTENIDO = {
    "estado": "borrador",
    "actividades": [
     { "id": "a1", "rol": "Técnico(a) de Servicio / Relojero(a)", "texto": "Detecta la necesidad de un repuesto durante la valoración o la reparación y la reporta al responsable de repuestos del país." },
-    { "id": "a2", "rol": "Gerente de Experiencia del Cliente (por país)", "texto": "Consolida las solicitudes de repuestos del taller y de otros países, y valida que la cantidad pedida sea razonable frente al volumen histórico de servicio." },
+    { "id": "a2", "rol": "Gerente de Postventa (por país)", "texto": "Consolida las solicitudes de repuestos del taller y de otros países, y valida que la cantidad pedida sea razonable frente al volumen histórico de servicio." },
     { "id": "a3", "rol": "Country Manager", "texto": "Aprueba los pedidos que superan el umbral definido antes de colocarlos ante la casa matriz de la marca representada." },
-    { "id": "a4", "rol": "Gerente de Experiencia del Cliente (por país)", "texto": "Coloca el pedido ante la casa matriz (marca representada) o ante la fábrica (marca propia), y define el tope de precio de venta del repuesto cuando aplica cobro al cliente." },
-    { "id": "a5", "rol": "Gerente de Experiencia del Cliente (por país)", "texto": "Recibe el repuesto, lo registra en el inventario de servicio y, cuando la fábrica no lo suministra en el plazo normal, evalúa alternativas (recuperación de piezas de unidades ya reemplazadas) para sostener el servicio mientras llega el pedido regular." }
+    { "id": "a4", "rol": "Gerente de Postventa (por país)", "texto": "Coloca el pedido ante la casa matriz (marca representada) o ante la fábrica (marca propia), y define el tope de precio de venta del repuesto cuando aplica cobro al cliente." },
+    { "id": "a5", "rol": "Gerente de Postventa (por país)", "texto": "Recibe el repuesto, lo registra en el inventario de servicio y, cuando la fábrica no lo suministra en el plazo normal, evalúa alternativas (recuperación de piezas de unidades ya reemplazadas) para sostener el servicio mientras llega el pedido regular." }
    ],
    "diagrama": {
-    "carriles": ["Técnico(a) de Servicio / Relojero(a)", "Gerente de Experiencia del Cliente (por país)", "Country Manager"],
+    "carriles": ["Técnico(a) de Servicio / Relojero(a)", "Gerente de Postventa (por país)", "Country Manager"],
     "nodos": [
      { "id": "n0", "carril": "Técnico(a) de Servicio / Relojero(a)", "tipo": "inicio", "n": "Se necesita un repuesto (taller, país o mayorista)" },
      { "id": "n1", "carril": "Técnico(a) de Servicio / Relojero(a)", "tipo": "tarea", "n": "Reportar la necesidad de repuesto al responsable del país" },
-     { "id": "n2", "carril": "Gerente de Experiencia del Cliente (por país)", "tipo": "tarea", "n": "Consolidar la solicitud y validar la cantidad" },
-     { "id": "n3", "carril": "Gerente de Experiencia del Cliente (por país)", "tipo": "decision", "n": "¿Supera el umbral del país?" },
+     { "id": "n2", "carril": "Gerente de Postventa (por país)", "tipo": "tarea", "n": "Consolidar la solicitud y validar la cantidad" },
+     { "id": "n3", "carril": "Gerente de Postventa (por país)", "tipo": "decision", "n": "¿Supera el umbral del país?" },
      { "id": "n3alt", "carril": "Country Manager", "tipo": "tarea", "n": "Aprobar o rechazar el pedido antes de colocarlo" },
-     { "id": "n4", "carril": "Gerente de Experiencia del Cliente (por país)", "tipo": "tarea", "n": "Pedir a la fábrica y fijar el tope de precio de venta" },
-     { "id": "n5", "carril": "Gerente de Experiencia del Cliente (por país)", "tipo": "decision", "n": "¿La fábrica lo surte a tiempo?" },
-     { "id": "n5alt", "carril": "Gerente de Experiencia del Cliente (por país)", "tipo": "tarea", "n": "Evaluar piezas recuperables mientras llega el pedido" },
-     { "id": "n6", "carril": "Gerente de Experiencia del Cliente (por país)", "tipo": "fin", "n": "Repuesto en inventario con precio topado" }
+     { "id": "n4", "carril": "Gerente de Postventa (por país)", "tipo": "tarea", "n": "Pedir a la fábrica y fijar el tope de precio de venta" },
+     { "id": "n5", "carril": "Gerente de Postventa (por país)", "tipo": "decision", "n": "¿La fábrica lo surte a tiempo?" },
+     { "id": "n5alt", "carril": "Gerente de Postventa (por país)", "tipo": "tarea", "n": "Evaluar piezas recuperables mientras llega el pedido" },
+     { "id": "n6", "carril": "Gerente de Postventa (por país)", "tipo": "fin", "n": "Repuesto en inventario con precio topado" }
     ],
     "aristas": [
      { "de": "n0", "a": "n1" },
@@ -8339,9 +8339,9 @@ window.MANUAL_CONTENIDO = {
   "indicadores": {
    "estado": "borrador",
    "filas": [
-    ["Tiempo de ciclo de reposición de repuestos", "Fecha de recepción − fecha de pedido", "Por pedido", "Gerente de Experiencia del Cliente (por país)", "Referencia actual: 6 a 8 meses (marca representada, repuestos no estándar)"],
+    ["Tiempo de ciclo de reposición de repuestos", "Fecha de recepción − fecha de pedido", "Por pedido", "Gerente de Postventa (por país)", "Referencia actual: 6 a 8 meses (marca representada, repuestos no estándar)"],
     ["Pedidos de repuestos rechazados por validación antifraude", "Pedidos rechazados ÷ total de pedidos", "Mensual", "Country Manager", "Referencia de control"],
-    ["Órdenes de reparación detenidas por falta de repuesto", "Órdenes en espera de repuesto ÷ total de órdenes abiertas", "Mensual", "Gerente de Experiencia del Cliente (por país)", "Tendencia a la baja"]
+    ["Órdenes de reparación detenidas por falta de repuesto", "Órdenes en espera de repuesto ÷ total de órdenes abiertas", "Mensual", "Gerente de Postventa (por país)", "Tendencia a la baja"]
    ]
   }
  },
@@ -8398,7 +8398,7 @@ window.MANUAL_CONTENIDO = {
    "filas": [
     ["Costo logístico total de garantías en mercados sin operación propia", "Suma de costo de envío + mercancía del período", "Mensual", "Coordinador(a) de Logística y Bodega", "Referencia de control de gasto"],
     ["Tiempo de entrega del reemplazo en mercado remoto", "Fecha de entrega − fecha del reclamo", "Por caso", "agente de servicio del país (externo o freelance)", "Referencia de gestión"],
-    ["Reposiciones de stock al agente por período", "Conteo de reposiciones de stock realizadas", "Trimestral", "Gerente de Experiencia del Cliente (corporativo)", "Cada 2 a 3 meses"]
+    ["Reposiciones de stock al agente por período", "Conteo de reposiciones de stock realizadas", "Trimestral", "Gerente de Postventa (corporativo)", "Cada 2 a 3 meses"]
    ]
   }
  },
@@ -8410,26 +8410,26 @@ window.MANUAL_CONTENIDO = {
    "estado": "borrador",
    "actividades": [
     {"id": "a1", "rol": "Asesor(a) de Servicio al Cliente", "texto": "Identifica un caso crítico (reincidencia del producto, cliente visiblemente molesto o con exposición pública) y lo clasifica según el nivel de escalamiento."},
-    {"id": "a2", "rol": "Gerente de Experiencia del Cliente (por país)", "texto": "Revisa el historial completo del cliente y del producto (número de cambios previos, antigüedad de la compra) antes de intervenir directamente."},
-    {"id": "a3", "rol": "Gerente de Experiencia del Cliente (por país)", "texto": "Contacta al cliente de forma personal (llamada o atención presencial) para explicar la situación y ofrecer las opciones disponibles."},
-    {"id": "a4", "rol": "Gerente de Experiencia del Cliente (corporativo)", "texto": "Evalúa y aprueba la solución excepcional cuando implica cambio de generación de producto, reembolso o compensación fuera de la política estándar de garantía."},
+    {"id": "a2", "rol": "Gerente de Postventa (por país)", "texto": "Revisa el historial completo del cliente y del producto (número de cambios previos, antigüedad de la compra) antes de intervenir directamente."},
+    {"id": "a3", "rol": "Gerente de Postventa (por país)", "texto": "Contacta al cliente de forma personal (llamada o atención presencial) para explicar la situación y ofrecer las opciones disponibles."},
+    {"id": "a4", "rol": "Gerente de Postventa (corporativo)", "texto": "Evalúa y aprueba la solución excepcional cuando implica cambio de generación de producto, reembolso o compensación fuera de la política estándar de garantía."},
     {"id": "a5", "rol": "Asesor(a) de Servicio al Cliente", "texto": "Cierra el caso con la solución acordada y registra el acuerdo excepcional en el historial del cliente."}
    ],
    "diagrama": {
     "carriles": [
      "Asesor(a) de Servicio al Cliente",
-     "Gerente de Experiencia del Cliente (por país)",
-     "Gerente de Experiencia del Cliente (corporativo)"
+     "Gerente de Postventa (por país)",
+     "Gerente de Postventa (corporativo)"
     ],
     "nodos": [
      {"id": "n0", "carril": "Asesor(a) de Servicio al Cliente", "tipo": "inicio", "n": "Caso crítico por reincidencia o reclamo"},
      {"id": "n1", "carril": "Asesor(a) de Servicio al Cliente", "tipo": "tarea", "n": "Clasificar el caso según el nivel de escalamiento"},
-     {"id": "n2", "carril": "Gerente de Experiencia del Cliente (por país)", "tipo": "tarea", "n": "Revisar el historial del cliente y del producto"},
-     {"id": "n3", "carril": "Gerente de Experiencia del Cliente (por país)", "tipo": "tarea", "n": "Contactar al cliente y presentar las opciones"},
-     {"id": "n4", "carril": "Gerente de Experiencia del Cliente (por país)", "tipo": "decision", "n": "¿Requiere una excepción a la política?"},
-     {"id": "n4alt", "carril": "Gerente de Experiencia del Cliente (corporativo)", "tipo": "tarea", "n": "Evaluar y aprobar la solución excepcional"},
+     {"id": "n2", "carril": "Gerente de Postventa (por país)", "tipo": "tarea", "n": "Revisar el historial del cliente y del producto"},
+     {"id": "n3", "carril": "Gerente de Postventa (por país)", "tipo": "tarea", "n": "Contactar al cliente y presentar las opciones"},
+     {"id": "n4", "carril": "Gerente de Postventa (por país)", "tipo": "decision", "n": "¿Requiere una excepción a la política?"},
+     {"id": "n4alt", "carril": "Gerente de Postventa (corporativo)", "tipo": "tarea", "n": "Evaluar y aprobar la solución excepcional"},
      {"id": "n5", "carril": "Asesor(a) de Servicio al Cliente", "tipo": "fin", "n": "Caso cerrado y solución registrada"},
-     {"id": "n6", "carril": "Gerente de Experiencia del Cliente (corporativo)", "tipo": "fin", "n": "Excepción aprobada y caso cerrado"}
+     {"id": "n6", "carril": "Gerente de Postventa (corporativo)", "tipo": "fin", "n": "Excepción aprobada y caso cerrado"}
     ],
     "aristas": [
      {"de": "n0", "a": "n1"},
@@ -8482,21 +8482,21 @@ window.MANUAL_CONTENIDO = {
      "Casos escalados por nivel de criticidad",
      "Conteo de casos por nivel (rojo/naranja/amarillo)",
      "Mensual",
-     "Gerente de Experiencia del Cliente (corporativo)",
+     "Gerente de Postventa (corporativo)",
      "Referencia de gestión"
     ],
     [
      "Tiempo de resolución de un caso escalado",
      "Fecha de cierre − fecha de escalamiento",
      "Por caso",
-     "Gerente de Experiencia del Cliente (por país)",
+     "Gerente de Postventa (por país)",
      "≤ 48 horas"
     ],
     [
      "Reincidencia de escalamiento por el mismo cliente o producto",
      "Casos repetidos ÷ total de casos escalados",
      "Trimestral",
-     "Gerente de Experiencia del Cliente (corporativo)",
+     "Gerente de Postventa (corporativo)",
      "Tendencia a la baja"
     ]
    ]
@@ -8514,7 +8514,7 @@ window.MANUAL_CONTENIDO = {
    "estado": "borrador",
    "actividades": [
     { "id": "a1", "rol": "Asesor(a) de Servicio al Cliente", "texto": "Acuerda con el cliente la procedencia del reembolso (falta de stock, reincidencia o decisión propia) y levanta la solicitud en el flujo de aprobación." },
-    { "id": "a2", "rol": "Gerente de Experiencia del Cliente (por país)", "texto": "Valida que el caso cumpla el criterio de reembolso y aprueba la solicitud antes de enviarla a Contabilidad." },
+    { "id": "a2", "rol": "Gerente de Postventa (por país)", "texto": "Valida que el caso cumpla el criterio de reembolso y aprueba la solicitud antes de enviarla a Contabilidad." },
     { "id": "a3", "rol": "Gerente de Contabilidad / Administración", "texto": "Valida la solicitud contra el monto de la compra original y autoriza la ejecución del pago." },
     { "id": "a4", "rol": "Analista de Cuentas por Cobrar", "texto": "Ejecuta el pago del reembolso al cliente por el medio acordado." },
     { "id": "a5", "rol": "Asesor(a) de Servicio al Cliente", "texto": "Confirma al cliente la ejecución del reembolso dentro del SLA vigente y cierra el caso." }
@@ -8553,9 +8553,9 @@ window.MANUAL_CONTENIDO = {
   "indicadores": {
    "estado": "borrador",
    "filas": [
-    ["Tiempo de ejecución del reembolso", "Fecha de pago − fecha de solicitud", "Por caso", "Gerente de Experiencia del Cliente (corporativo)", "48 horas a 5 días"],
+    ["Tiempo de ejecución del reembolso", "Fecha de pago − fecha de solicitud", "Por caso", "Gerente de Postventa (corporativo)", "48 horas a 5 días"],
     ["Reembolsos ejecutados por mes", "Conteo de reembolsos ejecutados", "Mensual", "Analista de Cuentas por Cobrar", "Referencia de volumen"],
-    ["% de reembolsos sobre el total de casos de postventa", "Reembolsos ÷ total de casos cerrados", "Mensual", "Gerente de Experiencia del Cliente (corporativo)", "Tendencia a la baja"]
+    ["% de reembolsos sobre el total de casos de postventa", "Reembolsos ÷ total de casos cerrados", "Mensual", "Gerente de Postventa (corporativo)", "Tendencia a la baja"]
    ]
   }
  },
@@ -8575,7 +8575,7 @@ window.MANUAL_CONTENIDO = {
         "n": "Cierre de mes: conciliar traslados de garantía",
         "id": "n0",
         "tipo": "inicio",
-        "carril": "Gerente de Experiencia del Cliente (por país)"
+        "carril": "Gerente de Postventa (por país)"
        },
        {
         "n": "Acumular el producto reemplazado del mes en la bodega de desecho",
@@ -8605,13 +8605,13 @@ window.MANUAL_CONTENIDO = {
         "n": "¿Concilia con garantías e inventario?",
         "id": "n4",
         "tipo": "decision",
-        "carril": "Gerente de Experiencia del Cliente (por país)"
+        "carril": "Gerente de Postventa (por país)"
        },
        {
         "n": "Investigar y resolver la diferencia antes de continuar",
         "id": "n4alt",
         "tipo": "tarea",
-        "carril": "Gerente de Experiencia del Cliente (por país)"
+        "carril": "Gerente de Postventa (por país)"
        },
        {
         "n": "Entregar el lote conciliado a la empresa de reciclaje certificada",
@@ -8674,7 +8674,7 @@ window.MANUAL_CONTENIDO = {
       ],
       "carriles": [
        "Supervisor(a) de Bodega / Despacho",
-       "Gerente de Experiencia del Cliente (por país)"
+       "Gerente de Postventa (por país)"
       ]
      },
      "actividades": [
@@ -8691,11 +8691,11 @@ window.MANUAL_CONTENIDO = {
       {
        "id": "a3",
        "rol": "Supervisor(a) de Bodega / Despacho",
-       "texto": "Extrae al cierre de mes el registro de todos los traslados de garantía del ERP del período y lo entrega al Gerente de Experiencia del Cliente (corporativo) para su conciliación."
+       "texto": "Extrae al cierre de mes el registro de todos los traslados de garantía del ERP del período y lo entrega al Gerente de Postventa (corporativo) para su conciliación."
       },
       {
        "id": "a4",
-       "rol": "Gerente de Experiencia del Cliente (por país)",
+       "rol": "Gerente de Postventa (por país)",
        "texto": "Concilia el registro extraído contra los reportes de garantía cargados en LARK y el inventario físico de bodega."
       },
       {
@@ -8718,7 +8718,7 @@ window.MANUAL_CONTENIDO = {
    "estado": "borrador",
    "filas": [
     ["Producto conciliado y entregado a reciclaje por mes", "Unidades desechadas ÷ unidades reemplazadas del período", "Mensual", "Subgerente de Servicio Técnico", "Referencia de control"],
-    ["Diferencias sin explicar al cierre de la conciliación", "Diferencias abiertas ÷ total de traslados del período", "Mensual", "Gerente de Experiencia del Cliente (por país)", "0"],
+    ["Diferencias sin explicar al cierre de la conciliación", "Diferencias abiertas ÷ total de traslados del período", "Mensual", "Gerente de Postventa (por país)", "0"],
     ["Unidades o partes recuperadas en la segunda revisión", "Conteo de unidades o partes recuperadas", "Mensual", "Supervisor(a) de Bodega / Despacho", "Referencia de gestión"]
    ]
   }
@@ -8734,22 +8734,22 @@ window.MANUAL_CONTENIDO = {
   "flujo": {
    "estado": "borrador",
    "actividades": [
-    { "id": "a1", "rol": "Gerente de Experiencia del Cliente (corporativo)", "texto": "Revisa y actualiza la carta de garantía, los protocolos de atención y los manuales del wiki cuando cambia una política, se abre un nuevo mercado o se lanza un producto nuevo." },
-    { "id": "a2", "rol": "Gerente de Experiencia del Cliente (por país)", "texto": "Aplica el estándar vigente en su país y reporta al gerente regional las brechas de homologación (falta de plataforma, falta de acceso a LARK, diferencias de criterio)." },
-    { "id": "a3", "rol": "Gerente de Experiencia del Cliente (corporativo)", "texto": "Induce a los nuevos agentes de atención al cliente en los estándares y el guion de comunicación corporativa antes de que atiendan casos reales." },
+    { "id": "a1", "rol": "Gerente de Postventa (corporativo)", "texto": "Revisa y actualiza la carta de garantía, los protocolos de atención y los manuales del wiki cuando cambia una política, se abre un nuevo mercado o se lanza un producto nuevo." },
+    { "id": "a2", "rol": "Gerente de Postventa (por país)", "texto": "Aplica el estándar vigente en su país y reporta al gerente regional las brechas de homologación (falta de plataforma, falta de acceso a LARK, diferencias de criterio)." },
+    { "id": "a3", "rol": "Gerente de Postventa (corporativo)", "texto": "Induce a los nuevos agentes de atención al cliente en los estándares y el guion de comunicación corporativa antes de que atiendan casos reales." },
     { "id": "a4", "rol": "Gerente de Proyectos (PMO)", "texto": "Da seguimiento a las iniciativas transversales de mejora del macroproceso (automatización del formulario de garantías, trazabilidad por serial y lote, digitalización del RMA)." },
-    { "id": "a5", "rol": "Gerente de Experiencia del Cliente (corporativo)", "texto": "Sostiene la agenda de mejora del macroproceso y decide qué desarrollo local (Panamá, Colombia) se formaliza como estándar para replicar en los demás países." }
+    { "id": "a5", "rol": "Gerente de Postventa (corporativo)", "texto": "Sostiene la agenda de mejora del macroproceso y decide qué desarrollo local (Panamá, Colombia) se formaliza como estándar para replicar en los demás países." }
    ],
    "diagrama": {
-    "carriles": ["Gerente de Experiencia del Cliente (corporativo)", "Gerente de Experiencia del Cliente (por país)", "Gerente de Proyectos (PMO)"],
+    "carriles": ["Gerente de Postventa (corporativo)", "Gerente de Postventa (por país)", "Gerente de Proyectos (PMO)"],
     "nodos": [
-     { "id": "n0", "carril": "Gerente de Experiencia del Cliente (corporativo)", "tipo": "inicio", "n": "Nuevo mercado, cambio de política o brecha" },
-     { "id": "n1", "carril": "Gerente de Experiencia del Cliente (corporativo)", "tipo": "tarea", "n": "Actualizar carta de garantía, protocolos y wiki" },
-     { "id": "n2", "carril": "Gerente de Experiencia del Cliente (corporativo)", "tipo": "decision", "n": "¿Requiere una mejora transversal?" },
+     { "id": "n0", "carril": "Gerente de Postventa (corporativo)", "tipo": "inicio", "n": "Nuevo mercado, cambio de política o brecha" },
+     { "id": "n1", "carril": "Gerente de Postventa (corporativo)", "tipo": "tarea", "n": "Actualizar carta de garantía, protocolos y wiki" },
+     { "id": "n2", "carril": "Gerente de Postventa (corporativo)", "tipo": "decision", "n": "¿Requiere una mejora transversal?" },
      { "id": "n2alt", "carril": "Gerente de Proyectos (PMO)", "tipo": "tarea", "n": "Dar seguimiento a la iniciativa de mejora hasta su cierre" },
-     { "id": "n3", "carril": "Gerente de Experiencia del Cliente (por país)", "tipo": "tarea", "n": "Aplicar el estándar y reportar brechas del país" },
-     { "id": "n4", "carril": "Gerente de Experiencia del Cliente (corporativo)", "tipo": "tarea", "n": "Inducir a los nuevos agentes en el estándar y el guion" },
-     { "id": "n5", "carril": "Gerente de Experiencia del Cliente (corporativo)", "tipo": "fin", "n": "Carta y protocolos vigentes y homologados" }
+     { "id": "n3", "carril": "Gerente de Postventa (por país)", "tipo": "tarea", "n": "Aplicar el estándar y reportar brechas del país" },
+     { "id": "n4", "carril": "Gerente de Postventa (corporativo)", "tipo": "tarea", "n": "Inducir a los nuevos agentes en el estándar y el guion" },
+     { "id": "n5", "carril": "Gerente de Postventa (corporativo)", "tipo": "fin", "n": "Carta y protocolos vigentes y homologados" }
     ],
     "aristas": [
      { "de": "n0", "a": "n1" },
@@ -8774,9 +8774,9 @@ window.MANUAL_CONTENIDO = {
   "indicadores": {
    "estado": "borrador",
    "filas": [
-    ["Manuales y protocolos del wiki actualizados en el período", "Conteo de actualizaciones publicadas", "Trimestral", "Gerente de Experiencia del Cliente (corporativo)", "Referencia de gestión"],
-    ["Países operando bajo el estándar homologado", "Países alineados ÷ total de países con operación", "Semestral", "Gerente de Experiencia del Cliente (corporativo)", "100%"],
-    ["Nuevos agentes inducidos en el estándar antes de atender casos reales", "Agentes inducidos ÷ total de agentes nuevos", "Mensual", "Gerente de Experiencia del Cliente (por país)", "100%"]
+    ["Manuales y protocolos del wiki actualizados en el período", "Conteo de actualizaciones publicadas", "Trimestral", "Gerente de Postventa (corporativo)", "Referencia de gestión"],
+    ["Países operando bajo el estándar homologado", "Países alineados ÷ total de países con operación", "Semestral", "Gerente de Postventa (corporativo)", "100%"],
+    ["Nuevos agentes inducidos en el estándar antes de atender casos reales", "Agentes inducidos ÷ total de agentes nuevos", "Mensual", "Gerente de Postventa (por país)", "100%"]
    ]
   }
  },
@@ -8792,20 +8792,20 @@ window.MANUAL_CONTENIDO = {
    "estado": "borrador",
    "actividades": [
     { "id": "a1", "rol": "Analista de Sistemas / Datos", "texto": "Actualiza los tableros de garantías por país, producto y motivo a partir de la carga diaria del formulario de LARK." },
-    { "id": "a2", "rol": "Gerente de Experiencia del Cliente (corporativo)", "texto": "Solicita al área comercial el dato de sell-out del período y lo cruza manualmente con las garantías reportadas para calcular el porcentaje de garantías sobre venta." },
-    { "id": "a3", "rol": "Gerente de Experiencia del Cliente (corporativo)", "texto": "Revisa el centro de mando de omnicanalidad (tiempo de respuesta, calidad de redacción, sentimiento del cliente) y da seguimiento a las alertas que arroja." },
-    { "id": "a4", "rol": "Gerente de Experiencia del Cliente (corporativo)", "texto": "Consolida los tableros y el cálculo de garantías sobre sell-out en un reporte mensual resumido para la Junta Directiva." },
+    { "id": "a2", "rol": "Gerente de Postventa (corporativo)", "texto": "Solicita al área comercial el dato de sell-out del período y lo cruza manualmente con las garantías reportadas para calcular el porcentaje de garantías sobre venta." },
+    { "id": "a3", "rol": "Gerente de Postventa (corporativo)", "texto": "Revisa el centro de mando de omnicanalidad (tiempo de respuesta, calidad de redacción, sentimiento del cliente) y da seguimiento a las alertas que arroja." },
+    { "id": "a4", "rol": "Gerente de Postventa (corporativo)", "texto": "Consolida los tableros y el cálculo de garantías sobre sell-out en un reporte mensual resumido para la Junta Directiva." },
     { "id": "a5", "rol": "Junta Directiva", "texto": "Recibe el reporte mensual de postventa y da seguimiento puntual a las alertas que considera relevantes." }
    ],
    "diagrama": {
-    "carriles": ["Analista de Sistemas / Datos", "Gerente de Experiencia del Cliente (corporativo)", "Junta Directiva"],
+    "carriles": ["Analista de Sistemas / Datos", "Gerente de Postventa (corporativo)", "Junta Directiva"],
     "nodos": [
      { "id": "n0", "carril": "Analista de Sistemas / Datos", "tipo": "inicio", "n": "Cierre mensual con casos y garantías cargados" },
      { "id": "n1", "carril": "Analista de Sistemas / Datos", "tipo": "tarea", "n": "Actualizar los tableros de garantías por país, producto y motivo" },
-     { "id": "n2", "carril": "Gerente de Experiencia del Cliente (corporativo)", "tipo": "tarea", "n": "Pedir el sell-out y calcular el % de garantías" },
-     { "id": "n3", "carril": "Gerente de Experiencia del Cliente (corporativo)", "tipo": "decision", "n": "¿Alguna cifra fuera de rango?" },
-     { "id": "n3alt", "carril": "Gerente de Experiencia del Cliente (corporativo)", "tipo": "tarea", "n": "Investigar la causa antes de reportar" },
-     { "id": "n4", "carril": "Gerente de Experiencia del Cliente (corporativo)", "tipo": "tarea", "n": "Consolidar el reporte mensual de postventa" },
+     { "id": "n2", "carril": "Gerente de Postventa (corporativo)", "tipo": "tarea", "n": "Pedir el sell-out y calcular el % de garantías" },
+     { "id": "n3", "carril": "Gerente de Postventa (corporativo)", "tipo": "decision", "n": "¿Alguna cifra fuera de rango?" },
+     { "id": "n3alt", "carril": "Gerente de Postventa (corporativo)", "tipo": "tarea", "n": "Investigar la causa antes de reportar" },
+     { "id": "n4", "carril": "Gerente de Postventa (corporativo)", "tipo": "tarea", "n": "Consolidar el reporte mensual de postventa" },
      { "id": "n5", "carril": "Junta Directiva", "tipo": "fin", "n": "Tablero y reporte mensual entregados a la Junta" }
     ],
     "aristas": [
@@ -8831,10 +8831,10 @@ window.MANUAL_CONTENIDO = {
   "indicadores": {
    "estado": "borrador",
    "filas": [
-    ["SLA de tiempo de respuesta al cliente", "Tiempo de primera respuesta por canal", "Diaria", "Gerente de Experiencia del Cliente (corporativo)", "Referencia interna (sin meta formal de la organización)"],
-    ["% de garantías sobre sell-out", "Unidades en garantía ÷ unidades vendidas del período", "Mensual", "Gerente de Experiencia del Cliente (corporativo)", "< 4% (referencia de industria 4% a 6%; actual ≈3,5% en productos críticos)"],
-    ["Calificación de la marca en tiendas de aplicaciones y reseñas", "Promedio de estrellas en App Store, Google Play y reseñas", "Mensual", "Gerente de Experiencia del Cliente (corporativo)", "≥ 4 estrellas"],
-    ["Reportes mensuales entregados a la Junta a tiempo", "Reportes entregados ÷ 12", "Anual", "Gerente de Experiencia del Cliente (corporativo)", "100%"]
+    ["SLA de tiempo de respuesta al cliente", "Tiempo de primera respuesta por canal", "Diaria", "Gerente de Postventa (corporativo)", "Referencia interna (sin meta formal de la organización)"],
+    ["% de garantías sobre sell-out", "Unidades en garantía ÷ unidades vendidas del período", "Mensual", "Gerente de Postventa (corporativo)", "< 4% (referencia de industria 4% a 6%; actual ≈3,5% en productos críticos)"],
+    ["Calificación de la marca en tiendas de aplicaciones y reseñas", "Promedio de estrellas en App Store, Google Play y reseñas", "Mensual", "Gerente de Postventa (corporativo)", "≥ 4 estrellas"],
+    ["Reportes mensuales entregados a la Junta a tiempo", "Reportes entregados ÷ 12", "Anual", "Gerente de Postventa (corporativo)", "100%"]
    ]
   }
  }
@@ -14592,7 +14592,7 @@ window.MANUAL_CONTENIDO = {
      "Gerente Corporativo(a) de Desarrollo y Calidad de Productos",
      "Gerente Regional Comercial / Retail",
      "Gerente Corporativo(a) de Mercadeo",
-     "Gerente de Experiencia del Cliente (corporativo)"
+     "Gerente de Postventa (corporativo)"
     ]
    },
    "contexto": {
@@ -14902,7 +14902,7 @@ window.MANUAL_CONTENIDO = {
       "3.5 Software y aplicación de marca",
       "Especialista de Producto / Proyecto",
       "Director(a) de Marca Propia (Cubitt)",
-      "Gerente de Experiencia del Cliente (corporativo)",
+      "Gerente de Postventa (corporativo)",
       "Junta Directiva"
      ],
      [
@@ -15807,7 +15807,7 @@ window.MANUAL_CONTENIDO = {
      "estado": "borrador",
      "dueno": "Director(a) de Marca Propia (Cubitt)",
      "participantes": [
-      "Gerente de Experiencia del Cliente (corporativo) — registra las fallas de software reportadas por los clientes y verifica la corrección con los afectados.",
+      "Gerente de Postventa (corporativo) — registra las fallas de software reportadas por los clientes y verifica la corrección con los afectados.",
       "Especialista de Producto / Proyecto — prueba cada versión antes de liberarla y coordina con los desarrolladores de la fábrica.",
       "Fábrica (actor externo) — desarrolla las versiones de la aplicación y del firmware.",
       "Junta Directiva — decide la estrategia de desarrollo propio frente a la dependencia del proveedor."
@@ -15837,7 +15837,7 @@ window.MANUAL_CONTENIDO = {
      "actividades": [
       {
        "id": "a1",
-       "rol": "Gerente de Experiencia del Cliente (corporativo)",
+       "rol": "Gerente de Postventa (corporativo)",
        "texto": "Registra las fallas de software que reportan los clientes en la tabla compartida con la fábrica —dispositivo, versión, síntoma y archivos del equipo— y distingue las de software de las de hardware, que van a reemplazo."
       },
       {
@@ -15867,7 +15867,7 @@ window.MANUAL_CONTENIDO = {
       },
       {
        "id": "a7",
-       "rol": "Gerente de Experiencia del Cliente (corporativo)",
+       "rol": "Gerente de Postventa (corporativo)",
        "texto": "Verifica con los clientes afectados que la falla quedó corregida y cierra el registro en la tabla compartida con la fábrica."
       },
       {
@@ -15883,7 +15883,7 @@ window.MANUAL_CONTENIDO = {
      ],
      "diagrama": {
       "carriles": [
-       "Gerente de Experiencia del Cliente (corporativo)",
+       "Gerente de Postventa (corporativo)",
        "Director(a) de Marca Propia (Cubitt)",
        "Fábrica (actor externo)",
        "Especialista de Producto / Proyecto",
@@ -15892,13 +15892,13 @@ window.MANUAL_CONTENIDO = {
       "nodos": [
        {
         "id": "i",
-        "carril": "Gerente de Experiencia del Cliente (corporativo)",
+        "carril": "Gerente de Postventa (corporativo)",
         "tipo": "inicio",
         "n": "Falla reportada o función pedida"
        },
        {
         "id": "t1",
-        "carril": "Gerente de Experiencia del Cliente (corporativo)",
+        "carril": "Gerente de Postventa (corporativo)",
         "tipo": "tarea",
         "n": "Registrar la falla en la tabla compartida",
         "sistemas": [
@@ -15946,7 +15946,7 @@ window.MANUAL_CONTENIDO = {
        },
        {
         "id": "t7",
-        "carril": "Gerente de Experiencia del Cliente (corporativo)",
+        "carril": "Gerente de Postventa (corporativo)",
         "tipo": "tarea",
         "n": "Verificar la corrección con los clientes",
         "sistemas": [
@@ -16101,7 +16101,7 @@ window.MANUAL_CONTENIDO = {
        "Fallas reabiertas",
        "Fallas reabiertas tras la liberación ÷ fallas cerradas",
        "Trimestral",
-       "Gerente de Experiencia del Cliente (corporativo)",
+       "Gerente de Postventa (corporativo)",
        "≤ 5 %"
       ],
       [
@@ -17562,7 +17562,7 @@ window.MANUAL_CONTENIDO = {
    },
    "4.4": {
     "proposito": {"estado": "borrador", "texto": "Conduce cada lanzamiento de producto como un proyecto transversal: su clasificación según sea producto nuevo, mejora o variante de color, el cronograma por país con marketing, comercial, visual, logística y soporte, la verificación de que todas las áreas estén listas, la salida al mercado y el cierre al tercer mes con su venta y su costo.", "nota_estado": "Proceso en transición: la oficina de proyectos ya clasifica los lanzamientos en tres categorías, los sigue por trimestre y la coordinación de producto avisa cuándo llega cada producto. Lo que se incorpora es la verificación de preparación de todas las áreas antes de salir y el cierre al tercer mes como práctica de todos los lanzamientos."},
-    "dueno": {"estado": "borrador", "dueno": "Gerente de Proyectos (PMO)", "participantes": ["Especialista de Producto / Proyecto — coordinación de producto: avisa la llegada del producto y conduce el cierre del lanzamiento con su venta y su costo.", "Gerente Corporativo(a) de Mercadeo — brief y campaña del lanzamiento; Diseño y Estrategia de Marca produce las piezas, el empaque y la guía de exhibición.", "Gerente Regional Comercial / Retail — plan comercial: preventa, reservas para cadenas y reparto a tiendas.", "Gerente de Experiencia del Cliente (corporativo) — manuales, formación del personal y soporte listos antes de la salida.", "Director(a) de Proyectos (PMO) — aprueba la reprogramación de una fecha de lanzamiento."], "evidencia": ["E-09", "E-04", "E-60", "E-63", "E-22"], "notas": "La oficina de proyectos distingue dos roles, como lo dibujan sus propios flujos de trabajo: la dirección de proyectos, que evalúa, prioriza y aprueba, y los gerentes de proyecto, que planifican y ejecutan."},
+    "dueno": {"estado": "borrador", "dueno": "Gerente de Proyectos (PMO)", "participantes": ["Especialista de Producto / Proyecto — coordinación de producto: avisa la llegada del producto y conduce el cierre del lanzamiento con su venta y su costo.", "Gerente Corporativo(a) de Mercadeo — brief y campaña del lanzamiento; Diseño y Estrategia de Marca produce las piezas, el empaque y la guía de exhibición.", "Gerente Regional Comercial / Retail — plan comercial: preventa, reservas para cadenas y reparto a tiendas.", "Gerente de Postventa (corporativo) — manuales, formación del personal y soporte listos antes de la salida.", "Director(a) de Proyectos (PMO) — aprueba la reprogramación de una fecha de lanzamiento."], "evidencia": ["E-09", "E-04", "E-60", "E-63", "E-22"], "notas": "La oficina de proyectos distingue dos roles, como lo dibujan sus propios flujos de trabajo: la dirección de proyectos, que evalúa, prioriza y aprueba, y los gerentes de proyecto, que planifican y ejecutan."},
     "disparador": {"estado": "borrador"},
     "flujo": {
      "estado": "borrador",
@@ -17573,7 +17573,7 @@ window.MANUAL_CONTENIDO = {
       {"id": "a3", "rol": "Gerente de Proyectos (PMO)", "texto": "Arma el cronograma por país con los hitos de cada área —campaña, empaque, exhibición, preventa, llegada a tiendas, soporte— dentro de la grilla anual de lanzamientos."},
       {"id": "a4", "rol": "Gerente Corporativo(a) de Mercadeo", "texto": "Hace el brief del lanzamiento y coordina su campaña con los plazos del cronograma: Diseño y Estrategia de Marca produce el concepto, el key visual, las piezas, el empaque y la guía de exhibición, y visual merchandising monta el material de punto de venta, con los argumentos de venta de la ficha del producto."},
       {"id": "a5", "rol": "Gerente Regional Comercial / Retail", "texto": "Prepara el plan comercial: preventa con clientes, reserva de mercancía para cadenas, reparto a tiendas y comunicación a la fuerza de venta."},
-      {"id": "a6", "rol": "Gerente de Experiencia del Cliente (corporativo)", "texto": "Deja listos los manuales, la formación del personal de venta y de soporte, y las respuestas a las consultas frecuentes antes de la salida."},
+      {"id": "a6", "rol": "Gerente de Postventa (corporativo)", "texto": "Deja listos los manuales, la formación del personal de venta y de soporte, y las respuestas a las consultas frecuentes antes de la salida."},
       {"id": "a7", "rol": "Gerente de Proyectos (PMO)", "texto": "Verifica antes de la fecha que todas las áreas estén listas; cuando alguna no lo está, la dirección de proyectos decide si se reprograma la fecha o se sale con un alcance reducido."},
       {"id": "a8", "rol": "Director(a) de Proyectos (PMO)", "texto": "Aprueba la reprogramación de la fecha o del alcance cuando un área no llega, y la comunica a todas las áreas y países involucrados."},
       {"id": "a9", "rol": "Gerente de Proyectos (PMO)", "texto": "Ejecuta la salida al mercado según el cronograma y registra la desviación de fecha frente al plan en cada país."},
@@ -17585,7 +17585,7 @@ window.MANUAL_CONTENIDO = {
        "Gerente de Proyectos (PMO)",
        "Gerente Corporativo(a) de Mercadeo",
        "Gerente Regional Comercial / Retail",
-       "Gerente de Experiencia del Cliente (corporativo)",
+       "Gerente de Postventa (corporativo)",
        "Director(a) de Proyectos (PMO)"
       ],
       "nodos": [
@@ -17595,7 +17595,7 @@ window.MANUAL_CONTENIDO = {
        {"id": "t3", "carril": "Gerente de Proyectos (PMO)", "tipo": "tarea", "n": "Armar el cronograma por país", "sistemas": ["Lark"]},
        {"id": "t4", "carril": "Gerente Corporativo(a) de Mercadeo", "tipo": "tarea", "n": "Preparar campaña y contenido"},
        {"id": "t5", "carril": "Gerente Regional Comercial / Retail", "tipo": "tarea", "n": "Preparar preventa, reservas y reparto"},
-       {"id": "t6", "carril": "Gerente de Experiencia del Cliente (corporativo)", "tipo": "tarea", "n": "Preparar manuales, formación y soporte"},
+       {"id": "t6", "carril": "Gerente de Postventa (corporativo)", "tipo": "tarea", "n": "Preparar manuales, formación y soporte"},
        {"id": "d1", "carril": "Gerente de Proyectos (PMO)", "tipo": "decision", "n": "¿Todas las áreas listas?"},
        {"id": "t7", "carril": "Director(a) de Proyectos (PMO)", "tipo": "tarea", "n": "Reprogramar fecha o alcance"},
        {"id": "t8", "carril": "Gerente de Proyectos (PMO)", "tipo": "tarea", "n": "Ejecutar la salida y medir la fecha", "sistemas": ["Lark"]},
@@ -21471,10 +21471,10 @@ window.MANUAL_CONTENIDO = {
 
  "16": {
   "n0": {
-   "introduccion": {"estado": "borrador", "proposito": "Este manual documenta cómo Grupo Kenex planifica, crea, produce, adapta por país y mide la comunicación de sus dos marcas —Cubitt, marca propia, y Casio, marca representada que opera bajo los lineamientos y la aprobación de Casio Brasil—, cómo define y custodia cómo se ven y se sienten esas marcas en cada producto, canal y espacio, y cómo esa comunicación se convierte en imagen de marca en cada punto de venta. Recorre la cadena completa: del plan anual y el presupuesto a las campañas, el tráfico creativo, la adaptación local, las redes sociales, los influencers y las alianzas, el visual merchandising y el reporte de resultados a la dirección; y, desde la revisión de la estructura del 06-nov-2026, los cuatro procesos de la Dirección de Diseño y Estrategia de Marca: la identidad y el sistema de marca, la producción central de contenido visual, el diseño de los espacios comerciales y el diseño de producto digital.", "alcance": "Aplica a la gerencia corporativa de Mercadeo —Insights y ROI, Social y Contenido, Cuentas Clave y Trade y Visual Merchandising— y a la gerencia de Mercadeo de cada país con sus coordinaciones (Panamá, Venezuela, Colombia y Costa Rica); a la gerencia corporativa de Brand Management, de la Dirección Comercial, que lleva Casio; y a la Dirección de Diseño y Estrategia de Marca —con sus gerencias corporativas de Creatividad y Contenido Audiovisual y de Diseño de Identidad de Marca—. Costa Rica participa como socio: su equipo de mercadeo es propio, pero las piezas de Cubitt se aprueban desde lo corporativo. No incluye el desarrollo técnico del producto (macroproceso 3: el diseño industrial y el empaque se hacen allí, en el proceso 3.3, con Diseño y Estrategia de Marca), la operación de las webs y marketplaces, la pauta de performance ni la venta en línea (macroproceso 10, de E-commerce y Growth: su diseño sí está aquí, en 16.12), la definición de promociones, precios y surtido (macroprocesos 2, 8 y 9 —mercadeo las comunica, no las decide—), la compra de mercancía (macroproceso 6), la atención de garantías (macroproceso 11) ni el pago a proveedores (macroproceso 13).", "audiencia": ["Gerente Corporativo(a) de Mercadeo", "Brand Manager de Casio", "Analista de Insights y ROI", "Gerente de Social y Contenido", "Gerente de Cuentas Clave y Trade", "Gerente de Visual Merchandising", "Gerente de Mercadeo (país) y sus coordinaciones (Marca, Social y Contenido, Trade y Activaciones, Visual Merchandising)", "Director(a) de Diseño y Estrategia de Marca", "Director(a) Creativo(a) · Creatividad y Contenido Audiovisual", "Director(a) de Arte · Diseño de Identidad de Marca", "Gerente Corporativo(a) de Desarrollo y Calidad de Productos (diseño de producto y digital)", "Diseñadores internos y freelance", "Gerente de E-commerce y Growth (pauta de performance y webs)", "Junta Directiva y Presidencia (aprobación del plan, del posicionamiento y reporte mensual)"]},
+   "introduccion": {"estado": "borrador", "proposito": "Este manual documenta cómo Grupo Kenex planifica, crea, produce, adapta por país y mide la comunicación de sus dos marcas —Cubitt, marca propia, y Casio, marca representada que opera bajo los lineamientos y la aprobación de Casio Brasil—, cómo define y custodia cómo se ven y se sienten esas marcas en cada producto, canal y espacio, y cómo esa comunicación se convierte en imagen de marca en cada punto de venta. Recorre la cadena completa: del plan anual y el presupuesto a las campañas, el tráfico creativo, la adaptación local, las redes sociales, los influencers y las alianzas, el visual merchandising y el reporte de resultados a la dirección; y, desde la revisión de la estructura del 06-nov-2026, los cuatro procesos de la Dirección de Diseño y Estrategia de Marca: la identidad y el sistema de marca, la producción central de contenido visual, el diseño de los espacios comerciales y el diseño de producto digital.", "alcance": "Aplica a la gerencia corporativa de Mercadeo —Insights y ROI, Social y Contenido, Cuentas Clave y Trade y Visual Merchandising— y a la gerencia de Mercadeo de cada país con sus coordinaciones (Panamá, Venezuela, Colombia y Costa Rica); a la gerencia corporativa de Marca Casio, de la Dirección Comercial; y a la Dirección de Diseño y Estrategia de Marca —con sus gerencias corporativas de Creatividad y Contenido Audiovisual y de Diseño de Identidad de Marca—. Costa Rica participa como socio: su equipo de mercadeo es propio, pero las piezas de Cubitt se aprueban desde lo corporativo. No incluye el desarrollo técnico del producto (macroproceso 3: el diseño industrial y el empaque se hacen allí, en el proceso 3.3, con Diseño y Estrategia de Marca), la operación de las webs y marketplaces, la pauta de performance ni la venta en línea (macroproceso 10, de E-commerce y Growth: su diseño sí está aquí, en 16.12), la definición de promociones, precios y surtido (macroprocesos 2, 8 y 9 —mercadeo las comunica, no las decide—), la compra de mercancía (macroproceso 6), la atención de garantías (macroproceso 11) ni el pago a proveedores (macroproceso 13).", "audiencia": ["Gerente Corporativo(a) de Mercadeo", "Gerente de Marca Casio", "Analista de Insights y ROI", "Gerente de Social y Contenido", "Gerente de Cuentas Clave y Trade", "Gerente de Visual Merchandising", "Gerente de Mercadeo (país) y sus coordinaciones (Marca, Social y Contenido, Trade y Activaciones, Visual Merchandising)", "Director(a) de Diseño y Estrategia de Marca", "Director(a) Creativo(a) · Creatividad y Contenido Audiovisual", "Director(a) de Arte · Diseño de Identidad de Marca", "Gerente Corporativo(a) de Desarrollo y Calidad de Productos (diseño de producto y digital)", "Diseñadores internos y freelance", "Gerente de E-commerce y Growth (pauta de performance y webs)", "Junta Directiva y Presidencia (aprobación del plan, del posicionamiento y reporte mensual)"]},
    "contexto": {
     "estado": "borrador",
-    "ubicacion": "Mercadeo es un macroproceso híbrido entre soporte y negocio: no vende, pero sostiene con campañas, contenido, pauta digital, influencers e imagen en tienda la demanda de los tres canales de venta —tiendas, mayor y web—. Gestiona dos marcas con gobiernos distintos. Casio trabaja sobre un plan semestral, de octubre a marzo y de abril a septiembre, cuyo presupuesto y acciones aprueba Casio Brasil, representante regional de la marca, al que se rinde un reporte mensual y un cierre semestral detallado. Cubitt, la marca propia, se planifica sobre un presupuesto anual asignado por la dirección y un calendario de campañas fijas, lanzamientos y eventos, y sus campañas de mayor alcance las aprueba la Junta Directiva.\n\nLa gerencia regional, con sede en Panamá, coordina un equipo de alrededor de cincuenta personas: los equipos de país de Panamá, Venezuela y Colombia; el equipo regional de Casio; el de cuentas clave, que trabaja el crecimiento de marca y los planes con clientes en siete mercados; la dirección creativa y de arte con su equipo de diseño, fotografía y video, que atiende a toda la región; la gestión regional de redes sociales y de influencers; y el equipo de pauta digital y email marketing, que en septiembre de 2026 pasó a la gerencia de e-commerce regional y sigue operando la pauta de Cubitt y de Casio en coordinación con mercadeo. La empresa decidió producir su comunicación con equipo propio en lugar de agencias de publicidad; Casio recurre a agencia externa para alianzas e influencers en Guatemala y Ecuador.\n\nVisual merchandising nació en 2021 como departamento regional para Cubitt. Organizacionalmente se ubica junto a mercadeo, pero opera como departamento propio con una gerencia regional, coordinadoras regionales, coordinadores y ejecutivos de país, y atiende tanto las tiendas propias como a los clientes del canal mayorista; Casio está formando su propio equipo de visual. Todo el trabajo del macroproceso —solicitudes, tráfico creativo, calendarios, presupuesto, reportes y aprobaciones— se gestiona en Lark, y las piezas finales se almacenan en repositorios compartidos.\n\nEl modelo To-Be (revisión de la estructura del 06-nov-2026) separa tres preguntas que hoy responde una sola área. Mercadeo, gerencia corporativa dentro de la Dirección Comercial, decide qué necesita el consumidor, qué se le dice y dónde se invierte: es dueño del brief, de la inversión y de su retorno, y se organiza en Insights y ROI, Social y Contenido, Cuentas Clave y Trade y Visual Merchandising, más una gerencia de Mercadeo en cada país con sus coordinaciones; el mercadeo de Cubitt lo genera la propia gerencia. El de Casio, cuya mayor parte define la casa matriz, lo estructura Brand Management, gerencia corporativa que reporta directo a la Dirección Comercial y que planifica también la demanda de Casio. La Dirección de Diseño y Estrategia de Marca, que reporta a la Presidencia, decide cómo se ven y se sienten las marcas: identidad, manual de marca y sistema de diseño, concepto y piezas de campaña, producción central de foto, video y 3D, diseño industrial y de empaque, diseño de webs, correos y app, y estándares de espacios y de material POP; trabaja con un equipo mixto de personal interno, freelancers y una agencia de interiores. E-commerce y Growth, dentro de Ventas, es dueño de la venta en línea y de la pauta de performance. La regla común: cada proyecto tiene un solo aprobador de negocio definido en el brief, Diseño y Estrategia de Marca aprueba la calidad y no hay doble aprobación por pieza; los desacuerdos de prioridad suben con impacto y alternativas y los decide la Dirección.",
+    "ubicacion": "Mercadeo es un macroproceso híbrido entre soporte y negocio: no vende, pero sostiene con campañas, contenido, pauta digital, influencers e imagen en tienda la demanda de los tres canales de venta —tiendas, mayor y web—. Gestiona dos marcas con gobiernos distintos. Casio trabaja sobre un plan semestral, de octubre a marzo y de abril a septiembre, cuyo presupuesto y acciones aprueba Casio Brasil, representante regional de la marca, al que se rinde un reporte mensual y un cierre semestral detallado. Cubitt, la marca propia, se planifica sobre un presupuesto anual asignado por la dirección y un calendario de campañas fijas, lanzamientos y eventos, y sus campañas de mayor alcance las aprueba la Junta Directiva.\n\nLa gerencia regional, con sede en Panamá, coordina un equipo de alrededor de cincuenta personas: los equipos de país de Panamá, Venezuela y Colombia; el equipo regional de Casio; el de cuentas clave, que trabaja el crecimiento de marca y los planes con clientes en siete mercados; la dirección creativa y de arte con su equipo de diseño, fotografía y video, que atiende a toda la región; la gestión regional de redes sociales y de influencers; y el equipo de pauta digital y email marketing, que en septiembre de 2026 pasó a la gerencia de e-commerce regional y sigue operando la pauta de Cubitt y de Casio en coordinación con mercadeo. La empresa decidió producir su comunicación con equipo propio en lugar de agencias de publicidad; Casio recurre a agencia externa para alianzas e influencers en Guatemala y Ecuador.\n\nVisual merchandising nació en 2021 como departamento regional para Cubitt. Organizacionalmente se ubica junto a mercadeo, pero opera como departamento propio con una gerencia regional, coordinadoras regionales, coordinadores y ejecutivos de país, y atiende tanto las tiendas propias como a los clientes del canal mayorista; Casio está formando su propio equipo de visual. Todo el trabajo del macroproceso —solicitudes, tráfico creativo, calendarios, presupuesto, reportes y aprobaciones— se gestiona en Lark, y las piezas finales se almacenan en repositorios compartidos.\n\nEl modelo To-Be (revisión de la estructura del 06-nov-2026) separa tres preguntas que hoy responde una sola área. Mercadeo, gerencia corporativa dentro de la Dirección Comercial, decide qué necesita el consumidor, qué se le dice y dónde se invierte: es dueño del brief, de la inversión y de su retorno, y se organiza en Insights y ROI, Social y Contenido, Cuentas Clave y Trade y Visual Merchandising, más una gerencia de Mercadeo en cada país con sus coordinaciones; el mercadeo de Cubitt lo genera la propia gerencia. El de Casio, cuya mayor parte define la casa matriz, lo estructura la gerencia de Marca Casio, gerencia corporativa que reporta directo a la Dirección Comercial y que planifica también la demanda de Casio. La Dirección de Diseño y Estrategia de Marca, que reporta a la Presidencia, decide cómo se ven y se sienten las marcas: identidad, manual de marca y sistema de diseño, concepto y piezas de campaña, producción central de foto, video y 3D, diseño industrial y de empaque, diseño de webs, correos y app, y estándares de espacios y de material POP; trabaja con un equipo mixto de personal interno, freelancers y una agencia de interiores. E-commerce y Growth, dentro de Ventas, es dueño de la venta en línea y de la pauta de performance. La regla común: cada proyecto tiene un solo aprobador de negocio definido en el brief, Diseño y Estrategia de Marca aprueba la calidad y no hay doble aprobación por pieza; los desacuerdos de prioridad suben con impacto y alternativas y los decide la Dirección.",
     "duenos": [
      [
       "Directivo",
@@ -21493,7 +21493,7 @@ window.MANUAL_CONTENIDO = {
      ],
      [
       "Corporativo — Casio",
-      "Brand Manager de Casio",
+      "Gerente de Marca Casio",
       "Solo Casio, porque la mayor parte de su mercadeo lo define la casa matriz: lo estructura para la región, lleva el plan semestral y la coinversión, y emite las normas e indicaciones de gestión para los países. El mercadeo de Cubitt lo genera la gerencia corporativa."
      ],
      [
@@ -21742,12 +21742,12 @@ window.MANUAL_CONTENIDO = {
      [
       "Gerente Corporativo(a) de Mercadeo",
       "Corporativo — mercadeo",
-      "Conduce el plan y el presupuesto, aprueba que cada concepto cumpla su brief, integra el tablero mensual y dirige a Brand Management, Insights y ROI, Social y Contenido, Cuentas Clave y Trade, Visual Merchandising y los países.",
+      "Conduce el plan y el presupuesto, aprueba que cada concepto cumpla su brief, integra el tablero mensual y dirige a Insights y ROI, Social y Contenido, Cuentas Clave y Trade, Visual Merchandising y los países.",
       "Reparto del presupuesto aprobado, campañas dentro del plan y aprobación de negocio cuando el brief no nombra a otro.",
       "Presupuesto adicional, campañas de alto alcance y cambios de estrategia, a la Junta Directiva."
      ],
      [
-      "Brand Manager de Casio",
+      "Gerente de Marca Casio",
       "Corporativo — Casio",
       "Lleva el plan semestral de Casio, la coinversión con la casa matriz y la reportería a Casio Brasil.",
       "Acciones y piezas dentro del plan semestral aprobado.",
@@ -21819,7 +21819,7 @@ window.MANUAL_CONTENIDO = {
       "Reunión regional mensual de planificación",
       "Alinear las campañas y acciones del mes siguiente en cada país",
       "Mensual",
-      "Gerente Corporativo(a) de Mercadeo · gerencias de Mercadeo de cada país · Brand Manager de Casio · Cuentas Clave y Trade · socio de Costa Rica",
+      "Gerente Corporativo(a) de Mercadeo · gerencias de Mercadeo de cada país · Gerente de Marca Casio · Cuentas Clave y Trade · socio de Costa Rica",
       "Calendario del mes siguiente por país y requerimientos al equipo creativo",
       "Fechas locales, lanzamientos y promociones de cada país",
       "Plan mensual por país en la base de Lark"
@@ -21882,7 +21882,7 @@ window.MANUAL_CONTENIDO = {
       "Revisión semestral con Casio Brasil",
       "Cerrar el semestre y aprobar el siguiente plan de Casio",
       "Semestral",
-      "Brand Manager de Casio · gerencias de país · Casio Brasil",
+      "Gerente de Marca Casio · gerencias de país · Casio Brasil",
       "Aprobación del plan y del presupuesto del semestre",
       "Rendición del presupuesto y resultados",
       "Plan semestral aprobado"
@@ -22092,11 +22092,11 @@ window.MANUAL_CONTENIDO = {
       "Gerente Corporativo(a) de Mercadeo",
       "Junta Directiva (Cubitt) · Casio Brasil (Casio)",
       "Gerente de Mercadeo (país) · Director(a) de Diseño y Estrategia de Marca · Gerente de E-commerce y Growth · Gerente Regional Comercial / Retail · Gerente de Proyectos (PMO)",
-      "Brand Manager de Casio"
+      "Gerente de Marca Casio"
      ],
      [
       "16.2 Desarrollo y ejecución de campañas",
-      "Gerente Corporativo(a) de Mercadeo (Cubitt) · Brand Manager de Casio (Casio) · Director(a) Creativo(a) · Creatividad y Contenido Audiovisual · Diseñador(a) (Diseño y Estrategia de Marca)",
+      "Gerente Corporativo(a) de Mercadeo (Cubitt) · Gerente de Marca Casio (Casio) · Director(a) Creativo(a) · Creatividad y Contenido Audiovisual · Diseñador(a) (Diseño y Estrategia de Marca)",
       "Gerente Corporativo(a) de Mercadeo (negocio) · Director(a) de Diseño y Estrategia de Marca (calidad) · Junta Directiva (alto alcance) · Casio Brasil (Casio)",
       "Trafficker de campañas (Mercadeo) · Gerente de Visual Merchandising · Gerente de E-commerce y Growth · Gerente de Cuentas Clave y Trade",
       "Gerente Regional Comercial / Retail · gerencias de país"
@@ -22140,7 +22140,7 @@ window.MANUAL_CONTENIDO = {
       "16.8 Reportería de mercadeo y medición del desempeño de marca",
       "Analista de Insights y ROI · Gerente de Mercadeo (país)",
       "Gerente Corporativo(a) de Mercadeo",
-      "Analista de Sistemas / Datos · Brand Manager de Casio · Gerente de E-commerce y Growth",
+      "Analista de Sistemas / Datos · Gerente de Marca Casio · Gerente de E-commerce y Growth",
       "Junta Directiva · Casio Brasil"
      ],
      [
@@ -22551,15 +22551,15 @@ window.MANUAL_CONTENIDO = {
   "procesos": {
    "16.1": {
     "proposito": {"estado": "borrador", "texto": "Define cada año con qué campañas, fechas, canales y presupuesto se sostendrán Cubitt y Casio en cada país, y contra qué objetivos se medirá la inversión. Parte del presupuesto aprobado y del forecast de ventas, mapea el calendario de campañas fijas, lanzamientos y eventos, reparte la inversión de mercadeo por marca, país, rubro y canal —con el retorno esperado de cada inversión—, recoge la capacidad y el costo de producción que estima Diseño y Estrategia de Marca y la pauta de performance de E-commerce y Growth, y se revisa cada mes y cada trimestre para reasignar lo que no rinde.", "nota_estado": "Casio ya opera de este modo: plan semestral —de octubre a marzo y de abril a septiembre— con presupuesto y acciones aprobados por Casio Brasil. En Cubitt el presupuesto se asigna a inicio de año y se reparte con la gerencia por rubro, pero los equipos de país trabajan sin objetivos ni indicadores anuales formalizados y conviven el presupuesto asignado con aprobaciones puntuales fuera de él. Desde la revisión de la estructura del 06-nov-2026 el plan lo conduce la gerencia corporativa de Mercadeo, dueña de la inversión y de su retorno; Diseño y Estrategia de Marca estima costo, capacidad y fechas de lo que hay que producir, y la pauta de performance la planifica E-commerce y Growth. Finanzas consolida las dos pautas para no contar doble."},
-    "dueno": {"estado": "borrador", "dueno": "Gerente Corporativo(a) de Mercadeo", "participantes": ["Junta Directiva — aprueba el presupuesto y el plan de Cubitt.", "Casio Brasil — aprueba el plan semestral de Casio.", "Brand Manager de Casio — consolida y somete el plan semestral de Casio.", "Gerente de Mercadeo (país) — propone el plan de su país con un objetivo por acción, con sus coordinaciones de marca (la de Marca Cubitt para Cubitt).", "Director(a) de Diseño y Estrategia de Marca — estima el costo de producción de diseño, la capacidad y las fechas del calendario.", "Gerente de E-commerce y Growth — planifica la pauta de performance y la consolida con la de marca.", "Gerente Regional Comercial / Retail — alinea el plan con el calendario comercial y de promociones.", "Gerente de Proyectos (PMO) — comparte el calendario anual de lanzamientos."], "evidencia": ["E-22", "E-49", "E-42", "E-56", "E-09", "Manual 01 de Paid Media (Lark)", "Nueva estructura: Marketing, Diseño y Marca y E-commerce y Growth (Dirección Comercial, 29-oct-2026)", "Rol y Estructura CDO (propuesta de la Dirección de Diseño y Marca)", "Reunión de estructura del 04-nov-2026"]},
+    "dueno": {"estado": "borrador", "dueno": "Gerente Corporativo(a) de Mercadeo", "participantes": ["Junta Directiva — aprueba el presupuesto y el plan de Cubitt.", "Casio Brasil — aprueba el plan semestral de Casio.", "Gerente de Marca Casio — consolida y somete el plan semestral de Casio.", "Gerente de Mercadeo (país) — propone el plan de su país con un objetivo por acción, con sus coordinaciones de marca (la de Marca Cubitt para Cubitt).", "Director(a) de Diseño y Estrategia de Marca — estima el costo de producción de diseño, la capacidad y las fechas del calendario.", "Gerente de E-commerce y Growth — planifica la pauta de performance y la consolida con la de marca.", "Gerente Regional Comercial / Retail — alinea el plan con el calendario comercial y de promociones.", "Gerente de Proyectos (PMO) — comparte el calendario anual de lanzamientos."], "evidencia": ["E-22", "E-49", "E-42", "E-56", "E-09", "Manual 01 de Paid Media (Lark)", "Nueva estructura: Marketing, Diseño y Marca y E-commerce y Growth (Dirección Comercial, 29-oct-2026)", "Rol y Estructura CDO (propuesta de la Dirección de Diseño y Marca)", "Reunión de estructura del 04-nov-2026"]},
     "disparador": {"estado": "borrador"},
     "flujo": {
      "estado": "borrador",
      "actividades": [
       {"id": "a1", "rol": "Junta Directiva", "texto": "Aprueba al inicio del año el presupuesto de mercadeo de Cubitt a partir del forecast de ventas anual y fija los objetivos de marca del año —crecimiento, venta, reconocimiento y lanzamientos clave— contra los que se medirá el plan de cada país."},
-      {"id": "a2", "rol": "Brand Manager de Casio", "texto": "Consolida con cada país el plan semestral de Casio —acciones, presupuesto y metas de venta por cliente y por tienda propia— y lo somete a Casio Brasil; una vez aprobado, lo incorpora al calendario como marco fijo de la marca."},
+      {"id": "a2", "rol": "Gerente de Marca Casio", "texto": "Consolida con cada país el plan semestral de Casio —acciones, presupuesto y metas de venta por cliente y por tienda propia— y lo somete a Casio Brasil; una vez aprobado, lo incorpora al calendario como marco fijo de la marca."},
       {"id": "a3", "rol": "Gerente de Proyectos (PMO)", "texto": "Comparte el calendario anual de lanzamientos con la categoría de cada producto —nuevo, mejora de uno existente o color nuevo— y su fecha estimada de llegada por país, para que las campañas se preparen con al menos ocho semanas de anticipación."},
-      {"id": "a4", "rol": "Gerente Corporativo(a) de Mercadeo", "texto": "Mapea el calendario anual por marca y país —el de Cubitt directamente, con su plan de marca, su portafolio y sus lanzamientos; el de Casio con el Brand Manager de Casio, sobre el plan semestral aprobado—: campañas fijas de temporada y efemérides, lanzamientos, eventos y patrocinios seleccionados y acciones con clientes clave, cuidando que varios lanzamientos no coincidan en el mismo mes."},
+      {"id": "a4", "rol": "Gerente Corporativo(a) de Mercadeo", "texto": "Mapea el calendario anual por marca y país —el de Cubitt directamente, con su plan de marca, su portafolio y sus lanzamientos; el de Casio con el Gerente de Marca Casio, sobre el plan semestral aprobado—: campañas fijas de temporada y efemérides, lanzamientos, eventos y patrocinios seleccionados y acciones con clientes clave, cuidando que varios lanzamientos no coincidan en el mismo mes."},
       {"id": "a5", "rol": "Gerente de Mercadeo (país)", "texto": "Propone, con sus coordinaciones de marca —la de Marca Cubitt para Cubitt—, el plan de su país sobre ese calendario: acciones por mes, eventos y activaciones, influencers y atletas, vallas, trade con clientes y montajes de visual merchandising, con el presupuesto de cada rubro y un objetivo medible para cada acción."},
       {"id": "a6", "rol": "Gerente Regional Comercial / Retail", "texto": "Revisa que el plan acompañe el calendario comercial y de promociones de cada canal, señala los meses de mayor venta para concentrar lanzamientos y las categorías de baja rotación que conviene reforzar con exhibición."},
       {"id": "a7", "rol": "Director(a) de Diseño y Estrategia de Marca", "texto": "Estima para el calendario el costo de producción de diseño, la capacidad del equipo interno y de los freelancers y las fechas de entrega de cada campaña y lanzamiento, y señala lo que no cabe para que se reprograme o se contrate."},
@@ -22572,7 +22572,7 @@ window.MANUAL_CONTENIDO = {
      "diagrama": {
       "carriles": [
        "Junta Directiva",
-       "Brand Manager de Casio",
+       "Gerente de Marca Casio",
        "Gerente de Proyectos (PMO)",
        "Gerente Corporativo(a) de Mercadeo",
        "Gerente de Mercadeo (país)",
@@ -22583,7 +22583,7 @@ window.MANUAL_CONTENIDO = {
       "nodos": [
        {"id": "n0", "carril": "Junta Directiva", "tipo": "inicio", "n": "Inicio del ciclo anual de planificación"},
        {"id": "n1", "carril": "Junta Directiva", "tipo": "tarea", "n": "Aprobar presupuesto y objetivos anuales de marca"},
-       {"id": "n2", "carril": "Brand Manager de Casio", "tipo": "tarea", "n": "Consolidar y someter el plan semestral de Casio"},
+       {"id": "n2", "carril": "Gerente de Marca Casio", "tipo": "tarea", "n": "Consolidar y someter el plan semestral de Casio"},
        {"id": "n3", "carril": "Gerente de Proyectos (PMO)", "tipo": "tarea", "n": "Compartir el calendario de lanzamientos"},
        {"id": "n4", "carril": "Gerente Corporativo(a) de Mercadeo", "tipo": "tarea", "n": "Mapear el calendario anual por marca y país", "sistemas": ["Lark"]},
        {"id": "n5", "carril": "Gerente de Mercadeo (país)", "tipo": "tarea", "n": "Proponer el plan del país con objetivos por acción"},
@@ -22708,12 +22708,12 @@ window.MANUAL_CONTENIDO = {
    },
    "16.2": {
     "proposito": {"estado": "borrador", "texto": "Lleva cada campaña desde el brief hasta su medición: mercadeo define el objetivo, el público y el mensaje; Diseño y Estrategia de Marca convierte el brief en concepto, copy, key visual y piezas para cada canal —redes, web, email, pauta, tiendas, medios exteriores—; se obtiene la única aprobación de negocio que fija el brief, se produce, se despliega entre países y se cierra con el resultado contra el objetivo. Cubre las campañas fijas del calendario, los lanzamientos de producto y las acciones acordadas con clientes clave.", "nota_estado": "La dirección creativa y la pauta digital ya trabajan con procedimientos escritos —brief obligatorio, ocho semanas de anticipación para productos nuevos, aprobación documentada y cuadro de pauta en Lark—, pero muchas campañas siguen llegando con poco tiempo y la aprobación de las de Cubitt recoge opiniones de varias personas sin un aprobador único. Desde la revisión de la estructura del 06-nov-2026 el concepto, el key visual y las piezas son de la Dirección de Diseño y Estrategia de Marca, que aprueba su calidad; mercadeo es dueño del brief y aprueba que el concepto lo cumpla. Cada proyecto tiene un solo aprobador de negocio, definido en el brief, y no hay doble aprobación por pieza."},
-    "dueno": {"estado": "borrador", "dueno": "Gerente Corporativo(a) de Mercadeo", "participantes": ["Brand Manager de Casio — en las campañas de Casio levanta el brief con la línea de la casa matriz y cierra la campaña con su resultado.", "Director(a) Creativo(a) · Creatividad y Contenido Audiovisual — concepto, territorio visual y copy, con la dirección de arte.", "Diseñador(a) (Diseño y Estrategia de Marca) — key visual, adaptaciones y piezas; la foto, el video principal y el 3D se encargan por el proceso 16.10.", "Director(a) de Diseño y Estrategia de Marca — aprueba la calidad de las piezas clave antes de su salida.", "Junta Directiva — aprueba los lanzamientos y las campañas de alto alcance de Cubitt.", "Casio Brasil — aprueba las campañas de Casio.", "Trafficker de campañas (Mercadeo) — monta y optimiza la pauta de marca.", "Gerente de Visual Merchandising — lleva la campaña al punto de venta (proceso 16.7).", "Gerente de E-commerce y Growth — su plan digital y la pauta de performance del lanzamiento.", "Director(a) Comercial Mayorista (Cubitt) y Gerente de Cuentas Clave y Trade — participación de clientes clave en los lanzamientos."], "evidencia": ["E-22", "E-49", "E-42", "E-56", "E-63", "Manual de Procesos Creativos (Lark)", "Manual 01 de Paid Media (Lark)", "Nueva estructura: Marketing, Diseño y Marca y E-commerce y Growth (Dirección Comercial, 29-oct-2026)", "Rol y Estructura CDO (propuesta de la Dirección de Diseño y Marca)", "Reunión de estructura del 04-nov-2026"]},
+    "dueno": {"estado": "borrador", "dueno": "Gerente Corporativo(a) de Mercadeo", "participantes": ["Gerente de Marca Casio — en las campañas de Casio levanta el brief con la línea de la casa matriz y cierra la campaña con su resultado.", "Director(a) Creativo(a) · Creatividad y Contenido Audiovisual — concepto, territorio visual y copy, con la dirección de arte.", "Diseñador(a) (Diseño y Estrategia de Marca) — key visual, adaptaciones y piezas; la foto, el video principal y el 3D se encargan por el proceso 16.10.", "Director(a) de Diseño y Estrategia de Marca — aprueba la calidad de las piezas clave antes de su salida.", "Junta Directiva — aprueba los lanzamientos y las campañas de alto alcance de Cubitt.", "Casio Brasil — aprueba las campañas de Casio.", "Trafficker de campañas (Mercadeo) — monta y optimiza la pauta de marca.", "Gerente de Visual Merchandising — lleva la campaña al punto de venta (proceso 16.7).", "Gerente de E-commerce y Growth — su plan digital y la pauta de performance del lanzamiento.", "Director(a) Comercial Mayorista (Cubitt) y Gerente de Cuentas Clave y Trade — participación de clientes clave en los lanzamientos."], "evidencia": ["E-22", "E-49", "E-42", "E-56", "E-63", "Manual de Procesos Creativos (Lark)", "Manual 01 de Paid Media (Lark)", "Nueva estructura: Marketing, Diseño y Marca y E-commerce y Growth (Dirección Comercial, 29-oct-2026)", "Rol y Estructura CDO (propuesta de la Dirección de Diseño y Marca)", "Reunión de estructura del 04-nov-2026"]},
     "disparador": {"estado": "borrador"},
     "flujo": {
      "estado": "borrador",
      "actividades": [
-      {"id": "a1", "rol": "Gerente Corporativo(a) de Mercadeo", "texto": "Levanta el brief en Lark —un solo objetivo medible y el criterio con que se evaluará, público, insight, mensaje, oferta, mercados, formatos, fecha real de salida, presupuesto y el único aprobador de negocio— desde el calendario anual, un lanzamiento aprobado o una acción con cliente clave. En Casio lo levanta el Brand Manager de Casio, con la línea de la casa matriz."},
+      {"id": "a1", "rol": "Gerente Corporativo(a) de Mercadeo", "texto": "Levanta el brief en Lark —un solo objetivo medible y el criterio con que se evaluará, público, insight, mensaje, oferta, mercados, formatos, fecha real de salida, presupuesto y el único aprobador de negocio— desde el calendario anual, un lanzamiento aprobado o una acción con cliente clave. En Casio lo levanta el Gerente de Marca Casio, con la línea de la casa matriz."},
       {"id": "a2", "rol": "Director(a) Creativo(a) · Creatividad y Contenido Audiovisual", "texto": "Verifica que el brief esté completo —si falta información no pasa a producción—, investiga la categoría y la competencia y presenta, con la dirección de arte, tres territorios visuales con referencias de color, luz, composición y tono."},
       {"id": "a3", "rol": "Director(a) Creativo(a) · Creatividad y Contenido Audiovisual", "texto": "Define el concepto, el tagline, el copy y la primera expresión visual —el concepto y su arte se presentan juntos— y la bajada por canal: pieza principal, estáticas, reels, video, email, banners y material de punto de venta, en fases de expectativa, lanzamiento y sostenimiento."},
       {"id": "a4", "rol": "Gerente Corporativo(a) de Mercadeo", "texto": "Revisa que el concepto cumpla el brief y el presupuesto —es el aprobador de negocio salvo que el brief nombre otro— y, en los lanzamientos y campañas de alto alcance de Cubitt, lo presenta a la Junta Directiva; las campañas de Casio, a Casio Brasil."},
@@ -22724,7 +22724,7 @@ window.MANUAL_CONTENIDO = {
       {"id": "a9", "rol": "Trafficker de campañas (Mercadeo)", "texto": "Monta la pauta de marca con el registro completo en el cuadro de Lark —texto, pieza, landing, llamado a la acción, presupuesto y fechas—, verifica que la medición funcione y activa las campañas en Meta y Google."},
       {"id": "a10", "rol": "Gerente de Visual Merchandising", "texto": "Recibe la pieza principal aprobada y la guía de exhibición de Diseño y Estrategia de Marca, y coordina la producción e instalación del material de punto de venta para que esté en tiendas y clientes del mayor el día de salida, según el proceso 16.7."},
       {"id": "a11", "rol": "Trafficker de campañas (Mercadeo)", "texto": "Sigue el rendimiento durante la campaña —cada día en las plataformas y cada semana por campaña—, pausa lo que no rinde, escala con cuidado lo que sí y pide a Diseño y Estrategia de Marca la rotación de las piezas desgastadas."},
-      {"id": "a12", "rol": "Gerente Corporativo(a) de Mercadeo", "texto": "Cierra la campaña con el resultado contra su objetivo —venta, alcance, tráfico, inversión y, con Insights y ROI, la venta incremental—, identifica las piezas que mejor funcionaron y registra los aprendizajes en Lark para el siguiente ciclo. En Casio cierra la campaña el Brand Manager de Casio, que la incluye en el reporte a Casio Brasil."}
+      {"id": "a12", "rol": "Gerente Corporativo(a) de Mercadeo", "texto": "Cierra la campaña con el resultado contra su objetivo —venta, alcance, tráfico, inversión y, con Insights y ROI, la venta incremental—, identifica las piezas que mejor funcionaron y registra los aprendizajes en Lark para el siguiente ciclo. En Casio cierra la campaña el Gerente de Marca Casio, que la incluye en el reporte a Casio Brasil."}
      ],
      "diagrama": {
       "carriles": [
@@ -22851,7 +22851,7 @@ window.MANUAL_CONTENIDO = {
        "Resultado contra objetivo",
        "Resultado logrado ÷ objetivo del brief",
        "Por campaña",
-       "Gerente Corporativo(a) de Mercadeo (en Casio, Brand Manager de Casio)",
+       "Gerente Corporativo(a) de Mercadeo (en Casio, Gerente de Marca Casio)",
        "≥ 100 %"
       ]
      ]
@@ -23116,7 +23116,7 @@ window.MANUAL_CONTENIDO = {
    },
    "16.5": {
     "proposito": {"estado": "borrador", "texto": "Planifica, produce y publica el contenido de las redes sociales de cada marca y país, atiende la conversación con la comunidad y deriva a su canal las consultas de compra y de posventa. Sigue la línea editorial y el calendario que fija la gerencia de Social y Contenido, se apoya en la información de ventas, lanzamientos, promociones y eventos de cada país y usa las artes derivadas del key visual que produce Diseño y Estrategia de Marca; el contenido ágil lo produce el propio equipo de Social y Contenido."},
-    "dueno": {"estado": "borrador", "dueno": "Coordinador(a) de Social y Contenido (país)", "participantes": ["Gerente de Social y Contenido — fija la línea editorial, el calendario regional y la estrategia de comunidad, creadores y relaciones públicas.", "Gerente de Mercadeo (país) — entrega las prioridades de venta del país y activa el protocolo de crisis.", "Creador(a) de contenido (Social y Contenido) — produce el contenido ágil: fotografías, reels y coberturas.", "Analista de Social y Contenido (comunidad) — atiende mensajes y comentarios y deriva los casos.", "Diseñador(a) (Diseño y Estrategia de Marca) — artes derivadas del key visual y línea estética, por el formulario único (16.3).", "Brand Manager de Casio — lineamientos de las redes de Casio.", "Gerente de E-commerce (país) — consultas de compra.", "Coordinador(a) de Soporte / Servicio al Cliente — consultas de garantía y soporte."], "evidencia": ["E-49", "E-56", "E-42", "E-22", "SOP 03 de Marketing Cubitt Panamá (Lark)", "Nueva estructura: Marketing, Diseño y Marca y E-commerce y Growth (Dirección Comercial, 29-oct-2026)", "Rol y Estructura CDO (propuesta de la Dirección de Diseño y Marca)", "Reunión de estructura del 04-nov-2026"]},
+    "dueno": {"estado": "borrador", "dueno": "Coordinador(a) de Social y Contenido (país)", "participantes": ["Gerente de Social y Contenido — fija la línea editorial, el calendario regional y la estrategia de comunidad, creadores y relaciones públicas.", "Gerente de Mercadeo (país) — entrega las prioridades de venta del país y activa el protocolo de crisis.", "Creador(a) de contenido (Social y Contenido) — produce el contenido ágil: fotografías, reels y coberturas.", "Analista de Social y Contenido (comunidad) — atiende mensajes y comentarios y deriva los casos.", "Diseñador(a) (Diseño y Estrategia de Marca) — artes derivadas del key visual y línea estética, por el formulario único (16.3).", "Gerente de Marca Casio — lineamientos de las redes de Casio.", "Gerente de E-commerce (país) — consultas de compra.", "Coordinador(a) de Soporte / Servicio al Cliente — consultas de garantía y soporte."], "evidencia": ["E-49", "E-56", "E-42", "E-22", "SOP 03 de Marketing Cubitt Panamá (Lark)", "Nueva estructura: Marketing, Diseño y Marca y E-commerce y Growth (Dirección Comercial, 29-oct-2026)", "Rol y Estructura CDO (propuesta de la Dirección de Diseño y Marca)", "Reunión de estructura del 04-nov-2026"]},
     "disparador": {"estado": "borrador"},
     "flujo": {
      "estado": "borrador",
@@ -23554,7 +23554,7 @@ window.MANUAL_CONTENIDO = {
    },
    "16.8": {
     "proposito": {"estado": "borrador", "texto": "Mide cada mes el desempeño de mercadeo por marca y país —inversión, alcance, interacción, tráfico, venta y retorno incremental— contra el forecast y los objetivos, sigue la salud de las marcas más allá de la venta —reconocimiento, consideración y recompra—, atiende la reportería que exige Casio Brasil y presenta a la Junta Directiva un tablero de marca e inversión con los resultados, los aprendizajes y las acciones del mes siguiente.", "nota_estado": "La pauta digital ya consolida su reporte mensual en una base de Lark y Casio exige un reporte mensual y un cierre semestral detallado factura por factura. La presentación mensual a la dirección, en cambio, es reciente y se arma a mano, y la venta de tienda, las activaciones, los eventos y los influencers no se cruzan de forma sistemática con la inversión. Desde la revisión de la estructura del 06-nov-2026 la medición tiene dueño propio en Mercadeo, Insights y ROI, que mide el retorno y la incrementalidad de cada campaña; la venta en línea y la pauta de performance las reporta E-commerce y Growth."},
-    "dueno": {"estado": "borrador", "dueno": "Gerente Corporativo(a) de Mercadeo", "participantes": ["Analista de Insights y ROI — consolida la inversión y los resultados, mide el retorno incremental y la salud de marca.", "Gerente de Mercadeo (país) — consolida las actividades del país con su resultado.", "Brand Manager de Casio — reportería para Casio Brasil.", "Gerente de E-commerce y Growth — venta en línea, conversión y pauta de performance.", "Analista de Sistemas / Datos — ventas por país, canal y producto.", "Junta Directiva — destinataria del tablero mensual.", "Casio Brasil — destinataria de los reportes de Casio."], "evidencia": ["E-22", "E-49", "E-42", "E-56", "E-10", "Manual 03 de Paid Media (Lark)", "Nueva estructura: Marketing, Diseño y Marca y E-commerce y Growth (Dirección Comercial, 29-oct-2026)", "Rol y Estructura CDO (propuesta de la Dirección de Diseño y Marca)", "Reunión de estructura del 04-nov-2026"]},
+    "dueno": {"estado": "borrador", "dueno": "Gerente Corporativo(a) de Mercadeo", "participantes": ["Analista de Insights y ROI — consolida la inversión y los resultados, mide el retorno incremental y la salud de marca.", "Gerente de Mercadeo (país) — consolida las actividades del país con su resultado.", "Gerente de Marca Casio — reportería para Casio Brasil.", "Gerente de E-commerce y Growth — venta en línea, conversión y pauta de performance.", "Analista de Sistemas / Datos — ventas por país, canal y producto.", "Junta Directiva — destinataria del tablero mensual.", "Casio Brasil — destinataria de los reportes de Casio."], "evidencia": ["E-22", "E-49", "E-42", "E-56", "E-10", "Manual 03 de Paid Media (Lark)", "Nueva estructura: Marketing, Diseño y Marca y E-commerce y Growth (Dirección Comercial, 29-oct-2026)", "Rol y Estructura CDO (propuesta de la Dirección de Diseño y Marca)", "Reunión de estructura del 04-nov-2026"]},
     "disparador": {"estado": "borrador"},
     "flujo": {
      "estado": "borrador",
@@ -23562,7 +23562,7 @@ window.MANUAL_CONTENIDO = {
       {"id": "a1", "rol": "Analista de Insights y ROI", "texto": "Entre los días 1 y 5 de cada mes consolida por país, en la base de inversión y resultados de Lark, la inversión de cada canal —la pauta de marca de mercadeo y la de performance que reporta E-commerce y Growth, sin contar doble— y los indicadores de redes, email y comunidad."},
       {"id": "a2", "rol": "Analista de Sistemas / Datos", "texto": "Entrega a mercadeo la venta del mes por país y canal —tiendas, web y mayor— y la de los productos y promociones de cada campaña, para cruzarla con la inversión."},
       {"id": "a3", "rol": "Gerente de Mercadeo (país)", "texto": "Consolida campañas, eventos, activaciones, influencers y clientes clave del mes con su inversión y resultado contra el objetivo fijado antes de ejecutarlos —cada evento, con informe en las dos semanas siguientes— y redacta los aprendizajes."},
-      {"id": "a4", "rol": "Brand Manager de Casio", "texto": "Prepara el reporte mensual que exige Casio Brasil —acciones, resultados y próximas acciones— y, al cierre de cada semestre, la rendición del presupuesto factura por factura con su tasa de cambio, con cifras coherentes con lo reportado antes."},
+      {"id": "a4", "rol": "Gerente de Marca Casio", "texto": "Prepara el reporte mensual que exige Casio Brasil —acciones, resultados y próximas acciones— y, al cierre de cada semestre, la rendición del presupuesto factura por factura con su tasa de cambio, con cifras coherentes con lo reportado antes."},
       {"id": "a5", "rol": "Analista de Insights y ROI", "texto": "Calcula el retorno y la venta incremental de las campañas principales —con pruebas de grupo de control en el canal de mayor inversión— y, cada semestre, la salud de marca con el estudio de seguimiento: reconocimiento, consideración y recompra."},
       {"id": "a6", "rol": "Gerente Corporativo(a) de Mercadeo", "texto": "Integra el tablero de marca e inversión: resultado contra forecast y objetivos por marca y país, retorno incremental, salud de marca, qué funcionó, qué no y qué se ajusta el mes siguiente."},
       {"id": "a7", "rol": "Junta Directiva", "texto": "Revisa el tablero en la reunión mensual de mercadeo, pregunta por las desviaciones contra la meta y decide los ajustes de presupuesto, prioridades o campañas que requieren su aprobación."},
@@ -23573,7 +23573,7 @@ window.MANUAL_CONTENIDO = {
        "Analista de Insights y ROI",
        "Analista de Sistemas / Datos",
        "Gerente de Mercadeo (país)",
-       "Brand Manager de Casio",
+       "Gerente de Marca Casio",
        "Gerente Corporativo(a) de Mercadeo",
        "Junta Directiva"
       ],
@@ -23582,7 +23582,7 @@ window.MANUAL_CONTENIDO = {
        {"id": "n1", "carril": "Analista de Insights y ROI", "tipo": "tarea", "n": "Consolidar inversión y resultados por canal", "sistemas": ["Lark", "Google Ads", "Meta Ads Manager", "ActiveCampaign"]},
        {"id": "n2", "carril": "Analista de Sistemas / Datos", "tipo": "tarea", "n": "Entregar la venta del mes por país y canal", "sistemas": ["Odoo"]},
        {"id": "n3", "carril": "Gerente de Mercadeo (país)", "tipo": "tarea", "n": "Consolidar actividades, resultados y aprendizajes", "sistemas": ["Lark"]},
-       {"id": "n4", "carril": "Brand Manager de Casio", "tipo": "tarea", "n": "Preparar el reporte para Casio Brasil"},
+       {"id": "n4", "carril": "Gerente de Marca Casio", "tipo": "tarea", "n": "Preparar el reporte para Casio Brasil"},
        {"id": "n5", "carril": "Analista de Insights y ROI", "tipo": "tarea", "n": "Medir retorno incremental y salud de marca"},
        {"id": "n6", "carril": "Gerente Corporativo(a) de Mercadeo", "tipo": "tarea", "n": "Integrar el tablero de marca e inversión"},
        {"id": "n7", "carril": "Junta Directiva", "tipo": "tarea", "n": "Revisar resultados y decidir ajustes"},
