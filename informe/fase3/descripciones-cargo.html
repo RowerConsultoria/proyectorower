@@ -615,6 +615,7 @@ h3.m{font-size:.8rem;text-transform:uppercase;letter-spacing:.1em;color:var(--mu
 .ep .grados-tab p{font-size:.96rem}
 .ep .grados-tab.g2{grid-template-columns:repeat(2,minmax(0,1fr))}
 .ep .grados-tab.g2 > div{border-top-color:var(--e5)}
+.ep .grados-tab.g2.ga > div{border-top-color:var(--e3)}
 .ep .dos{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
 .ep .via{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:16px;display:grid;gap:10px;align-content:start;min-width:0}
 .ep .via h4{font-size:1.1rem;color:var(--head)}
@@ -654,8 +655,8 @@ h3.m{font-size:.8rem;text-transform:uppercase;letter-spacing:.1em;color:var(--mu
 .ep .regla{grid-template-columns:1fr;gap:8px}}
 .ep section.blk,.ep .esc,.ep .via,.ep .refs li{scroll-margin-top:80px}
 .ep .resalta{background:var(--accent-soft);border-radius:8px}
-/* la columna doble (Supervisor · Especialista) necesita más ancho que las demás con esta tipografía */
-.ep .escalera,.ep .suelo{grid-template-columns:repeat(3,minmax(92px,1fr)) minmax(170px,1.7fr) repeat(4,minmax(92px,1fr));min-width:900px}
+/* 24-nov-2026: sin columna doble; el coordinador lleva las equivalencias de sus dos grados y pide algo más de ancho */
+.ep .escalera,.ep .suelo{grid-template-columns:repeat(3,minmax(92px,1fr)) minmax(150px,1.5fr) repeat(3,minmax(92px,1fr));min-width:800px}
 .ep .techo{min-width:900px}
 .ep .pel-blk{font-size:.74rem}
 
@@ -893,26 +894,22 @@ h3.m{font-size:.8rem;text-transform:uppercase;letter-spacing:.1em;color:var(--mu
 <section class="blk" id="escalera">
   <div class="intro">
     <h2>La escalera</h2>
-    <p>Del operario al director hay ocho escalones. Son niveles de cargo, y no hay que confundirlos con los niveles de la estructura. La estructura tiene los suyos: lo corporativo, que sirve a todo el grupo, y lo de cada país. La escalera vale en los dos: cuando hace falta, el cargo toma el nivel de la estructura como apellido, según dónde está la posición. Así, un mismo escalón da un Gerente corporativo de Compras o un Gerente país de Administración y Finanzas, un Coordinador corporativo de Formación o un Coordinador país de Servicios Generales. La escalera es atemporal y flexible: sus escalones son piezas de trabajo con las que se arman las áreas, y cada área toma las que necesita. Se leen de abajo arriba, porque cada escalón se define por lo que suma al anterior: más conocimiento, problemas menos previsibles, más años de experiencia y, desde el cuarto, personas a cargo.</p>
+    <p>Del operario al director hay siete escalones. Son niveles de cargo, y no hay que confundirlos con los niveles de la estructura. La estructura tiene los suyos: lo corporativo, que sirve a todo el grupo, y lo de cada país. La escalera vale en los dos: cuando hace falta, el cargo toma el nivel de la estructura como apellido, según dónde está la posición. Así, un mismo escalón da un Gerente corporativo de Compras o un Gerente país de Administración y Finanzas, un Coordinador corporativo de Formación o un Coordinador país de Servicios Generales. La escalera es atemporal y flexible: sus escalones son piezas de trabajo con las que se arman las áreas, y cada área toma las que necesita. Se leen de abajo arriba, porque cada escalón se define por lo que suma al anterior: más conocimiento, problemas menos previsibles, más años de experiencia y, desde el cuarto, personas a cargo, salvo en la trayectoria del especialista.</p>
   </div>
   <div class="fig-wrap">
     <div class="techo"><span>Por encima: Presidencia y Junta Directiva, fuera del patrón</span></div>
-    <div class="escalera" role="img" aria-label="Escalera de ocho escalones: Operario, Auxiliar, Analista I, II y III, Supervisor o Especialista, Coordinador I y II, Gerente de unidad de negocio, Gerente y Director.">
+    <div class="escalera" role="img" aria-label="Escalera de siete escalones: Operario, Auxiliar, Analista I y II, Coordinador I (equivale a Especialista) y II (equivale a Supervisor), Gerente de unidad de negocio, Gerente y Director.">
       <div class="pel k1" style="--h:1"><a href="#operario"><span class="pel-n">Operario(a)</span><span class="pel-blk">0 a 1 año<br>nivel OIT 1–2</span></a></div>
       <div class="pel k2" style="--h:2"><a href="#auxiliar"><span class="pel-n">Auxiliar</span><span class="pel-blk">6 meses a 2 años<br>nivel OIT 2</span></a></div>
-      <div class="pel k3" style="--h:3"><a href="#analista"><span class="pel-n">Analista <small>I · II · III</small></span><span class="pel-blk"><span class="grados"><span>III</span><span>II</span><span>I</span></span>0 a 6 años<br>nivel OIT 3–4</span></a></div>
-      <div class="pel k4 doble" style="--h:4">
-        <a href="#supervisor"><span class="pel-n">Supervisor(a)</span><span class="pel-blk">dirige un equipo<br>3 a 5 años</span></a>
-        <a href="#especialista"><span class="pel-n">Especialista</span><span class="pel-blk">autoridad en una materia<br>6 a 10 años</span></a>
-      </div>
-      <div class="pel k5" style="--h:5"><a href="#coordinador"><span class="pel-n">Coordinador(a) <small>I · II</small></span><span class="pel-blk"><span class="grados"><span>II</span><span>I</span></span>dirige un área<br>5 a 10 años</span></a></div>
-      <div class="pel k6" style="--h:6"><a href="#gerente-un"><span class="pel-n">Gerente de unidad de negocio</span><span class="pel-blk">un canal o un frente<br>8 a 12 años</span></a></div>
-      <div class="pel k8" style="--h:7"><a href="#gerente"><span class="pel-n">Gerente</span><span class="pel-blk">dirige una función<br>10 a 15 años</span></a></div>
-      <div class="pel k9" style="--h:8"><a href="#director"><span class="pel-n">Director(a)</span><span class="pel-blk">una gran función<br>más de 15 años</span></a></div>
+      <div class="pel k3" style="--h:3"><a href="#analista"><span class="pel-n">Analista <small>I · II</small></span><span class="pel-blk"><span class="grados"><span>II</span><span>I</span></span>0 a 4 años<br>nivel OIT 3–4</span></a></div>
+      <div class="pel k5" style="--h:4"><a href="#coordinador"><span class="pel-n">Coordinador(a) <small>I = Especialista · II = Supervisor(a)</small></span><span class="pel-blk"><span class="grados"><span>II · Supervisor(a)</span><span>I · Especialista</span></span>dirige un área<br>5 a 10 años</span></a></div>
+      <div class="pel k6" style="--h:5"><a href="#gerente-un"><span class="pel-n">Gerente de unidad de negocio</span><span class="pel-blk">un canal o un frente<br>8 a 12 años</span></a></div>
+      <div class="pel k8" style="--h:6"><a href="#gerente"><span class="pel-n">Gerente</span><span class="pel-blk">dirige una función<br>10 a 15 años</span></a></div>
+      <div class="pel k9" style="--h:7"><a href="#director"><span class="pel-n">Director(a)</span><span class="pel-blk">una gran función<br>más de 15 años</span></a></div>
     </div>
     <div class="suelo"><span class="c7" style="grid-column:1/-1">Escalones de cargo · cada área toma los que necesita</span></div>
   </div>
-  <p class="leyenda-fig">Los años son la experiencia relacionada que se estima para ocupar el cargo. El nivel OIT es el nivel de competencias de la Clasificación Internacional Uniforme de Ocupaciones (CIUO-08), de 1 a 4. La educación formal deseada de cada escalón está en su ficha y en las equivalencias. Supervisor(a) y Especialista comparten escalón: son dos trayectorias del mismo nivel. Cada área toma los escalones que necesita. Toque un escalón para ir a su ficha.</p>
+  <p class="leyenda-fig">Los años son la experiencia relacionada que se estima para ocupar el cargo. El nivel OIT es el nivel de competencias de la Clasificación Internacional Uniforme de Ocupaciones (CIUO-08), de 1 a 4. La educación formal deseada de cada escalón está en su ficha y en las equivalencias. Especialista y Supervisor(a) no son escalones propios: el especialista equivale al Coordinador(a) I y el supervisor al Coordinador(a) II. Cada área toma los escalones que necesita. Toque un escalón para ir a su ficha.</p>
 </section>
 
 <section class="blk" id="leer">
@@ -947,8 +944,8 @@ h3.m{font-size:.8rem;text-transform:uppercase;letter-spacing:.1em;color:var(--mu
       <p class="cita">Hay: <q>el conocimiento que se requiere para resolver el problema y entregar el resultado del que el cargo responde</q>. <a href="#r-hay">Hay, 2014, p. 1</a>. La SVP mide la experiencia como el tiempo que un trabajador típico necesita para <q>alcanzar un desempeño promedio</q> en el cargo. <a href="#r-svp">DOL</a>. La OIT liga cada nivel de competencias a un nivel de educación formal de la CINE, y admite que esas competencias se adquieran también con experiencia y formación en el trabajo. <a href="#r-oit">CIUO-08, pp. 11–14</a></p>
     </div>
     <div class="pr">
-      <h3>Desde el cuarto escalón, dos caminos</h3>
-      <p>Se puede subir dirigiendo personas o profundizando en una materia. Las dos trayectorias tienen el mismo nivel, para que nadie tenga que dejar su especialidad y asumir un equipo solo para subir.</p>
+      <h3>En el cuarto escalón, dos caminos</h3>
+      <p>Del analista se puede subir dirigiendo personas o profundizando en una materia. El especialista equivale al Coordinador(a) I, para que nadie tenga que dejar su especialidad y asumir un equipo solo para subir. El supervisor equivale al Coordinador(a) II: es la denominación que toma ese grado cuando dirige la operación de varios equipos, turnos o cuadrillas.</p>
       <p class="cita">El árbol de bandas de WTW separa la trayectoria de gestión de la de contribución individual con la pregunta <q>¿gestionar personas es el foco?</q> <a href="#r-wtw">WTW, 2024, p. 17</a></p>
     </div>
   </div>
@@ -1016,11 +1013,11 @@ h3.m{font-size:.8rem;text-transform:uppercase;letter-spacing:.1em;color:var(--mu
     <article class="esc" id="analista">
       <div class="esc-lado">
         <div class="eyebrow">Primer escalón profesional</div>
-        <div class="esc-tit"><span class="sw k3" aria-hidden="true"></span><h3>Analista I · II · III</h3></div>
+        <div class="esc-tit"><span class="sw k3" aria-hidden="true"></span><h3>Analista I · II</h3></div>
         <p class="prop">Convierte información en análisis, propuestas y control dentro de una especialidad: concilia, calcula, proyecta, diagnostica, diseña y reporta.</p>
         <dl class="meta">
-          <dt>Experiencia</dt><dd>I: 0 a 2 · II: 2 a 4 · III: 4 a 6 años</dd>
-          <dt>Educación formal</dt><dd>I: técnico superior o universitaria · II y III: título universitario en la especialidad</dd>
+          <dt>Experiencia</dt><dd>I: 0 a 2 · II: 2 a 4 años</dd>
+          <dt>Educación formal</dt><dd>I: técnico superior o universitaria · II: título universitario en la especialidad</dd>
           <dt>Personas a cargo</dt><dd>Ninguna formal</dd>
           <dt>Nivel OIT</dt><dd>3 a 4</dd>
         </dl>
@@ -1031,65 +1028,14 @@ h3.m{font-size:.8rem;text-transform:uppercase;letter-spacing:.1em;color:var(--mu
           <div><h4>Resolver</h4><p>Problemas que no traen la respuesta escrita: elige el método, cruza fuentes, explica una desviación y propone qué hacer.</p></div>
           <div><h4>Responder</h4><p>Por la calidad del análisis y por su uso: que la cifra sea confiable, que la recomendación se sostenga y que llegue a tiempo para decidir.</p></div>
         </div>
-        <p class="par">Los tres grados hacen el mismo tipo de trabajo. Cambia cuánta guía necesitan y qué tan nuevos son los casos que resuelven.</p>
-        <div class="grados-tab">
+        <p class="par">Los dos grados hacen el mismo tipo de trabajo. Cambia cuánta guía necesitan y qué tan nuevos son los casos que resuelven.</p>
+        <div class="grados-tab g2 ga">
           <div><b>Analista I · entrada · 0 a 2 años</b><p>Aplica métodos establecidos a problemas definidos. Su trabajo se revisa paso a paso. Está aprendiendo la especialidad y el negocio.</p></div>
           <div><b>Analista II · pleno · 2 a 4 años</b><p>Trabaja con independencia en los casos habituales de su área. Se le revisa el resultado, no cada paso. Puede guiar a un analista I en el día a día.</p></div>
-          <div><b>Analista III · referencia · 4 a 6 años</b><p>Resuelve los casos no rutinarios y propone mejoras al método. Es la referencia técnica de su equipo y revisa el trabajo de otros, sin tener personas a cargo.</p></div>
         </div>
-        <p class="par"><b>Se distingue del auxiliar</b> en que interpreta y propone. <b>Del especialista</b>, en el alcance: el analista III es referencia en su equipo; el especialista lo es para toda la organización en una materia y responde por el criterio que otros aplican.</p>
+        <p class="par"><b>Se distingue del auxiliar</b> en que interpreta y propone. <b>Del especialista</b>, en el alcance: el analista II trabaja con independencia en su equipo; el especialista, que equivale al Coordinador(a) I, es la referencia de toda la organización en una materia y responde por el criterio que otros aplican.</p>
         <p class="par"><b>En Kenex, por ejemplo:</b> planificación de compras e inventario, precios, cuentas por cobrar y conciliaciones, inteligencia de negocio, diseño gráfico y ejecutivos de cuenta en el mayor. Según dónde trabaje, el analista está en el núcleo de operaciones o en lo que Mintzberg llama tecnoestructura: quienes diseñan los planes, estándares y controles con que trabajan los demás.</p>
         <p class="fuentes">Fuentes: OIT, nivel 3 (<q>tareas técnicas y prácticas complejas</q> que requieren amplio conocimiento técnico y de procedimiento) y nivel 4 (<q>resolución de problemas complejos, toma de decisiones y creatividad</q> sobre conocimiento teórico), grandes grupos 3 y 2 (<a href="#r-oit">CIUO-08, p. 13</a>). WTW, banda 3IC «Professional»: su árbol pregunta si el cargo tiene <q>independencia para aplicar el conocimiento profesional</q> (<a href="#r-wtw">2024, p. 17</a>). O*NET, zonas 3–4 (<a href="#r-onet">Job Zones</a>). Experiencia: SVP 7 a 8, de 2 a 10 años de preparación contando la formación específica (<a href="#r-svp">DOL</a>). Katz: en los escalones de base pesa sobre todo la habilidad técnica (<a href="#r-katz">1955</a>). Mintzberg, tecnoestructura (<a href="#r-mintzberg">1979</a>).</p>
-      </div>
-    </article>
-
-    <!-- SUPERVISOR / ESPECIALISTA -->
-    <article class="esc" id="supervisor">
-      <div class="esc-lado">
-        <div class="eyebrow">Mismo escalón, dos trayectorias</div>
-        <div class="esc-tit"><span class="sw k4" aria-hidden="true"></span><h3>Supervisor(a) / Especialista</h3></div>
-        <p class="prop">Aquí el patrón abre dos caminos del mismo nivel. La diferencia no es de tamaño sino de cómo contribuye el cargo: dirigiendo a otros o siendo la autoridad en una materia.</p>
-        <dl class="meta">
-          <dt>Experiencia</dt><dd>Supervisor: 3 a 5 años · Especialista: 6 a 10</dd>
-          <dt>Educación formal</dt><dd>Supervisor: técnico superior en el oficio o el área · Especialista: título universitario y posgrado o certificación en la materia</dd>
-          <dt>Nivel OIT</dt><dd>2–3 (supervisor) · 4 (especialista)</dd>
-        </dl>
-      </div>
-      <div class="esc-cuerpo">
-        <div class="dos">
-          <div class="via">
-            <h4>Supervisor(a)</h4>
-            <p>Primera línea de mando. Organiza el trabajo de un turno, una tienda, una cuadrilla o un equipo operativo, y hace que salga como se planificó.</p>
-            <dl>
-              <dt>Saber</dt><dd>El oficio que supervisa, bien aprendido (suele venir de él), y lo que el oficio no enseña: programar, delegar, enseñar en el puesto, dar retroalimentación y manejar conflictos.</dd>
-              <dt>Resolver</dt><dd>Reparte tareas y turnos, reasigna cuando falta alguien, resuelve las incidencias del día y decide qué escala. Ajusta el cómo; el qué y el cuánto los fija el coordinador.</dd>
-              <dt>Responder</dt><dd>Por el cumplimiento, la calidad y la seguridad del trabajo de su equipo en el periodo. No por el presupuesto ni por la unidad completa.</dd>
-              <dt>Personas a cargo</dt><dd>Sí: operarios, auxiliares o analistas de un mismo proceso.</dd>
-            </dl>
-          </div>
-          <div class="via" id="especialista">
-            <h4>Especialista</h4>
-            <p>Autoridad técnica de la organización en una materia crítica. Fija el criterio que otros aplican, resuelve los casos más difíciles y representa la materia ante terceros.</p>
-            <dl>
-              <dt>Saber</dt><dd>Dominio profundo y al día de la materia, normalmente con grado o posgrado y varios años de práctica, y de cómo esa materia toca el negocio.</dd>
-              <dt>Resolver</dt><dd>Los casos que un analista III no puede cerrar, y la pregunta de cómo debe hacerse: escribe la norma técnica, el método o el estándar.</dd>
-              <dt>Responder</dt><dd>Por la solidez del criterio que la organización usa en su materia y por sus consecuencias.</dd>
-              <dt>Personas a cargo</dt><dd>No, o solo de forma funcional dentro de un proyecto.</dd>
-            </dl>
-          </div>
-        </div>
-        <p class="par"><b>Se distinguen</b> en de qué responden: el supervisor, de lo que hace su equipo; el especialista, del criterio con que trabaja la organización en su materia. Ninguna de las dos es paso obligado hacia la otra. <b>Del analista III</b>, el supervisor se distingue por tener personas a cargo y el especialista por su alcance, que es toda la organización y no un equipo.</p>
-        <div class="criterio">
-          <b>Cuándo abrir un cargo de Especialista</b>
-          <ol>
-            <li>La materia es crítica para el negocio o para el cumplimiento.</li>
-            <li>Hace falta una referencia para todo el grupo, no para un equipo.</li>
-            <li>Su criterio se puede describir y evaluar.</li>
-          </ol>
-          <span>Si falta alguna de las tres, el cargo es Analista III. El especialista no es una salida para subir de nivel a quien no tiene equipo.</span>
-        </div>
-        <p class="par"><b>En Kenex, por ejemplo:</b> supervisión de turno en bodega y despacho, de tienda o de un equipo de atención; especialistas en comercio exterior y aduanas, datos maestros y catálogo, garantías o la configuración funcional de Odoo.</p>
-        <p class="fuentes">Fuentes: para la OIT, la diferencia crítica es que <q>los supervisores responden solo de supervisar las actividades de otros trabajadores</q>, mientras los gerentes tienen la responsabilidad general de una unidad; además, crea grupos propios de supervisores solo donde sus tareas difieren de las de los supervisados, como oficina (3341), tienda (5222) y manufactura (3122) (<a href="#r-oit">CIUO-08, pp. 24–25 y 40</a>). Experiencia: SVP 7 a 8; la escala cuenta como preparación <q>la experiencia en cargos de menor responsabilidad que conducen</q> al cargo, que es de donde suele venir un supervisor (<a href="#r-svp">DOL</a>). Charan, Drotter y Noel: es la primera transición, pasar de producir resultados uno mismo a producirlos a través de otros (<a href="#r-pipeline">2001</a>). WTW, bandas 3M «Supervisor» y 4IC «Subject Matter Expert» (<a href="#r-wtw">2024, pp. 12 y 17</a>). Allen y Katz sobre la doble escalera (<a href="#r-allen">1986</a>).</p>
       </div>
     </article>
 
@@ -1098,11 +1044,12 @@ h3.m{font-size:.8rem;text-transform:uppercase;letter-spacing:.1em;color:var(--mu
       <div class="esc-lado">
         <div class="eyebrow">Dirige un área</div>
         <div class="esc-tit"><span class="sw k5" aria-hidden="true"></span><h3>Coordinador(a) I · II</h3></div>
-        <p class="prop">Responde por un área de trabajo completa dentro de una gerencia: sus resultados, sus recursos y su gente. Es el primer escalón que dirige una unidad y no solo un equipo.</p>
+        <p class="prop">Responde por un área de trabajo completa dentro de una gerencia: sus resultados, sus recursos y su gente. Es el primer escalón que dirige una unidad y no solo un equipo. Cada grado tiene una denominación equivalente: el grado I, Especialista; el grado II, Supervisor(a).</p>
         <dl class="meta">
           <dt>Experiencia</dt><dd>I: 5 a 7 años, 1 o 2 conduciendo equipos · II: 7 a 10 años, 3 o más conduciendo equipos</dd>
           <dt>Educación formal</dt><dd>I: título universitario en el área · II: título universitario y especialización o certificación en el área</dd>
-          <dt>Personas a cargo</dt><dd>I: un equipo directo · II: varios equipos, por lo general a través de supervisores</dd>
+          <dt>Personas a cargo</dt><dd>I: un equipo directo (el especialista, ninguna) · II: varios equipos, sedes o turnos</dd>
+          <dt>Equivalencias</dt><dd>Especialista = Coordinador(a) I · Supervisor(a) = Coordinador(a) II</dd>
           <dt>Nivel OIT</dt><dd>3 a 4, en el gran grupo 1 si dirige la unidad</dd>
         </dl>
       </div>
@@ -1115,21 +1062,52 @@ h3.m{font-size:.8rem;text-transform:uppercase;letter-spacing:.1em;color:var(--mu
         <p class="par">Los dos grados dirigen un área y responden por ella. Cambia el tamaño de lo que dirigen y cuánto de su plan fijan ellos.</p>
         <div class="grados-tab g2">
           <div><b>Coordinador(a) I · un equipo · 5 a 7 años</b><p>Dirige un área acotada: un proceso, una sede o una especialidad, con un equipo que le reporta directo, sin supervisores en medio. Ejecuta el plan y el presupuesto que acuerda con su gerencia, y propone ajustes durante el año.</p></div>
-          <div><b>Coordinador(a) II · varios equipos · 7 a 10 años</b><p>Dirige un área con varios equipos, sedes o turnos, por lo general a través de supervisores, o un área que sirve a varios países. Propone el plan, el presupuesto y los indicadores del año de su área, y los defiende ante su gerencia.</p></div>
+          <div><b>Coordinador(a) II · varios equipos · 7 a 10 años</b><p>Dirige un área con varios equipos, sedes o turnos, o un área que sirve a varios países. Propone el plan, el presupuesto y los indicadores del año de su área, y los defiende ante su gerencia.</p></div>
+        </div>
+        <div class="dos">
+          <div class="via" id="especialista">
+            <h4>Especialista · equivale al Coordinador(a) I</h4>
+            <p>La trayectoria técnica del escalón. Es la autoridad de la organización en una materia crítica: fija el criterio que otros aplican, resuelve los casos más difíciles y representa la materia ante terceros. Tiene el grado del Coordinador(a) I sin dirigir un área.</p>
+            <dl>
+              <dt>Saber</dt><dd>Dominio profundo y al día de la materia, normalmente con grado o posgrado y varios años de práctica, y de cómo esa materia toca el negocio.</dd>
+              <dt>Resolver</dt><dd>Los casos que un analista no puede cerrar, y la pregunta de cómo debe hacerse: escribe la norma técnica, el método o el estándar.</dd>
+              <dt>Responder</dt><dd>Por la solidez del criterio que la organización usa en su materia y por sus consecuencias.</dd>
+              <dt>Personas a cargo</dt><dd>No, o solo de forma funcional dentro de un proyecto.</dd>
+            </dl>
+          </div>
+          <div class="via" id="supervisor">
+            <h4>Supervisor(a) · equivale al Coordinador(a) II</h4>
+            <p>La denominación del grado II cuando el área es una operación: dirige varios turnos, cuadrillas o equipos operativos de una sede, una bodega o una red de tiendas, y hace que el trabajo salga como se planificó.</p>
+            <dl>
+              <dt>Saber</dt><dd>El oficio que supervisa, bien aprendido (suele venir de él), y lo que el oficio no enseña: programar, delegar, enseñar en el puesto, dar retroalimentación y manejar conflictos.</dd>
+              <dt>Resolver</dt><dd>Reparte tareas y turnos entre sus equipos, reasigna cuando falta alguien, resuelve las incidencias y decide qué escala a su gerencia.</dd>
+              <dt>Responder</dt><dd>Por el cumplimiento, la calidad y la seguridad del trabajo de sus equipos, y por el plan de su operación.</dd>
+              <dt>Personas a cargo</dt><dd>Sí: varios equipos de operarios, auxiliares o analistas.</dd>
+            </dl>
+          </div>
         </div>
         <div class="criterio">
-          <b>Cuándo es Coordinador(a) II</b>
+          <b>Cuándo es Coordinador(a) II o Supervisor(a)</b>
           <ol>
-            <li>Le reportan supervisores, o varios equipos en sedes o turnos distintos.</li>
+            <li>Le reportan varios equipos en sedes o turnos distintos.</li>
             <li>O su área sirve a más de un país.</li>
             <li>Y propone el plan y el presupuesto de su área, no solo los ejecuta.</li>
           </ol>
-          <span>Si no se cumple, es Coordinador(a) I. Un área pequeña no necesita supervisor y coordinador a la vez: basta un Coordinador(a) I o un Supervisor(a). El apellido no fija el grado: hay coordinaciones país de grado II y corporativas de grado I.</span>
+          <span>Si no se cumple, es Coordinador(a) I. Un área pequeña no necesita dos niveles de mando: basta un Coordinador(a) I. El apellido no fija el grado: hay coordinaciones país de grado II y corporativas de grado I.</span>
         </div>
-        <p class="par"><b>Se distingue del supervisor</b> en el alcance: el supervisor responde por la ejecución de un equipo en el periodo; el coordinador, por la unidad entera, con presupuesto, indicadores y personas. <b>Del gerente</b>, en que no fija la política de la función ni la representa. Si le reportan supervisores, dirige a quienes dirigen, que es la segunda transición de Charan, Drotter y Noel.</p>
+        <div class="criterio">
+          <b>Cuándo abrir un cargo de Especialista</b>
+          <ol>
+            <li>La materia es crítica para el negocio o para el cumplimiento.</li>
+            <li>Hace falta una referencia para todo el grupo, no para un equipo.</li>
+            <li>Su criterio se puede describir y evaluar.</li>
+          </ol>
+          <span>Si falta alguna de las tres, el cargo es Analista II. El especialista no es una salida para subir de nivel a quien no tiene equipo.</span>
+        </div>
+        <p class="par"><b>Se distingue del analista</b> en que responde por un área, o, en el especialista, por el criterio de toda la organización en su materia. <b>Del gerente</b>, en que no fija la política de la función ni la representa. En la trayectoria de mando es la primera transición de Charan, Drotter y Noel: pasar de producir resultados uno mismo a producirlos a través de otros.</p>
         <p class="par"><b>Apellido.</b> Según dónde esté la posición, el cargo se llama coordinador país o coordinador corporativo: es el mismo escalón.</p>
-        <p class="par"><b>En Kenex, por ejemplo:</b> las coordinaciones que la estructura To-Be ya dibuja. Con apellido país: Servicios Generales, las cinco de Mercadeo, Compras Internas y Tecnología. Con apellido corporativo: Compras Casio; Compras Cubitt; Planificación de Compras y Reabastecimiento; Despacho; Planificación y Control Financiero; y Formación. De forma orientativa, también la coordinación de una tienda.</p>
-        <p class="fuentes">Fuentes: OIT: los gerentes tienen <q>la responsabilidad general de las operaciones de una empresa o de una unidad organizativa</q>, y gerentes y supervisores por igual <q>planifican, organizan, coordinan, controlan y dirigen el trabajo de otros</q> (<a href="#r-oit">CIUO-08, p. 40</a>). Mintzberg: es la base de la línea media, entre la cúpula y el núcleo de operaciones (<a href="#r-mintzberg">1979</a>). Katz: a medida que se sube, la habilidad humana se mantiene y crece la conceptual (<a href="#r-katz">1955</a>). WTW, entre las bandas 3M «Supervisor» y 4M «Middle Management»: el grado I queda en la primera y el II en la segunda (<a href="#r-wtw">2024, p. 12</a>). Experiencia: SVP 8, de más de 4 a 10 años (<a href="#r-svp">DOL</a>). Charan, Drotter y Noel (<a href="#r-pipeline">2001</a>).</p>
+        <p class="par"><b>En Kenex, por ejemplo:</b> las coordinaciones que la estructura To-Be ya dibuja. Con apellido país: Servicios Generales, las cinco de Mercadeo, Compras Internas y Tecnología. Con apellido corporativo: Compras Casio; Compras Cubitt; Planificación de Compras y Reabastecimiento; Despacho; Planificación y Control Financiero; y Formación. De forma orientativa, también la coordinación de una tienda. Como supervisión, la de varios turnos en bodega y despacho; como especialistas, comercio exterior y aduanas, datos maestros y catálogo, garantías o la configuración funcional de Odoo.</p>
+        <p class="fuentes">Fuentes: OIT: los gerentes tienen <q>la responsabilidad general de las operaciones de una empresa o de una unidad organizativa</q>, y gerentes y supervisores por igual <q>planifican, organizan, coordinan, controlan y dirigen el trabajo de otros</q> (<a href="#r-oit">CIUO-08, p. 40</a>). Mintzberg: es la base de la línea media, entre la cúpula y el núcleo de operaciones (<a href="#r-mintzberg">1979</a>). Katz: a medida que se sube, la habilidad humana se mantiene y crece la conceptual (<a href="#r-katz">1955</a>). WTW, entre las bandas 3M «Supervisor» y 4M «Middle Management»: el grado I queda en la primera y el II en la segunda (<a href="#r-wtw">2024, p. 12</a>). Experiencia: SVP 8, de más de 4 a 10 años (<a href="#r-svp">DOL</a>). Charan, Drotter y Noel (<a href="#r-pipeline">2001</a>). Sobre los supervisores, la OIT dice que <q>responden solo de supervisar las actividades de otros trabajadores</q> y les crea grupos propios donde sus tareas difieren de las de los supervisados, como oficina (3341), tienda (5222) y manufactura (3122) (<a href="#r-oit">CIUO-08, pp. 24–25 y 40</a>). El especialista corresponde a la banda 4IC «Subject Matter Expert» de WTW (<a href="#r-wtw">2024, p. 17</a>); Allen y Katz, sobre la doble escalera (<a href="#r-allen">1986</a>).</p>
       </div>
     </article>
 
@@ -1236,11 +1214,8 @@ h3.m{font-size:.8rem;text-transform:uppercase;letter-spacing:.1em;color:var(--mu
         <tr><th scope="row">Director(a)</th><td>Más de 15 años<span class="mut">SVP 9</span></td><td>Maestría<span class="mut">CINE 7</span></td><td>Gran grupo 1, subgrupos 12 y 13<span class="mut">nivel 4</span></td><td>5BS Top Management</td><td class="num">4–5</td></tr>
         <tr><th scope="row">Gerente</th><td>10 a 15 años<span class="mut">SVP 9</span></td><td>Universitaria y posgrado<span class="mut">CINE 7</span></td><td>Gran grupo 1, según la función (subgrupos 12 a 14)<span class="mut">niveles 3–4</span></td><td>4M Middle Management; 5BS si influye en la estrategia</td><td class="num">4</td></tr>
         <tr><th scope="row">Gerente de unidad de negocio</th><td>8 a 12 años<span class="mut">SVP 8 a 9</span></td><td>Universitaria y posgrado<span class="mut">CINE 6–7</span></td><td>Unidad 1221, ventas y mercadeo<span class="mut">nivel 4</span></td><td>4M Middle Management</td><td class="num">4</td></tr>
-        <tr><th scope="row">Coordinador(a) II</th><td>7 a 10 años<span class="mut">SVP 8</span></td><td>Universitaria y especialización o certificación<span class="mut">CINE 6–7</span></td><td>Gran grupo 1 si dirige la unidad<span class="mut">niveles 3–4</span></td><td>4M Middle Management</td><td class="num">4</td></tr>
-        <tr><th scope="row">Coordinador(a) I</th><td>5 a 7 años<span class="mut">SVP 8</span></td><td>Universitaria<span class="mut">CINE 6</span></td><td>Gran grupo 1 si dirige la unidad<span class="mut">niveles 3–4</span></td><td>3M Supervisor</td><td class="num">4</td></tr>
-        <tr><th scope="row">Supervisor(a)</th><td>3 a 5 años<span class="mut">SVP 7 a 8</span></td><td>Técnica superior<span class="mut">CINE 5</span></td><td>Grupos de supervisión (3341, 5222, 3122) o el de los supervisados<span class="mut">niveles 2–3</span></td><td>3M Supervisor</td><td class="num">3–4</td></tr>
-        <tr><th scope="row">Especialista</th><td>6 a 10 años<span class="mut">SVP 8</span></td><td>Universitaria y posgrado o certificación<span class="mut">CINE 6–7</span></td><td>Gran grupo 2, profesionales<span class="mut">nivel 4</span></td><td>4IC Subject Matter Expert</td><td class="num">4–5</td></tr>
-        <tr><th scope="row">Analista III</th><td>4 a 6 años<span class="mut">SVP 8</span></td><td>Universitaria<span class="mut">CINE 6</span></td><td>Grandes grupos 2 y 3<span class="mut">niveles 3–4</span></td><td>3IC Professional, grado alto</td><td class="num">4</td></tr>
+        <tr><th scope="row">Coordinador(a) II<span class="mut">equivale: Supervisor(a)</span></th><td>7 a 10 años<span class="mut">SVP 8</span></td><td>Universitaria y especialización o certificación<span class="mut">CINE 6–7</span></td><td>Gran grupo 1 si dirige la unidad; el supervisor, grupos de supervisión (3341, 5222, 3122)<span class="mut">niveles 3–4</span></td><td>4M Middle Management</td><td class="num">4</td></tr>
+        <tr><th scope="row">Coordinador(a) I<span class="mut">equivale: Especialista</span></th><td>5 a 7 años<span class="mut">SVP 8</span></td><td>Universitaria<span class="mut">CINE 6</span></td><td>Gran grupo 1 si dirige la unidad; el especialista, gran grupo 2<span class="mut">niveles 3–4</span></td><td>3M Supervisor; el especialista, 4IC Subject Matter Expert</td><td class="num">4</td></tr>
         <tr><th scope="row">Analista II</th><td>2 a 4 años<span class="mut">SVP 7 a 8</span></td><td>Universitaria<span class="mut">CINE 6</span></td><td>Grandes grupos 2 y 3<span class="mut">niveles 3–4</span></td><td>3IC Professional</td><td class="num">4</td></tr>
         <tr><th scope="row">Analista I</th><td>0 a 2 años después del título<span class="mut">SVP 7</span></td><td>Técnica superior o universitaria<span class="mut">CINE 5–6</span></td><td>Gran grupo 3, técnicos<span class="mut">nivel 3</span></td><td>3IC Professional, entrada</td><td class="num">3–4</td></tr>
         <tr><th scope="row">Auxiliar</th><td>6 meses a 2 años<span class="mut">SVP 4 a 6</span></td><td>Bachillerato y técnica corta<span class="mut">CINE 3–4</span></td><td>Grandes grupos 4 y 5<span class="mut">nivel 2</span></td><td>2 Clerical/Administrative</td><td class="num">1–2</td></tr>
@@ -1260,11 +1235,11 @@ h3.m{font-size:.8rem;text-transform:uppercase;letter-spacing:.1em;color:var(--mu
   <div class="reglas">
     <div class="regla">
       <div class="que"><h3>Un escalón de mando solo existe si resuelve lo que el de abajo no puede</h3><p class="cita">Jaques: <q>cada capa superior debe poder resolver los problemas de trabajo que la capa inferior no puede resolver</q>. <a href="#r-go">GO Society, FAQ</a></p></div>
-      <p>Un coordinador sobre un supervisor sobre un equipo solo se justifica si el coordinador resuelve lo que el supervisor no puede: planificar el área, su presupuesto y sus indicadores del año. Si los dos hacen lo mismo, repartir y vigilar el trabajo del día, sobra uno. En las áreas pequeñas basta uno de los dos. Refuerza la <b>premisa 1</b>: no crecer a lo alto.</p>
+      <p>Un coordinador sobre otro mando del mismo escalón solo se justifica si resuelve lo que el de abajo no puede: planificar el área, su presupuesto y sus indicadores del año. Si los dos hacen lo mismo, repartir y vigilar el trabajo del día, sobra uno. En las áreas pequeñas basta un Coordinador(a) I. Refuerza la <b>premisa 1</b>: no crecer a lo alto.</p>
     </div>
     <div class="regla">
       <div class="que"><h3>Contar los niveles de mando de cada línea</h3><p class="cita">Es la misma regla de Jaques aplicada a una línea entera: cada escalón de mando tiene que agregar algo que el de abajo no puede resolver. <a href="#r-go">GO Society, FAQ</a></p></div>
-      <p>La línea más larga es Comercial: Presidencia, Dirección Comercial, Ventas, Retail, Retail país y, debajo, la coordinación y la supervisión de tienda. Son siete niveles de mando antes de llegar al asesor; en Operaciones y Logística, con el mismo tipo de trabajo, son cinco. Para que cada uno se justifique, cada uno tiene que decidir algo distinto. Esa es la línea a revisar primero, como ya advierte la estructura al decir que las gerencias de unidad de negocio añaden un escalón en Comercial. Refuerza la <b>premisa 1</b>.</p>
+      <p>La línea más larga es Comercial: Presidencia, Dirección Comercial, Ventas, Retail, Retail país y, debajo, la coordinación de tienda. Son seis niveles de mando antes de llegar al asesor; en Operaciones y Logística, con el mismo tipo de trabajo, son cinco. Para que cada uno se justifique, cada uno tiene que decidir algo distinto. Esa es la línea a revisar primero, como ya advierte la estructura al decir que las gerencias de unidad de negocio añaden un escalón en Comercial. Refuerza la <b>premisa 1</b>.</p>
     </div>
     <div class="regla">
       <div class="que"><h3>El escalón lo da el alcance, no a quién se reporta</h3><p class="cita">WTW gradúa cada cargo por siete factores, entre ellos la naturaleza y el área de su impacto, no por su línea de reporte. <a href="#r-wtw">WTW, 2024, p. 18</a></p></div>
@@ -1272,15 +1247,15 @@ h3.m{font-size:.8rem;text-transform:uppercase;letter-spacing:.1em;color:var(--mu
     </div>
     <div class="regla">
       <div class="que"><h3>Nadie del equipo por encima de su jefe</h3><p class="cita">Hay llama <i>sorethumbing</i> a revisar las anomalías, como <q>un miembro del equipo evaluado al mismo nivel o por encima de su jefe</q>. <a href="#r-hay">Hay, 2014</a></p></div>
-      <p>Un especialista no reporta a un supervisor: su criterio vale para toda la organización y su escalón es el mismo. Reporta al coordinador o al gerente. Lo mismo vale para un analista III bajo un supervisor de su mismo proceso: hay que mirar si el supervisor está bien nivelado.</p>
+      <p>Un especialista no reporta a un Coordinador(a) I: tienen el mismo grado y su criterio vale para toda la organización. Reporta al Coordinador(a) II o al gerente. Por la misma razón, un supervisor, que tiene el grado del Coordinador(a) II, no reporta a un Coordinador(a) I: si pasa, hay que mirar si los dos están bien nivelados.</p>
     </div>
     <div class="regla">
       <div class="que"><h3>La trayectoria técnica tiene que valer lo mismo</h3><p class="cita">Allen y Katz estudiaron la doble escalera en organizaciones de investigación y desarrollo, y titularon su trabajo con una pregunta: <q>¿solución motivacional o ilusión gerencial?</q> <a href="#r-allen">1986</a></p></div>
-      <p>Si el especialista gana menos, decide menos o se ve como un premio de consuelo, la gente buena elegirá el mando para subir, y la organización pierde a la vez un buen técnico y gana un jefe por obligación. Por eso el patrón los pone en el mismo escalón y exige criterios para abrir un especialista.</p>
+      <p>Si el especialista gana menos, decide menos o se ve como un premio de consuelo, la gente buena elegirá el mando para subir, y la organización pierde a la vez un buen técnico y gana un jefe por obligación. Por eso el patrón le da al especialista el grado del Coordinador(a) I y exige criterios para abrirlo.</p>
     </div>
     <div class="regla">
       <div class="que"><h3>Un grado que nadie percibe no es un grado</h3><p class="cita">Hay construye su escala sobre la <q>diferencia apenas perceptible</q> entre dos puestos, un paso del 15 %. <a href="#r-hay">Hay, 2014, p. 2</a></p></div>
-      <p>Los tres grados de analista solo se usan donde la familia muestra diferencias que se pueden observar en el trabajo: guía, independencia, casos nuevos. Si en una familia el II y el III no se distinguen, se usan dos. Lo mismo con los dos grados de coordinador: el II solo se abre donde se cumplen sus criterios. Refuerza la <b>premisa 2</b>: no crear tipos de cargo de más.</p>
+      <p>Los dos grados de analista solo se usan donde la familia muestra diferencias que se pueden observar en el trabajo: guía, independencia, casos nuevos. Si en una familia el I y el II no se distinguen, se usa uno. Lo mismo con los dos grados de coordinador: el II solo se abre donde se cumplen sus criterios. Refuerza la <b>premisa 2</b>: no crear tipos de cargo de más.</p>
     </div>
     <div class="regla">
       <div class="que"><h3>Se clasifica por la tarea que más exige</h3><p class="cita">OIT: cuando las tareas requieren competencias de distinto nivel, el empleo se clasifica <q>según las tareas que exigen el mayor nivel de competencias</q>. <a href="#r-oit">CIUO-08, p. 39</a></p></div>
@@ -1292,7 +1267,7 @@ h3.m{font-size:.8rem;text-transform:uppercase;letter-spacing:.1em;color:var(--mu
 <section class="blk" id="decisiones">
   <div class="intro">
     <h2>Decisiones abiertas</h2>
-    <p>Tres ya están en las decisiones pendientes de la estructura To-Be: la primera línea, la cabeza país y las denominaciones de la estructura patrón, que abarcan la pareja supervisor o especialista y los grados de analista. Las otras salen de esta descripción. Las que tocan la estructura las toma el liderazgo; las de los escalones, Desarrollo Corporativo con el equipo consultor, en la reclasificación.</p>
+    <p>Dos ya están en las decisiones pendientes de la estructura To-Be: la primera línea y la cabeza país. Las otras salen de esta descripción. Desde el 24-nov-2026 quedan resueltas dos que estaban abiertas: el analista tiene dos grados (I y II), y el especialista y el supervisor no son escalón propio: equivalen al Coordinador(a) I y al II. Las que tocan la estructura las toma el liderazgo; las de los escalones, Desarrollo Corporativo con el equipo consultor, en la reclasificación.</p>
   </div>
   <div class="decisiones">
     <div class="dec">
@@ -1309,16 +1284,6 @@ h3.m{font-size:.8rem;text-transform:uppercase;letter-spacing:.1em;color:var(--mu
       <h3>Cabeza país y tamaño de la gerencia país</h3>
       <div class="opc"><span class="epchip">Sin cabeza país</span><span class="epchip">Dirección general por país</span><span class="epchip">Gerencia país que baja a coordinación</span></div>
       <p class="crit"><b>Criterio:</b> con la regla de Jaques, una cabeza país se justifica si resuelve algo que sus gerentes país no pueden, como integrar entre sí las funciones del país; si solo los reúne, es una capa de más. En el otro sentido, una gerencia país que dirige un área y no tiene coordinaciones debajo trabaja como una coordinación, y así debería quedar escrito.</p>
-    </div>
-    <div class="dec">
-      <h3>Supervisor(a) y Especialista en el mismo escalón</h3>
-      <div class="opc"><span class="epchip">Un escalón, dos trayectorias</span><span class="epchip">Dos escalones distintos</span></div>
-      <p class="crit"><b>Criterio:</b> la pendiente de la estructura los separa por si se gestiona gente o se valora el conocimiento técnico. Los marcos los ponen al mismo nivel con bandas distintas. Falta confirmar los tres criterios para abrir un especialista y que su retribución sea equivalente.</p>
-    </div>
-    <div class="dec">
-      <h3>Tres grados de analista o dos</h3>
-      <div class="opc"><span class="epchip">I · II · III en todas las familias</span><span class="epchip">Según la familia</span><span class="epchip">I · II</span></div>
-      <p class="crit"><b>Criterio:</b> un grado se justifica si su diferencia con el vecino se observa en el trabajo. La recomendación es definirlo por familia: tres donde haya casos simples, habituales y complejos claramente distintos, dos donde no.</p>
     </div>
     <div class="dec">
       <h3>Dónde quedan el asesor de tienda y el técnico de servicio</h3>

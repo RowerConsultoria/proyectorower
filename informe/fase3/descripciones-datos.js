@@ -10,13 +10,15 @@ window.DESCRIPCIONES_CARGO = {
     version: 'Piloto · 11-nov-2026',
     lista: 'Catálogo de Cargos V5 (105 códigos, 97 descripciones), sobre la escalera de la estructura patrón de cargos',
     // Modelo de competencias por nivel de cargo (11-nov-2026, propuesta simplificada). Cuatro niveles que agrupan los
-    // escalones de la estructura patrón; Supervisor(a) y Especialista comparten escalón pero no nivel. Las genéricas tienen un
+    // escalones de la estructura patrón. Desde el 24-nov-2026 no hay Analista III, y Especialista y Supervisor(a) no son escalón
+    // propio: equivalen al Coordinador(a) I y al II. Conservan su nivel de cargo: el especialista va con los analistas y el
+    // supervisor con la coordinación. Las genéricas tienen un
     // descriptor por nivel y el cargo exige el de su nivel; las específicas son las del nivel, sin escala, y aplican a
     // todos sus escalones. Competencias y definiciones del diccionario de la Fase 3, sin cambios. Lo lee también la guía.
     niveles_cargo: [
       { nombre: "Dirección y gerencia", escalones: ["Director(a)", "Gerente", "Gerente de unidad de negocio"] },
       { nombre: "Coordinación y supervisión", escalones: ["Coordinador(a) II", "Coordinador(a) I", "Supervisor(a)"] },
-      { nombre: "Analistas y especialistas", escalones: ["Especialista", "Analista I", "Analista II", "Analista III"] },
+      { nombre: "Analistas y especialistas", escalones: ["Especialista", "Analista I", "Analista II"] },
       { nombre: "Apoyo y operación", escalones: ["Auxiliar", "Operario(a)"] }
     ],
     // Escalón de la estructura patrón (fuente de la verdad desde el 11-nov) → nivel de cargo
@@ -31,7 +33,6 @@ window.DESCRIPCIONES_CARGO = {
       "Especialista": "Analistas y especialistas",
       "Analista I": "Analistas y especialistas",
       "Analista II": "Analistas y especialistas",
-      "Analista III": "Analistas y especialistas",
       "Auxiliar": "Apoyo y operación",
       "Operario(a)": "Apoyo y operación"
     },

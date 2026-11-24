@@ -36,7 +36,7 @@ window.GUIA_MANUAL = {
       items: [
         ['Una descripción por nombre de cargo', 'Si varias familias comparten un mismo nombre de cargo, como «Asistente de Gestión», la descripción es una sola, con una parte común y un apartado de **matices por unidad** donde cada familia dice lo propio.'],
         ['Agrupadas por familia', 'Una familia es el conjunto de cargos de un área de la estructura To-Be (por ejemplo, Servicios Generales u Operaciones y Logística). En el índice se recorren por familia.'],
-        ['Cada cargo en un escalón', 'El escalón dice el nivel del cargo en la estructura patrón: Operario, Auxiliar, Analista I · II · III, Supervisor o Especialista, Coordinador I · II, Gerente de unidad de negocio, Gerente o Director. El escalón fija la formación, la experiencia y el nivel de cargo, que dice qué competencias se exigen.'],
+        ['Cada cargo en un escalón', 'El escalón dice el nivel del cargo en la estructura patrón: Operario, Auxiliar, Analista I · II, Coordinador I · II (el especialista equivale al I y el supervisor al II), Gerente de unidad de negocio, Gerente o Director. El escalón fija la formación, la experiencia y el nivel de cargo, que dice qué competencias se exigen.'],
         ['El apellido', 'Cuando hace falta, el cargo toma como apellido el nivel de la estructura donde está la posición: corporativo o país. «Coordinador(a) País de Servicios Generales» es un coordinador cuya posición se repite en cada país. El escalón es el mismo; el apellido dice dónde se ejerce.'],
         ['El nombre lo pone la familia', 'El escalón es un nivel, no un nombre de cargo. Cada familia nombra sus cargos («Asesor(a) de Ventas», «Asistente de Gestión»), y dos nombres distintos pueden estar en un mismo escalón.']
       ] },
@@ -86,7 +86,7 @@ window.GUIA_MANUAL = {
       // Las tablas y fichas de esta sección salen de meta (niveles_cargo, genericas, especificas, escala_evaluacion)
       // de descripciones-datos.js, para que la guía y las descripciones no puedan divergir.
       modelo: {
-        niveles: 'Supervisor(a) y Especialista comparten escalón en la estructura patrón, pero no nivel de cargo: el supervisor dirige personas y va con el coordinador; el especialista es la autoridad de una materia y va con los analistas. El escalón sigue siendo el mismo para los dos.',
+        niveles: 'Especialista y Supervisor(a) no son escalón propio en la estructura patrón: el especialista equivale al Coordinador(a) I y el supervisor al Coordinador(a) II. Su nivel de cargo sí es distinto: el supervisor dirige personas y va con la coordinación; el especialista es la autoridad de una materia y va con los analistas.',
         genericas: 'Cada genérica tiene un descriptor por nivel de cargo, y el cargo exige el de su nivel. Un supervisor, por ejemplo, el de «Coordinación y supervisión» en las seis.',
         especificas: 'Cada nivel de cargo tiene sus competencias específicas, y aplican a todos sus escalones. Como ya pertenecen a un nivel, no llevan escala: tienen su definición y lo que se espera de quien ocupa el cargo.',
         escala: 'Para medir a una persona frente a lo que exige su cargo, en la evaluación del desempeño o en un plan de desarrollo, se usa una sola escala para todas las competencias. No va en la descripción de cargo.'
@@ -100,8 +100,8 @@ window.GUIA_MANUAL = {
         ['Habilidades y destrezas', 'Los conocimientos técnicos y las herramientas que el cargo usa (Odoo, Lark, hojas de cálculo, tableros de gestión, herramientas de IA), con su nivel, más los métodos e idiomas que exige.']
       ],
       tabla: { cols: ['Escalón', 'Experiencia estimada'], filas: [
-        ['Operario(a)', '0 a 1 año'], ['Auxiliar', '6 meses a 2 años'], ['Analista I · II · III', '0 a 2 · 2 a 4 · 4 a 6 años'],
-        ['Supervisor(a) · Especialista', '3 a 5 años · 6 a 10 años'], ['Coordinador(a) I · II', '5 a 7 · 7 a 10 años'],
+        ['Operario(a)', '0 a 1 año'], ['Auxiliar', '6 meses a 2 años'], ['Analista I · II', '0 a 2 · 2 a 4 años'],
+        ['Coordinador(a) I · II (Especialista · Supervisor(a))', '5 a 7 · 7 a 10 años'],
         ['Gerente de unidad de negocio', '8 a 12 años, con el canal en más de un país'], ['Gerente', '10 a 15 años, 5 o más dirigiendo áreas'], ['Director(a)', 'Más de 15 años, 5 o más en dirección'] ] },
       nota: 'La experiencia de cada escalón y lo que exige saber se detallan en la estructura patrón de cargos (punto 2 del índice).' },
 
@@ -141,7 +141,7 @@ window.GUIA_MANUAL = {
         ['Cargo', 'Conjunto de responsabilidades que la organización asigna a una o más posiciones con el mismo nombre.'],
         ['Posición', 'Cada puesto concreto de la estructura, que ocupa una persona. Un cargo puede tener varias posiciones.'],
         ['Familia de cargos', 'Los cargos de un área de la estructura To-Be, del escalón más alto al más bajo.'],
-        ['Escalón', 'Nivel del cargo en la estructura patrón: Operario, Auxiliar, Analista I · II · III, Supervisor o Especialista, Coordinador I · II, Gerente de unidad de negocio, Gerente o Director.'],
+        ['Escalón', 'Nivel del cargo en la estructura patrón: Operario, Auxiliar, Analista I · II, Coordinador I · II (el especialista equivale al I y el supervisor al II), Gerente de unidad de negocio, Gerente o Director.'],
         ['Apellido', 'El nivel de la estructura donde está la posición —corporativo o país— que el cargo toma en su nombre cuando hace falta.'],
         ['Nivel de cargo', 'Grupo de escalones de la estructura patrón que comparten las mismas competencias específicas y el mismo descriptor de las genéricas. Hay cuatro.'],
         ['Deber ser', 'El cargo tal como debe funcionar en la estructura To-Be, distinto de cómo lo ejerce hoy su ocupante.'],
