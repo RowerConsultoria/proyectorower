@@ -338,10 +338,7 @@ window.ESTRUCTURA_TOBE = {
         'La planificación de la compra que cada país le hace a Panamá y su reabastecimiento, a través de su coordinación de Planificación de Compras y Reabastecimiento.',
         'Dicta la política de compra de toda la organización: lo que compra cada área sigue las mismas reglas de proveedores, cotizaciones y aprobación. La ejecuta en cada país su coordinación de Compras Internas.'
       ],
-      decisiones:[
-        'Dónde quedan dos funciones que hoy no se dibujan. La compra de material POP en China, que hace Anabel Roizental como tarea corta: por la política de compra única, iría en Compras. Y la gestión en China, a cargo de una persona que está allá: el contacto con los fabricantes, la búsqueda de proveedores y el seguimiento de los embarques hacia Panamá (qué sale, en qué barco y cuándo llega); hoy responde sobre todo a Alejandro Roizental. Podría ir en Compras Cubitt, que hace las órdenes a fábrica y las sigue hasta el embarque, o quedarse en Innovación y Desarrollo de Productos, que identifica las fábricas. Falta hablar con quien la lleva.'
-      ],
-      nota:'Nace el 19-nov-2026 al separar en dos direcciones corporativas la que fue Compras y Cadena de Suministro, como recomendó Máximo Dolman: en una organización nadie tiene dos jefes para un mismo rol. Roberto Roizental dirige Compras; Andrés Roizental, Cadena de Suministro. La gerencia corporativa de Compras, que Roberto llevaba además de la dirección, se suprime: sus coordinaciones le reportan directo. Tiene una coordinación por marca, porque Casio y Cubitt compran a fábrica con ritmos y reglas distintos: la de Casio con la casa matriz, la de Cubitt con las fábricas. Una tercera, Planificación de Compras y Reabastecimiento, compra a Panamá lo que necesita cada país y planifica su distribución. Desde el 16-oct-2026 también la compra interna de la organización (insumos, material POP, mobiliario, equipos y servicios) pasa por aquí: las políticas de compra salen de esta dirección, cada país compra con su coordinación de Compras Internas y la Dirección de Finanzas paga. Comprar es el primer paso de la cadena, como en las empresas de consumo masivo y de retail: por eso la compra salió el 05-oct de la antigua Investigación y Desarrollo.',
+      nota:'Nace el 19-nov-2026 al separar en dos direcciones corporativas la que fue Compras y Cadena de Suministro, como recomendó Máximo Dolman: en una organización nadie tiene dos jefes para un mismo rol. Roberto Roizental dirige Compras; Andrés Roizental, Cadena de Suministro. La gerencia corporativa de Compras, que Roberto llevaba además de la dirección, se suprime: sus coordinaciones le reportan directo. Tiene una coordinación por marca, porque Casio y Cubitt compran a fábrica con ritmos y reglas distintos: la de Casio con la casa matriz, la de Cubitt con las fábricas. Una tercera, Planificación de Compras y Reabastecimiento, compra a Panamá lo que necesita cada país y planifica su distribución. Desde el 16-oct-2026 también la compra interna de la organización (insumos, material POP, mobiliario, equipos y servicios) pasa por aquí: las políticas de compra salen de esta dirección, cada país hace sus compras locales con su coordinación de Compras Internas y la Dirección de Finanzas paga. Comprar es el primer paso de la cadena, como en las empresas de consumo masivo y de retail: por eso la compra salió el 05-oct de la antigua Investigación y Desarrollo.',
       hijos:[
         {id:'compcasio', n:'Compras Casio', nivel:'ccorp',
          ocupante:{nombre:'Vera Gavizon', estado:'actual', nota:'Hoy lleva la compra de Casio (reunión del 04-nov-2026).'},
@@ -355,8 +352,11 @@ window.ESTRUCTURA_TOBE = {
          funciones:[
            'La compra de Cubitt, marca propia: las órdenes a las fábricas, con las muestras y especificaciones que aprueba Innovación y Desarrollo de Productos.',
            'Los repuestos de la marca.',
-           'Sigue cada orden en producción y hasta el embarque.'
-         ]},
+           'Compra en China el material para el punto de venta (POP), conforme a la política única de compras.',
+           'Gestiona el contacto con los fabricantes en China y la búsqueda de proveedores.',
+           'Sigue cada orden en producción y hasta el embarque. Mantiene al día la información de los embarques hacia Panamá, con el detalle de qué sale, en qué barco y la fecha prevista de llegada, en coordinación con Cadena de Suministro.'
+         ],
+         nota:'La adscripción de la persona que lleva la gestión en China se resolverá internamente durante la implementación de la estructura.'},
         {id:'planinv', n:'Planificación de Compras y Reabastecimiento', nivel:'ccorp',
          ocupante:{nombre:'Jimena Sánchez', estado:'actual', nota:'Hoy es coordinadora de planificación de compras en Venezuela y atiende también a Panamá.'},
          funciones:[
@@ -378,7 +378,7 @@ window.ESTRUCTURA_TOBE = {
            CO:{nombre:'Por definir', estado:'pordefinir', cargo:'Coordinación'}
          },
          funciones:[
-           'Toda compra del país que no es producto para la venta: insumos y material de oficina, material POP, mobiliario, equipos como las laptops, y los servicios y contratistas que sostienen sedes, tiendas y bodegas.',
+           'Compra local de insumos y material de oficina, material POP, mobiliario, equipos como las laptops, y los servicios y contratistas que sostienen sedes, tiendas y bodegas.',
            'Aplica la política de compra que fija la gerencia corporativa de Compras: cuántos proveedores se cotizan, qué muestras se piden, quién aprueba cada solicitud y en cuánto tiempo.',
            'Mantiene proveedores calificados por rubro, en lugar de que cada área compre por su lado.'
          ],
