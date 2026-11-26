@@ -408,9 +408,6 @@ window.ESTRUCTURA_TOBE = {
          nota:'La visión corporativa es de barco, almacén principal y distribución. En cada país hace falta una gerencia que atienda los permisos, la aduana y la bodega local: desde lo corporativo no se puede gobernar la bodega de otro país. Desde el 06-nov-2026 tiene una coordinación corporativa de Despacho; la de Inventario y Precios, que tuvo entre el 06 y el 11-nov, pasó a Planificación, Despacho e Inventarios, en Compras. Desde el 17-nov-2026 vuelve a tener una coordinación corporativa de Inventario, con la estrategia y el control del inventario; los precios siguen en Planificación de Compras y Reabastecimiento. Desde el 20-nov-2026 Inventario es gerencia corporativa de Cadena de Suministro, al lado de esta gerencia, y deja de colgar de ella. Fernando Alvarado envió su propio modelo de funcionamiento de la gerencia.',
          hijos:[
            {id:'despacho', n:'Despacho', nivel:'ccorp',
-            decisiones:[
-              'Fernando Alvarado envió un modelo de funcionamiento de la gerencia corporativa de Operaciones y Logística: confirmar con él esta coordinación, su alcance y su ocupante, por definir desde el 19-nov-2026. Deslindarla de la coordinación de Planificación de Compras y Reabastecimiento, en Compras, que decide qué va a dónde y tenía por cubrir una coordinación de despacho y compras.'
-            ],
             ocupante:{nombre:'Por definir', estado:'pordefinir'},
             funciones:[
               'Ejecuta el despacho físico desde el almacén principal a los países, las tiendas y los clientes: recibe la orden de reparto de Planificación de Compras y Reabastecimiento, prepara y carga la mercancía y la embarca.',

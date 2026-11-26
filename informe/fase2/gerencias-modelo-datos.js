@@ -134,7 +134,7 @@ window.MODELOS_GERENCIAS = {
    ['Contratistas de mantenimiento: verificar el trabajo','','N','D · E',''],
    ['Personal y turnos de la bodega','N','D','',''],
    ['Reparto a países y tiendas (lo planifica Compras)','E','E','','C']]},
- decidir:['Fernando Alvarado envió un modelo de funcionamiento de la gerencia: revisarlo contra este, en especial la coordinación de Despacho, la gerencia de Inventario y su frontera con Planificación de Compras y Reabastecimiento, en Compras. Está en las decisiones pendientes de la estructura (1.2).','Quién ocupa la gerencia corporativa de Inventario, hoy por definir, y cuándo se cubre su analista de inventario.','Los plazos de despacho por canal y por país.','Si Estados Unidos necesita su propia coordinación de Servicios Generales.','Confirmar la gerencia país de Estados Unidos, que hoy se propone junto con la de E-commerce. Está en las decisiones pendientes de la estructura (1.2).']},
+ decidir:['Quién ocupa la gerencia corporativa de Inventario, hoy por definir, y cuándo se cubre su analista de inventario.','Los plazos de despacho por canal y por país.','Si Estados Unidos necesita su propia coordinación de Servicios Generales.','Confirmar la gerencia país de Estados Unidos, que hoy se propone junto con la de E-commerce. Está en las decisiones pendientes de la estructura (1.2).']},
 
 {id:'compras', unidad:'compras', n:'Compras', dir:'Presidencia', red:'Compra única por marca', capa:'Sí: Compras Internas en PA · VE · CO. Arriba, tres coordinaciones corporativas: Casio, Cubitt y Planificación de Compras y Reabastecimiento',
  riesgo:'Un comprador corporativo que recibe órdenes de cada área y de cada país.',
@@ -173,7 +173,7 @@ window.MODELOS_GERENCIAS = {
    ['Compra a fábrica','E','S','','','C (comités)'],
    ['Reparto a países y tiendas','C','D','','C',''],
    ['Pago','','','','','D · E']]},
- decidir:['Los umbrales de aprobación y los plazos de la política de compra.','Quién coordina Compras Cubitt y las Compras Internas de cada país. Está en las decisiones pendientes de la estructura (1.2).','Cuándo se cubre el cargo de compras y reabastecimiento que falta en Planificación de Compras y Reabastecimiento (hoy llamado «coordinación de despacho y compras»), y cómo se deslinda de la coordinación de Despacho de Operaciones y Logística. Está en las decisiones pendientes de la estructura (1.2).','Quién pide las cotizaciones del mobiliario y del material POP de proveedores locales. Hoy las pide Visual Merchandising y en la estructura To-Be esa compra es de Compras Internas.']},
+ decidir:['Los umbrales de aprobación y los plazos de la política de compra.','Quién coordina Compras Cubitt y las Compras Internas de cada país. Está en las decisiones pendientes de la estructura (1.2).','Cuándo se cubre el cargo de compras y reabastecimiento de Planificación de Compras y Reabastecimiento, hoy llamado «coordinación de despacho y compras».','Quién pide las cotizaciones del mobiliario y del material POP de proveedores locales. Hoy las pide Visual Merchandising y en la estructura To-Be esa compra es de Compras Internas.']},
 
 {id:'producto', unidad:'producto', n:'Desarrollo y Calidad de Productos', dir:'Innovación y Desarrollo de Productos', red:'Dueño del producto', capa:'No',
  riesgo:'Mercadeo, Diseño y Estrategia de Marca, Compras, Postventa y Comercial dándole instrucciones sobre el mismo producto.',
