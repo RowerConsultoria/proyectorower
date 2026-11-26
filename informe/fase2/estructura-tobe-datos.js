@@ -180,9 +180,6 @@ window.ESTRUCTURA_TOBE = {
   /* ------------------------------------------------------------- la cima */
   CEO: {
     id:'ceo', n:'Presidencia · CEO',
-    decisiones:[
-      'La Presidencia tiene diez reportes directos, tres por encima del tramo de 4 a 7: aceptarlo así o agrupar dos unidades de staff, por ejemplo la PMO bajo Desarrollo Corporativo.'
-    ],
     ocupante:{nombre:'Bernardo Roizental', estado:'actual'},
     funciones:[
       'Conduce el grupo con diez reportes directos, tres por encima del tramo de 4 a 7 que fija el principio 3: siete direcciones corporativas —las cinco unidades de negocio (Innovación y Desarrollo de Productos, Diseño y Estrategia de Marca, Compras, Cadena de Suministro y Comercial), Finanzas y Desarrollo Corporativo— y tres gerencias corporativas de staff —Tecnología, Gobernanza del Dato y Cumplimiento, Gobierno de IA y la PMO—.',
@@ -1018,7 +1015,7 @@ window.ESTRUCTURA_TOBE = {
      tension:'La figura de Gerente País reporta a Comercial. Queda por definir en qué países se incorpora y cómo se relaciona con las gerencias de cada país (ver Pendientes). Hay una excepción declarada: dos familiares pueden codirigir una dirección corporativa cuando cada uno es especialista en una subdivisión distinta, como en Comercial. No se admite en ningún otro nivel.'},
     {n:'Optimización del tramo de control',
      como:'La Presidencia tiene diez reportes directos —siete direcciones corporativas (cinco de negocio, Finanzas y Desarrollo Corporativo) y tres gerencias corporativas de staff— y dos unidades de staff propias.',
-     tension:'Con Diseño y Estrategia de Marca, Compras y Cadena de Suministro separadas y tres gerencias de staff que le reportan directo, el tramo de la Presidencia pasa a diez, tres por encima del rango de 4 a 7. Si satura, lo primero es agrupar dos de ellas, por ejemplo la PMO bajo Desarrollo Corporativo, como ya se previó. Ventas concentra muchos reportes: cuatro canales y una unidad de apoyo, cada canal con sus gerencias país; y Mercadeo, cuatro unidades corporativas y sus gerencias país. Son los primeros a revisar si el tramo satura.'},
+     tension:'El grupo mantiene los diez reportes directos a la Presidencia, tres por encima del tramo de referencia de 4 a 7. Ventas concentra muchos reportes: cuatro canales y una unidad de apoyo, cada canal con sus gerencias país; y Mercadeo, cuatro unidades corporativas y sus gerencias país. Son los primeros a revisar si el tramo satura.'},
     {n:'Equilibrio entre autoridad y responsabilidad',
      como:'Comercial reúne venta y mercadeo: quien responde por el resultado controla también la demanda que lo produce. Postventa queda bajo Ventas: quien concede una garantía o un descuento responde por el margen. Quien compra responde también por que la mercancía llegue, y quien decide abrir una tienda, por que abra a tiempo.',
      tension:'La amplitud del cargo comercial exige un perfil muy completo, con visión regional de importación, marca y venta.'},
