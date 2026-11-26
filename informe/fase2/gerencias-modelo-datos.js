@@ -382,7 +382,7 @@ window.MODELOS_GERENCIAS = {
    ['Precio, margen y promociones','C','','D',''],
    ['Campaña y activación local','N','N','','D · E'],
    ['Montaje del visual en tiendas y mayoristas','N','N','C','E']]},
- decidir:['El titular de la gerencia, que la propuesta de la Dirección Comercial plantea como Director(a) de Marketing. Está en las decisiones pendientes de la estructura (1.2).','Dónde queda el visual merchandising: se dibuja en Mercadeo porque también lo usa Ventas al Mayor, pero podría ir en Retail. Está en las decisiones pendientes de la estructura (1.2).','Si las activaciones y los eventos tienen un proceso propio: hoy solo aparecen dentro del plan anual (16.1), del reporte (16.8) y del 8.13, de Ventas al Mayor.','Confirmar los ocupantes de las coordinaciones de Mercadeo país, que salen del censo. Está en las decisiones pendientes de la estructura (1.2).','Quién lidera Social y Contenido.','Cómo adapta cada país las piezas que recibe de Diseño y Estrategia de Marca: qué edita y quién lo aprueba.','Si los equipos de video de cada país siguen en Mercadeo país o pasan a Diseño y Estrategia de Marca. Está en las decisiones pendientes de la estructura (1.2).']},
+ decidir:['El titular de la gerencia, que la propuesta de la Dirección Comercial plantea como Director(a) de Marketing. Está en las decisiones pendientes de la estructura (1.2).','Dónde queda el visual merchandising: se dibuja en Mercadeo porque también lo usa Ventas al Mayor, pero podría ir en Retail. Está en las decisiones pendientes de la estructura (1.2).','Si las activaciones y los eventos tienen un proceso propio: hoy solo aparecen dentro del plan anual (16.1), del reporte (16.8) y del 8.13, de Ventas al Mayor.','Confirmar los ocupantes de las coordinaciones de Mercadeo país, que salen del censo. Está en las decisiones pendientes de la estructura (1.2).','Quién lidera Social y Contenido.','Cómo adapta cada país las piezas que recibe de Diseño y Estrategia de Marca: qué edita y quién lo aprueba.']},
 
 {id:'marca', unidad:'marca', n:'Diseño y Estrategia de Marca', dir:'Presidencia', red:'Dueño de cómo se ve', capa:'No: cada país adapta las piezas en su Mercadeo, y Visual Merchandising, en Mercadeo, las lleva al punto de venta', aplicado:true,
  riesgo:'Todas las áreas le piden piezas a la vez: Mercadeo, Marca Casio, E-commerce y Growth y los países.',
@@ -391,7 +391,7 @@ window.MODELOS_GERENCIAS = {
  resuelve:'Una sola vía de pedido, por brief, con un calendario común y una revisión mensual de capacidad. Un solo aprobador de negocio por proyecto, definido en el brief, y Diseño y Estrategia de Marca aprueba la calidad. El sistema de marca es la norma a la que se ajustan el diseño de producto y lo que se monta en el punto de venta.',
  mando:{hub:'Dirección de Diseño y Estrategia de Marca',
    nodosEti:'Gerencia corporativa',
-   nodos:[{t:'Creatividad y Contenido Audiovisual',s:'concepto creativo, video y estudio'},{t:'Diseño de Identidad de Marca',s:'piezas de campaña y publicaciones en redes'}]},
+   nodos:[{t:'Creatividad y Contenido Audiovisual',s:'concepto creativo y video corporativo'},{t:'Diseño de Identidad de Marca',s:'piezas de campaña y publicaciones en redes'}]},
  conex:[
   {t:'servicio',con:'Mercadeo',dir:'da',que:'El concepto, el video y las piezas de cada campaña y de las redes, a partir de su brief.'},
   {t:'servicio',con:'Social y Contenido · Mercadeo',dir:'da',que:'Los videos y el diseño de las publicaciones para redes, según su calendario editorial.'},
@@ -402,7 +402,7 @@ window.MODELOS_GERENCIAS = {
  reglas:[
   ['servicio','Se pide por brief y por una sola vía','Ningún pedido llega por chat ni por cercanía. El brief dice quién aprueba por el negocio.'],
   ['norma','Un solo aprobador de negocio','Quien firmó el brief aprueba que la pieza lo cumpla; Diseño y Estrategia de Marca aprueba su calidad. No hay doble aprobación por pieza.'],
-  ['mando','Dos gerencias, dos oficios','Creatividad y Contenido Audiovisual lleva el concepto y el video, con su estudio; Diseño de Identidad de Marca, las piezas de campaña y las publicaciones en redes. Son perfiles y experiencias distintas: cada una responde por lo suyo, y las dos trabajan sobre el mismo concepto.'],
+  ['mando','Dos gerencias, dos oficios','Creatividad y Contenido Audiovisual lleva el concepto y el video de las campañas corporativas. Diseño de Identidad de Marca lleva las piezas de campaña y las publicaciones en redes. Las dos trabajan sobre el mismo concepto. Los equipos de video y los estudios locales siguen en Mercadeo país.'],
   ['norma','El sistema de marca no se cambia fuera de aquí','El país adapta las piezas a sus formatos; Producto y Visual Merchandising diseñan y producen con el sistema de marca, y no lo cambian.'],
   ['decide','La capacidad se revisa cada mes','Toda urgencia muestra qué compromiso desplaza. Si dos áreas no se ponen de acuerdo en una prioridad, decide la Dirección.']],
  caso:{t:'La campaña de lanzamiento de un reloj Cubitt',pasos:[
@@ -419,6 +419,6 @@ window.MODELOS_GERENCIAS = {
    ['Diseño de producto y empaque','N','C','D · E',''],
    ['Estándares de exhibición, POP, foto y 3D','N','C','','D · E'],
    ['Prioridad cuando no alcanza la capacidad (decide la Dirección)','C','C','','']]},
- decidir:['Quién lleva la cola de pedidos creativos (proceso 16.3), que hoy ordena el coordinador de marca de cada país y en el To-Be es de esta dirección.','Qué disciplinas se cubren con personal interno y cuáles con freelancers o agencias.','Si los equipos de video de cada país pasan a Creatividad y Contenido Audiovisual o siguen en Mercadeo país. Está en las decisiones pendientes de la estructura (1.2).']}
+ decidir:['Quién lleva la cola de pedidos creativos (proceso 16.3), que hoy ordena el coordinador de marca de cada país y en el To-Be es de esta dirección.','Qué disciplinas se cubren con personal interno y cuáles con freelancers o agencias.']}
 ]
 };
