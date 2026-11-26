@@ -123,7 +123,7 @@
        de negocio (hermanas suyas), sin línea de mando: el dibujo la centra debajo de
        ellas y su única línea baja de la gerencia corporativa (desde el 29-oct-2026)
      ocupante: {nombre, estado, nota}            — unidad de una sola cabeza
-     paises:   {PA|VE|CO|US|OT: {nombre, estado, cargo}} — unidad que se replica por país
+     paises:   {id: {nombre, estado, cargo}} — titulares por país; las claves se definen en PAISES
      enLinea: true — unidad que cuelga de la línea de su dirección o de su gerencia
        corporativa, a un costado, sin ocupar columna
      etiqueta: rótulo de nivel propio, en vez del que da el nivel
@@ -166,8 +166,8 @@ window.ESTRUCTURA_TOBE = {
     {id:'CO', n:'Colombia'},
     // parcial: no replica el espejo completo; solo aparece donde una unidad la nombra
     {id:'US', n:'Estados Unidos', parcial:true},
-    // Guatemala (operación tercerizada con country manager propio), Costa Rica (socio),
-    // las franquicias y los mercados que se abran: una sola caja mientras no tengan espejo
+    {id:'GT', n:'Guatemala', parcial:true},
+    // Retail, E-commerce y Postventa agrupan Guatemala, Costa Rica y las franquicias.
     {id:'OT', n:'Otros países', parcial:true}
   ],
 
@@ -726,7 +726,11 @@ window.ESTRUCTURA_TOBE = {
          ],
          nota:'Desde el 10-nov-2026 es una gerencia corporativa que reporta directo a la Dirección Comercial, y ya no una unidad de Mercadeo. Reúne en una sola cabeza lo que la casa matriz define para Casio: el mercadeo de la marca y la planificación de su demanda, que es un proceso de ventas. Existe solo para Casio, por cómo funciona la marca: la mayor parte de su mercadeo y de su catálogo lo define la casa matriz, y hace falta una unidad que lo estructure y lo baje a los países como norma. Cubitt no la necesita: su mercadeo lo genera Mercadeo y su demanda la planifica Planificación de la Demanda y Nuevos Mercados. Con Mercadeo se relaciona por norma: las coordinaciones de Marca Casio siguen en Mercadeo país y aplican sus indicaciones. Es la gerencia que planifica la marca, no la que la vende. Hasta el 20-nov-2026 se llamó Brand Management; desde ese día es la gerencia de Marca Casio y su cargo, Gerente de Marca Casio.'},
         {id:'gerentepais', n:'Gerente País', nivel:'n2',
-         ocupante:{nombre:'Por definir', estado:'pordefinir'},
+         // Titulares: E-11 (Colombia) y VM_CountryManager_GT.pdf de Lark (Guatemala).
+         paises:{
+           CO:{nombre:'Joel Cohen', estado:'actual'},
+           GT:{nombre:'Paola Barrientos', estado:'actual'}
+         },
          // Diagnóstico: E-05 y E-11. Levantamiento de procesos: E-49, E-55 y E-56.
          funciones:[
            'La Gerencia País funciona actualmente solo en Guatemala y Colombia. Coordina la ejecución comercial del mercado y enlaza a los equipos locales con Comercial y las áreas regionales para resolver asuntos que requieren la participación de varias áreas.',
@@ -734,7 +738,7 @@ window.ESTRUCTURA_TOBE = {
            'Colombia. Coordina la operación de la filial Deltadir S.A.S. y ejerce su representación legal. Supervisa la logística local y participa en la planificación mensual con Comercial, Retail, Marketplace y Mercadeo. Revisa los presupuestos de eventos y recibe los informes de resultados.'
          ],
          nota:'Reporta directamente a la Dirección Corporativa de Comercial, al mismo nivel que la gerencia de Marca Casio.',
-         decisiones:['Definir los titulares y el alcance de la Gerencia País en la estructura propuesta, incluida su relación con las gerencias funcionales de cada país y su posible extensión a otros mercados.']}
+         decisiones:['Precisar el alcance de la Gerencia País en la estructura propuesta, su relación con las gerencias funcionales de cada país y su posible extensión a otros mercados.']}
       ]
     },
     {
