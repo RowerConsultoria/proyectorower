@@ -727,8 +727,14 @@ window.ESTRUCTURA_TOBE = {
          nota:'Desde el 10-nov-2026 es una gerencia corporativa que reporta directo a la Dirección Comercial, y ya no una unidad de Mercadeo. Reúne en una sola cabeza lo que la casa matriz define para Casio: el mercadeo de la marca y la planificación de su demanda, que es un proceso de ventas. Existe solo para Casio, por cómo funciona la marca: la mayor parte de su mercadeo y de su catálogo lo define la casa matriz, y hace falta una unidad que lo estructure y lo baje a los países como norma. Cubitt no la necesita: su mercadeo lo genera Mercadeo y su demanda la planifica Planificación de la Demanda y Nuevos Mercados. Con Mercadeo se relaciona por norma: las coordinaciones de Marca Casio siguen en Mercadeo país y aplican sus indicaciones. Es la gerencia que planifica la marca, no la que la vende. Hasta el 20-nov-2026 se llamó Brand Management; desde ese día es la gerencia de Marca Casio y su cargo, Gerente de Marca Casio.'},
         {id:'gerentepais', n:'Gerente País', nivel:'n2',
          ocupante:{nombre:'Por definir', estado:'pordefinir'},
+         // Diagnóstico: E-05 y E-11. Levantamiento de procesos: E-49, E-55 y E-56.
+         funciones:[
+           'La Gerencia País funciona actualmente solo en Guatemala y Colombia. Coordina la ejecución comercial del mercado y enlaza a los equipos locales con Comercial y las áreas regionales para resolver asuntos que requieren la participación de varias áreas.',
+           'Guatemala. Supervisa la operación de las tiendas que Kenex encarga a Ix Comercio. Coordina con el operador los asuntos de inventario y logística y, con el equipo local, las actividades de Mercadeo y Visual Merchandising. Apoya a Mercadeo regional en la revisión de los requisitos locales para promociones y comunicaciones comerciales.',
+           'Colombia. Coordina la operación de la filial Deltadir S.A.S. y ejerce su representación legal. Supervisa la logística local y participa en la planificación mensual con Comercial, Retail, Marketplace y Mercadeo. Revisa los presupuestos de eventos y recibe los informes de resultados.'
+         ],
          nota:'Reporta directamente a la Dirección Corporativa de Comercial, al mismo nivel que la gerencia de Marca Casio.',
-         decisiones:['Definir en qué países se incorpora la figura, quién ocupa el cargo y cuál es su alcance en relación con las gerencias de cada país.']}
+         decisiones:['Definir los titulares y el alcance de la Gerencia País en la estructura propuesta, incluida su relación con las gerencias funcionales de cada país y su posible extensión a otros mercados.']}
       ]
     },
     {
