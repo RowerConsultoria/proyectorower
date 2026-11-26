@@ -1,5 +1,5 @@
 /* Guía de lectura del Manual de Descripciones de Cargo — Fase 3 (Grupo Kenex · UCAB Consultores)
-   Punto 1 del índice de la página de Fase 3 (#/guia[/<sección>]). Fuente única, editable a mano;
+   Punto 2 del índice de la página de Fase 3 (#/guia[/<sección>]). Fuente única, editable a mano;
    la pinta descripciones-cargo.html. Explica qué es el manual, cómo se construyó, cómo se organiza y
    cómo se lee cada sección del formato. Reglas: sin nombres de personas; «Kenex» con una sola «n»;
    tono formal; la formalización como habilitación. Los ejemplos enlazan al piloto (#/c/<id>). */

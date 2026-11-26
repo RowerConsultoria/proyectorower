@@ -4,11 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Talento — Fase 3 | Proyecto Rower</title>
-<!-- Fase 3 · Talento. Índice a la izquierda con dos puntos:
-     1 Guía de lectura del manual (#/ o #/guia[/<sección>]): dato en guia-datos.js (window.GUIA_MANUAL), editable a mano.
-     2 Estructura patrón de cargos (#/patron[/<sección>]): HTML en <template id="tplPatron">, con sus estilos
+<!-- Fase 3 · Talento. Índice a la izquierda:
+     1 Informe de reclasificación de personal (#/ o #/reclasificacion[/<sección>]): tablero con datos agregados del V6.
+     2 Guía de lectura del manual (#/guia[/<sección>]): dato en guia-datos.js (window.GUIA_MANUAL), editable a mano.
+     3 Estructura patrón de cargos (#/patron[/<sección>]): HTML en <template id="tplPatron">, con sus estilos
        bajo .ep. Vino del artefacto «Escalones de la estructura patrón» (10-nov-2026) y se edita a mano aquí.
-     3 Descripciones de cargo (#/descripciones y #/c/<id>[/<sección s1…s6>]). Fuente única: descripciones-datos.js (se edita a mano).
+     4 Descripciones de cargo (#/descripciones y #/c/<id>[/<sección s1…s6>]). Fuente única: descripciones-datos.js (se edita a mano).
        Cada descripción sigue el «Esquema_Descripcion_de_Cargo» v0.2; lo automático (organigrama, cláusula final,
        texto de la Sección V y control del documento) lo pone esta página.
      Los enlaces #<id> dentro de una vista se desplazan sin cambiar la ruta (delegado de clics al final). -->
@@ -18,6 +19,7 @@ document.documentElement.setAttribute('data-theme',m==='oscuro'?'dark':'light');
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+<link href="reclasificacion.css" rel="stylesheet">
 <style>
 :root{
   --bg:#F3F6FB; --surface:#FFFFFF; --surface2:#F8FAFD; --fg:#14213A; --muted:#5D6A7E; --line:#DCE3EE; --soft:#EAF1FA;
@@ -253,7 +255,7 @@ h3.m{font-size:.8rem;text-transform:uppercase;letter-spacing:.1em;color:var(--mu
 }
 @media print{ .ix{display:none!important} .shell{display:block;padding:0} }
 
-/* Guía de lectura del manual (punto 1) */
+/* Guía de lectura del manual (punto 2) */
 .gu{display:flex;flex-direction:column}
 .gu .bloque p{margin:0 0 10px;max-width:80ch}
 .gu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:10px;margin-top:8px}
@@ -869,7 +871,7 @@ h3.m{font-size:.8rem;text-transform:uppercase;letter-spacing:.1em;color:var(--mu
   <div class="fasesel" id="faseSel"><button type="button" id="faseBtn" aria-haspopup="true" aria-expanded="false">Fase 3 — Talento ▾</button><div class="menu">
     <a href="../fase1/informe-diagnostico-fase1.html">Fase 1 — Diagnóstico<small>Informe maestro (12 secciones + anexos)</small></a>
     <a href="../fase2/informe-fase2.html">Fase 2 — Procesos<small>Manual de procesos y estructura</small></a>
-    <a class="actual" href="#/">Fase 3 — Talento<small>Estructura patrón y descripciones de cargo</small></a></div></div>
+    <a class="actual" href="#/">Fase 3 — Talento<small>Reclasificación, estructura patrón y descripciones de cargo</small></a></div></div>
   <span class="sp"></span>
   <button class="pill" type="button" id="btnImprimir" hidden>Imprimir</button>
   <button class="pill" type="button" id="btnTema" title="Cambiar tema">◐ Tema</button>
@@ -877,19 +879,21 @@ h3.m{font-size:.8rem;text-transform:uppercase;letter-spacing:.1em;color:var(--mu
 <div class="shell">
 <aside class="ix" id="ix" aria-label="Índice de la Fase 3">
   <div class="ix-fase">Fase 3 · Talento</div>
-  <a class="ix-p" data-v="guia" href="#/guia"><b>1</b>Guía de lectura del manual</a>
+  <a class="ix-p" data-v="reclasificacion" href="#/reclasificacion"><b>1</b>Informe de reclasificación de personal</a>
+  <div class="ix-sub" id="ixReclasificacion"></div>
+  <a class="ix-p" data-v="guia" href="#/guia"><b>2</b>Guía de lectura del manual</a>
   <div class="ix-sub" id="ixGuia"></div>
-  <a class="ix-p" data-v="patron" href="#/patron"><b>2</b>Estructura patrón de cargos</a>
+  <a class="ix-p" data-v="patron" href="#/patron"><b>3</b>Estructura patrón de cargos</a>
   <div class="ix-sub" id="ixPatron"></div>
-  <a class="ix-p" data-v="desc" href="#/descripciones"><b>3</b>Descripciones de cargo</a>
+  <a class="ix-p" data-v="desc" href="#/descripciones"><b>4</b>Descripciones de cargo</a>
   <div class="ix-sub" id="ixDesc"></div>
-  <a class="ix-p" data-v="eval" href="#/evaluacion" id="ixEvalP" hidden><b>4</b>Evaluación de perfiles</a>
+  <a class="ix-p" data-v="eval" href="#/evaluacion" id="ixEvalP" hidden><b>5</b>Evaluación de perfiles</a>
   <div class="ix-sub" id="ixEval" hidden></div>
 </aside>
 <main class="wrap" id="vista"></main>
 </div>
 <template id="tplPatron">
-<section class="hero"><div class="k">Fase 3 · Talento · Grupo Kenex</div><h1>Estructura patrón de cargos</h1><p>Los niveles de cargo de la organización, del apoyo al director, iguales para todas las áreas. Son atemporales y flexibles: piezas de trabajo con las que se arman las áreas, que no cambian cuando cambia la estructura. Para cada escalón: qué hace, qué tiene que saber, qué resuelve, de qué responde, cuánta experiencia se estima, qué educación formal se desea y en qué se distingue del vecino. Es la base de la reclasificación y de las descripciones de cargo (punto 3).</p></section>
+<section class="hero"><div class="k">Fase 3 · Talento · Grupo Kenex</div><h1>Estructura patrón de cargos</h1><p>Los niveles de cargo de la organización, del apoyo al director, iguales para todas las áreas. Son atemporales y flexibles: piezas de trabajo con las que se arman las áreas, que no cambian cuando cambia la estructura. Para cada escalón: qué hace, qué tiene que saber, qué resuelve, de qué responde, cuánta experiencia se estima, qué educación formal se desea y en qué se distingue del vecino. Es la base de la reclasificación y de las descripciones de cargo (punto 4).</p></section>
 <div class="ep">
 <p class="aviso"><span><b>Borrador del equipo consultor</b> para revisar con Desarrollo Corporativo. Las denominaciones de los escalones siguen abiertas en las decisiones pendientes de la estructura To-Be, y los ejemplos de Kenex son orientativos: dónde queda cada cargo lo dice la reclasificación, no esta página.</span></p>
 <section class="blk" id="escalera">
@@ -1293,9 +1297,11 @@ h3.m{font-size:.8rem;text-transform:uppercase;letter-spacing:.1em;color:var(--mu
 
 <script src="descripciones-datos.js?v=2026-11-16a"></script>
 <script src="guia-datos.js?v=2026-11-16b"></script>
+<script src="reclasificacion-datos.js"></script>
+<script src="reclasificacion.js"></script>
 <script>
 (function(){
-  var D = window.DESCRIPCIONES_CARGO, M = D.meta;
+  var D = window.DESCRIPCIONES_CARGO, M = D.meta, R = window.ReclasificacionTalento;
   var $ = function(s){ return document.querySelector(s); };
   function esc(s){ return String(s == null ? '' : s).replace(/[&<>"]/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
   var POR_NOMBRE = {}; Object.keys(D.descripciones).forEach(function(id){ POR_NOMBRE[D.descripciones[id].denominacion] = id; });
@@ -1343,7 +1349,7 @@ h3.m{font-size:.8rem;text-transform:uppercase;letter-spacing:.1em;color:var(--mu
     return h + '</div>';
   }
 
-  // ---------- 1 · Guía de lectura del manual (guia-datos.js)
+  // ---------- 2 · Guía de lectura del manual (guia-datos.js)
   var G = window.GUIA_MANUAL;
   function md(t){ return esc(t).replace(/\*\*(.+?)\*\*/g, '<b>$1</b>'); }
   function tabla(cols, filas, centrar){
@@ -1684,13 +1690,14 @@ h3.m{font-size:.8rem;text-transform:uppercase;letter-spacing:.1em;color:var(--mu
     ['equivalencias', 'Equivalencias con los marcos'], ['reglas', 'Reglas de diseño'], ['decisiones', 'Decisiones abiertas'], ['referencias', 'Referencias']];
   function armarIndice(){
     var piloto = D.familias.filter(function(f){ return f.piloto; })[0];
+    $('#ixReclasificacion').innerHTML = R.secciones.map(function(s){ return '<a href="#/reclasificacion/' + s[0] + '" data-a="rc-' + s[0] + '">' + esc(s[1]) + '</a>'; }).join('');
     $('#ixGuia').innerHTML = G.secciones.map(function(s){ return '<a href="#/guia/' + s.id + '" data-a="g-' + s.id + '">' + esc(s.titulo) + '</a>'; }).join('');
     $('#ixPatron').innerHTML = PATRON_SECS.map(function(s){ return '<a href="#/patron/' + s[0] + '" data-a="' + s[0] + '">' + s[1] + '</a>'; }).join('');
     $('#ixEval').innerHTML = EV_SECS.map(function(s){ return '<a href="#/evaluacion/' + s[0] + '" data-a="ev-' + s[0] + '">' + s[1] + '</a>'; }).join('');
     $('#ixDesc').innerHTML = '<a href="#/descripciones" data-a="familias">Familias de cargos</a>' + (piloto ? piloto.cargos.map(function(n){ var i = POR_NOMBRE[n];
       return i ? '<a href="#/c/' + i + '" data-c="' + i + '">' + esc(n) + '</a>' : ''; }).join('') : '');
   }
-  // El punto 4 del índice solo aparece a quien puede leer la evaluación; la base lo impone igual (RLS).
+  // El punto 5 del índice solo aparece a quien puede leer la evaluación; la base lo impone igual (RLS).
   function verEvalIndice(){
     var S = window.rowerSesion;
     (S && S.tokenVivo ? S.tokenVivo() : Promise.resolve(null)).then(function(t){
@@ -1709,12 +1716,16 @@ h3.m{font-size:.8rem;text-transform:uppercase;letter-spacing:.1em;color:var(--mu
     var gs = el.closest('.gu-sec'); if (gs && !gs.classList.contains('abierta')) abrirGuia(gs, true);
     el.scrollIntoView({ behavior: 'smooth', block: 'start' });
     document.querySelectorAll('.resalta').forEach(function(x){ x.classList.remove('resalta'); });
-    if (el.matches('section.blk, .bloque')) return;   // una sección entera no se resalta: solo fichas y referencias
+    if (el.matches('section.blk, .bloque, .rc-seccion')) return;   // una sección entera no se resalta: solo fichas y referencias
     el.classList.add('resalta'); setTimeout(function(){ el.classList.remove('resalta'); }, 1800);
   }
   function montar(vista){
     if (espia){ espia.disconnect(); espia = null; }
-    if (vista === 'cargo'){
+    if (vista === 'reclasificacion'){
+      R.montar($('#vista'));
+      espia = new IntersectionObserver(function(es){ es.forEach(function(e){ if (e.isIntersecting) document.querySelectorAll('#ixReclasificacion a').forEach(function(a){ a.classList.toggle('on', a.dataset.a === e.target.id); }); }); }, { rootMargin: '-20% 0px -70% 0px' });
+      document.querySelectorAll('.rc-seccion[id]').forEach(function(b){ espia.observe(b); });
+    } else if (vista === 'cargo'){
       espia = new IntersectionObserver(function(es){ es.forEach(function(e){ if (e.isIntersecting) document.querySelectorAll('#riel a.s').forEach(function(a){ a.classList.toggle('on', a.dataset.s === e.target.id); }); }); }, { rootMargin: '-30% 0px -60% 0px' });
       document.querySelectorAll('.bloque').forEach(function(b){ espia.observe(b); });
     } else if (vista === 'guia'){
@@ -1757,18 +1768,20 @@ h3.m{font-size:.8rem;text-transform:uppercase;letter-spacing:.1em;color:var(--mu
     if (r.charAt(0) !== '/') return;   // anclas sueltas: no rehacer la vista
     var m = r.match(/^\/c\/([\w-]+)(?:\/(s\d))?/), pa = r.match(/^\/patron\/([\w-]+)/), gu = r.match(/^\/guia\/([\w-]+)/);
     var ev = r.match(/^\/evaluacion(?:\/p\/([\w-]+)|\/([\w-]+))?/);
-    var vista = m ? 'cargo' : ev ? (ev[1] ? 'evalp' : 'eval') : /^\/descripciones/.test(r) ? 'desc' : /^\/patron/.test(r) ? 'patron' : 'guia';
+    var rc = r.match(/^\/reclasificacion(?:\/([\w-]+))?$/);
+    var vista = m ? 'cargo' : ev ? (ev[1] ? 'evalp' : 'eval') : /^\/descripciones/.test(r) ? 'desc' : /^\/patron/.test(r) ? 'patron' : (rc || r === '/') ? 'reclasificacion' : 'guia';
     var clave = vista + (m ? ':' + m[1] : ev && ev[1] ? ':' + ev[1] : '');
     if (ev) cargarEval();
     if (clave !== VISTA){
-      $('#vista').innerHTML = vista === 'cargo' ? cargo(m[1]) : vista === 'eval' ? evaluacion() : vista === 'evalp' ? evalPersona(ev[1]) : vista === 'desc' ? inicio() : vista === 'patron' ? $('#tplPatron').innerHTML : guia();
+      $('#vista').innerHTML = vista === 'reclasificacion' ? R.vista() : vista === 'cargo' ? cargo(m[1]) : vista === 'eval' ? evaluacion() : vista === 'evalp' ? evalPersona(ev[1]) : vista === 'desc' ? inicio() : vista === 'patron' ? $('#tplPatron').innerHTML : guia();
       VISTA = clave;
-      if (!pa && !gu && !(m && m[2]) && !(ev && ev[2])) window.scrollTo(0, 0);
+      if (!(rc && rc[1]) && !pa && !gu && !(m && m[2]) && !(ev && ev[2])) window.scrollTo(0, 0);
       montar(vista);
     }
     marcarIndice(vista, m && m[1]);
-    $('#btnImprimir').hidden = vista !== 'cargo' && vista !== 'evalp';
-    document.title = (vista === 'cargo' && D.descripciones[m[1]] ? D.descripciones[m[1]].denominacion + ' — Descripciones de cargo' : vista === 'eval' ? 'Evaluación de perfiles' : vista === 'evalp' ? 'Ficha de ajuste — Evaluación de perfiles' : vista === 'desc' ? 'Descripciones de cargo' : vista === 'patron' ? 'Estructura patrón de cargos' : G.titulo) + ' — Fase 3 | Proyecto Rower';
+    $('#btnImprimir').hidden = vista !== 'reclasificacion' && vista !== 'cargo' && vista !== 'evalp';
+    document.title = (vista === 'reclasificacion' ? R.titulo : vista === 'cargo' && D.descripciones[m[1]] ? D.descripciones[m[1]].denominacion + ' — Descripciones de cargo' : vista === 'eval' ? 'Evaluación de perfiles' : vista === 'evalp' ? 'Ficha de ajuste — Evaluación de perfiles' : vista === 'desc' ? 'Descripciones de cargo' : vista === 'patron' ? 'Estructura patrón de cargos' : G.titulo) + ' — Fase 3 | Proyecto Rower';
+    if (rc && rc[1]) setTimeout(function(){ irA('rc-' + rc[1]); }, 40);
     if (pa) setTimeout(function(){ irA(pa[1]); }, 40);
     if (gu) setTimeout(function(){ irA('g-' + gu[1]); }, 40);
     if (ev && ev[2]) setTimeout(function(){ irA('ev-' + ev[2]); }, 40);
@@ -1778,8 +1791,8 @@ h3.m{font-size:.8rem;text-transform:uppercase;letter-spacing:.1em;color:var(--mu
   // Un enlace del índice a la sección en la que ya se está tampoco cambia el hash: se desplaza.
   document.addEventListener('click', function(e){
     var a = e.target.closest ? e.target.closest('a[href^="#"]') : null; if (!a) return;
-    var h = a.getAttribute('href'), pa = h.match(/^#\/(patron|guia|evaluacion)\/([\w-]+)$/);
-    if (pa && h === location.hash){ e.preventDefault(); irA((({ guia: 'g-', evaluacion: 'ev-' })[pa[1]] || '') + pa[2]); return; }
+    var h = a.getAttribute('href'), pa = h.match(/^#\/(patron|guia|evaluacion|reclasificacion)\/([\w-]+)$/);
+    if (pa && h === location.hash){ e.preventDefault(); irA((({ guia: 'g-', evaluacion: 'ev-', reclasificacion: 'rc-' })[pa[1]] || '') + pa[2]); return; }
     if (h.charAt(1) === '/' || !document.getElementById(h.slice(1))) return;
     e.preventDefault(); irA(h.slice(1));
   });
