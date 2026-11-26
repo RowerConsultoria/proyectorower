@@ -475,7 +475,7 @@ window.ESTRUCTURA_TOBE = {
         {nombre:'Roberto Roizental', estado:'propuesto', nota:'Se suma a la dirección desde el 06-nov-2026: lleva hoy parte de lo comercial. Dirige también Compras.'}
       ],
       funciones:[
-        'Una sola cabeza para la venta y para la demanda que la produce: dirige Planificación de la Demanda y Nuevos Mercados, Ventas, Mercadeo y Marca Casio, que lleva lo que la casa matriz define para Casio. La codirigen Andrés y Roberto Roizental; Andrés lleva además la gerencia corporativa de Ventas.',
+        'Una sola cabeza para la venta y para la demanda que la produce: dirige Planificación de la Demanda y Nuevos Mercados, Ventas, Mercadeo y Marca Casio, que lleva lo que la casa matriz define para Casio. La figura de Gerente País también reporta directamente a esta Dirección. La codirigen Andrés y Roberto Roizental; Andrés lleva además la gerencia corporativa de Ventas.',
         'Distribuye la venta en sus canales —tienda, mayor y comercio electrónico— y responde por el resultado de ambas marcas.',
         'Decide qué tiendas se abren; la PMO gestiona cada apertura.'
       ],
@@ -724,7 +724,11 @@ window.ESTRUCTURA_TOBE = {
            'Genera las normas y las indicaciones de gestión de Casio para los países, que ejecuta en cada uno su coordinación de Marca Casio, en Mercadeo país.',
            'Planifica la demanda de Casio: cuánto se venderá de cada modelo, por canal y por país. Es el proceso de planificación de la demanda de Ventas, que para Casio lleva esta gerencia; Planificación de la Demanda y Nuevos Mercados lo suma al plan de Cubitt en el plan consolidado del grupo.'
          ],
-         nota:'Desde el 10-nov-2026 es una gerencia corporativa que reporta directo a la Dirección Comercial, y ya no una unidad de Mercadeo. Reúne en una sola cabeza lo que la casa matriz define para Casio: el mercadeo de la marca y la planificación de su demanda, que es un proceso de ventas. Existe solo para Casio, por cómo funciona la marca: la mayor parte de su mercadeo y de su catálogo lo define la casa matriz, y hace falta una unidad que lo estructure y lo baje a los países como norma. Cubitt no la necesita: su mercadeo lo genera Mercadeo y su demanda la planifica Planificación de la Demanda y Nuevos Mercados. Con Mercadeo se relaciona por norma: las coordinaciones de Marca Casio siguen en Mercadeo país y aplican sus indicaciones. Es la gerencia que planifica la marca, no la que la vende. Hasta el 20-nov-2026 se llamó Brand Management; desde ese día es la gerencia de Marca Casio y su cargo, Gerente de Marca Casio.'}
+         nota:'Desde el 10-nov-2026 es una gerencia corporativa que reporta directo a la Dirección Comercial, y ya no una unidad de Mercadeo. Reúne en una sola cabeza lo que la casa matriz define para Casio: el mercadeo de la marca y la planificación de su demanda, que es un proceso de ventas. Existe solo para Casio, por cómo funciona la marca: la mayor parte de su mercadeo y de su catálogo lo define la casa matriz, y hace falta una unidad que lo estructure y lo baje a los países como norma. Cubitt no la necesita: su mercadeo lo genera Mercadeo y su demanda la planifica Planificación de la Demanda y Nuevos Mercados. Con Mercadeo se relaciona por norma: las coordinaciones de Marca Casio siguen en Mercadeo país y aplican sus indicaciones. Es la gerencia que planifica la marca, no la que la vende. Hasta el 20-nov-2026 se llamó Brand Management; desde ese día es la gerencia de Marca Casio y su cargo, Gerente de Marca Casio.'},
+        {id:'gerentepais', n:'Gerente País', nivel:'n2',
+         ocupante:{nombre:'Por definir', estado:'pordefinir'},
+         nota:'Reporta directamente a la Dirección Corporativa de Comercial, al mismo nivel que la gerencia de Marca Casio.',
+         decisiones:['Definir en qué países se incorpora la figura, quién ocupa el cargo y cuál es su alcance en relación con las gerencias de cada país.']}
       ]
     },
     {
@@ -1001,7 +1005,7 @@ window.ESTRUCTURA_TOBE = {
      tension:'La PMO se diseña a propósito como un equipo generalista: la especialización está en el perfil de gerente de proyecto, no en el tipo de proyecto.'},
     {n:'Unidad de mando',
      como:'Cada gerencia país reporta en línea a una sola gerencia o dirección corporativa. Las figuras que hoy responden a varias instancias quedan con una sola línea de reporte: desarrollo de producto en Innovación y Desarrollo de Productos; marca, creatividad y dirección de arte en Diseño y Estrategia de Marca; estándares visuales y producción en Visual Merchandising; redes y contenido ágil en Mercadeo.',
-     tension:'Falta decidir si hay una dirección general por país y qué relación tiene con las gerencias país (ver Pendientes). Hay una excepción declarada: dos familiares pueden codirigir una dirección corporativa cuando cada uno es especialista en una subdivisión distinta, como en Comercial. No se admite en ningún otro nivel.'},
+     tension:'La figura de Gerente País reporta a Comercial. Queda por definir en qué países se incorpora y cómo se relaciona con las gerencias de cada país (ver Pendientes). Hay una excepción declarada: dos familiares pueden codirigir una dirección corporativa cuando cada uno es especialista en una subdivisión distinta, como en Comercial. No se admite en ningún otro nivel.'},
     {n:'Optimización del tramo de control',
      como:'La Presidencia tiene diez reportes directos —siete direcciones corporativas (cinco de negocio, Finanzas y Desarrollo Corporativo) y tres gerencias corporativas de staff— y dos unidades de staff propias.',
      tension:'Con Diseño y Estrategia de Marca, Compras y Cadena de Suministro separadas y tres gerencias de staff que le reportan directo, el tramo de la Presidencia pasa a diez, tres por encima del rango de 4 a 7. Si satura, lo primero es agrupar dos de ellas, por ejemplo la PMO bajo Desarrollo Corporativo, como ya se previó. Ventas concentra muchos reportes: cuatro canales y una unidad de apoyo, cada canal con sus gerencias país; y Mercadeo, cuatro unidades corporativas y sus gerencias país. Son los primeros a revisar si el tramo satura.'},
@@ -1068,7 +1072,7 @@ window.ESTRUCTURA_TOBE = {
   },
 
   PENDIENTES: [
-    {t:'Gerencias país: cabeza país y tamaño', d:'Precisar si cada país tiene además una dirección general y cómo se relaciona con las gerencias país, y cuándo una gerencia país basta como coordinación.'},
+    {t:'Tamaño de las gerencias país', d:'Precisar cuándo una gerencia país basta como coordinación.'},
     {t:'Primera línea: Dirección o Vicepresidencia', d:'Si las direcciones corporativas se denominan Dirección o Vicepresidencia.'},
     {t:'Denominaciones de la estructura patrón', d:'Confirmar si supervisor y especialista son dos trayectorias del mismo escalón, según se gestione gente o se valore el conocimiento técnico, y si hacen falta los tres niveles de analista. «Corporativo» y «país» no son escalones: son el apellido que toma el cargo según dónde está la posición. Se trabaja con Desarrollo Corporativo en la reclasificación de cargos.'},
     {t:'Roles compartidos de la familia', d:'Los familiares que trabajan en el grupo pueden llevar más de un rol mientras dure la transición, pero esos roles compartidos no se replican hacia abajo: debajo de cada uno, una sola línea. La codirección es una excepción que solo se admite entre familiares y en una dirección corporativa, cuando cada uno es especialista en una subdivisión distinta: hoy Comercial. Compras y Cadena de Suministro, que codirigieron Roberto y Andrés Roizental, se separó el 19-nov-2026 en dos direcciones, una para cada uno. Revisar también las posiciones de los familiares que no ocupan una dirección ni una gerencia corporativa.'},

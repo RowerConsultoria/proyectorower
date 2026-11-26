@@ -53,10 +53,10 @@ window.MODELOS_GERENCIAS = {
   ROT: {mando:'Mando', norma:'Norma', servicio:'Servicio', mision:'Misión', decide:'Decide'},
   gerencias: [
 {id:'ventas', unidad:'ventas', n:'Ventas', dir:'Comercial', red:'Red por canal', capa:'Sí, por canal: Mayor, Retail, E-commerce y Postventa en cada país',
- riesgo:'El gerente país de un canal responde a su canal y vive en un país donde manda la operación local, y quizás una cabeza país.',
+ riesgo:'Que se superpongan las responsabilidades de la gerencia de cada canal y las de la figura de Gerente País, que reporta directamente a Comercial.',
  premisa:'Cada gerencia país de Ventas tiene una sola línea: la de la gerencia de su canal. El país se coordina en una mesa, no con una segunda línea.',
- dilema:'Una gerencia país de Retail, de E-commerce o de Postventa responde a su canal, pero comparte país, bodega y clientes con los otros tres canales. Si además se define una cabeza país, cada gerente país tendría dos jefes: el del canal y el del país.',
- resuelve:'El canal manda y el país se coordina. La gerencia corporativa de Ventas arbitra entre canales; la cabeza país, si se define, preside la mesa del país y no dirige la venta.',
+ dilema:'Una gerencia país de Retail, de E-commerce o de Postventa responde a su canal y comparte país, bodega y clientes con los otros canales. Queda por precisar cómo se coordina con el Gerente País.',
+ resuelve:'Cada gerencia de canal conserva su línea de mando y la gerencia corporativa de Ventas arbitra entre canales. La mesa del país coordina los asuntos locales; el papel del Gerente País en esa mesa queda por definir.',
  mando:{hub:'Gerencia corporativa de Ventas',
    nodosEti:'Gerencia de unidad de negocio',
    nodos:[{t:'Ventas al Mayor',s:'un gerente regional para las dos marcas',pais:{t:'Ventas al Mayor',p:'PA · VE · CO'}},
@@ -76,7 +76,7 @@ window.MODELOS_GERENCIAS = {
   {t:'decide',con:'Comité Comercial',dir:'recibe',que:'Reparte el producto entre canales y países, y fija el calendario de lanzamientos.'}],
  reglas:[
   ['mando','El canal manda','Cada gerente país de Ventas reporta a la gerencia de su canal. La gerencia corporativa de Ventas no salta al canal para darle órdenes al país.'],
-  ['mision','El país se coordina en una mesa','Los gerentes país de los cuatro canales, con Operaciones y Logística y Mercadeo del país, comparten inventario, calendario y prioridades en una reunión fija. La mesa coordina y no crea un jefe. Si se define una cabeza país, preside la mesa y arbitra lo local, como espacios o personal compartido, sin dirigir la venta.'],
+  ['mision','El país se coordina en una mesa','Los gerentes país de los cuatro canales, con Operaciones y Logística y Mercadeo del país, comparten inventario, calendario y prioridades en una reunión fija. Queda por definir si el Gerente País preside la mesa y arbitra asuntos locales, como espacios o personal compartido.'],
   ['servicio','La demanda se planifica una vez','Hay un solo plan para los cuatro canales: Planificación de la Demanda y Nuevos Mercados, gerencia corporativa de Comercial, planifica Cubitt, le suma el plan de Casio, que hace la gerencia de Marca Casio, y reparte las metas del año por país, canal y tienda. Ventas lo ejecuta. Ningún canal arma su propio pronóstico para pedir mercancía.'],
   ['decide','La frontera del mayor se acuerda arriba','La gerencia regional de Ventas al Mayor atiende los países sin operación propia y conduce a las de cada país, que atienden a sus mayoristas locales. Un cliente en la frontera lo asigna la Dirección Comercial.'],
   ['norma','Comercial es dueño de la venta y del margen','Mercadeo genera la demanda y propone promociones; Ventas las aprueba, las ejecuta y fija precios y márgenes. E-commerce y Growth responde por la venta en línea y su pauta de performance.']],
@@ -94,7 +94,7 @@ window.MODELOS_GERENCIAS = {
    ['Estructura y personal del equipo país','','N','','D'],
    ['Garantías y devoluciones dentro de la política','','N','','D · E'],
    ['Montaje del visual en tienda (lo hace Mercadeo, con el estándar de Visual Merchandising)','','C','','C']]},
- decidir:['Si cada país tiene una cabeza país o una dirección general, y qué papel tiene en la mesa del país. Está en las decisiones pendientes de la estructura (1.2).','Si la planificación de la demanda y los mercados nuevos los lleva una sola gerencia o dos. Está en las decisiones pendientes de la estructura (1.2).','Con qué frecuencia se reúne la mesa del país y quién la convoca mientras no haya cabeza país.','El gerente regional de Ventas al Mayor: dejar la posición en espera, buscarlo o cubrirla con alguien del grupo. Está en las decisiones pendientes de la estructura (1.2).','Dónde queda el visual merchandising: se dibuja en Mercadeo, como servicio a Retail y a Ventas al Mayor, pero podría ir en Retail. Está en las decisiones pendientes de la estructura (1.2).']},
+ decidir:['En qué países se incorpora la figura de Gerente País y qué papel tiene en la mesa del país. Está en las decisiones pendientes de la estructura (1.2).','Si la planificación de la demanda y los mercados nuevos los lleva una sola gerencia o dos. Está en las decisiones pendientes de la estructura (1.2).','Con qué frecuencia se reúne la mesa del país y quién la convoca.','El gerente regional de Ventas al Mayor: dejar la posición en espera, buscarlo o cubrirla con alguien del grupo. Está en las decisiones pendientes de la estructura (1.2).','Dónde queda el visual merchandising: se dibuja en Mercadeo, como servicio a Retail y a Ventas al Mayor, pero podría ir en Retail. Está en las decisiones pendientes de la estructura (1.2).']},
 
 {id:'operaciones', unidad:'oplcorp', n:'Operaciones y Logística', dir:'Cadena de Suministro', red:'Centro y bodegas país', capa:'Sí: Operaciones y Logística en PA · VE · CO · US, con Servicios Generales dentro. Arriba, una coordinación corporativa: Despacho. Inventario es gerencia corporativa hermana, en Cadena de Suministro',
  riesgo:'Todos le piden a la bodega del país todos los días: los cuatro canales, Finanzas, Compras Internas y la PMO.',
