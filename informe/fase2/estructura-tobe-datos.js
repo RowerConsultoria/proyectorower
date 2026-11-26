@@ -226,15 +226,13 @@ window.ESTRUCTURA_TOBE = {
       funciones:[
         'Donde empieza el producto: con la lectura del mercado que le entrega Mercadeo, identifica productos y fábricas, y desarrolla y aprueba las muestras.',
         'Hoy está focalizada en Cubitt, la marca propia. En Casio, marca representada, el producto lo define la casa matriz.',
-        'El negocio puede abrir dentro de ella niveles de gerencia —corporativos o por país— para las marcas y los productos que vengan. Por eso su denominación no lleva el nombre de ninguna marca.',
+        'Para una marca o un producto nuevo, el tamaño de la operación determina si se necesita una gerencia y si su alcance será corporativo o por país.',
         'Entrega a la Dirección de Compras lo que hay que comprar, y a Mercadeo el producto listo para lanzar: concepto, atributos y argumentos de venta.',
         'Decide la colección con Comercial, en el Comité Comercial.',
-        'Define cómo funciona y cómo se fabrica cada producto: especificaciones, fábrica, costos y calidad. Desde el 11-nov-2026 también lo diseña —forma, empaque y experiencia digital—, en su gerencia de Desarrollo y Calidad de Productos, con el sistema de marca que fija Diseño y Estrategia de Marca.'
+        'Define cómo funciona y cómo se fabrica cada producto: especificaciones, fábrica, costos y calidad. Su gerencia de Desarrollo y Calidad de Productos lleva el diseño industrial, el diseño del empaque y el diseño de la app, con el sistema de marca que fija Diseño y Estrategia de Marca.'
       ],
       decisiones:[
-        'Cuando entre una marca o un producto nuevo, si se abre una gerencia corporativa por marca o una por país.',
-        'Falta la conversación con Alejandro Roizental sobre esta dirección y su relación con la nueva Dirección de Diseño y Estrategia de Marca, que fija el sistema de marca. El diseño industrial, el empaque y el diseño de la app vuelven a esta dirección desde el 11-nov-2026.',
-        'Cuándo pasan el diseño de empaque y el diseño industrial (desde el 19-nov-2026, la coordinación de Diseño Industrial) a Diseño y Estrategia de Marca. En esta primera etapa se quedan aquí; el traspaso es administrativo y por etapas, a medida que esa dirección se arma. Para el empaque se incorporará un experto, y falta decidir si entra con Jack Roizental desde el comienzo o con Alejandro Roizental. No se dibuja una unidad de diseño de empaque.'
+        'Definir si el especialista de empaque reportará a Jack Roizental o a Alejandro Roizental al incorporarse.'
       ],
       nota:'Antes se llamaba Investigación y Desarrollo. Ya no compra: la compra de producto pasa a la Dirección de Compras. A cambio reúne lo que hace nacer un producto: la innovación y el desarrollo. La denominación recoge la innovación que planteó María Elvira Sabal en la reunión del 05-oct y no se ata a Cubitt, porque la dirección debe poder acoger marcas y productos futuros.',
       hijos:[
@@ -263,7 +261,7 @@ window.ESTRUCTURA_TOBE = {
               'Aplica el sistema de marca que fija Diseño y Estrategia de Marca.'
             ],
             interna:['Diseñador industrial: personal interno.'],
-            nota:'Creada el 19-nov-2026. El diseño industrial se queda en esta gerencia en esta primera etapa, con el mismo calendario que el desarrollo del producto. Su paso a Diseño y Estrategia de Marca, si se da, es administrativo y por etapas: está en las decisiones de Innovación y Desarrollo de Productos. El empaque y el diseño digital siguen en la gerencia.'}
+            nota:'Creada el 19-nov-2026. La coordinación forma parte de Desarrollo y Calidad de Productos y trabaja con el mismo calendario que el desarrollo del producto.'}
          ]},
         {id:'innotec', n:'Innovación y Tecnología de Productos', nivel:'n2',
          decisiones:[
@@ -284,7 +282,7 @@ window.ESTRUCTURA_TOBE = {
       id:'marca', n:'Diseño y Estrategia de Marca', caracter:'negocio',
       sub:'Chief Design Officer (CDO)',
       modelo:{t:'Ver su modelo en Capas y Funcionamiento', d:'Decide cómo se ve, cómo se siente y cómo se usa la marca. Los demás le piden por brief y por una sola vía, con un solo aprobador de negocio por proyecto.', href:'estructura-funcionamiento.html#marca'},
-      ocupante:{nombre:'Jack Roizental', estado:'propuesto', nota:'Diseñador, parte del equipo fundador de Cubitt: diseñó la marca en su origen. Se incorpora al grupo por fases: primero, los lineamientos de marca, transversales a todo el grupo, y la unidad de Diseño de Identidad de Marca; después, Creatividad y Contenido Audiovisual; y por último, el diseño que hoy está en los países y el del producto, en Innovación y Desarrollo de Productos.'},
+      ocupante:{nombre:'Jack Roizental', estado:'propuesto', nota:'Diseñador, parte del equipo fundador de Cubitt: diseñó la marca en su origen. Se incorpora al grupo por fases. Primero se ocupa de los lineamientos de marca, transversales a todo el grupo, y de Diseño de Identidad de Marca. Después incorpora Creatividad y Contenido Audiovisual y, por último, el diseño que hoy está en los países.'},
       funciones:[
         'La máxima responsabilidad sobre la marca del grupo: cómo se ve, cómo se siente y cómo se usa en cada pieza y en cada canal.',
         'Define, crea y custodia la identidad gráfica, el manual de marca y el sistema de diseño, fuente única para todos los equipos y proveedores.',
@@ -296,7 +294,7 @@ window.ESTRUCTURA_TOBE = {
       nota:'Acordada en la reunión del 04-nov-2026 y descrita por la Dirección Comercial el 29-oct. Hasta el 19-nov-2026 se llamó Diseño y Marca; ese día pasa a Diseño y Estrategia de Marca, porque además de cómo se ve la marca lleva su estrategia: el posicionamiento de cada marca, que construye con Mercadeo. Es dirección corporativa y reporta a la Presidencia, al nivel de las demás unidades de negocio: si dependiera de Comercial o de Mercadeo, la marca quedaría supeditada a las campañas de corto plazo. La regla que la separa de Mercadeo: Mercadeo decide qué necesita el consumidor, qué le decimos y dónde invertimos; Diseño y Estrategia de Marca decide cómo se ve. Entre el 10 y el 11-nov-2026 tuvo tres gerencias: Marca y Creatividad, Diseño de Producto y Producción y Espacios. Desde el 11-nov-2026 el diseño de producto (físico, digital y empaque) pasa a Desarrollo y Calidad de Productos, que ya tenía la contraparte y el calendario del desarrollo, y la producción y los espacios (foto, video, 3D, POP, interiores y los proveedores de producción) pasan a Visual Merchandising, en Mercadeo, que los lleva al punto de venta. La dirección se queda con dos coordinaciones corporativas de Diseño y Marca que le reportan directo y trabajan en dupla: una con el director creativo y otra con la directora de arte. La gerencia de Marca y Creatividad, que las agrupaba, se retiró el mismo día: con dos coordinaciones, una gerencia intermedia solo alargaba la línea. Entre el 12 y el 13-nov-2026 fueron una sola coordinación de Diseño y Marca, en dupla. Desde el 13-nov-2026 vuelven a ser dos, y por área, no por ocupante: Creatividad y Contenido Audiovisual (Kevin Sarmiento), con el concepto y el video, y Diseño Gráfico de Campañas y Redes (María Romero), con las piezas de campaña y las publicaciones en redes. Son perfiles, experiencias y responsabilidades distintas. El video, que desde el 11-nov estaba en Visual Merchandising, pasa aquí. El sistema de marca lo lleva la dirección. Desde el 19-nov-2026 las dos son gerencias corporativas, no coordinaciones: cada una lleva un oficio completo para todo el grupo, con su equipo, y responde directo a la dirección.',
       decisiones:[
         'Confirmar a Jack Roizental en la dirección.',
-        'Cómo se muestra la incorporación por fases sin que parezca que la dirección ya tiene todo a su cargo. Fase 1: los lineamientos de marca y Diseño de Identidad de Marca, revisando qué de esa unidad pertenece a otra área y qué le falta. Fase 2: Creatividad y Contenido Audiovisual. Fase 3: el diseño que está en los países y el diseño de producto que hace Innovación y Desarrollo de Productos. Así lo acordó María Elvira Sabal con Jack y Andrés Roizental.',
+        'Cómo mostrar la incorporación por fases y el alcance de la dirección en cada una. La primera comprende los lineamientos de marca y Diseño de Identidad de Marca, revisando qué funciones de esa unidad corresponden a otra área y cuáles le faltan. La segunda incorpora Creatividad y Contenido Audiovisual y la tercera, el diseño que hoy está en los países.',
         'Qué parte del equipo creativo actual pasa a la dirección. La propuesta: el director creativo con el estudio de video y la directora de arte con su equipo de diseño gráfico, hoy en Mercadeo de Panamá. El visual merchandising, la foto de producto y el 3D quedan en Mercadeo.',
         'Cuáles de sus disciplinas se cubren con personal interno y cuáles con freelancers o agencias.'
       ],
@@ -1023,7 +1021,7 @@ window.ESTRUCTURA_TOBE = {
      como:'Toda la compra de producto, de todas las marcas, se concentra en la Dirección de Compras, y la compra interna de la organización también, con una sola política de compra. Cadena de Suministro es la única dueña del movimiento de la mercancía: bodega, despacho, tráfico e inventario bajo una misma línea.',
      tension:'Innovación y Desarrollo de Productos decide qué producto y la Dirección de Compras lo compra: el traspaso entre los dos —qué, cuánto y cuándo— pasa por el Comité Comercial.'},
     {n:'Flexibilidad y adaptabilidad (híbrida)',
-     como:'El modelo corporativo-país permite abrir un país nuevo replicando el espejo de gerencias. La Dirección de Compras compra cualquier marca con el mismo proceso, Innovación y Desarrollo de Productos puede abrir gerencias por marca o por producto, y Comercial separa por marca solo donde el funcionamiento de la marca lo exige: hoy, una gerencia de Marca Casio, cuyo mercadeo y cuyo catálogo define en su mayor parte la casa matriz.',
+     como:'El modelo corporativo-país permite abrir un país nuevo replicando el espejo de gerencias. La Dirección de Compras compra cualquier marca con el mismo proceso. Innovación y Desarrollo de Productos ajusta su estructura al tamaño de la operación de cada marca o producto nuevo. Comercial separa por marca cuando su funcionamiento lo exige, como en Marca Casio, cuyo mercadeo y catálogo define en su mayor parte la casa matriz.',
      tension:'Donde la operación es pequeña, la gerencia país se reduce a una coordinación, y eso debe quedar explícito en cada caso.'},
     {n:'Escalabilidad y canales claros',
      como:'Tres niveles de dirección antes de la coordinación y una estructura patrón de ocho escalones para toda la organización. La capa corporativa no duplica la operación del país.',

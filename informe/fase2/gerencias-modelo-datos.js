@@ -210,7 +210,7 @@ window.MODELOS_GERENCIAS = {
    ['Falla por lote: llevarla a la fábrica','D','','','C','S'],
    ['Orden a fábrica con la especificación','N','','','D · E',''],
    ['Lanzamiento desde la preventa','C','C','D','','']]},
- decidir:['Cuando entre una marca o un producto nuevo, si se abre una gerencia por marca o por país. Está en las decisiones pendientes de la estructura (1.2).','En qué fase de cada producto revisa Diseño y Estrategia de Marca que el diseño aplique el sistema de marca.']},
+ decidir:['En qué fase de cada producto revisa Diseño y Estrategia de Marca que el diseño aplique el sistema de marca.']},
 
 {id:'innovacion', unidad:'innotec', n:'Innovación y Tecnología de Productos', dir:'Innovación y Desarrollo de Productos', red:'Autoridad técnica', capa:'No',
  riesgo:'Un proyecto de innovación con dos jefes: el que lo patrocina y el gerente de proyecto de la PMO.',
