@@ -393,6 +393,7 @@ function pintar(id, conHash){
   [].forEach.call(sel.querySelectorAll("button"), function(b){ var on = b.getAttribute("data-id") === g.id; b.setAttribute("aria-selected", on); b.tabIndex = on ? 0 : -1; });
   var sinMando = !(g.mando.nodos || g.mando.pais), v = sinMando ? "red" : vista;
   var dec = decisionesDe(g.unidad), hayDec = dec && dec.n;
+  var porDecidir = g.decidir || [];
   var lnk12 = 'informe-fase2.html#/decisiones-estructura';
   cont.innerHTML =
     '<div class="ger-cab"><div class="fila"><span class="ceja">Reporta a ' + esc(g.dir) + ' · ' + esc(g.red) + '</span>' +
@@ -413,9 +414,10 @@ function pintar(id, conHash){
     '<div class="sec"><h3>Quién decide qué</h3><div class="leyenda-k"><span><b class="k-D">D</b> decide</span><span><b class="k-N">N</b> fija la norma</span><span><b class="k-S">S</b> presta el servicio</span><span><b>E</b> ejecuta</span><span><b class="k-C">C</b> opina antes</span></div>' +
       '<div class="tabla"><table class="t-mat"><thead><tr><th>Decisión</th>' + g.matriz.cols.map(function(c){ return '<th>' + esc(c) + '</th>'; }).join("") + '</tr></thead><tbody>' +
       g.matriz.filas.map(function(f){ return '<tr><td>' + esc(f[0]) + '</td>' + f.slice(1).map(function(x){ return '<td class="k k-' + (x ? x[0] : '') + '">' + (x ? esc(x) : '<span class="mut">·</span>') + '</td>'; }).join("") + '</tr>'; }).join("") + '</tbody></table></div></div>' +
-    '<div class="decidir"><h3>Lo que falta decidir</h3><ul>' + g.decidir.map(function(d){ return '<li>' + esc(d) + '</li>'; }).join("") + '</ul>' +
+    (porDecidir.length || hayDec ? '<div class="decidir"><h3>Lo que falta decidir</h3>' +
+      (porDecidir.length ? '<ul>' + porDecidir.map(function(d){ return '<li>' + esc(d) + '</li>'; }).join("") + '</ul>' : '') +
       '<p class="en-rev">' + (hayDec ? 'Esta parte de la estructura tiene ' + dec.n + (dec.n === 1 ? ' decisión' : ' decisiones') + ' por tomar en ' + dec.cajas + (dec.cajas === 1 ? ' caja' : ' cajas') + '. ' : '') +
-        'Las «decisiones por tomar» de la estructura están en revisión y lo que se resuelva en ellas puede modificar este modelo. <a href="' + lnk12 + '">Ver las decisiones pendientes (1.2) →</a></p></div>';
+        'Las «decisiones por tomar» de la estructura están en revisión y lo que se resuelva en ellas puede modificar este modelo. <a href="' + lnk12 + '">Ver las decisiones pendientes (1.2) →</a></p></div>' : '');
   [].forEach.call(cont.querySelectorAll(".seg button"), function(b){ b.onclick = function(){ vista = b.getAttribute("data-v"); pintar(actual, true); }; });
   if(conHash && location.hash !== "#" + g.id) history.replaceState(null, "", "#" + g.id);
 }

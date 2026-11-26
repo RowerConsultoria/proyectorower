@@ -128,6 +128,7 @@
        corporativa, a un costado, sin ocupar columna
      etiqueta: rótulo de nivel propio, en vez del que da el nivel
      funciones: [...]  · interna: [...] (lo que cuelga dentro, sin dibujar)
+     perfil: {resumen, competencias: [...], fuentes: [{t, href}]} — perfil del cargo con fuentes HTTPS
      modelo: {t, d, href} — enlace de la ficha a la página que explica cómo funciona
        la unidad (href: un .html de esta carpeta, sin rutas)
      nota: texto de diseño · hijos: [...] (solo gerencias corporativas)
@@ -264,17 +265,29 @@ window.ESTRUCTURA_TOBE = {
             nota:'Creada el 19-nov-2026. La coordinación forma parte de Desarrollo y Calidad de Productos y trabaja con el mismo calendario que el desarrollo del producto.'}
          ]},
         {id:'innotec', n:'Innovación y Tecnología de Productos', nivel:'n2',
-         decisiones:[
-           'El perfil de CTO de producto, y si se contrata o se forma dentro del grupo.'
-         ],
          modelo:{t:'Ver su modelo en Capas y Funcionamiento', d:'Fija la especificación técnica de cada producto y patrocina la innovación. Los proyectos los gestiona la PMO, y la tecnología del grupo es de otra gerencia.', href:'estructura-funcionamiento.html#innovacion'},
-         ocupante:{nombre:'Braian Hassan', estado:'propuesto', nota:'Equivale a lo que en las corporaciones se denomina CTO (director de tecnología).'},
+         ocupante:{nombre:'Braian Hassan', estado:'propuesto', nota:'Seleccionado para incorporarse desde fuera de la empresa como CTO de producto.'},
          funciones:[
            'Equivale al CTO de las corporaciones: lleva la tecnología de los productos del grupo.',
            'Evalúa tecnologías, componentes y plataformas nuevas, y define las especificaciones técnicas de cada desarrollo.',
            'Patrocina los proyectos de innovación de producto, de la idea al piloto, que gestiona la PMO.',
            'La app de las marcas y del reloj: su desarrollo y su tecnología. Su diseño lo hace Desarrollo y Calidad de Productos.'
          ],
+         perfil:{
+           resumen:'Profesional con formación en ingeniería, informática o disciplinas afines y experiencia liderando equipos que llevan productos de consumo conectados del prototipo al mercado. Define la hoja de ruta tecnológica de los productos de actividad física y bienestar y la traduce en prioridades de inversión, especificaciones y criterios de éxito para los pilotos.',
+           competencias:[
+             'Arquitectura de producto. Integra electrónica, sensores, firmware y aplicaciones móviles. Evalúa plataformas y proveedores con criterios de desempeño, costo y capacidad de producción.',
+             'Validación técnica. Define cómo comprobar la precisión de las mediciones, la autonomía y la fiabilidad en condiciones representativas de uso. Coordina las pruebas con Desarrollo y Calidad de Productos y los controles de privacidad y seguridad con Tecnología, Gobernanza del Dato y Cumplimiento.',
+             'Liderazgo de innovación. Alinea a ingeniería, producto, Comercial y proveedores en torno a objetivos medibles. Patrocina los pilotos que gestiona la PMO y sustenta con resultados las decisiones de inversión y lanzamiento.'
+           ],
+           fuentes:[
+             {t:'SFIA 9 · Chief Technology Officer', href:'https://sfia-online.org/en/tools-and-resources/standard-industry-skills-profiles/sfia-9-skills-for-role-families-job-titles#technology-executive-role-family'},
+             {t:'Compass HRG · Chief Technology Officer, Polar Electro', href:'https://www.compasshrg.com/da/job/polar-electro-chief-technology-officer/'},
+             {t:'Herstatt et al. · The Chief Technology Officer in Theory and Practice', href:'https://www.econstor.eu/bitstream/10419/55467/1/684458357.pdf'},
+             {t:'IEEE 360-2022 · Wearable Consumer Electronic Devices', href:'https://standards.ieee.org/ieee/360/6244/'},
+             {t:'JMIR Formative Research · Polar Vantage and Oura Validation Study', href:'https://formative.jmir.org/2022/5/e27248'}
+           ]
+         },
          nota:'Su campo es la tecnología del producto, no la del grupo: la tecnología de información la lleva la Gerencia Corporativa de Tecnología, Gobernanza del Dato y Cumplimiento. Va en Innovación y Desarrollo de Productos porque ahí nace el producto y ahí se decide qué tecnología lleva.'}
       ]
     },

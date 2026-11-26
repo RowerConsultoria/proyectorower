@@ -240,8 +240,7 @@ window.MODELOS_GERENCIAS = {
   filas:[['Especificación técnica','D','E','',''],
    ['Alcance y criterio de éxito de un proyecto','D','C','C',''],
    ['Plan y avance del proyecto','C','','D',''],
-   ['Controles de datos y sistemas','C','','','D']]},
- decidir:['El perfil de quien la encabece, equivalente a un CTO de producto, y si se contrata o se forma. Está en las decisiones pendientes de la estructura (1.2).']},
+   ['Controles de datos y sistemas','C','','','D']]}},
 
 {id:'tecnologia', unidad:'tgr', n:'Tecnología, Gobernanza del Dato y Cumplimiento', dir:'Presidencia (staff)', red:'Centro y coordinaciones país', capa:'Sí: coordinación de TI en PA · VE · CO',
  riesgo:'La TI del país, que las gerencias locales sienten propia y que también atiende a Gobierno de IA.',

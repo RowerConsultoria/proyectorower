@@ -1399,6 +1399,18 @@
       h += '</tbody></table></div>';
     }
     if(d.funciones && d.funciones.length) h += '<div class="eo-bloque"><h4>Qué hace</h4>' + lista(d.funciones) + '</div>';
+    var perfil = d.perfil;
+    if(perfil && perfil.resumen){
+      h += '<div class="eo-bloque"><h4>Perfil del cargo</h4><p>' + esc(perfil.resumen) + '</p>';
+      if(Array.isArray(perfil.competencias) && perfil.competencias.length) h += lista(perfil.competencias);
+      var fuentes = Array.isArray(perfil.fuentes) ? perfil.fuentes.filter(function(f){
+        return f && f.t && /^https:\/\/[a-z0-9.-]+\//i.test(f.href);
+      }) : [];
+      if(fuentes.length) h += '<p class="eo-tenue">Fuentes en inglés</p><ul class="eo-lista">' + fuentes.map(function(f){
+        return '<li><a href="' + esc(f.href) + '" target="_blank" rel="noopener noreferrer">' + esc(f.t) + '</a></li>';
+      }).join("") + '</ul>';
+      h += '</div>';
+    }
     if(d.interna && d.interna.length) h += '<div class="eo-bloque"><h4>Dentro de la unidad</h4>' + lista(d.interna) + '</div>';
     // cargos (13-nov-2026): cargos de la unidad que no son unidad, sin caja en el organigrama
     if(d.cargos && d.cargos.length){
