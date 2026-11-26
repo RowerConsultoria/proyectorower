@@ -419,6 +419,6 @@ window.MODELOS_GERENCIAS = {
    ['Diseño de producto y empaque','N','C','D · E',''],
    ['Estándares de exhibición, POP, foto y 3D','N','C','','D · E'],
    ['Prioridad cuando no alcanza la capacidad (decide la Dirección)','C','C','','']]},
- decidir:['Qué parte del equipo creativo actual pasa a la dirección. Está en las decisiones pendientes de la estructura (1.2).','Quién lleva la cola de pedidos creativos (proceso 16.3), que hoy ordena el coordinador de marca de cada país y en el To-Be es de esta dirección.','Qué disciplinas se cubren con personal interno y cuáles con freelancers o agencias.','Si los equipos de video de cada país pasan a Creatividad y Contenido Audiovisual o siguen en Mercadeo país. Está en las decisiones pendientes de la estructura (1.2).']}
+ decidir:['Quién lleva la cola de pedidos creativos (proceso 16.3), que hoy ordena el coordinador de marca de cada país y en el To-Be es de esta dirección.','Qué disciplinas se cubren con personal interno y cuáles con freelancers o agencias.','Si los equipos de video de cada país pasan a Creatividad y Contenido Audiovisual o siguen en Mercadeo país. Está en las decisiones pendientes de la estructura (1.2).']}
 ]
 };
