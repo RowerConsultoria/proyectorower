@@ -10,7 +10,7 @@ window.DESCRIPCIONES_CARGO = {
     version: 'Piloto · 11-nov-2026',
     lista: 'Catálogo de Cargos V5 (105 códigos, 97 descripciones), sobre la escalera de la estructura patrón de cargos',
     // Modelo de competencias por nivel de cargo (11-nov-2026, propuesta simplificada). Cuatro niveles que agrupan los
-    // escalones de la estructura patrón. Desde el 24-nov-2026 no hay Analista III, y Especialista y Supervisor(a) no son escalón
+    // escalones de la estructura patrón. Desde el 24-nov-2026 no hay Analista III, Operario(a) y Auxiliar forman un solo escalón (Apoyo / Asistencial), y Especialista y Supervisor(a) no son escalón
     // propio: equivalen al Coordinador(a) I y al II. Conservan su nivel de cargo: el especialista va con los analistas y el
     // supervisor con la coordinación. Las genéricas tienen un
     // descriptor por nivel y el cargo exige el de su nivel; las específicas son las del nivel, sin escala, y aplican a
@@ -19,7 +19,7 @@ window.DESCRIPCIONES_CARGO = {
       { nombre: "Dirección y gerencia", escalones: ["Director(a)", "Gerente", "Gerente de unidad de negocio"] },
       { nombre: "Coordinación y supervisión", escalones: ["Coordinador(a) II", "Coordinador(a) I", "Supervisor(a)"] },
       { nombre: "Analistas y especialistas", escalones: ["Especialista", "Analista I", "Analista II"] },
-      { nombre: "Apoyo y operación", escalones: ["Auxiliar", "Operario(a)"] }
+      { nombre: "Apoyo y operación", escalones: ["Apoyo / Asistencial"] }
     ],
     // Escalón de la estructura patrón (fuente de la verdad desde el 11-nov) → nivel de cargo
     escalones: {
@@ -33,8 +33,7 @@ window.DESCRIPCIONES_CARGO = {
       "Especialista": "Analistas y especialistas",
       "Analista I": "Analistas y especialistas",
       "Analista II": "Analistas y especialistas",
-      "Auxiliar": "Apoyo y operación",
-      "Operario(a)": "Apoyo y operación"
+      "Apoyo / Asistencial": "Apoyo y operación"
     },
     // Genéricas: definición y descriptor por nivel de cargo (en el orden de niveles_cargo)
     genericas: [
@@ -239,7 +238,7 @@ window.DESCRIPCIONES_CARGO = {
 
     'asistente-de-gestion': {
       denominacion: 'Asistente de Gestión',
-      escalon: 'Auxiliar', apellido: null,
+      escalon: 'Apoyo / Asistencial', apellido: null,
       codigo: null, codigos_v5: ['PRE-10', 'SSG-10', 'MAY-10', 'ECO-10', 'MKT-10', 'EXV-10', 'CRE-10', 'DCO-10'],
       familias: ['PRE', 'SSG', 'MAY', 'ECO', 'MKT', 'EXV', 'CRE', 'DCO'],
       unidad: 'Común a ocho unidades (ver matices por unidad)',
@@ -301,7 +300,7 @@ window.DESCRIPCIONES_CARGO = {
         'Psicosociales': 'Carga mental por plazos y cierres, trabajo continuo frente a pantalla.',
         'Disergonómicos': 'Posturas sedentarias prolongadas, uso continuo de teclado y ratón, fatiga visual.' },
       riesgos_nota: 'Riesgos de la unidad de Servicios Generales (SSG-10). Las demás unidades tomarán los suyos al redactarse.',
-      notas: ['Escalón Auxiliar de la estructura patrón: sostiene el proceso con el registro, el trámite y la atención. El nombre «Asistente de Gestión» lo pone la familia; el escalón es el mismo en las ocho.',
+      notas: ['Escalón Apoyo / Asistencial de la estructura patrón, en el perfil que trabaja sobre información: sostiene el proceso con el registro, el trámite y la atención. El nombre «Asistente de Gestión» lo pone la familia; el escalón es el mismo en las ocho.',
         'Descripción común a ocho familias. En este piloto solo se redactaron los matices de Servicios Generales; los de las otras siete unidades se añaden al llegar a cada familia.',
         'Frente a la propuesta del archivo de insumos se subieron dos factores: «Información confidencial» a «Sí» (traslada documentos y valores) y «Atención a clientes» a «Esmero con el cliente» (recepción y atención de visitantes).',
         'La mensajería no figura en el manual para este cargo: el proceso «Mensajería, correspondencia y transporte administrativo» la asigna hoy al personal de bodega. Se incluyó porque es la función que ejercen sus ocupantes; validar con Operaciones y Logística.']
@@ -309,7 +308,7 @@ window.DESCRIPCIONES_CARGO = {
 
     'operario-servicios-generales': {
       denominacion: 'Operario(a) de Servicios Generales',
-      escalon: 'Operario(a)', apellido: null,
+      escalon: 'Apoyo / Asistencial', apellido: null,
       codigo: null, codigos_v5: ['SSG-05'], familias: ['SSG'],
       unidad: 'Servicios Generales · coordinación país dentro de Operaciones y Logística',
       estado: 'borrador', situacion: 'Con ocupantes hoy',
@@ -352,7 +351,7 @@ window.DESCRIPCIONES_CARGO = {
         'Mecánicos': 'Herramientas manuales, uso de escaleras, golpes al trasladar mobiliario.',
         'Psicosociales': 'Riesgo de robo o agresión, turnos nocturnos y rotativos, estado de alerta prolongado.',
         'Disergonómicos': 'Bipedestación prolongada, levantamiento de cargas y posturas forzadas.' },
-      notas: ['Escalón Operario(a) de la estructura patrón: trabaja sobre cosas (instalaciones, equipos, accesos) con métodos ya definidos, y ante lo que no encaja se detiene y avisa. Reporta a la coordinación país o, donde exista, al supervisor de su sede.',
+      notas: ['Escalón Apoyo / Asistencial de la estructura patrón, en el perfil que trabaja sobre cosas: trabaja sobre cosas (instalaciones, equipos, accesos) con métodos ya definidos, y ante lo que no encaja se detiene y avisa. Reporta a la coordinación país o, donde exista, al supervisor de su sede.',
         'Sus ocupantes actuales ejercen la vigilancia. La descripción suma la limpieza y el mantenimiento menor porque la coordinación declara personal a su cargo en esas labores; validar si son de este cargo o de otro.',
         '«Resguardo de documentos» se subió a «Sí» frente a la propuesta: lleva el libro de novedades y los registros de acceso.']
     }

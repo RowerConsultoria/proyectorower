@@ -655,9 +655,10 @@ h3.m{font-size:.8rem;text-transform:uppercase;letter-spacing:.1em;color:var(--mu
 .ep .regla{grid-template-columns:1fr;gap:8px}}
 .ep section.blk,.ep .esc,.ep .via,.ep .refs li{scroll-margin-top:80px}
 .ep .resalta{background:var(--accent-soft);border-radius:8px}
-/* 24-nov-2026: sin columna doble; el coordinador lleva las equivalencias de sus dos grados y pide algo más de ancho */
-.ep .escalera,.ep .suelo{grid-template-columns:repeat(3,minmax(92px,1fr)) minmax(150px,1.5fr) repeat(3,minmax(92px,1fr));min-width:800px}
-.ep .techo{min-width:900px}
+/* 24-nov-2026: sin columna doble; el coordinador lleva las equivalencias de sus dos grados y pide algo más de ancho.
+   Seis escalones desde el 24-nov-2026: operario y auxiliar forman uno solo, Apoyo / Asistencial. */
+.ep .escalera,.ep .suelo{grid-template-columns:repeat(2,minmax(110px,1fr)) minmax(150px,1.5fr) repeat(3,minmax(100px,1fr));min-width:720px}
+.ep .techo{min-width:720px}
 .ep .pel-blk{font-size:.74rem}
 
 /* ===== Matiz v3 (11-nov-2026): color por sección de la descripción y por unidad en las familias. Solo diseño. ===== */
@@ -888,24 +889,23 @@ h3.m{font-size:.8rem;text-transform:uppercase;letter-spacing:.1em;color:var(--mu
 <main class="wrap" id="vista"></main>
 </div>
 <template id="tplPatron">
-<section class="hero"><div class="k">Fase 3 · Talento · Grupo Kenex</div><h1>Estructura patrón de cargos</h1><p>Los niveles de cargo de la organización, del operario al director, iguales para todas las áreas. Son atemporales y flexibles: piezas de trabajo con las que se arman las áreas, que no cambian cuando cambia la estructura. Para cada escalón: qué hace, qué tiene que saber, qué resuelve, de qué responde, cuánta experiencia se estima, qué educación formal se desea y en qué se distingue del vecino. Es la base de la reclasificación y de las descripciones de cargo (punto 3).</p></section>
+<section class="hero"><div class="k">Fase 3 · Talento · Grupo Kenex</div><h1>Estructura patrón de cargos</h1><p>Los niveles de cargo de la organización, del apoyo al director, iguales para todas las áreas. Son atemporales y flexibles: piezas de trabajo con las que se arman las áreas, que no cambian cuando cambia la estructura. Para cada escalón: qué hace, qué tiene que saber, qué resuelve, de qué responde, cuánta experiencia se estima, qué educación formal se desea y en qué se distingue del vecino. Es la base de la reclasificación y de las descripciones de cargo (punto 3).</p></section>
 <div class="ep">
 <p class="aviso"><span><b>Borrador del equipo consultor</b> para revisar con Desarrollo Corporativo. Las denominaciones de los escalones siguen abiertas en las decisiones pendientes de la estructura To-Be, y los ejemplos de Kenex son orientativos: dónde queda cada cargo lo dice la reclasificación, no esta página.</span></p>
 <section class="blk" id="escalera">
   <div class="intro">
     <h2>La escalera</h2>
-    <p>Del operario al director hay siete escalones. Son niveles de cargo, y no hay que confundirlos con los niveles de la estructura. La estructura tiene los suyos: lo corporativo, que sirve a todo el grupo, y lo de cada país. La escalera vale en los dos: cuando hace falta, el cargo toma el nivel de la estructura como apellido, según dónde está la posición. Así, un mismo escalón da un Gerente corporativo de Compras o un Gerente país de Administración y Finanzas, un Coordinador corporativo de Formación o un Coordinador país de Servicios Generales. La escalera es atemporal y flexible: sus escalones son piezas de trabajo con las que se arman las áreas, y cada área toma las que necesita. Se leen de abajo arriba, porque cada escalón se define por lo que suma al anterior: más conocimiento, problemas menos previsibles, más años de experiencia y, desde el cuarto, personas a cargo, salvo en la trayectoria del especialista.</p>
+    <p>Del apoyo al director hay seis escalones. Son niveles de cargo, y no hay que confundirlos con los niveles de la estructura. La estructura tiene los suyos: lo corporativo, que sirve a todo el grupo, y lo de cada país. La escalera vale en los dos: cuando hace falta, el cargo toma el nivel de la estructura como apellido, según dónde está la posición. Así, un mismo escalón da un Gerente corporativo de Compras o un Gerente país de Administración y Finanzas, un Coordinador corporativo de Formación o un Coordinador país de Servicios Generales. La escalera es atemporal y flexible: sus escalones son piezas de trabajo con las que se arman las áreas, y cada área toma las que necesita. Se leen de abajo arriba, porque cada escalón se define por lo que suma al anterior: más conocimiento, problemas menos previsibles, más años de experiencia y, desde el tercero, personas a cargo, salvo en la trayectoria del especialista.</p>
   </div>
   <div class="fig-wrap">
     <div class="techo"><span>Por encima: Presidencia y Junta Directiva, fuera del patrón</span></div>
-    <div class="escalera" role="img" aria-label="Escalera de siete escalones: Operario, Auxiliar, Analista I y II, Coordinador I (equivale a Especialista) y II (equivale a Supervisor), Gerente de unidad de negocio, Gerente y Director.">
-      <div class="pel k1" style="--h:1"><a href="#operario"><span class="pel-n">Operario(a)</span><span class="pel-blk">0 a 1 año<br>nivel OIT 1–2</span></a></div>
-      <div class="pel k2" style="--h:2"><a href="#auxiliar"><span class="pel-n">Auxiliar</span><span class="pel-blk">6 meses a 2 años<br>nivel OIT 2</span></a></div>
-      <div class="pel k3" style="--h:3"><a href="#analista"><span class="pel-n">Analista <small>I · II</small></span><span class="pel-blk"><span class="grados"><span>II</span><span>I</span></span>0 a 4 años<br>nivel OIT 3–4</span></a></div>
-      <div class="pel k5" style="--h:4"><a href="#coordinador"><span class="pel-n">Coordinador(a) <small>I = Especialista · II = Supervisor(a)</small></span><span class="pel-blk"><span class="grados"><span>II · Supervisor(a)</span><span>I · Especialista</span></span>dirige un área<br>5 a 10 años</span></a></div>
-      <div class="pel k6" style="--h:5"><a href="#gerente-un"><span class="pel-n">Gerente de unidad de negocio</span><span class="pel-blk">un canal o un frente<br>8 a 12 años</span></a></div>
-      <div class="pel k8" style="--h:6"><a href="#gerente"><span class="pel-n">Gerente</span><span class="pel-blk">dirige una función<br>10 a 15 años</span></a></div>
-      <div class="pel k9" style="--h:7"><a href="#director"><span class="pel-n">Director(a)</span><span class="pel-blk">una gran función<br>más de 15 años</span></a></div>
+    <div class="escalera" role="img" aria-label="Escalera de seis escalones: Apoyo / Asistencial, Analista I y II, Coordinador I (equivale a Especialista) y II (equivale a Supervisor), Gerente de unidad de negocio, Gerente y Director.">
+      <div class="pel k1" style="--h:1"><a href="#apoyo"><span class="pel-n">Apoyo / Asistencial <small>operario · auxiliar</small></span><span class="pel-blk">0 a 2 años<br>nivel OIT 1–2</span></a></div>
+      <div class="pel k3" style="--h:2"><a href="#analista"><span class="pel-n">Analista <small>I · II</small></span><span class="pel-blk"><span class="grados"><span>II</span><span>I</span></span>0 a 4 años<br>nivel OIT 3–4</span></a></div>
+      <div class="pel k5" style="--h:3"><a href="#coordinador"><span class="pel-n">Coordinador(a) <small>I = Especialista · II = Supervisor(a)</small></span><span class="pel-blk"><span class="grados"><span>II · Supervisor(a)</span><span>I · Especialista</span></span>dirige un área<br>5 a 10 años</span></a></div>
+      <div class="pel k6" style="--h:4"><a href="#gerente-un"><span class="pel-n">Gerente de unidad de negocio</span><span class="pel-blk">un canal o un frente<br>8 a 12 años</span></a></div>
+      <div class="pel k8" style="--h:5"><a href="#gerente"><span class="pel-n">Gerente</span><span class="pel-blk">dirige una función<br>10 a 15 años</span></a></div>
+      <div class="pel k9" style="--h:6"><a href="#director"><span class="pel-n">Director(a)</span><span class="pel-blk">una gran función<br>más de 15 años</span></a></div>
     </div>
     <div class="suelo"><span class="c7" style="grid-column:1/-1">Escalones de cargo · cada área toma los que necesita</span></div>
   </div>
@@ -944,7 +944,7 @@ h3.m{font-size:.8rem;text-transform:uppercase;letter-spacing:.1em;color:var(--mu
       <p class="cita">Hay: <q>el conocimiento que se requiere para resolver el problema y entregar el resultado del que el cargo responde</q>. <a href="#r-hay">Hay, 2014, p. 1</a>. La SVP mide la experiencia como el tiempo que un trabajador típico necesita para <q>alcanzar un desempeño promedio</q> en el cargo. <a href="#r-svp">DOL</a>. La OIT liga cada nivel de competencias a un nivel de educación formal de la CINE, y admite que esas competencias se adquieran también con experiencia y formación en el trabajo. <a href="#r-oit">CIUO-08, pp. 11–14</a></p>
     </div>
     <div class="pr">
-      <h3>En el cuarto escalón, dos caminos</h3>
+      <h3>En el tercer escalón, dos caminos</h3>
       <p>Del analista se puede subir dirigiendo personas o profundizando en una materia. El especialista equivale al Coordinador(a) I, para que nadie tenga que dejar su especialidad y asumir un equipo solo para subir. El supervisor equivale al Coordinador(a) II: es la denominación que toma ese grado cuando dirige la operación de varios equipos, turnos o cuadrillas.</p>
       <p class="cita">El árbol de bandas de WTW separa la trayectoria de gestión de la de contribución individual con la pregunta <q>¿gestionar personas es el foco?</q> <a href="#r-wtw">WTW, 2024, p. 17</a></p>
     </div>
@@ -953,59 +953,35 @@ h3.m{font-size:.8rem;text-transform:uppercase;letter-spacing:.1em;color:var(--mu
 
 <section class="blk" id="equipos" aria-labelledby="t-fichas">
   <div class="intro">
-    <h2 id="t-fichas">Del operario al coordinador</h2>
+    <h2 id="t-fichas">Del apoyo al coordinador</h2>
     <p>De abajo arriba. Cada ficha cierra con lo que distingue al escalón de su vecino, ejemplos orientativos de Kenex y las fuentes que la sostienen.</p>
   </div>
 
   <div class="fichas">
 
-    <!-- OPERARIO -->
-    <article class="esc" id="operario">
+    <!-- APOYO / ASISTENCIAL (24-nov-2026: reúne al operario y al auxiliar) -->
+    <article class="esc" id="apoyo">
       <div class="esc-lado">
         <div class="eyebrow">Base de la escalera</div>
-        <div class="esc-tit"><span class="sw k1" aria-hidden="true"></span><h3>Operario(a)</h3></div>
-        <p class="prop">Hace el trabajo físico de la operación con métodos ya definidos: recibe, mueve, almacena, prepara, instala, mantiene o entrega.</p>
+        <div class="esc-tit"><span class="sw k1" aria-hidden="true"></span><h3>Apoyo / Asistencial</h3></div>
+        <p class="prop">Ejecuta el trabajo de la operación o del proceso con métodos y reglas ya definidos: sobre cosas (recibe, mueve, almacena, prepara, instala, mantiene o entrega) o sobre información (registra, verifica, tramita, atiende y sigue lo pendiente).</p>
         <dl class="meta">
-          <dt>Experiencia</dt><dd>0 a 1 año</dd>
-          <dt>Educación formal</dt><dd>Bachillerato. Para conducir, la licencia que exija cada país</dd>
+          <dt>Experiencia</dt><dd>0 a 2 años</dd>
+          <dt>Educación formal</dt><dd>Bachillerato y, según el cargo, formación técnica corta en el área. Para conducir, la licencia que exija cada país</dd>
           <dt>Personas a cargo</dt><dd>Ninguna</dd>
           <dt>Nivel OIT</dt><dd>1 a 2</dd>
         </dl>
       </div>
       <div class="esc-cuerpo">
         <div class="hay">
-          <div><h4>Saber</h4><p>Un oficio que se aprende en el puesto o con formación técnica corta. Manejo seguro de equipos y herramientas, y lectura de instrucciones, etiquetas y órdenes de trabajo.</p></div>
-          <div><h4>Resolver</h4><p>Sigue el procedimiento. Ante lo que no encaja, como mercancía dañada, una diferencia de conteo o un equipo que falla, se detiene y avisa: no decide la excepción.</p></div>
-          <div><h4>Responder</h4><p>Por la tarea bien hecha, a tiempo y sin accidentes. El resultado se ve al cerrar el turno.</p></div>
+          <div><h4>Saber</h4><p>Un oficio o una tarea que se aprende en el puesto o con formación técnica corta: el manejo seguro de equipos y herramientas, o el de los sistemas del proceso (Odoo, Lark), con lectura de instrucciones y órdenes de trabajo, redacción clara y cálculos sencillos.</p></div>
+          <div><h4>Resolver</h4><p>Sigue el procedimiento y resuelve las variaciones que ya tienen respuesta. Ante lo que no encaja, como mercancía dañada, una diferencia de conteo, un equipo que falla o un caso que no está en la regla, se detiene y avisa con el caso documentado: no decide la excepción.</p></div>
+          <div><h4>Responder</h4><p>Por la tarea bien hecha, a tiempo y sin accidentes, y por que el dato y el documento queden completos y correctos, porque de ellos depende el paso siguiente del proceso.</p></div>
         </div>
-        <p class="par"><b>Se distingue del auxiliar</b> en el objeto del trabajo: el operario actúa sobre cosas (mercancía, equipos, espacios) y el auxiliar sobre información (documentos, registros, solicitudes). Cuando un cargo combina las dos, se clasifica por la tarea que exige más, siempre que sea parte estable del cargo y no algo ocasional.</p>
-        <p class="par"><b>En Kenex, por ejemplo:</b> recepción, almacenamiento y despacho en bodega; mantenimiento de sedes, tiendas y bodegas en Servicios Generales; montaje de exhibiciones en tienda.</p>
-        <p class="fuentes">Fuentes: la OIT describe el nivel 1 como <q>tareas físicas o manuales simples y rutinarias</q> y pone en el nivel 2 operar maquinaria y conducir vehículos (<a href="#r-oit">CIUO-08, pp. 12–13</a>). WTW, banda 1 «Manual» (<a href="#r-wtw">2024, p. 12</a>). Experiencia: SVP 2 a 5, de un mes a un año (<a href="#r-svp">DOL</a>), y O*NET, zonas 1–2, de unos días a un año de entrenamiento en el puesto (<a href="#r-onet">Job Zones</a>). Mintzberg lo ubica en el núcleo de operaciones, que produce los bienes y servicios (<a href="#r-mintzberg">1979</a>).</p>
-      </div>
-    </article>
-
-    <!-- AUXILIAR -->
-    <article class="esc" id="auxiliar">
-      <div class="esc-lado">
-        <div class="eyebrow">Sostiene el proceso</div>
-        <div class="esc-tit"><span class="sw k2" aria-hidden="true"></span><h3>Auxiliar</h3></div>
-        <p class="prop">Sostiene el proceso con el registro, el trámite y la atención: carga y verifica datos, emite y archiva documentos, atiende solicitudes y sigue lo pendiente.</p>
-        <dl class="meta">
-          <dt>Experiencia</dt><dd>6 meses a 2 años</dd>
-          <dt>Educación formal</dt><dd>Bachillerato y formación técnica corta en el área</dd>
-          <dt>Personas a cargo</dt><dd>Ninguna</dd>
-          <dt>Nivel OIT</dt><dd>2</dd>
-        </dl>
-      </div>
-      <div class="esc-cuerpo">
-        <div class="hay">
-          <div><h4>Saber</h4><p>Secundaria completa y, a menudo, formación técnica corta. Manejo de los sistemas del proceso (Odoo, Lark), redacción clara y cálculos sencillos.</p></div>
-          <div><h4>Resolver</h4><p>Aplica reglas conocidas y resuelve las variaciones que ya tienen respuesta. Lo que no está en la regla lo pasa al analista o al supervisor, con el caso documentado.</p></div>
-          <div><h4>Responder</h4><p>Por que el dato y el documento estén completos, correctos y a tiempo, porque de ellos depende el paso siguiente del proceso.</p></div>
-        </div>
-        <p class="par"><b>Se distingue del analista</b> en que registra y tramita según la regla, mientras el analista interpreta la información, encuentra la causa y propone. <b>Del operario</b>, en que trabaja sobre información y no sobre cosas.</p>
-        <p class="par"><b>En Kenex, por ejemplo:</b> apoyo administrativo en compras, cuentas por pagar y por cobrar, y documentación de despacho. La atención al cliente en tienda está en el mismo nivel de competencias según la OIT; si se nombra «Asesor(a)» dentro de este escalón es una de las decisiones abiertas.</p>
-        <p class="fuentes">Fuentes: para el nivel 2, la OIT exige <q>leer información como instrucciones de seguridad, llevar registros escritos del trabajo realizado y hacer con exactitud cálculos aritméticos simples</q>, y pone allí al personal de apoyo administrativo (gran grupo 4) y a los vendedores de tienda (gran grupo 5) (<a href="#r-oit">CIUO-08, pp. 12 y 14</a>). WTW, banda 2 «Clerical/Administrative» (<a href="#r-wtw">2024, p. 12</a>). O*NET, zonas 1–2: de unos días a un año de entrenamiento en el puesto (<a href="#r-onet">Job Zones</a>). Experiencia: SVP 4 a 6, de tres meses a dos años (<a href="#r-svp">DOL</a>).</p>
+        <p class="par"><b>Dos perfiles en un escalón.</b> El escalón reúne a quien trabaja sobre cosas (mercancía, equipos, espacios), como el operario, el ayudante o el chofer, y a quien trabaja sobre información (documentos, registros, solicitudes), como el auxiliar o el asistente. La familia pone el nombre del cargo, y la diferencia de exigencia entre los dos perfiles se recoge en el grado, no en un escalón aparte.</p>
+        <p class="par"><b>Se distingue del analista</b> en que registra, tramita o ejecuta según la regla, mientras el analista interpreta la información, encuentra la causa y propone.</p>
+        <p class="par"><b>En Kenex, por ejemplo:</b> recepción, almacenamiento y despacho en bodega; mantenimiento de sedes, tiendas y bodegas en Servicios Generales; montaje de exhibiciones en tienda; apoyo administrativo en compras, cuentas por pagar y por cobrar, y documentación de despacho. La atención al cliente en tienda está en el mismo nivel de competencias según la OIT; si se nombra «Asesor(a)» dentro de este escalón es una de las decisiones abiertas.</p>
+        <p class="fuentes">Fuentes: la OIT describe el nivel 1 como <q>tareas físicas o manuales simples y rutinarias</q>, pone en el nivel 2 operar maquinaria y conducir vehículos, y para ese nivel exige <q>leer información como instrucciones de seguridad, llevar registros escritos del trabajo realizado y hacer con exactitud cálculos aritméticos simples</q>, con el personal de apoyo administrativo (gran grupo 4) y los vendedores de tienda (gran grupo 5) (<a href="#r-oit">CIUO-08, pp. 12–14</a>). WTW, bandas 1 «Manual» y 2 «Clerical/Administrative» (<a href="#r-wtw">2024, p. 12</a>). Experiencia: SVP 2 a 6, de un mes a dos años (<a href="#r-svp">DOL</a>), y O*NET, zonas 1–2, de unos días a un año de entrenamiento en el puesto (<a href="#r-onet">Job Zones</a>). Mintzberg ubica el trabajo sobre cosas en el núcleo de operaciones, que produce los bienes y servicios (<a href="#r-mintzberg">1979</a>).</p>
       </div>
     </article>
 
@@ -1033,7 +1009,7 @@ h3.m{font-size:.8rem;text-transform:uppercase;letter-spacing:.1em;color:var(--mu
           <div><b>Analista I · entrada · 0 a 2 años</b><p>Aplica métodos establecidos a problemas definidos. Su trabajo se revisa paso a paso. Está aprendiendo la especialidad y el negocio.</p></div>
           <div><b>Analista II · pleno · 2 a 4 años</b><p>Trabaja con independencia en los casos habituales de su área. Se le revisa el resultado, no cada paso. Puede guiar a un analista I en el día a día.</p></div>
         </div>
-        <p class="par"><b>Se distingue del auxiliar</b> en que interpreta y propone. <b>Del especialista</b>, en el alcance: el analista II trabaja con independencia en su equipo; el especialista, que equivale al Coordinador(a) I, es la referencia de toda la organización en una materia y responde por el criterio que otros aplican.</p>
+        <p class="par"><b>Se distingue del escalón de apoyo</b> en que interpreta y propone. <b>Del especialista</b>, en el alcance: el analista II trabaja con independencia en su equipo; el especialista, que equivale al Coordinador(a) I, es la referencia de toda la organización en una materia y responde por el criterio que otros aplican.</p>
         <p class="par"><b>En Kenex, por ejemplo:</b> planificación de compras e inventario, precios, cuentas por cobrar y conciliaciones, inteligencia de negocio, diseño gráfico y ejecutivos de cuenta en el mayor. Según dónde trabaje, el analista está en el núcleo de operaciones o en lo que Mintzberg llama tecnoestructura: quienes diseñan los planes, estándares y controles con que trabajan los demás.</p>
         <p class="fuentes">Fuentes: OIT, nivel 3 (<q>tareas técnicas y prácticas complejas</q> que requieren amplio conocimiento técnico y de procedimiento) y nivel 4 (<q>resolución de problemas complejos, toma de decisiones y creatividad</q> sobre conocimiento teórico), grandes grupos 3 y 2 (<a href="#r-oit">CIUO-08, p. 13</a>). WTW, banda 3IC «Professional»: su árbol pregunta si el cargo tiene <q>independencia para aplicar el conocimiento profesional</q> (<a href="#r-wtw">2024, p. 17</a>). O*NET, zonas 3–4 (<a href="#r-onet">Job Zones</a>). Experiencia: SVP 7 a 8, de 2 a 10 años de preparación contando la formación específica (<a href="#r-svp">DOL</a>). Katz: en los escalones de base pesa sobre todo la habilidad técnica (<a href="#r-katz">1955</a>). Mintzberg, tecnoestructura (<a href="#r-mintzberg">1979</a>).</p>
       </div>
@@ -1218,8 +1194,7 @@ h3.m{font-size:.8rem;text-transform:uppercase;letter-spacing:.1em;color:var(--mu
         <tr><th scope="row">Coordinador(a) I<span class="mut">equivale: Especialista</span></th><td>5 a 7 años<span class="mut">SVP 8</span></td><td>Universitaria<span class="mut">CINE 6</span></td><td>Gran grupo 1 si dirige la unidad; el especialista, gran grupo 2<span class="mut">niveles 3–4</span></td><td>3M Supervisor; el especialista, 4IC Subject Matter Expert</td><td class="num">4</td></tr>
         <tr><th scope="row">Analista II</th><td>2 a 4 años<span class="mut">SVP 7 a 8</span></td><td>Universitaria<span class="mut">CINE 6</span></td><td>Grandes grupos 2 y 3<span class="mut">niveles 3–4</span></td><td>3IC Professional</td><td class="num">4</td></tr>
         <tr><th scope="row">Analista I</th><td>0 a 2 años después del título<span class="mut">SVP 7</span></td><td>Técnica superior o universitaria<span class="mut">CINE 5–6</span></td><td>Gran grupo 3, técnicos<span class="mut">nivel 3</span></td><td>3IC Professional, entrada</td><td class="num">3–4</td></tr>
-        <tr><th scope="row">Auxiliar</th><td>6 meses a 2 años<span class="mut">SVP 4 a 6</span></td><td>Bachillerato y técnica corta<span class="mut">CINE 3–4</span></td><td>Grandes grupos 4 y 5<span class="mut">nivel 2</span></td><td>2 Clerical/Administrative</td><td class="num">1–2</td></tr>
-        <tr><th scope="row">Operario(a)</th><td>0 a 1 año<span class="mut">SVP 2 a 5</span></td><td>Bachillerato<span class="mut">CINE 3</span></td><td>Grandes grupos 7, 8 y 9<span class="mut">niveles 1–2</span></td><td>1 Manual</td><td class="num">1–2</td></tr>
+        <tr><th scope="row">Apoyo / Asistencial<span class="mut">operario · auxiliar</span></th><td>0 a 2 años<span class="mut">SVP 2 a 6</span></td><td>Bachillerato y técnica corta<span class="mut">CINE 3–4</span></td><td>Grandes grupos 4 y 5 (información) y 7, 8 y 9 (cosas)<span class="mut">niveles 1–2</span></td><td>1 Manual · 2 Clerical/Administrative</td><td class="num">1–2</td></tr>
       </tbody>
     </table>
   </div>
@@ -1287,8 +1262,8 @@ h3.m{font-size:.8rem;text-transform:uppercase;letter-spacing:.1em;color:var(--mu
     </div>
     <div class="dec">
       <h3>Dónde quedan el asesor de tienda y el técnico de servicio</h3>
-      <div class="opc"><span class="epchip">Asesor(a) en Auxiliar</span><span class="epchip">Técnico(a) en Operario o Analista I</span></div>
-      <p class="crit"><b>Criterio:</b> son dos denominaciones frecuentes en la base de la escalera. La OIT pone a los vendedores de tienda en el nivel 2, el mismo del auxiliar. A los técnicos los ubica según la tarea: reparación en el nivel 2, soporte informático en el 3.</p>
+      <div class="opc"><span class="epchip">Asesor(a) en Apoyo / Asistencial</span><span class="epchip">Técnico(a) en Apoyo / Asistencial o Analista I</span></div>
+      <p class="crit"><b>Criterio:</b> son dos denominaciones frecuentes en la base de la escalera. La OIT pone a los vendedores de tienda en el nivel 2, el mismo del escalón de apoyo. A los técnicos los ubica según la tarea: reparación en el nivel 2, soporte informático en el 3.</p>
     </div>
   </div>
 </section>
@@ -1705,7 +1680,7 @@ h3.m{font-size:.8rem;text-transform:uppercase;letter-spacing:.1em;color:var(--mu
   }
 
   var VISTA = null, espia = null;
-  var PATRON_SECS = [['escalera', 'La escalera'], ['leer', 'Cómo leer un escalón'], ['equipos', 'Del operario al coordinador'], ['direccion', 'Gerentes y director'],
+  var PATRON_SECS = [['escalera', 'La escalera'], ['leer', 'Cómo leer un escalón'], ['equipos', 'Del apoyo al coordinador'], ['direccion', 'Gerentes y director'],
     ['equivalencias', 'Equivalencias con los marcos'], ['reglas', 'Reglas de diseño'], ['decisiones', 'Decisiones abiertas'], ['referencias', 'Referencias']];
   function armarIndice(){
     var piloto = D.familias.filter(function(f){ return f.piloto; })[0];
