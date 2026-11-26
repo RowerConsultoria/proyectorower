@@ -340,7 +340,7 @@ window.MODELOS_GERENCIAS = {
    ['Alcance y criterio de éxito','C','C','D',''],
    ['Plan, avance y cierre','C','D','C',''],
    ['Quién va al proyecto y cuánto tiempo','','C','C','D']]},
- decidir:['Si Panamá y Colombia necesitan su propia PMO. Está en las decisiones pendientes de la estructura (1.2).','Su ubicación de transición: más adelante podría reportar a Desarrollo Corporativo o convertirse en una gerencia de innovación.']},
+ decidir:['Su ubicación de transición: más adelante podría reportar a Desarrollo Corporativo o convertirse en una gerencia de innovación.']},
 
 {id:'mercadeo', unidad:'mercadeo', n:'Mercadeo', dir:'Comercial', red:'Planifica, invierte y mide', capa:'Sí: gerencia de Mercadeo en PA · VE · CO y en Costa Rica, con cinco coordinaciones país', aplicado:true,
  riesgo:'Una campaña que pasa por Mercadeo y por Diseño y Estrategia de Marca, y una promoción que toca el margen de Comercial.',

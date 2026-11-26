@@ -741,10 +741,7 @@ window.ESTRUCTURA_TOBE = {
     },
     {
       id:'finanzas', n:'Finanzas', caracter:'staff',
-      decisiones:[
-        'Confirmar a Jaime González en la dirección.'
-      ],
-      ocupante:{nombre:'Jaime González', estado:'propuesto', nota:'Sube desde la gerencia de Administración y Finanzas de Venezuela.'},
+      ocupante:{nombre:'Jaime González', estado:'actual', nota:'Sube desde la gerencia de Administración y Finanzas de Venezuela.'},
       funciones:[
         'Consolida la información financiera de todo el grupo, todas las marcas y todos los países.',
         'Conduce las finanzas del grupo: presupuesto, flujo de caja, pagos a fábrica y cierre consolidado. Las gerencias país de Administración y Finanzas le reportan directo.',
@@ -859,11 +856,8 @@ window.ESTRUCTURA_TOBE = {
     },
     {
       id:'pmo', n:'PMO', caracter:'staff', nivel:'n2',
-      decisiones:[
-        'Confirmar a Ricardo Candanedo en la gerencia corporativa.'
-      ],
       modelo:{t:'Ver su modelo en Capas y Funcionamiento', d:'La PMO es dueña del método y de la cartera. Un proyecto es una misión: el gerente de proyecto dirige el trabajo y la gente sigue con su jefe.', href:'estructura-funcionamiento.html#pmo'},
-      ocupante:{nombre:'Ricardo Candanedo', estado:'propuesto', nota:'Hoy encabeza la PMO.'},
+      ocupante:{nombre:'Ricardo Candanedo', estado:'actual', nota:'Hoy encabeza la PMO.'},
       funciones:[
         'Gobierna la cartera de proyectos de todo el grupo y la presenta al Comité Directivo.',
         'Es la oficina de método: fija cómo se gestiona un proyecto en toda la organización.',
@@ -874,11 +868,8 @@ window.ESTRUCTURA_TOBE = {
       nota:'Gerencia corporativa de staff que reporta directo a la Presidencia, junto a Tecnología, Gobernanza del Dato y Cumplimiento. Salió de Desarrollo Corporativo como dirección de staff, como pidió la Presidencia en la reunión del 05-oct, y el 12-oct-2026 pasó a gerencia corporativa. Es una ubicación de transición: hoy la cartera incluye tareas que, con las áreas más maduras, pasarán a cada una. Más adelante podría reportar a Desarrollo Corporativo o convertirse en una gerencia de innovación. Desde el 16-oct-2026 lleva ella misma el equipo de gerentes de proyecto —antes en una gerencia de unidad de negocio— y tiene una gerencia país en Venezuela.',
       hijos:[
         {id:'pmopais', n:'PMO', nivel:'n3',
-         decisiones:[
-           'Confirmar a Arani González en Venezuela, y decidir si Panamá y Colombia necesitan su propia gerencia país.'
-         ],
          paises:{
-           VE:{nombre:'Arani González', estado:'propuesto', nota:'Hoy es gerente de proyectos de la PMO y lleva los proyectos de Venezuela.'}
+           VE:{nombre:'Araní González', estado:'actual', nota:'Es la titular de la gerencia país de la PMO en Venezuela y lleva los proyectos del país.'}
          },
          funciones:['Los proyectos del país, con el método y la cartera que fija la gerencia corporativa de la PMO.'],
          nota:'Gerencia país desde el 16-oct-2026; antes, gerencia de unidad de negocio. Hoy solo Venezuela la tiene: en los demás países los proyectos los atiende el equipo corporativo.'}
