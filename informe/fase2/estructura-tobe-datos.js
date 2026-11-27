@@ -477,7 +477,7 @@ window.ESTRUCTURA_TOBE = {
         'Distribuye la venta en sus canales —tienda, mayor y comercio electrónico— y responde por el resultado de ambas marcas.',
         'Decide qué tiendas se abren; la PMO gestiona cada apertura.'
       ],
-      nota:'Cambio central frente a julio: Mercadeo deja de ser una gerencia aparte («Experiencia de Marcas») y entra bajo Comercial, porque hoy trabaja sin ver el impacto de sus campañas en la venta. Se evaluó sacarlo de Comercial y quedó dentro. Ventas se organiza por canal, con una sola gerencia de unidad de negocio por canal para las dos marcas —también en Ventas al Mayor desde el 04-nov-2026—; en los países puede haber coordinaciones por marca. Esa separación por marca puede evaluarse en tanto se analicen las dimensiones de las operaciones que exige cada una por sus procesos. Puede denominarse Vicepresidencia; lo decide el cliente. Desde el 06-nov-2026 lo creativo y de diseño sale de Mercadeo hacia la Dirección de Diseño y Estrategia de Marca, y Mercadeo se queda con el consumidor, la inversión y la demanda. Ese día se suma Roberto Roizental a la dirección, junto a Andrés Roizental: los dos llevan hoy parte de lo comercial.',
+      nota:'Cambio central frente a julio: Mercadeo deja de ser una gerencia aparte («Experiencia de Marcas») y entra bajo Comercial, porque hoy trabaja sin ver el impacto de sus campañas en la venta. Se evaluó sacarlo de Comercial y quedó dentro. Ventas se organiza por canal, con una sola gerencia de unidad de negocio por canal. Ventas al Mayor atiende exclusivamente a Cubitt, tanto a nivel regional como en cada país. En los demás canales puede haber coordinaciones país por marca, según las necesidades de la operación. Puede denominarse Vicepresidencia; lo decide el cliente. Desde el 06-nov-2026 lo creativo y de diseño sale de Mercadeo hacia la Dirección de Diseño y Estrategia de Marca, y Mercadeo se queda con el consumidor, la inversión y la demanda. Ese día se suma Roberto Roizental a la dirección, junto a Andrés Roizental: los dos llevan hoy parte de lo comercial.',
       hijos:[
         {id:'plandemanda', n:'Planificación de la Demanda y Nuevos Mercados', nivel:'n2',
          sub:'Cubitt; la demanda de Casio la planifica Marca Casio',
@@ -504,25 +504,24 @@ window.ESTRUCTURA_TOBE = {
          ],
          hijos:[
            {id:'mayorcorp', n:'Ventas al Mayor', nivel:'gun',
-            ocupante:{nombre:'Por definir', estado:'pordefinir', nota:'Gerente regional de ventas al mayor de todos los países: hoy la posición no existe.'},
+            sub:'Solo Cubitt',
+            ocupante:{nombre:'Por definir', estado:'pordefinir'},
             funciones:[
-              'Fija la línea rectora de la venta al mayor para todo el grupo y conduce a las gerencias de Ventas al Mayor de cada país.',
-              'Atiende los mercados sin operación propia: la cartera de mayoristas de Centroamérica, el Caribe y el resto de la región, consolidada y despachada desde Panamá.'
+              'Define la estrategia de ventas al mayor de Cubitt y dirige a las gerencias de Ventas al Mayor de cada país.',
+              'Atiende a los mayoristas de Cubitt en Centroamérica, el Caribe y el resto de la región donde el grupo no tiene operación propia. La cartera se consolida y se despacha desde Panamá.'
             ],
-            nota:'Desde el 04-nov-2026 es una sola gerencia regional para las dos marcas: ni John Mordoch ni Félix Almendral, que la ocupaban por marca, hacen venta al mayor. La frontera entre la cartera regional y la de cada país se acuerda con la Dirección Comercial.',
             decisiones:[
-              'El gerente regional de ventas al mayor: dejar la posición en espera, salir a buscarlo o cubrirla con alguien del grupo; y la frontera entre la cartera regional y la de cada país.',
-              'Dónde queda John Mordoch: hoy atiende mercados internacionales como República Dominicana, una cartera que se solapa con la regional.'
+              'Definir con la Dirección Comercial la frontera entre la cartera regional de Cubitt y la de cada país.'
             ],
             hijos:[
               {id:'mayorpais', n:'Ventas al Mayor', nivel:'n3',
-               sub:'Puede haber coordinaciones que se asocien por marca.',
+               sub:'Solo Cubitt',
                paises:{
-                 PA:{nombre:'Edumar Escalona', estado:'actual'},
+                 PA:{nombre:'John Mordoch', estado:'propuesto', nota:'Edumar Escalona ocupa actualmente la gerencia de Ventas al Mayor en Panamá.'},
                  VE:{nombre:'Andrés Márquez', estado:'actual'},
                  CO:{nombre:'Santiago Ramírez', estado:'actual'}
                },
-               funciones:['Mayoristas y cadenas del país donde el grupo tiene operación propia.']}
+               funciones:['Atiende a los mayoristas y cadenas que comercializan Cubitt en los países donde el grupo tiene operación propia.']}
             ]},
            {id:'retailcorp', n:'Retail', nivel:'gun',
             ocupante:{nombre:'Handani Mora', estado:'propuesto'},
@@ -727,11 +726,12 @@ window.ESTRUCTURA_TOBE = {
          // Titulares: E-11 (Colombia) y VM_CountryManager_GT.pdf de Lark (Guatemala).
          paises:{
            CO:{nombre:'Joel Cohen', estado:'actual'},
+           US:{nombre:'Alejandro Roizental', estado:'propuesto'},
            GT:{nombre:'Paola Barrientos', estado:'actual'}
          },
          // Diagnóstico: E-05 y E-11. Levantamiento de procesos: E-49, E-55 y E-56.
          funciones:[
-           'La Gerencia País funciona actualmente solo en Guatemala y Colombia. Coordina la ejecución comercial del mercado y enlaza a los equipos locales con Comercial y las áreas regionales para resolver asuntos que requieren la participación de varias áreas.',
+           'La Gerencia País coordina la ejecución comercial del mercado y enlaza a los equipos locales con Comercial y las áreas regionales para resolver asuntos que requieren la participación de varias áreas.',
            'Guatemala. Supervisa la operación de las tiendas que Kenex encarga a Ix Comercio. Coordina con el operador los asuntos de inventario y logística y, con el equipo local, las actividades de Mercadeo y Visual Merchandising. Apoya a Mercadeo regional en la revisión de los requisitos locales para promociones y comunicaciones comerciales.',
            'Colombia. Coordina la operación de la filial Deltadir S.A.S. y ejerce su representación legal. Supervisa la logística local y participa en la planificación mensual con Comercial, Retail, Marketplace y Mercadeo. Revisa los presupuestos de eventos y recibe los informes de resultados.'
          ],
@@ -1044,8 +1044,8 @@ window.ESTRUCTURA_TOBE = {
        ahora:'Mercadeo dentro de Comercial, dedicado al consumidor, la inversión y la medición; lo creativo y el diseño, en una Dirección de Diseño y Estrategia de Marca que reporta a la Presidencia.',
        porque:'Mercadeo hoy no ve el efecto de su trabajo en la venta: con una sola cabeza comercial, la demanda y la venta responden al mismo objetivo. El diseño, en cambio, se separa de las campañas de corto plazo para que una sola instancia cuide cómo se ve la marca en el producto, la pieza, la web y la tienda.'},
       {antes:'Direcciones Comerciales Casio y Cubitt, con las ventas colgando de las marcas.',
-       ahora:'Ventas organizadas por canal; la marca se separa en la compra y en el desarrollo de producto.',
-       porque:'En la tienda y en el mayor la operación es la misma para las dos marcas. Donde la marca sí marca otro ritmo —la compra, el desarrollo, el calendario de mercadeo— se separa ahí.'},
+       ahora:'Ventas organizadas por canal, con Ventas al Mayor dedicada exclusivamente a Cubitt. La compra y el desarrollo de producto se organizan por marca.',
+       porque:'La organización por canal agrupa operaciones similares y permite delimitar el alcance de cada gerencia.'},
       {antes:'La compra de producto repartida: cada marca compraba por su lado y los repuestos de una se compraban desde otra área.',
        ahora:'Toda la compra de producto en la Dirección de Compras, y la logística en la de Cadena de Suministro.',
        porque:'Comprar es el primer paso de la cadena: quien compra responde también por que la mercancía llegue.'},
